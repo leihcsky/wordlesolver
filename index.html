@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Solver - Free Online Tool to Solve Daily Wordle Puzzles</title>
+    <meta name="description" content="Free Wordle solver tool to help you solve daily Wordle puzzles. Get word suggestions based on your guesses and solve Wordle faster with our intelligent word finder.">
+    <meta name="keywords" content="wordle solver, wordle helper, wordle cheat, word finder, 5 letter words, wordle game, word puzzle solver">
+    <link rel="canonical" href="https://wordlesolver.com">
+    <meta property="og:title" content="Wordle Solver - Free Online Tool">
+    <meta property="og:description" content="Solve Wordle puzzles faster with our free online Wordle solver tool. Get intelligent word suggestions based on your guesses.">
+    <meta property="og:url" content="https://wordlesolver.com">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e',
+                        'wordle-empty': '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .tile {
+            transition: all 0.3s ease;
+        }
+        .tile.correct {
+            background-color: #6aaa64;
+            color: white;
+        }
+        .tile.present {
+            background-color: #c9b458;
+            color: white;
+        }
+        .tile.absent {
+            background-color: #787c7e;
+            color: white;
+        }
+        .tile.empty {
+            background-color: #ffffff;
+            border: 2px solid #d3d6da;
+        }
+        .key {
+            transition: all 0.2s ease;
+        }
+        .key:hover {
+            transform: scale(1.05);
+        }
+        .word-card:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-3">
+                    <div class="bg-green-500 text-white rounded-lg p-2 font-bold text-xl">W</div>
+                    <h1 class="text-2xl font-bold text-gray-900">Wordle Solver</h1>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Free Wordle Solver Tool</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Struggling with today's Wordle puzzle? Our intelligent Wordle solver analyzes your guesses and provides the best possible word suggestions to help you solve the puzzle faster.
+            </p>
+        </div>
+
+        <!-- Game Interface -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <!-- Left Side - Game Board -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Enter Your Guesses</h2>
+                
+                <!-- Wordle Grid -->
+                <div class="grid grid-cols-5 gap-2 mb-8 max-w-xs mx-auto" id="wordleGrid">
+                    <!-- Row 1 -->
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    
+                    <!-- Rows 2-6 -->
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                </div>
+
+                <!-- Virtual Keyboard -->
+                <div class="max-w-md mx-auto">
+                    <div class="grid grid-cols-10 gap-1 mb-2">
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('Q')">Q</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('W')">W</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('E')">E</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('R')">R</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('T')">T</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('Y')">Y</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('U')">U</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('I')">I</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('O')">O</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('P')">P</button>
+                    </div>
+                    <div class="grid grid-cols-9 gap-1 mb-2 ml-4">
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('A')">A</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('S')">S</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('D')">D</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('F')">F</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('G')">G</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('H')">H</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('J')">J</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('K')">K</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('L')">L</button>
+                    </div>
+                    <div class="grid grid-cols-9 gap-1">
+                        <button class="key bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-1 rounded text-xs" onclick="submitGuess()">ENTER</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('Z')">Z</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('X')">X</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('C')">C</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('V')">V</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('B')">B</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('N')">N</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('M')">M</button>
+                        <button class="key bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-1 rounded text-xs" onclick="deleteLetter()">⌫</button>
+                    </div>
+                </div>
+
+                <!-- Instructions -->
+                <div class="mt-6 text-sm text-gray-600 text-center">
+                    <p class="mb-2">Instructions: Click on tiles to cycle through colors or use the keyboard to input letters.</p>
+                    <div class="flex justify-center space-x-4 text-xs">
+                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-correct rounded mr-1"></div>Correct</span>
+                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-present rounded mr-1"></div>Wrong Position</span>
+                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-absent rounded mr-1"></div>Not in Word</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Suggestions -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-semibold text-gray-900">Word Suggestions</h2>
+                    <div class="space-x-2">
+                        <button onclick="getSuggestions()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                            Get Suggestions
+                        </button>
+                        <button onclick="resetGame()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Suggestions List -->
+                <div id="suggestionsList" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-96 overflow-y-auto">
+                    <div class="text-gray-500 text-center col-span-full py-8">
+                        Enter your guesses and click "Get Suggestions" to see recommended words.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">How Our Wordle Solver Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-blue-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">1. Input Your Guesses</h3>
+                    <p class="text-gray-600">Enter the words you've tried in Wordle and mark each letter with the correct color feedback.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-green-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">2. Smart Analysis</h3>
+                    <p class="text-gray-600">Our algorithm analyzes your feedback to eliminate impossible words and find the best matches.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <div class="bg-purple-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">3. Get Suggestions</h3>
+                    <p class="text-gray-600">Receive a ranked list of the most likely words that match your constraints.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Wordle Solving Tips & Strategies</h2>
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-green-600">Best Starting Words</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• <strong>ADIEU</strong> - Contains 4 vowels</li>
+                            <li>• <strong>AUDIO</strong> - Great vowel coverage</li>
+                            <li>• <strong>SLATE</strong> - Common consonants</li>
+                            <li>• <strong>CRANE</strong> - Balanced mix</li>
+                            <li>• <strong>ROATE</strong> - Statistically optimal</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-blue-600">Solving Strategies</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>• Use vowels early to narrow possibilities</li>
+                            <li>• Consider common letter combinations</li>
+                            <li>• Avoid repeating ruled-out letters</li>
+                            <li>• Think about letter frequency in English</li>
+                            <li>• Use our solver when you're stuck!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="bg-green-500 text-white rounded-lg p-2 font-bold text-xl">W</div>
+                        <span class="text-xl font-bold">Wordle Solver</span>
+                    </div>
+                    <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">How to Play Wordle</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Word Lists</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tips & Tricks</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Daily Solutions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Report Bug</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Feature Request</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 Wordle Solver. All rights reserved. Not affiliated with The New York Times or Wordle.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentRow = 0;
+        let currentTile = 0;
+        let selectedTile = null;
+        
+        // Sample word list for suggestions
+        const commonWords = [
+            'ABOUT', 'ABOVE', 'ABUSE', 'ACTOR', 'ACUTE', 'ADMIT', 'ADOPT', 'ADULT', 'AFTER', 'AGAIN',
+            'AGENT', 'AGREE', 'AHEAD', 'ALARM', 'ALBUM', 'ALERT', 'ALIEN', 'ALIGN', 'ALIKE', 'ALIVE',
+            'ALLOW', 'ALONE', 'ALONG', 'ALTER', 'AMBER', 'AMONG', 'ANGER', 'ANGLE', 'ANGRY', 'APART',
+            'APPLE', 'APPLY', 'ARENA', 'ARGUE', 'ARISE', 'ARRAY', 'ASIDE', 'ASSET', 'AVOID', 'AWAKE',
+            'AWARD', 'AWARE', 'BADLY', 'BAKER', 'BASES', 'BASIC', 'BEACH', 'BEGAN', 'BEGIN', 'BEING',
+            'BELOW', 'BENCH', 'BILLY', 'BIRTH', 'BLACK', 'BLAME', 'BLANK', 'BLAST', 'BLIND', 'BLOCK',
+            'BLOOD', 'BOARD', 'BOOST', 'BOOTH', 'BOUND', 'BRAIN', 'BRAND', 'BRASS', 'BRAVE', 'BREAD',
+            'BREAK', 'BREED', 'BRIEF', 'BRING', 'BROAD', 'BROKE', 'BROWN', 'BUILD', 'BUILT', 'BUYER',
+            'CABLE', 'CALIF', 'CARRY', 'CATCH', 'CAUSE', 'CHAIN', 'CHAIR', 'CHAOS', 'CHARM', 'CHART',
+            'CHASE', 'CHEAP', 'CHECK', 'CHEST', 'CHIEF', 'CHILD', 'CHINA', 'CHOSE', 'CIVIL', 'CLAIM',
+            'CLASS', 'CLEAN', 'CLEAR', 'CLICK', 'CLIMB', 'CLOCK', 'CLOSE', 'CLOUD', 'COACH', 'COAST',
+            'COULD', 'COUNT', 'COURT', 'COVER', 'CRAFT', 'CRASH', 'CRAZY', 'CREAM', 'CRIME', 'CROSS',
+            'CROWD', 'CROWN', 'CRUDE', 'CURVE', 'CYCLE', 'DAILY', 'DANCE', 'DATED', 'DEALT', 'DEATH',
+            'DEBUG', 'DEBUT', 'DELAY', 'DEPTH', 'DOING', 'DOUBT', 'DOZEN', 'DRAFT', 'DRAMA', 'DRANK',
+            'DREAM', 'DRESS', 'DRILL', 'DRINK', 'DRIVE', 'DROVE', 'DYING', 'EAGER', 'EARLY', 'EARTH',
+            'EIGHT', 'EITHER', 'ELBOW', 'ELDER', 'EMPTY', 'ENEMY', 'ENJOY', 'ENTER', 'ENTRY', 'EQUAL',
+            'ERROR', 'EVENT', 'EVERY', 'EXACT', 'EXIST', 'EXTRA', 'FAITH', 'FALSE', 'FAULT', 'FIBER',
+            'FIELD', 'FIFTH', 'FIFTY', 'FIGHT', 'FINAL', 'FIRST', 'FIXED', 'FLASH', 'FLEET', 'FLOOR',
+            'FLUID', 'FOCUS', 'FORCE', 'FORTH', 'FORTY', 'FORUM', 'FOUND', 'FRAME', 'FRANK', 'FRAUD',
+            'FRESH', 'FRONT', 'FRUIT', 'FULLY', 'FUNNY', 'GIANT', 'GIVEN', 'GLASS', 'GLOBE', 'GOING',
+            'GRACE', 'GRADE', 'GRAND', 'GRANT', 'GRASS', 'GRAVE', 'GREAT', 'GREEN', 'GROSS', 'GROUP',
+            'GROWN', 'GUARD', 'GUESS', 'GUEST', 'GUIDE', 'HAPPY', 'HARRY', 'HEART', 'HEAVY', 'HENCE',
+            'HENRY', 'HORSE', 'HOTEL', 'HOUSE', 'HUMAN', 'IDEAL', 'IMAGE', 'INDEX', 'INNER', 'INPUT',
+            'ISSUE', 'JAPAN', 'JIMMY', 'JOINT', 'JONES', 'JUDGE', 'KNOWN', 'LABEL', 'LARGE', 'LASER',
+            'LATER', 'LAUGH', 'LAYER', 'LEARN', 'LEASE', 'LEAST', 'LEAVE', 'LEGAL', 'LEVEL', 'LEWIS',
+            'LIGHT', 'LIMIT', 'LINKS', 'LIVES', 'LOCAL', 'LOOSE', 'LOWER', 'LUCKY', 'LUNCH', 'LYING',
+            'MAGIC', 'MAJOR', 'MAKER', 'MARCH', 'MARIA', 'MATCH', 'MAYBE', 'MAYOR', 'MEANT', 'MEDIA',
+            'METAL', 'MIGHT', 'MINOR', 'MINUS', 'MIXED', 'MODEL', 'MONEY', 'MONTH', 'MORAL', 'MOTOR',
+            'MOUNT', 'MOUSE', 'MOUTH', 'MOVED', 'MOVIE', 'MUSIC', 'NEEDS', 'NEVER', 'NEWLY', 'NIGHT',
+            'NOISE', 'NORTH', 'NOTED', 'NOVEL', 'NURSE', 'OCCUR', 'OCEAN', 'OFFER', 'OFTEN', 'ORDER',
+            'OTHER', 'OUGHT', 'PAINT', 'PANEL', 'PAPER', 'PARTY', 'PEACE', 'PETER', 'PHASE', 'PHONE',
+            'PHOTO', 'PIANO', 'PICKED', 'PIECE', 'PILOT', 'PITCH', 'PLACE', 'PLAIN', 'PLANE', 'PLANT',
+            'PLATE', 'POINT', 'POUND', 'POWER', 'PRESS', 'PRICE', 'PRIDE', 'Prime', 'PRINT', 'PRIOR',
+            'PRIZE', 'PROOF', 'PROUD', 'PROVE', 'QUEEN', 'QUICK', 'QUIET', 'QUITE', 'RADIO', 'RAISE',
+            'RANGE', 'RAPID', 'RATIO', 'REACH', 'READY', 'REALM', 'REBEL', 'REFER', 'RELAX', 'REMIX',
+            'REPLY', 'RIGHT', 'RIGID', 'ROGER', 'ROMAN', 'ROUGH', 'ROUND', 'ROUTE', 'ROYAL', 'RURAL',
+            'SCALE', 'SCENE', 'SCOPE', 'SCORE', 'SENSE', 'SERVE', 'SETUP', 'SEVEN', 'SHALL', 'SHAPE',
+            'SHARE', 'SHARP', 'SHEET', 'SHELF', 'SHELL', 'SHIFT', 'SHINE', 'SHIRT', 'SHOCK', 'SHOOT',
+            'SHORT', 'SHOWN', 'SIGHT', 'SILLY', 'SINCE', 'SIXTY', 'SIZED', 'SKILL', 'SLEEP', 'SLIDE',
+            'SMALL', 'SMART', 'SMILE', 'SMITH', 'SMOKE', 'SNAKE', 'SNOW', 'SOLID', 'SOLVE', 'SORRY',
+            'SOUND', 'SOUTH', 'SPACE', 'SPARE', 'SPEAK', 'SPEED', 'SPEND', 'SPENT', 'SPLIT', 'SPOKE',
+            'SPORT', 'SQUAD', 'STAFF', 'STAGE', 'STAKE', 'STAND', 'START', 'STATE', 'STEAM', 'STEEL',
+            'STICK', 'STILL', 'STOCK', 'STONE', 'STOOD', 'STORE', 'STORM', 'STORY', 'STRIP', 'STUCK',
+            'STUDY', 'STUFF', 'STYLE', 'SUGAR', 'SUITE', 'SUPER', 'SWEET', 'TABLE', 'TAKEN', 'TASTE',
+            'TAXES', 'TEACH', 'TEENS', 'TEETH', 'TERRY', 'TEXAS', 'THANK', 'THEFT', 'THEIR', 'THEME',
+            'THERE', 'THESE', 'THICK', 'THING', 'THINK', 'THIRD', 'THOSE', 'THREE', 'THREW', 'THROW',
+            'THUMB', 'TIGHT', 'TIMER', 'TODAY', 'TOPIC', 'TOTAL', 'TOUCH', 'TOUGH', 'TOWER', 'TRACK',
+            'TRADE', 'TRAIL', 'TRAIN', 'TREAT', 'TREND', 'TRIAL', 'TRIBE', 'TRICK', 'TRIED', 'TRIES',
+            'TRUCK', 'TRULY', 'TRUNK', 'TRUST', 'TRUTH', 'TWICE', 'TWIST', 'UNCLE', 'UNDER', 'UNDUE',
+            'UNION', 'UNITY', 'UNTIL', 'UPPER', 'UPSET', 'URBAN', 'USAGE', 'USUAL', 'VALID', 'VALUE',
+            'VIDEO', 'VIRUS', 'VISIT', 'VITAL', 'VOCAL', 'VOICE', 'WASTE', 'WATCH', 'WATER', 'WHEEL',
+            'WHERE', 'WHICH', 'WHILE', 'WHITE', 'WHOLE', 'WHOSE', 'WOMAN', 'WORLD', 'WORRY', 'WORSE',
+            'WORST', 'WORTH', 'WOULD', 'WRITE', 'WRONG', 'WROTE', 'YOUNG', 'YOUTH'
+        ];
+
+        function selectTile(tile) {
+            // Remove previous selection
+            if (selectedTile) {
+                selectedTile.style.border = '2px solid #d3d6da';
+            }
+            
+            selectedTile = tile;
+            tile.style.border = '3px solid #2563eb';
+            
+            // Cycle through tile states on click
+            cycleTileState(tile);
+        }
+
+        function cycleTileState(tile) {
+            if (tile.classList.contains('empty')) {
+                tile.classList.remove('empty');
+                tile.classList.add('absent');
+                tile.style.backgroundColor = '#787c7e';
+                tile.style.color = 'white';
+            } else if (tile.classList.contains('absent')) {
+                tile.classList.remove('absent');
+                tile.classList.add('present');
+                tile.style.backgroundColor = '#c9b458';
+                tile.style.color = 'white';
+            } else if (tile.classList.contains('present')) {
+                tile.classList.remove('present');
+                tile.classList.add('correct');
+                tile.style.backgroundColor = '#6aaa64';
+                tile.style.color = 'white';
+            } else if (tile.classList.contains('correct')) {
+                tile.classList.remove('correct');
+                tile.classList.add('empty');
+                tile.style.backgroundColor = '#ffffff';
+                tile.style.color = 'black';
+                tile.style.border = '2px solid #d3d6da';
+                tile.textContent = '';
+            }
+        }
+
+        function addLetter(letter) {
+            const tiles = document.querySelectorAll('.tile');
+            const currentRowTiles = Array.from(tiles).slice(currentRow * 5, (currentRow * 5) + 5);
+            
+            // Find the next empty tile in current row
+            for (let i = 0; i < currentRowTiles.length; i++) {
+                if (!currentRowTiles[i].textContent) {
+                    currentRowTiles[i].textContent = letter;
+                    currentRowTiles[i].classList.remove('empty');
+                    currentRowTiles[i].style.backgroundColor = '#ffffff';
+                    currentRowTiles[i].style.border = '2px solid #787c7e';
+                    break;
+                }
+            }
+        }
+
+        function deleteLetter() {
+            const tiles = document.querySelectorAll('.tile');
+            const currentRowTiles = Array.from(tiles).slice(currentRow * 5, (currentRow * 5) + 5);
+            
+            // Find the last filled tile in current row and clear it
+            for (let i = currentRowTiles.length - 1; i >= 0; i--) {
+                if (currentRowTiles[i].textContent) {
+                    currentRowTiles[i].textContent = '';
+                    currentRowTiles[i].classList.add('empty');
+                    currentRowTiles[i].classList.remove('absent', 'present', 'correct');
+                    currentRowTiles[i].style.backgroundColor = '#ffffff';
+                    currentRowTiles[i].style.border = '2px solid #d3d6da';
+                    break;
+                }
+            }
+        }
+
+        function submitGuess() {
+            const tiles = document.querySelectorAll('.tile');
+            const currentRowTiles = Array.from(tiles).slice(currentRow * 5, (currentRow * 5) + 5);
+            
+            // Check if row is complete
+            let isComplete = true;
+            currentRowTiles.forEach(tile => {
+                if (!tile.textContent) {
+                    isComplete = false;
+                }
+            });
+            
+            if (isComplete && currentRow < 5) {
+                currentRow++;
+                // You can add additional logic here for submitting the guess
+            }
+        }
+
+        function getSuggestions() {
+            const tiles = document.querySelectorAll('.tile');
+            const guesses = [];
+            
+            // Extract all guesses from the grid
+            for (let row = 0; row <= currentRow; row++) {
+                const rowTiles = Array.from(tiles).slice(row * 5, (row * 5) + 5);
+                let word = '';
+                let states = [];
+                let hasContent = false;
+                
+                rowTiles.forEach(tile => {
+                    if (tile.textContent) {
+                        hasContent = true;
+                        word += tile.textContent;
+                        if (tile.classList.contains('correct')) {
+                            states.push('correct');
+                        } else if (tile.classList.contains('present')) {
+                            states.push('present');
+                        } else if (tile.classList.contains('absent')) {
+                            states.push('absent');
+                        } else {
+                            states.push('unknown');
+                        }
+                    }
+                });
+                
+                if (hasContent && word.length === 5) {
+                    guesses.push({ word, states });
+                }
+            }
+            
+            // Filter words based on guesses
+            let suggestions = filterWordsByGuesses(commonWords, guesses);
+            
+            // Display suggestions
+            displaySuggestions(suggestions.slice(0, 20)); // Show top 20 suggestions
+        }
+
+        function filterWordsByGuesses(wordList, guesses) {
+            return wordList.filter(word => {
+                for (let guess of guesses) {
+                    if (!isWordCompatible(word, guess.word, guess.states)) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+        }
+
+        function isWordCompatible(word, guessWord, states) {
+            // Check each position
+            for (let i = 0; i < 5; i++) {
+                const letter = guessWord[i];
+                const state = states[i];
+                
+                if (state === 'correct') {
+                    // Letter must be in this exact position
+                    if (word[i] !== letter) return false;
+                } else if (state === 'present') {
+                    // Letter must be in word but not in this position
+                    if (word[i] === letter || !word.includes(letter)) return false;
+                } else if (state === 'absent') {
+                    // Letter must not be in word at all
+                    if (word.includes(letter)) return false;
+                }
+            }
+            return true;
+        }
+
+        function displaySuggestions(suggestions) {
+            const suggestionsList = document.getElementById('suggestionsList');
+            
+            if (suggestions.length === 0) {
+                suggestionsList.innerHTML = '<div class="text-gray-500 text-center col-span-full py-8">No matching words found. Try adjusting your guesses.</div>';
+                return;
+            }
+            
+            suggestionsList.innerHTML = '';
+            suggestions.forEach((word, index) => {
+                const card = document.createElement('div');
+                card.className = 'word-card bg-gradient-to-r from-blue-50 to-green-50 border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-md transition-all duration-200';
+                card.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold text-gray-800">${word}</span>
+                        <span class="text-sm text-gray-500">#${index + 1}</span>
+                    </div>
+                    <div class="text-xs text-gray-600 mt-1">Click to use this word</div>
+                `;
+                
+                card.onclick = () => useWordSuggestion(word);
+                suggestionsList.appendChild(card);
+            });
+        }
+
+        function useWordSuggestion(word) {
+            // Clear current row
+            const tiles = document.querySelectorAll('.tile');
+            const currentRowTiles = Array.from(tiles).slice(currentRow * 5, (currentRow * 5) + 5);
+            
+            currentRowTiles.forEach((tile, index) => {
+                tile.textContent = word[index];
+                tile.classList.remove('empty', 'absent', 'present', 'correct');
+                tile.style.backgroundColor = '#ffffff';
+                tile.style.border = '2px solid #787c7e';
+                tile.style.color = 'black';
+            });
+        }
+
+        function resetGame() {
+            currentRow = 0;
+            currentTile = 0;
+            selectedTile = null;
+            
+            const tiles = document.querySelectorAll('.tile');
+            tiles.forEach(tile => {
+                tile.textContent = '';
+                tile.className = 'tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer';
+                tile.style.backgroundColor = '#ffffff';
+                tile.style.border = '2px solid #d3d6da';
+                tile.style.color = 'black';
+            });
+            
+            const suggestionsList = document.getElementById('suggestionsList');
+            suggestionsList.innerHTML = '<div class="text-gray-500 text-center col-span-full py-8">Enter your guesses and click "Get Suggestions" to see recommended words.</div>';
+        }
+
+        // Keyboard event listener
+        document.addEventListener('keydown', function(event) {
+            if (event.key >= 'A' && event.key <= 'Z') {
+                addLetter(event.key.toUpperCase());
+            } else if (event.key >= 'a' && event.key <= 'z') {
+                addLetter(event.key.toUpperCase());
+            } else if (event.key === 'Backspace') {
+                deleteLetter();
+            } else if (event.key === 'Enter') {
+                submitGuess();
+            }
+        });
+    </script>
+</body>
+</html>
