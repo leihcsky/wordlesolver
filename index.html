@@ -33,18 +33,22 @@
         .tile.correct {
             background-color: #6aaa64;
             color: white;
+            font-weight: bold;
         }
         .tile.present {
             background-color: #c9b458;
             color: white;
+            font-weight: bold;
         }
         .tile.absent {
             background-color: #787c7e;
             color: white;
+            font-weight: bold;
         }
         .tile.empty {
             background-color: #ffffff;
             border: 2px solid #d3d6da;
+            color: #000000;
         }
         .key {
             transition: all 0.2s ease;
@@ -55,7 +59,97 @@
         .word-card:hover {
             transform: translateY(-2px);
         }
+
+        /* Mobile optimizations */
+        @media (max-width: 640px) {
+            .tile {
+                font-size: 1rem;
+            }
+
+            .key {
+                min-height: 40px;
+                font-size: 0.75rem;
+            }
+
+            .word-card {
+                padding: 0.75rem;
+            }
+
+            .suggestions-container {
+                max-height: 300px;
+            }
+
+            /* Mobile button layout - better visual harmony */
+            .mobile-button-container {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: stretch;
+            }
+
+            .mobile-button-row {
+                display: flex;
+                gap: 0.5rem;
+            }
+
+            .mobile-button-row .action-button {
+                flex: 1;
+                font-size: 0.875rem;
+                padding: 0.75rem 0.5rem;
+            }
+
+            .mobile-reset-button {
+                align-self: center;
+                width: 60%;
+                max-width: 160px;
+                font-size: 0.875rem;
+            }
+
+            .mobile-example-button {
+                align-self: center;
+                width: 50%;
+                max-width: 140px;
+                opacity: 0.8;
+            }
+        }
+
+        /* Ensure buttons don't get too small on mobile */
+        .action-button {
+            min-height: 44px;
+            touch-action: manipulation;
+        }
+
+        /* Button layout optimizations */
+        @media (min-width: 640px) {
+            /* Ensure Get Suggestions button has enough space */
+            .action-button:nth-child(1) {
+                min-width: 160px;
+            }
+
+            /* Reset and Load Example buttons have equal width */
+            .action-button:nth-child(2),
+            .action-button:nth-child(3) {
+                min-width: 130px;
+            }
+        }
+
+        /* Additional spacing for better text display */
+        @media (min-width: 768px) {
+            .action-button:nth-child(2),
+            .action-button:nth-child(3) {
+                min-width: 140px;
+            }
+        }
+
+        /* Prevent text wrapping in buttons */
+        .action-button {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
+    <script src="data/word-bank.json" id="wordBank"></script>
+    <script src="js/solver-engine.js"></script>
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Header Navigation -->
@@ -86,127 +180,162 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         <!-- Hero Section -->
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-900 mb-4">Free Wordle Solver Tool</h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        <div class="text-center mb-8 sm:mb-12">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Free Wordle Solver Tool</h2>
+            <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
                 Struggling with today's Wordle puzzle? Our intelligent Wordle solver analyzes your guesses and provides the best possible word suggestions to help you solve the puzzle faster.
             </p>
         </div>
 
         <!-- Game Interface -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-16">
             <!-- Left Side - Game Board -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Enter Your Guesses</h2>
-                
+            <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+                <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 sm:mb-6 text-center">Enter Your Guesses</h2>
+
                 <!-- Wordle Grid -->
-                <div class="grid grid-cols-5 gap-2 mb-8 max-w-xs mx-auto" id="wordleGrid">
+                <div class="grid grid-cols-5 gap-1 sm:gap-2 mb-6 sm:mb-8 max-w-xs mx-auto" id="wordleGrid">
                     <!-- Row 1 -->
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
                     
                     <!-- Rows 2-6 -->
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
-                    <div class="tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
+                    <div class="tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer" onclick="selectTile(this)"></div>
                 </div>
 
                 <!-- Virtual Keyboard -->
                 <div class="max-w-md mx-auto">
                     <div class="grid grid-cols-10 gap-1 mb-2">
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('Q')">Q</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('W')">W</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('E')">E</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('R')">R</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('T')">T</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('Y')">Y</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('U')">U</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('I')">I</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('O')">O</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('P')">P</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('Q')">Q</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('W')">W</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('E')">E</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('R')">R</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('T')">T</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('Y')">Y</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('U')">U</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('I')">I</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('O')">O</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('P')">P</button>
                     </div>
-                    <div class="grid grid-cols-9 gap-1 mb-2 ml-4">
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('A')">A</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('S')">S</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('D')">D</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('F')">F</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('G')">G</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('H')">H</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('J')">J</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('K')">K</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('L')">L</button>
+                    <div class="grid grid-cols-9 gap-1 mb-2 ml-2 sm:ml-4">
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('A')">A</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('S')">S</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('D')">D</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('F')">F</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('G')">G</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('H')">H</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('J')">J</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('K')">K</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('L')">L</button>
                     </div>
                     <div class="grid grid-cols-9 gap-1">
-                        <button class="key bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-1 rounded text-xs" onclick="submitGuess()">ENTER</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('Z')">Z</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('X')">X</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('C')">C</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('V')">V</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('B')">B</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('N')">N</button>
-                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-1 rounded text-sm" onclick="addLetter('M')">M</button>
-                        <button class="key bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-1 rounded text-xs" onclick="deleteLetter()">⌫</button>
+                        <button class="key bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 sm:py-2 px-1 rounded text-xs" onclick="submitGuess()">ENTER</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('Z')">Z</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('X')">X</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('C')">C</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('V')">V</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('B')">B</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('N')">N</button>
+                        <button class="key bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 sm:py-2 px-1 rounded text-xs sm:text-sm" onclick="addLetter('M')">M</button>
+                        <button class="key bg-red-500 hover:bg-red-600 text-white font-semibold py-2 sm:py-2 px-1 rounded text-xs" onclick="deleteLetter()">⌫</button>
                     </div>
                 </div>
 
                 <!-- Instructions -->
-                <div class="mt-6 text-sm text-gray-600 text-center">
-                    <p class="mb-2">Instructions: Click on tiles to cycle through colors or use the keyboard to input letters.</p>
-                    <div class="flex justify-center space-x-4 text-xs">
-                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-correct rounded mr-1"></div>Correct</span>
-                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-present rounded mr-1"></div>Wrong Position</span>
-                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-absent rounded mr-1"></div>Not in Word</span>
+                <div class="mt-4 sm:mt-6 text-xs sm:text-sm text-gray-600 text-center">
+                    <p class="mb-2 font-semibold text-sm sm:text-base">How to Use:</p>
+                    <p class="mb-2">1. Enter the 5-letter words you've tried in Wordle</p>
+                    <p class="mb-2">2. Click each letter tile to set its color status (required)</p>
+                    <p class="mb-2">3. Each row must be a complete 5-letter word with all tiles colored</p>
+                    <p class="mb-4 text-xs text-red-500 font-semibold">⚠️ White tiles are unset - all tiles must be colored before getting suggestions</p>
+                    <!-- Color legend - optimized for mobile and desktop -->
+                    <div class="flex flex-row justify-center items-center space-x-2 sm:space-x-4 text-xs">
+                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-correct rounded mr-1"></div><span class="hidden sm:inline">Correct Position</span><span class="sm:hidden">Correct</span></span>
+                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-present rounded mr-1"></div><span class="hidden sm:inline">Wrong Position</span><span class="sm:hidden">Wrong Pos</span></span>
+                        <span class="flex items-center"><div class="w-4 h-4 bg-wordle-absent rounded mr-1"></div><span class="hidden sm:inline">Not in Word</span><span class="sm:hidden">Not in Word</span></span>
                     </div>
                 </div>
             </div>
 
             <!-- Right Side - Suggestions -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-2xl font-semibold text-gray-900">Word Suggestions</h2>
-                    <div class="space-x-2">
-                        <button onclick="getSuggestions()" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+            <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6">
+                <!-- Header Section -->
+                <div class="mb-6">
+                    <h2 class="text-xl sm:text-2xl font-semibold text-gray-900 mb-4 text-center sm:text-left">Word Suggestions</h2>
+
+                    <!-- Action Buttons - Responsive Layout -->
+                    <!-- Desktop Layout -->
+                    <div class="hidden sm:flex flex-row gap-3 items-stretch">
+                        <!-- Primary action button - most prominent -->
+                        <button onclick="getSuggestions()" class="action-button bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-bold transition-colors text-base whitespace-nowrap shadow-lg" style="flex: 3; min-width: 160px;">
                             Get Suggestions
                         </button>
-                        <button onclick="resetGame()" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+
+                        <!-- Secondary action button - prominent -->
+                        <button onclick="resetGame()" class="action-button bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded-lg font-semibold transition-colors text-base whitespace-nowrap shadow-md" style="flex: 1; min-width: 130px;">
                             Reset
+                        </button>
+
+                        <!-- Tertiary action button - subtle but readable -->
+                        <button onclick="loadExample()" class="action-button bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-md font-normal transition-colors text-sm whitespace-nowrap border border-gray-300 opacity-75 hover:opacity-100" style="flex: 1; min-width: 130px;">
+                            Load Example
+                        </button>
+                    </div>
+
+                    <!-- Mobile Layout -->
+                    <div class="sm:hidden mobile-button-container">
+                        <!-- Primary actions row -->
+                        <div class="mobile-button-row">
+                            <button onclick="getSuggestions()" class="action-button bg-green-500 hover:bg-green-600 text-white rounded-lg font-bold transition-colors whitespace-nowrap shadow-lg">
+                                Get Suggestions
+                            </button>
+                            <button onclick="resetGame()" class="action-button bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold transition-colors whitespace-nowrap shadow-md">
+                                Reset
+                            </button>
+                        </div>
+
+                        <!-- Secondary action - smaller and subtle -->
+                        <button onclick="loadExample()" class="action-button mobile-example-button bg-gray-400 hover:bg-gray-500 text-white py-2 rounded-md font-normal transition-colors text-xs whitespace-nowrap border border-gray-300">
+                            Load Example
                         </button>
                     </div>
                 </div>
 
                 <!-- Suggestions List -->
-                <div id="suggestionsList" class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-96 overflow-y-auto">
+                <div id="suggestionsList" class="suggestions-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-3 max-h-96 overflow-y-auto">
                     <div class="text-gray-500 text-center col-span-full py-8">
                         Enter your guesses and click "Get Suggestions" to see recommended words.
                     </div>
@@ -215,9 +344,9 @@
         </div>
 
         <!-- How It Works Section -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">How Our Wordle Solver Works</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <section class="mb-12 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">How Our Wordle Solver Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                 <div class="bg-white rounded-lg shadow-lg p-6 text-center">
                     <div class="bg-blue-100 rounded-full p-3 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                         <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -249,10 +378,10 @@
         </section>
 
         <!-- Tips Section -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Wordle Solving Tips & Strategies</h2>
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <section class="mb-12 sm:mb-16">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">Wordle Solving Tips & Strategies</h2>
+            <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 lg:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                     <div>
                         <h3 class="text-xl font-semibold mb-4 text-green-600">Best Starting Words</h3>
                         <ul class="space-y-2 text-gray-600">
@@ -280,8 +409,8 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
                         <div class="bg-green-500 text-white rounded-lg p-2 font-bold text-xl">W</div>
@@ -329,63 +458,169 @@
         let selectedTile = null;
         
         // Sample word list for suggestions
-        const commonWords = [
-            'ABOUT', 'ABOVE', 'ABUSE', 'ACTOR', 'ACUTE', 'ADMIT', 'ADOPT', 'ADULT', 'AFTER', 'AGAIN',
-            'AGENT', 'AGREE', 'AHEAD', 'ALARM', 'ALBUM', 'ALERT', 'ALIEN', 'ALIGN', 'ALIKE', 'ALIVE',
-            'ALLOW', 'ALONE', 'ALONG', 'ALTER', 'AMBER', 'AMONG', 'ANGER', 'ANGLE', 'ANGRY', 'APART',
-            'APPLE', 'APPLY', 'ARENA', 'ARGUE', 'ARISE', 'ARRAY', 'ASIDE', 'ASSET', 'AVOID', 'AWAKE',
-            'AWARD', 'AWARE', 'BADLY', 'BAKER', 'BASES', 'BASIC', 'BEACH', 'BEGAN', 'BEGIN', 'BEING',
-            'BELOW', 'BENCH', 'BILLY', 'BIRTH', 'BLACK', 'BLAME', 'BLANK', 'BLAST', 'BLIND', 'BLOCK',
-            'BLOOD', 'BOARD', 'BOOST', 'BOOTH', 'BOUND', 'BRAIN', 'BRAND', 'BRASS', 'BRAVE', 'BREAD',
-            'BREAK', 'BREED', 'BRIEF', 'BRING', 'BROAD', 'BROKE', 'BROWN', 'BUILD', 'BUILT', 'BUYER',
-            'CABLE', 'CALIF', 'CARRY', 'CATCH', 'CAUSE', 'CHAIN', 'CHAIR', 'CHAOS', 'CHARM', 'CHART',
-            'CHASE', 'CHEAP', 'CHECK', 'CHEST', 'CHIEF', 'CHILD', 'CHINA', 'CHOSE', 'CIVIL', 'CLAIM',
-            'CLASS', 'CLEAN', 'CLEAR', 'CLICK', 'CLIMB', 'CLOCK', 'CLOSE', 'CLOUD', 'COACH', 'COAST',
-            'COULD', 'COUNT', 'COURT', 'COVER', 'CRAFT', 'CRASH', 'CRAZY', 'CREAM', 'CRIME', 'CROSS',
-            'CROWD', 'CROWN', 'CRUDE', 'CURVE', 'CYCLE', 'DAILY', 'DANCE', 'DATED', 'DEALT', 'DEATH',
-            'DEBUG', 'DEBUT', 'DELAY', 'DEPTH', 'DOING', 'DOUBT', 'DOZEN', 'DRAFT', 'DRAMA', 'DRANK',
-            'DREAM', 'DRESS', 'DRILL', 'DRINK', 'DRIVE', 'DROVE', 'DYING', 'EAGER', 'EARLY', 'EARTH',
-            'EIGHT', 'EITHER', 'ELBOW', 'ELDER', 'EMPTY', 'ENEMY', 'ENJOY', 'ENTER', 'ENTRY', 'EQUAL',
-            'ERROR', 'EVENT', 'EVERY', 'EXACT', 'EXIST', 'EXTRA', 'FAITH', 'FALSE', 'FAULT', 'FIBER',
-            'FIELD', 'FIFTH', 'FIFTY', 'FIGHT', 'FINAL', 'FIRST', 'FIXED', 'FLASH', 'FLEET', 'FLOOR',
-            'FLUID', 'FOCUS', 'FORCE', 'FORTH', 'FORTY', 'FORUM', 'FOUND', 'FRAME', 'FRANK', 'FRAUD',
-            'FRESH', 'FRONT', 'FRUIT', 'FULLY', 'FUNNY', 'GIANT', 'GIVEN', 'GLASS', 'GLOBE', 'GOING',
-            'GRACE', 'GRADE', 'GRAND', 'GRANT', 'GRASS', 'GRAVE', 'GREAT', 'GREEN', 'GROSS', 'GROUP',
-            'GROWN', 'GUARD', 'GUESS', 'GUEST', 'GUIDE', 'HAPPY', 'HARRY', 'HEART', 'HEAVY', 'HENCE',
-            'HENRY', 'HORSE', 'HOTEL', 'HOUSE', 'HUMAN', 'IDEAL', 'IMAGE', 'INDEX', 'INNER', 'INPUT',
-            'ISSUE', 'JAPAN', 'JIMMY', 'JOINT', 'JONES', 'JUDGE', 'KNOWN', 'LABEL', 'LARGE', 'LASER',
-            'LATER', 'LAUGH', 'LAYER', 'LEARN', 'LEASE', 'LEAST', 'LEAVE', 'LEGAL', 'LEVEL', 'LEWIS',
-            'LIGHT', 'LIMIT', 'LINKS', 'LIVES', 'LOCAL', 'LOOSE', 'LOWER', 'LUCKY', 'LUNCH', 'LYING',
-            'MAGIC', 'MAJOR', 'MAKER', 'MARCH', 'MARIA', 'MATCH', 'MAYBE', 'MAYOR', 'MEANT', 'MEDIA',
-            'METAL', 'MIGHT', 'MINOR', 'MINUS', 'MIXED', 'MODEL', 'MONEY', 'MONTH', 'MORAL', 'MOTOR',
-            'MOUNT', 'MOUSE', 'MOUTH', 'MOVED', 'MOVIE', 'MUSIC', 'NEEDS', 'NEVER', 'NEWLY', 'NIGHT',
-            'NOISE', 'NORTH', 'NOTED', 'NOVEL', 'NURSE', 'OCCUR', 'OCEAN', 'OFFER', 'OFTEN', 'ORDER',
-            'OTHER', 'OUGHT', 'PAINT', 'PANEL', 'PAPER', 'PARTY', 'PEACE', 'PETER', 'PHASE', 'PHONE',
-            'PHOTO', 'PIANO', 'PICKED', 'PIECE', 'PILOT', 'PITCH', 'PLACE', 'PLAIN', 'PLANE', 'PLANT',
-            'PLATE', 'POINT', 'POUND', 'POWER', 'PRESS', 'PRICE', 'PRIDE', 'Prime', 'PRINT', 'PRIOR',
-            'PRIZE', 'PROOF', 'PROUD', 'PROVE', 'QUEEN', 'QUICK', 'QUIET', 'QUITE', 'RADIO', 'RAISE',
-            'RANGE', 'RAPID', 'RATIO', 'REACH', 'READY', 'REALM', 'REBEL', 'REFER', 'RELAX', 'REMIX',
-            'REPLY', 'RIGHT', 'RIGID', 'ROGER', 'ROMAN', 'ROUGH', 'ROUND', 'ROUTE', 'ROYAL', 'RURAL',
-            'SCALE', 'SCENE', 'SCOPE', 'SCORE', 'SENSE', 'SERVE', 'SETUP', 'SEVEN', 'SHALL', 'SHAPE',
-            'SHARE', 'SHARP', 'SHEET', 'SHELF', 'SHELL', 'SHIFT', 'SHINE', 'SHIRT', 'SHOCK', 'SHOOT',
-            'SHORT', 'SHOWN', 'SIGHT', 'SILLY', 'SINCE', 'SIXTY', 'SIZED', 'SKILL', 'SLEEP', 'SLIDE',
-            'SMALL', 'SMART', 'SMILE', 'SMITH', 'SMOKE', 'SNAKE', 'SNOW', 'SOLID', 'SOLVE', 'SORRY',
-            'SOUND', 'SOUTH', 'SPACE', 'SPARE', 'SPEAK', 'SPEED', 'SPEND', 'SPENT', 'SPLIT', 'SPOKE',
-            'SPORT', 'SQUAD', 'STAFF', 'STAGE', 'STAKE', 'STAND', 'START', 'STATE', 'STEAM', 'STEEL',
-            'STICK', 'STILL', 'STOCK', 'STONE', 'STOOD', 'STORE', 'STORM', 'STORY', 'STRIP', 'STUCK',
-            'STUDY', 'STUFF', 'STYLE', 'SUGAR', 'SUITE', 'SUPER', 'SWEET', 'TABLE', 'TAKEN', 'TASTE',
-            'TAXES', 'TEACH', 'TEENS', 'TEETH', 'TERRY', 'TEXAS', 'THANK', 'THEFT', 'THEIR', 'THEME',
-            'THERE', 'THESE', 'THICK', 'THING', 'THINK', 'THIRD', 'THOSE', 'THREE', 'THREW', 'THROW',
-            'THUMB', 'TIGHT', 'TIMER', 'TODAY', 'TOPIC', 'TOTAL', 'TOUCH', 'TOUGH', 'TOWER', 'TRACK',
-            'TRADE', 'TRAIL', 'TRAIN', 'TREAT', 'TREND', 'TRIAL', 'TRIBE', 'TRICK', 'TRIED', 'TRIES',
-            'TRUCK', 'TRULY', 'TRUNK', 'TRUST', 'TRUTH', 'TWICE', 'TWIST', 'UNCLE', 'UNDER', 'UNDUE',
-            'UNION', 'UNITY', 'UNTIL', 'UPPER', 'UPSET', 'URBAN', 'USAGE', 'USUAL', 'VALID', 'VALUE',
-            'VIDEO', 'VIRUS', 'VISIT', 'VITAL', 'VOCAL', 'VOICE', 'WASTE', 'WATCH', 'WATER', 'WHEEL',
-            'WHERE', 'WHICH', 'WHILE', 'WHITE', 'WHOLE', 'WHOSE', 'WOMAN', 'WORLD', 'WORRY', 'WORSE',
-            'WORST', 'WORTH', 'WOULD', 'WRITE', 'WRONG', 'WROTE', 'YOUNG', 'YOUTH'
-        ];
+        // const commonWords = [
+        //     'ABOUT', 'ABOVE', 'ABUSE', 'ACTOR', 'ACUTE', 'ADMIT', 'ADOPT', 'ADULT', 'AFTER', 'AGAIN',
+        //     'AGENT', 'AGREE', 'AHEAD', 'ALARM', 'ALBUM', 'ALERT', 'ALIEN', 'ALIGN', 'ALIKE', 'ALIVE',
+        //     'ALLOW', 'ALONE', 'ALONG', 'ALTER', 'AMBER', 'AMONG', 'ANGER', 'ANGLE', 'ANGRY', 'APART',
+        //     'APPLE', 'APPLY', 'ARENA', 'ARGUE', 'ARISE', 'ARRAY', 'ASIDE', 'ASSET', 'AVOID', 'AWAKE',
+        //     'AWARD', 'AWARE', 'BADLY', 'BAKER', 'BASES', 'BASIC', 'BEACH', 'BEGAN', 'BEGIN', 'BEING',
+        //     'BELOW', 'BENCH', 'BILLY', 'BIRTH', 'BLACK', 'BLAME', 'BLANK', 'BLAST', 'BLIND', 'BLOCK',
+        //     'BLOOD', 'BOARD', 'BOOST', 'BOOTH', 'BOUND', 'BRAIN', 'BRAND', 'BRASS', 'BRAVE', 'BREAD',
+        //     'BREAK', 'BREED', 'BRIEF', 'BRING', 'BROAD', 'BROKE', 'BROWN', 'BUILD', 'BUILT', 'BUYER',
+        //     'CABLE', 'CALIF', 'CARRY', 'CATCH', 'CAUSE', 'CHAIN', 'CHAIR', 'CHAOS', 'CHARM', 'CHART',
+        //     'CHASE', 'CHEAP', 'CHECK', 'CHEST', 'CHIEF', 'CHILD', 'CHINA', 'CHOSE', 'CIVIL', 'CLAIM',
+        //     'CLASS', 'CLEAN', 'CLEAR', 'CLICK', 'CLIMB', 'CLOCK', 'CLOSE', 'CLOUD', 'COACH', 'COAST',
+        //     'COULD', 'COUNT', 'COURT', 'COVER', 'CRAFT', 'CRASH', 'CRAZY', 'CREAM', 'CRIME', 'CROSS',
+        //     'CROWD', 'CROWN', 'CRUDE', 'CURVE', 'CYCLE', 'DAILY', 'DANCE', 'DATED', 'DEALT', 'DEATH',
+        //     'DEBUG', 'DEBUT', 'DELAY', 'DEPTH', 'DOING', 'DOUBT', 'DOZEN', 'DRAFT', 'DRAMA', 'DRANK',
+        //     'DREAM', 'DRESS', 'DRILL', 'DRINK', 'DRIVE', 'DROVE', 'DYING', 'EAGER', 'EARLY', 'EARTH',
+        //     'EIGHT', 'EITHER', 'ELBOW', 'ELDER', 'EMPTY', 'ENEMY', 'ENJOY', 'ENTER', 'ENTRY', 'EQUAL',
+        //     'ERROR', 'EVENT', 'EVERY', 'EXACT', 'EXIST', 'EXTRA', 'FAITH', 'FALSE', 'FAULT', 'FIBER',
+        //     'FIELD', 'FIFTH', 'FIFTY', 'FIGHT', 'FINAL', 'FIRST', 'FIXED', 'FLASH', 'FLEET', 'FLOOR',
+        //     'FLUID', 'FOCUS', 'FORCE', 'FORTH', 'FORTY', 'FORUM', 'FOUND', 'FRAME', 'FRANK', 'FRAUD',
+        //     'FRESH', 'FRONT', 'FRUIT', 'FULLY', 'FUNNY', 'GIANT', 'GIVEN', 'GLASS', 'GLOBE', 'GOING',
+        //     'GRACE', 'GRADE', 'GRAND', 'GRANT', 'GRASS', 'GRAVE', 'GREAT', 'GREEN', 'GROSS', 'GROUP',
+        //     'GROWN', 'GUARD', 'GUESS', 'GUEST', 'GUIDE', 'HAPPY', 'HARRY', 'HEART', 'HEAVY', 'HENCE',
+        //     'HENRY', 'HORSE', 'HOTEL', 'HOUSE', 'HUMAN', 'IDEAL', 'IMAGE', 'INDEX', 'INNER', 'INPUT',
+        //     'ISSUE', 'JAPAN', 'JIMMY', 'JOINT', 'JONES', 'JUDGE', 'KNOWN', 'LABEL', 'LARGE', 'LASER',
+        //     'LATER', 'LAUGH', 'LAYER', 'LEARN', 'LEASE', 'LEAST', 'LEAVE', 'LEGAL', 'LEVEL', 'LEWIS',
+        //     'LIGHT', 'LIMIT', 'LINKS', 'LIVES', 'LOCAL', 'LOOSE', 'LOWER', 'LUCKY', 'LUNCH', 'LYING',
+        //     'MAGIC', 'MAJOR', 'MAKER', 'MARCH', 'MARIA', 'MATCH', 'MAYBE', 'MAYOR', 'MEANT', 'MEDIA',
+        //     'METAL', 'MIGHT', 'MINOR', 'MINUS', 'MIXED', 'MODEL', 'MONEY', 'MONTH', 'MORAL', 'MOTOR',
+        //     'MOUNT', 'MOUSE', 'MOUTH', 'MOVED', 'MOVIE', 'MUSIC', 'NEEDS', 'NEVER', 'NEWLY', 'NIGHT',
+        //     'NOISE', 'NORTH', 'NOTED', 'NOVEL', 'NURSE', 'OCCUR', 'OCEAN', 'OFFER', 'OFTEN', 'ORDER',
+        //     'OTHER', 'OUGHT', 'PAINT', 'PANEL', 'PAPER', 'PARTY', 'PEACE', 'PETER', 'PHASE', 'PHONE',
+        //     'PHOTO', 'PIANO', 'PICKED', 'PIECE', 'PILOT', 'PITCH', 'PLACE', 'PLAIN', 'PLANE', 'PLANT',
+        //     'PLATE', 'POINT', 'POUND', 'POWER', 'PRESS', 'PRICE', 'PRIDE', 'Prime', 'PRINT', 'PRIOR',
+        //     'PRIZE', 'PROOF', 'PROUD', 'PROVE', 'QUEEN', 'QUICK', 'QUIET', 'QUITE', 'RADIO', 'RAISE',
+        //     'RANGE', 'RAPID', 'RATIO', 'REACH', 'READY', 'REALM', 'REBEL', 'REFER', 'RELAX', 'REMIX',
+        //     'REPLY', 'RIGHT', 'RIGID', 'ROGER', 'ROMAN', 'ROUGH', 'ROUND', 'ROUTE', 'ROYAL', 'RURAL',
+        //     'SCALE', 'SCENE', 'SCOPE', 'SCORE', 'SENSE', 'SERVE', 'SETUP', 'SEVEN', 'SHALL', 'SHAPE',
+        //     'SHARE', 'SHARP', 'SHEET', 'SHELF', 'SHELL', 'SHIFT', 'SHINE', 'SHIRT', 'SHOCK', 'SHOOT',
+        //     'SHORT', 'SHOWN', 'SIGHT', 'SILLY', 'SINCE', 'SIXTY', 'SIZED', 'SKILL', 'SLEEP', 'SLIDE',
+        //     'SMALL', 'SMART', 'SMILE', 'SMITH', 'SMOKE', 'SNAKE', 'SNOW', 'SOLID', 'SOLVE', 'SORRY',
+        //     'SOUND', 'SOUTH', 'SPACE', 'SPARE', 'SPEAK', 'SPEED', 'SPEND', 'SPENT', 'SPLIT', 'SPOKE',
+        //     'SPORT', 'SQUAD', 'STAFF', 'STAGE', 'STAKE', 'STAND', 'START', 'STATE', 'STEAM', 'STEEL',
+        //     'STICK', 'STILL', 'STOCK', 'STONE', 'STOOD', 'STORE', 'STORM', 'STORY', 'STRIP', 'STUCK',
+        //     'STUDY', 'STUFF', 'STYLE', 'SUGAR', 'SUITE', 'SUPER', 'SWEET', 'TABLE', 'TAKEN', 'TASTE',
+        //     'TAXES', 'TEACH', 'TEENS', 'TEETH', 'TERRY', 'TEXAS', 'THANK', 'THEFT', 'THEIR', 'THEME',
+        //     'THERE', 'THESE', 'THICK', 'THING', 'THINK', 'THIRD', 'THOSE', 'THREE', 'THREW', 'THROW',
+        //     'THUMB', 'TIGHT', 'TIMER', 'TODAY', 'TOPIC', 'TOTAL', 'TOUCH', 'TOUGH', 'TOWER', 'TRACK',
+        //     'TRADE', 'TRAIL', 'TRAIN', 'TREAT', 'TREND', 'TRIAL', 'TRIBE', 'TRICK', 'TRIED', 'TRIES',
+        //     'TRUCK', 'TRULY', 'TRUNK', 'TRUST', 'TRUTH', 'TWICE', 'TWIST', 'UNCLE', 'UNDER', 'UNDUE',
+        //     'UNION', 'UNITY', 'UNTIL', 'UPPER', 'UPSET', 'URBAN', 'USAGE', 'USUAL', 'VALID', 'VALUE',
+        //     'VIDEO', 'VIRUS', 'VISIT', 'VITAL', 'VOCAL', 'VOICE', 'WASTE', 'WATCH', 'WATER', 'WHEEL',
+        //     'WHERE', 'WHICH', 'WHILE', 'WHITE', 'WHOLE', 'WHOSE', 'WOMAN', 'WORLD', 'WORRY', 'WORSE',
+        //     'WORST', 'WORTH', 'WOULD', 'WRITE', 'WRONG', 'WROTE', 'YOUNG', 'YOUTH'
+        // ];
+        function parseGuessesFromDOM() {
+            const tiles = document.querySelectorAll('.tile');
+            const guesses = [];
+            const validStates = new Set(['correct', 'present', 'absent']);
+
+            for (let row = 0; row < 6; row++) {
+                const rowTiles = Array.from(tiles).slice(row * 5, (row * 5) + 5);
+                let word = '';
+                const states = [];
+                let hasContent = false;
+
+                // 检查这一行是否有内容
+                rowTiles.forEach(tile => {
+                    if (tile.textContent?.trim()) {
+                        hasContent = true;
+                    }
+                });
+
+                // If this row has no content, skip it
+                if (!hasContent) {
+                    continue;
+                }
+
+                // If there's content, validate completeness
+                let isValidRow = true;
+                let errorMessages = [];
+
+                rowTiles.forEach((tile, pos) => {
+                    const char = tile.textContent?.trim()?.toUpperCase() || '';
+                    const state = [...tile.classList].find(c => validStates.has(c)) || 'unknown';
+
+                    // Check for empty tiles
+                    if (!char) {
+                        errorMessages.push(`Row ${row+1}, Column ${pos+1}: Empty tile`);
+                        isValidRow = false;
+                    } else {
+                        // Validate character
+                        if (!/^[A-Z]$/.test(char)) {
+                            errorMessages.push(`Row ${row+1}, Column ${pos+1}: Invalid character "${char}"`);
+                            isValidRow = false;
+                        }
+
+                        // Validate color state - must be correct, present, or absent
+                        if (state === 'unknown' || tile.classList.contains('empty') || tile.classList.contains('filled')) {
+                            errorMessages.push(`Row ${row+1}, Column ${pos+1}: Color not set (must click to set green, yellow, or gray)`);
+                            isValidRow = false;
+                        }
+                    }
+
+                    word += char;
+                    states.push(state);
+                });
+
+                // If row is invalid, show error and return empty array
+                if (!isValidRow) {
+                    showError(errorMessages.join('<br>'));
+                    return [];
+                }
+
+                // Validate 5-letter word length
+                if (word.length !== 5) {
+                    showError(`Row ${row+1}: Must be a 5-letter word, currently has ${word.length} letters`);
+                    return [];
+                }
+
+                // Validate as English word
+                if (!isValidEnglishWord(word)) {
+                    showError(`Row ${row+1}: "${word}" is not a valid 5-letter English word<br><br>Please ensure you enter common English words like: ABOUT, HOUSE, LIGHT, etc.`);
+                    return [];
+                }
+
+                guesses.push({ word, states });
+            }
+
+            return guesses;
+        }
+
+        // 验证是否为有效的英文单词
+        function isValidEnglishWord(word) {
+            // 检查词库中是否存在该单词
+            if (window.solver && window.solver.words) {
+                return window.solver.words.includes(word.toUpperCase());
+            }
+
+            // 如果词库未加载，使用基本的英文字母验证
+            // 同时检查是否包含常见的英文单词模式
+            if (!/^[A-Z]{5}$/.test(word)) {
+                return false;
+            }
+
+            // 基本的英文单词验证：不能全是同一个字母，不能包含太多不常见的字母组合
+            const chars = [...word];
+            const uniqueChars = new Set(chars);
+
+            // 如果全是同一个字母，很可能不是有效单词
+            if (uniqueChars.size === 1) {
+                return false;
+            }
+
+            return true;
+        }
 
         function selectTile(tile) {
+            // Only allow color cycling for tiles that have letters
+            if (!tile.textContent) {
+                return;
+            }
+            
             // Remove previous selection
             if (selectedTile) {
                 selectedTile.style.border = '2px solid #d3d6da';
@@ -399,119 +634,204 @@
         }
 
         function cycleTileState(tile) {
-            if (tile.classList.contains('empty')) {
-                tile.classList.remove('empty');
+            // Clear hint messages in suggestions list as user is setting status
+            const suggestionsList = document.getElementById('suggestionsList');
+            if (suggestionsList.innerHTML.includes('Please click each letter to set')) {
+                suggestionsList.innerHTML = '<div class="text-gray-500 text-center col-span-full py-8">Continue setting color status, then click "Get Suggestions" when ready</div>';
+            }
+
+            if (tile.classList.contains('filled')) {
+                // First click: change to absent (gray)
+                tile.classList.remove('filled');
                 tile.classList.add('absent');
                 tile.style.backgroundColor = '#787c7e';
                 tile.style.color = 'white';
+                tile.style.fontWeight = 'bold';
             } else if (tile.classList.contains('absent')) {
+                // Second click: change to present (yellow)
                 tile.classList.remove('absent');
                 tile.classList.add('present');
                 tile.style.backgroundColor = '#c9b458';
                 tile.style.color = 'white';
+                tile.style.fontWeight = 'bold';
             } else if (tile.classList.contains('present')) {
+                // Third click: change to correct (green)
                 tile.classList.remove('present');
                 tile.classList.add('correct');
                 tile.style.backgroundColor = '#6aaa64';
                 tile.style.color = 'white';
+                tile.style.fontWeight = 'bold';
             } else if (tile.classList.contains('correct')) {
+                // Fourth click: back to filled (white)
                 tile.classList.remove('correct');
-                tile.classList.add('empty');
+                tile.classList.add('filled');
                 tile.style.backgroundColor = '#ffffff';
                 tile.style.color = 'black';
-                tile.style.border = '2px solid #d3d6da';
-                tile.textContent = '';
+                tile.style.fontWeight = 'bold';
+                tile.style.border = '2px solid #787c7e';
+            }
+
+            // 检查当前行是否所有格子都已设置颜色状态
+            checkRowCompletion(tile);
+        }
+
+        function checkRowCompletion(clickedTile) {
+            const tiles = document.querySelectorAll('.tile');
+            const tileIndex = Array.from(tiles).indexOf(clickedTile);
+            const rowIndex = Math.floor(tileIndex / 5);
+            const rowTiles = Array.from(tiles).slice(rowIndex * 5, (rowIndex * 5) + 5);
+
+            // 检查这一行是否所有格子都有内容且都设置了颜色状态
+            const allFilled = rowTiles.every(tile => tile.textContent?.trim());
+            const allColored = rowTiles.every(tile =>
+                tile.classList.contains('correct') ||
+                tile.classList.contains('present') ||
+                tile.classList.contains('absent')
+            );
+
+            if (allFilled && allColored) {
+                const word = rowTiles.map(tile => tile.textContent).join('');
+                const suggestionsList = document.getElementById('suggestionsList');
+                suggestionsList.innerHTML = `
+                    <div class="text-green-600 text-center col-span-full py-8">
+                        <p class="font-semibold mb-2">✅ Row ${rowIndex + 1} completed: ${word}</p>
+                        <p class="text-sm text-gray-600">You can continue with the next row, or click "Get Suggestions" for recommendations</p>
+                    </div>
+                `;
             }
         }
 
         function addLetter(letter) {
             const tiles = document.querySelectorAll('.tile');
-            const currentRowTiles = Array.from(tiles).slice(currentRow * 5, (currentRow * 5) + 5);
-            
-            // Find the next empty tile in current row
-            for (let i = 0; i < currentRowTiles.length; i++) {
-                if (!currentRowTiles[i].textContent) {
-                    currentRowTiles[i].textContent = letter;
-                    currentRowTiles[i].classList.remove('empty');
-                    currentRowTiles[i].style.backgroundColor = '#ffffff';
-                    currentRowTiles[i].style.border = '2px solid #787c7e';
+
+            // Find the first row that has incomplete tiles
+            let targetRow = 0;
+            for (let row = 0; row < 6; row++) {
+                const rowTiles = Array.from(tiles).slice(row * 5, (row * 5) + 5);
+                const incompleteRow = rowTiles.some(tile => !tile.textContent);
+                if (incompleteRow) {
+                    targetRow = row;
+                    break;
+                }
+            }
+
+            const targetRowTiles = Array.from(tiles).slice(targetRow * 5, (targetRow * 5) + 5);
+
+            // Find the next empty tile in target row
+            for (let i = 0; i < targetRowTiles.length; i++) {
+                if (!targetRowTiles[i].textContent) {
+                    targetRowTiles[i].textContent = letter;
+                    targetRowTiles[i].classList.remove('empty');
+                    targetRowTiles[i].classList.add('filled');
+                    targetRowTiles[i].style.backgroundColor = '#ffffff';
+                    targetRowTiles[i].style.border = '2px solid #787c7e';
+                    targetRowTiles[i].style.color = 'black';
+                    targetRowTiles[i].style.fontWeight = 'bold';
+
+                    // 检查当前行是否已完成5个字母
+                    const currentRowComplete = targetRowTiles.every(tile => tile.textContent);
+                    if (currentRowComplete) {
+                        // 提示用户设置颜色状态
+                        showRowCompletionHint(targetRow);
+                    }
                     break;
                 }
             }
         }
 
+        function showRowCompletionHint(rowIndex) {
+            const suggestionsList = document.getElementById('suggestionsList');
+            const word = Array.from(document.querySelectorAll('.tile'))
+                .slice(rowIndex * 5, (rowIndex * 5) + 5)
+                .map(tile => tile.textContent)
+                .join('');
+
+            suggestionsList.innerHTML = `
+                <div class="text-blue-600 text-center col-span-full py-8">
+                    <p class="font-semibold mb-2">Row ${rowIndex + 1} completed: ${word}</p>
+                    <p class="text-sm mb-2">Please click each letter to set its color status:</p>
+                    <p class="text-sm text-gray-600">Green = Correct position, Yellow = Wrong position, Gray = Not in word</p>
+                </div>
+            `;
+        }
+
         function deleteLetter() {
             const tiles = document.querySelectorAll('.tile');
-            const currentRowTiles = Array.from(tiles).slice(currentRow * 5, (currentRow * 5) + 5);
             
-            // Find the last filled tile in current row and clear it
-            for (let i = currentRowTiles.length - 1; i >= 0; i--) {
-                if (currentRowTiles[i].textContent) {
-                    currentRowTiles[i].textContent = '';
-                    currentRowTiles[i].classList.add('empty');
-                    currentRowTiles[i].classList.remove('absent', 'present', 'correct');
-                    currentRowTiles[i].style.backgroundColor = '#ffffff';
-                    currentRowTiles[i].style.border = '2px solid #d3d6da';
+            // Find the last row that has tiles with content
+            let targetRow = 0;
+            for (let row = 5; row >= 0; row--) {
+                const rowTiles = Array.from(tiles).slice(row * 5, (row * 5) + 5);
+                const hasContent = rowTiles.some(tile => tile.textContent);
+                if (hasContent) {
+                    targetRow = row;
+                    break;
+                }
+            }
+            
+            const targetRowTiles = Array.from(tiles).slice(targetRow * 5, (targetRow * 5) + 5);
+            
+            // Find the last filled tile in target row and clear it
+            for (let i = targetRowTiles.length - 1; i >= 0; i--) {
+                if (targetRowTiles[i].textContent) {
+                    targetRowTiles[i].textContent = '';
+                    targetRowTiles[i].classList.add('empty');
+                    targetRowTiles[i].classList.remove('filled', 'absent', 'present', 'correct');
+                    targetRowTiles[i].style.backgroundColor = '#ffffff';
+                    targetRowTiles[i].style.border = '2px solid #d3d6da';
+                    targetRowTiles[i].style.color = 'black';
+                    targetRowTiles[i].style.fontWeight = 'bold';
                     break;
                 }
             }
         }
 
         function submitGuess() {
-            const tiles = document.querySelectorAll('.tile');
-            const currentRowTiles = Array.from(tiles).slice(currentRow * 5, (currentRow * 5) + 5);
-            
-            // Check if row is complete
-            let isComplete = true;
-            currentRowTiles.forEach(tile => {
-                if (!tile.textContent) {
-                    isComplete = false;
-                }
-            });
-            
-            if (isComplete && currentRow < 5) {
-                currentRow++;
-                // You can add additional logic here for submitting the guess
-            }
+            // This function is now simplified since row management is handled automatically
+            // Users can just continue typing and the system will automatically move to the next row
+            console.log('Guess submitted - continue typing for next row');
         }
 
         function getSuggestions() {
-            const tiles = document.querySelectorAll('.tile');
-            const guesses = [];
-            
-            // Extract all guesses from the grid
-            for (let row = 0; row <= currentRow; row++) {
-                const rowTiles = Array.from(tiles).slice(row * 5, (row * 5) + 5);
-                let word = '';
-                let states = [];
-                let hasContent = false;
-                
-                rowTiles.forEach(tile => {
-                    if (tile.textContent) {
-                        hasContent = true;
-                        word += tile.textContent;
-                        if (tile.classList.contains('correct')) {
-                            states.push('correct');
-                        } else if (tile.classList.contains('present')) {
-                            states.push('present');
-                        } else if (tile.classList.contains('absent')) {
-                            states.push('absent');
-                        } else {
-                            states.push('unknown');
-                        }
-                    }
-                });
-                
-                if (hasContent && word.length === 5) {
-                    guesses.push({ word, states });
-                }
+            // Check if solver is initialized
+            if (!window.solver) {
+                showError('Word database is still loading, please try again in a moment');
+                return;
             }
-            
-            // Filter words based on guesses
-            let suggestions = filterWordsByGuesses(commonWords, guesses);
-            
-            // Display suggestions
-            displaySuggestions(suggestions.slice(0, 20)); // Show top 20 suggestions
+
+            // Validate and parse guesses
+            const guesses = parseGuessesFromDOM();
+
+            // If validation failed, parseGuessesFromDOM already showed error message
+            if (guesses.length === 0) {
+                return;
+            }
+
+            // If no valid guesses, show hint
+            if (guesses.length === 0) {
+                // parseGuessesFromDOM already showed specific error messages
+                // Only show generic hint if there's no input at all
+                const tiles = document.querySelectorAll('.tile');
+                const hasAnyContent = Array.from(tiles).some(tile => tile.textContent?.trim());
+
+                if (!hasAnyContent) {
+                    showError('Please enter at least one complete 5-letter word and set the color status for each letter');
+                }
+                return;
+            }
+
+            try {
+                const results = window.solver.solve(guesses);
+                displaySuggestions(results);
+            } catch (error) {
+                console.error('Solving error:', error);
+                showError('An error occurred during solving. Please check your input and try again');
+            }
+        }
+
+        function showError(message) {
+            const suggestionsList = document.getElementById('suggestionsList');
+            suggestionsList.innerHTML = `<div class="text-red-500 text-center col-span-full py-8 font-semibold text-sm leading-relaxed">${message}</div>`;
         }
 
         function filterWordsByGuesses(wordList, guesses) {
@@ -571,47 +891,206 @@
         }
 
         function useWordSuggestion(word) {
-            // Clear current row
             const tiles = document.querySelectorAll('.tile');
-            const currentRowTiles = Array.from(tiles).slice(currentRow * 5, (currentRow * 5) + 5);
             
-            currentRowTiles.forEach((tile, index) => {
+            // Find the first empty row to place the suggested word
+            let targetRow = 0;
+            for (let row = 0; row < 6; row++) {
+                const rowTiles = Array.from(tiles).slice(row * 5, (row * 5) + 5);
+                const isEmptyRow = rowTiles.every(tile => !tile.textContent);
+                if (isEmptyRow) {
+                    targetRow = row;
+                    break;
+                }
+            }
+            
+            const targetRowTiles = Array.from(tiles).slice(targetRow * 5, (targetRow * 5) + 5);
+            
+            targetRowTiles.forEach((tile, index) => {
                 tile.textContent = word[index];
                 tile.classList.remove('empty', 'absent', 'present', 'correct');
+                tile.classList.add('filled');
                 tile.style.backgroundColor = '#ffffff';
                 tile.style.border = '2px solid #787c7e';
                 tile.style.color = 'black';
+                tile.style.fontWeight = 'bold';
             });
         }
 
+        function loadExample() {
+            resetGame();
+
+            // 示例：第一次猜测 "SLATE"
+            // S-灰色, L-灰色, A-黄色, T-灰色, E-绿色
+            const tiles = document.querySelectorAll('.tile');
+            const exampleWord = 'SLATE';
+            const exampleStates = ['absent', 'absent', 'present', 'absent', 'correct'];
+
+            // 填入第一行
+            for (let i = 0; i < 5; i++) {
+                const tile = tiles[i];
+                tile.textContent = exampleWord[i];
+                tile.classList.remove('empty');
+                tile.classList.add(exampleStates[i]);
+
+                if (exampleStates[i] === 'correct') {
+                    tile.style.backgroundColor = '#6aaa64';
+                    tile.style.color = 'white';
+                } else if (exampleStates[i] === 'present') {
+                    tile.style.backgroundColor = '#c9b458';
+                    tile.style.color = 'white';
+                } else if (exampleStates[i] === 'absent') {
+                    tile.style.backgroundColor = '#787c7e';
+                    tile.style.color = 'white';
+                }
+                tile.style.fontWeight = 'bold';
+                tile.style.border = '2px solid #787c7e';
+            }
+
+            // Show explanation
+            const suggestionsList = document.getElementById('suggestionsList');
+            suggestionsList.innerHTML = `
+                <div class="text-blue-600 text-center col-span-full py-8">
+                    <p class="font-semibold mb-2">Example loaded!</p>
+                    <p class="text-sm mb-2">First guess "SLATE":</p>
+                    <p class="text-sm mb-2">S, L, T = Gray (not in word)</p>
+                    <p class="text-sm mb-2">A = Yellow (in word, wrong position)</p>
+                    <p class="text-sm mb-4">E = Green (correct position)</p>
+                    <p class="text-sm text-gray-600">Now click "Get Suggestions" to see recommended words</p>
+                </div>
+            `;
+        }
+
         function resetGame() {
-            currentRow = 0;
             currentTile = 0;
             selectedTile = null;
-            
+
             const tiles = document.querySelectorAll('.tile');
             tiles.forEach(tile => {
                 tile.textContent = '';
-                tile.className = 'tile empty w-14 h-14 border-2 border-gray-300 rounded flex items-center justify-center text-2xl font-bold cursor-pointer';
+                tile.className = 'tile empty w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 rounded flex items-center justify-center text-lg sm:text-2xl font-bold cursor-pointer';
                 tile.style.backgroundColor = '#ffffff';
                 tile.style.border = '2px solid #d3d6da';
                 tile.style.color = 'black';
+                tile.style.fontWeight = 'bold';
             });
-            
+
             const suggestionsList = document.getElementById('suggestionsList');
             suggestionsList.innerHTML = '<div class="text-gray-500 text-center col-span-full py-8">Enter your guesses and click "Get Suggestions" to see recommended words.</div>';
         }
 
-        // Keyboard event listener
+        // Keyboard event listener - completely rewritten to prevent all unwanted input
         document.addEventListener('keydown', function(event) {
-            if (event.key >= 'A' && event.key <= 'Z') {
-                addLetter(event.key.toUpperCase());
-            } else if (event.key >= 'a' && event.key <= 'z') {
-                addLetter(event.key.toUpperCase());
-            } else if (event.key === 'Backspace') {
+            // Get the key code and key value
+            const key = event.key;
+            const keyCode = event.keyCode || event.which;
+            
+            // Check if it's a letter key (A-Z, a-z)
+            const isLetter = /^[A-Za-z]$/.test(key);
+            
+            // Check if it's a control key we want to allow
+            const isAllowedControl = key === 'Backspace' || key === 'Enter';
+            
+            // If it's not a letter and not an allowed control key, block everything
+            if (!isLetter && !isAllowedControl) {
+                event.preventDefault();
+                event.stopPropagation();
+                event.stopImmediatePropagation();
+                return false;
+            }
+            
+            // For allowed keys, prevent default and handle manually
+            event.preventDefault();
+            
+            if (isLetter) {
+                addLetter(key.toUpperCase());
+            } else if (key === 'Backspace') {
                 deleteLetter();
-            } else if (event.key === 'Enter') {
+            } else if (key === 'Enter') {
                 submitGuess();
+            }
+        });
+
+        // Block all other keyboard events
+        document.addEventListener('keypress', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+
+        document.addEventListener('keyup', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+
+        // Block any input events
+        document.addEventListener('input', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+
+        // Block composition events (for IME input)
+        document.addEventListener('compositionstart', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+
+        document.addEventListener('compositionend', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            return false;
+        });
+
+        // Prevent focus on tiles
+        document.addEventListener('focusin', function(event) {
+            if (event.target.classList.contains('tile')) {
+                event.target.blur();
+            }
+        });
+
+        // Initialize page to prevent focus issues
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Show loading status
+                const suggestionsList = document.getElementById('suggestionsList');
+                suggestionsList.innerHTML = '<div class="text-blue-500 text-center col-span-full py-8">Loading word database...</div>';
+
+                // Load word database
+                const response = await fetch('data/word-bank.json');
+                if (!response.ok) {
+                    throw new Error(`Failed to load word database (HTTP ${response.status})`);
+                }
+
+                const wordData = await response.json();
+                if (!Array.isArray(wordData?.words)) {
+                    throw new Error('Invalid word database format: missing words array');
+                }
+
+                if (wordData.words.length === 0) {
+                    throw new Error('Word database is empty');
+                }
+
+                // Initialize solver (convert to uppercase)
+                window.solver = new WordleSolver(
+                    wordData.words.map(w => w.toUpperCase().trim())
+                );
+
+                // <p class="font-semibold mb-2">Word database loaded successfully!</p>
+                // <p class="text-sm text-gray-600">Loaded ${wordData.words.length} words</p>
+                // Show success status
+                suggestionsList.innerHTML = `
+                    <div class="text-green-600 text-center col-span-full py-8">
+                        
+                        <p class="text-sm text-gray-600 mt-2">Enter your guesses and click "Get Suggestions" for recommendations</p>
+                    </div>
+                `;
+
+            } catch (error) {
+                console.error('Initialization failed:', error);
+                showError(`Failed to load word database: ${error.message}<br><br>Please check your internet connection or refresh the page`);
             }
         });
     </script>
