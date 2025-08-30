@@ -28,7 +28,7 @@
     "background_color": "#ffffff",
     "display": "standalone",
     "orientation": "portrait",
-    "start_url": "/",
-    "scope": "/",
+    "start_url": "https://wordlesolver.best/",
+    "scope": "https://wordlesolver.best/",
     "categories": ["games", "education", "utilities"]
 }

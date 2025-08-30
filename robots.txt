@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://wordlesolver.best/sitemap.xml
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block unnecessary pages from crawling
+User-agent: *
+Disallow: /generate-favicons.html
+Disallow: /about.html
+Disallow: /contact.html
+Disallow: /privacy-policy.html
+Disallow: /terms-of-service.html
+
+# Crawl delay (optional - adjust based on server capacity)
+Crawl-delay: 1
