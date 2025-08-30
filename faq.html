@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Wordle Solver</title>    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta name="description" content="Frequently asked questions about our Wordle solver tool. Learn how to use it effectively and get answers to common questions.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="FAQ - Wordle Solver">
+    <meta property="og:description" content="Frequently asked questions about our Wordle solver tool and how to use it effectively.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordlesolver.com/faq">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom styles for FAQ accordion */
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer.open {
+            max-height: 500px;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-icon.rotate {
+            transform: rotate(180deg);
+        }
+        
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 1.75rem;
+                line-height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Brand -->                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-green-600 font-semibold border-b-2 border-green-600">FAQ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-green-600 font-semibold py-2 px-4 rounded bg-green-50">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="hero-text text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Find answers to common questions about using our Wordle solver tool.
+            </p>
+        </div>
+
+        <!-- FAQ Sections -->
+        <div class="space-y-8">
+            <!-- Getting Started -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Getting Started</h2>
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item border-b border-gray-200 pb-4">
+                        <button onclick="toggleFAQ(this)" class="w-full text-left flex justify-between items-center py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900">How do I use the Wordle Solver?</h3>
+                            <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="pt-4 text-gray-700">
+                                <p class="mb-3">Using our Wordle Solver is simple:</p>
+                                <ol class="list-decimal list-inside space-y-2">
+                                    <li>Enter the 5-letter words you've already guessed in Wordle</li>
+                                    <li>Click each letter tile to set its color based on Wordle's feedback</li>
+                                    <li>Green = correct letter in correct position</li>
+                                    <li>Yellow = correct letter in wrong position</li>
+                                    <li>Gray = letter not in the word</li>
+                                    <li>Click "Get Suggestions" to see the best possible words</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item border-b border-gray-200 pb-4">
+                        <button onclick="toggleFAQ(this)" class="w-full text-left flex justify-between items-center py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900">What do the colors mean?</h3>
+                            <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="pt-4 text-gray-700">
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <div class="w-6 h-6 bg-wordle-correct rounded mr-3"></div>
+                                        <span><strong>Green:</strong> The letter is in the word and in the correct position</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-6 h-6 bg-wordle-present rounded mr-3"></div>
+                                        <span><strong>Yellow:</strong> The letter is in the word but in the wrong position</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-6 h-6 bg-wordle-absent rounded mr-3"></div>
+                                        <span><strong>Gray:</strong> The letter is not in the word at all</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(this)" class="w-full text-left flex justify-between items-center py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900">Can I use this tool for free?</h3>
+                            <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="pt-4 text-gray-700">
+                                <p>Yes! Our Wordle Solver is completely free to use. No registration, no hidden fees, no premium features. We believe everyone should have access to helpful tools for enjoying word games.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Questions -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Technical Questions</h2>
+                <div class="space-y-4">
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item border-b border-gray-200 pb-4">
+                        <button onclick="toggleFAQ(this)" class="w-full text-left flex justify-between items-center py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900">How accurate are the word suggestions?</h3>
+                            <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="pt-4 text-gray-700">
+                                <p>Our suggestions are highly accurate because we use the official Wordle word database and advanced filtering algorithms. The tool eliminates impossible words based on your feedback and ranks remaining possibilities by letter frequency and common usage patterns.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item border-b border-gray-200 pb-4">
+                        <button onclick="toggleFAQ(this)" class="w-full text-left flex justify-between items-center py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900">What if I enter an invalid word?</h3>
+                            <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="pt-4 text-gray-700">
+                                <p>The tool will alert you if you enter an invalid word. We validate against our database of 969+ official English words. Make sure you're entering real 5-letter English words that would be accepted in Wordle.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(this)" class="w-full text-left flex justify-between items-center py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900">Does this work on mobile devices?</h3>
+                            <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="pt-4 text-gray-700">
+                                <p>Absolutely! Our Wordle Solver is fully responsive and optimized for mobile devices. You can use it on your phone, tablet, or desktop with the same great experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Strategy Questions -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Strategy & Tips</h2>
+                <div class="space-y-4">
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item border-b border-gray-200 pb-4">
+                        <button onclick="toggleFAQ(this)" class="w-full text-left flex justify-between items-center py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900">What are the best starting words?</h3>
+                            <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="pt-4 text-gray-700">
+                                <p class="mb-3">Great starting words contain common vowels and consonants. Some popular choices include:</p>
+                                <ul class="list-disc list-inside space-y-1">
+                                    <li><strong>SLATE</strong> - Contains common letters S, L, A, T, E</li>
+                                    <li><strong>ADIEU</strong> - Contains four vowels A, I, E, U</li>
+                                    <li><strong>AROSE</strong> - Good mix of vowels and consonants</li>
+                                    <li><strong>AUDIO</strong> - Contains four vowels A, U, I, O</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item">
+                        <button onclick="toggleFAQ(this)" class="w-full text-left flex justify-between items-center py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900">Should I use the solver for every guess?</h3>
+                            <svg class="faq-icon w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="pt-4 text-gray-700">
+                                <p>We recommend using the solver as a learning tool. Try solving on your own first, then use our tool when you're stuck or want to verify your strategy. This helps you improve your own word-solving skills while still enjoying the game.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto"></div>
+                <p class="text-gray-400 mb-4">Your intelligent Wordle solving companion</p>
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="how-to-play.html" class="text-gray-400 hover:text-white transition-colors">How to Play</a>
+                    <a href="tips-tricks.html" class="text-gray-400 hover:text-white transition-colors">Tips & Tricks</a>
+                    <a href="word-lists.html" class="text-gray-400 hover:text-white transition-colors">Word Lists</a>
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms</a>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wordle Solver. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleFAQ(button) {
+            const answer = button.nextElementSibling;
+            const icon = button.querySelector('.faq-icon');
+            
+            answer.classList.toggle('open');
+            icon.classList.toggle('rotate');
+        }
+    </script>
+</body>
+</html>

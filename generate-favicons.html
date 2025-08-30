@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 20px;
+            background: #f3f4f6;
+        }
+        .favicon-preview {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .favicon-item {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .favicon-item h3 {
+            margin: 10px 0 5px 0;
+            font-size: 14px;
+            color: #374151;
+        }
+        .favicon-item p {
+            margin: 0;
+            font-size: 12px;
+            color: #6b7280;
+        }
+        canvas {
+            border: 1px solid #e5e7eb;
+            border-radius: 4px;
+        }
+        .download-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        .download-btn:hover {
+            background: #059669;
+        }
+        .instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="instructions">
+        <h1>Wordle Solver Favicon Generator</h1>
+        <p>This tool generates different sizes of favicons for your Wordle Solver website. Click the download buttons to save each size.</p>
+    </div>
+
+    <div class="favicon-preview" id="faviconPreview">
+        <!-- Favicons will be generated here -->
+    </div>
+
+    <script>
+        // Favicon design function
+        function drawFavicon(canvas, size) {
+            const ctx = canvas.getContext('2d');
+            canvas.width = size;
+            canvas.height = size;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, size, size);
+            
+            // Create gradient background
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#10b981');
+            gradient.addColorStop(1, '#059669');
+            
+            // Draw background with rounded corners
+            const radius = size * 0.15;
+            ctx.fillStyle = gradient;
+            ctx.beginPath();
+            ctx.roundRect(0, 0, size, size, radius);
+            ctx.fill();
+            
+            // Draw grid
+            const gridSize = size * 0.75;
+            const startX = (size - gridSize) / 2;
+            const startY = (size - gridSize) / 2;
+            const tileSize = gridSize / 3;
+            const tileRadius = tileSize * 0.1;
+            
+            // Grid pattern
+            const pattern = [
+                [0.9, 0.7, 0.9],
+                [0.8, 1.0, 0.6],
+                [0.7, 0.9, 0.8]
+            ];
+            
+            for (let row = 0; row < 3; row++) {
+                for (let col = 0; col < 3; col++) {
+                    const x = startX + col * tileSize + tileSize * 0.1;
+                    const y = startY + row * tileSize + tileSize * 0.1;
+                    const w = tileSize * 0.8;
+                    const h = tileSize * 0.8;
+                    
+                    if (row === 1 && col === 1) {
+                        // Center tile - special color
+                        ctx.fillStyle = '#fbbf24';
+                    } else {
+                        ctx.fillStyle = `rgba(255, 255, 255, ${pattern[row][col]})`;
+                    }
+                    
+                    ctx.beginPath();
+                    ctx.roundRect(x, y, w, h, tileRadius);
+                    ctx.fill();
+                }
+            }
+            
+            // Draw W in center for larger sizes
+            if (size >= 16) {
+                ctx.fillStyle = '#047857';
+                const fontSize = size >= 32 ? size * 0.3 : size * 0.35;
+                ctx.font = `900 ${fontSize}px system-ui, -apple-system, sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('W', size / 2, size / 2);
+            }
+        }
+        
+        // Generate favicons
+        function generateFavicons() {
+            const sizes = [
+                { size: 16, name: 'favicon-16x16.png', desc: 'Browser tab' },
+                { size: 32, name: 'favicon-32x32.png', desc: 'Browser tab (retina)' },
+                { size: 48, name: 'favicon-48x48.png', desc: 'Windows taskbar' },
+                { size: 64, name: 'favicon-64x64.png', desc: 'Windows desktop' },
+                { size: 128, name: 'favicon-128x128.png', desc: 'Chrome Web Store' },
+                { size: 180, name: 'apple-touch-icon.png', desc: 'iOS home screen' },
+                { size: 192, name: 'android-chrome-192x192.png', desc: 'Android home screen' },
+                { size: 512, name: 'android-chrome-512x512.png', desc: 'Android splash screen' }
+            ];
+            
+            const container = document.getElementById('faviconPreview');
+            
+            sizes.forEach(({ size, name, desc }) => {
+                const item = document.createElement('div');
+                item.className = 'favicon-item';
+                
+                const canvas = document.createElement('canvas');
+                drawFavicon(canvas, size);
+                
+                const title = document.createElement('h3');
+                title.textContent = `${size}x${size}`;
+                
+                const description = document.createElement('p');
+                description.textContent = desc;
+                
+                const downloadBtn = document.createElement('button');
+                downloadBtn.className = 'download-btn';
+                downloadBtn.textContent = `Download ${name}`;
+                downloadBtn.onclick = () => downloadCanvas(canvas, name);
+                
+                item.appendChild(canvas);
+                item.appendChild(title);
+                item.appendChild(description);
+                item.appendChild(downloadBtn);
+                
+                container.appendChild(item);
+            });
+        }
+        
+        // Download canvas as PNG
+        function downloadCanvas(canvas, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Add roundRect polyfill for older browsers
+        if (!CanvasRenderingContext2D.prototype.roundRect) {
+            CanvasRenderingContext2D.prototype.roundRect = function(x, y, width, height, radius) {
+                this.moveTo(x + radius, y);
+                this.lineTo(x + width - radius, y);
+                this.quadraticCurveTo(x + width, y, x + width, y + radius);
+                this.lineTo(x + width, y + height - radius);
+                this.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                this.lineTo(x + radius, y + height);
+                this.quadraticCurveTo(x, y + height, x, y + height - radius);
+                this.lineTo(x, y + radius);
+                this.quadraticCurveTo(x, y, x + radius, y);
+                this.closePath();
+            };
+        }
+        
+        // Generate favicons when page loads
+        generateFavicons();
+    </script>
+</body>
+</html>

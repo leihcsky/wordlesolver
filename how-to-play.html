@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Play Wordle - Complete Guide | Wordle Solver</title>    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta name="description" content="Learn how to play Wordle with our complete guide. Understand the rules, strategies, and tips to improve your Wordle game.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="How to Play Wordle - Complete Guide">
+    <meta property="og:description" content="Master Wordle with our comprehensive guide covering rules, strategies, and expert tips.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordlesolver.com/how-to-play">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 1.75rem;
+                line-height: 2rem;
+            }
+            .demo-tile {
+                width: 2.5rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+        }
+        
+        .demo-tile {
+            width: 3rem;
+            height: 3rem;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Brand -->                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="hero-text text-3xl sm:text-4xl font-bold text-gray-900 mb-6">How to Play Wordle</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Master the world's most popular word puzzle game with our comprehensive guide and strategies.
+            </p>
+        </div>
+
+        <!-- Game Rules -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Game Rules</h2>
+            <div class="prose prose-lg max-w-none text-gray-700">
+                <p class="mb-4">Wordle is a daily word puzzle game where you have <strong>6 attempts</strong> to guess a <strong>5-letter word</strong>.</p>
+                
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Basic Rules:</h3>
+                <ul class="list-disc list-inside space-y-2 mb-6">
+                    <li>Each guess must be a valid 5-letter English word</li>
+                    <li>You have exactly 6 attempts to find the correct word</li>
+                    <li>After each guess, the tiles change color to give you clues</li>
+                    <li>There's only one puzzle per day, and everyone gets the same word</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Color System -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Understanding the Colors</h2>
+            
+            <!-- Demo Example -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Example: Guessing "SLATE"</h3>
+                <div class="flex justify-center space-x-2 mb-6">
+                    <div class="demo-tile bg-wordle-absent text-white font-bold rounded flex items-center justify-center">S</div>
+                    <div class="demo-tile bg-wordle-absent text-white font-bold rounded flex items-center justify-center">L</div>
+                    <div class="demo-tile bg-wordle-present text-white font-bold rounded flex items-center justify-center">A</div>
+                    <div class="demo-tile bg-wordle-absent text-white font-bold rounded flex items-center justify-center">T</div>
+                    <div class="demo-tile bg-wordle-correct text-white font-bold rounded flex items-center justify-center">E</div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="w-8 h-8 bg-wordle-correct rounded mx-auto mb-2"></div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Green - Correct</h4>
+                        <p class="text-sm text-gray-600">Letter E is in the word and in the right position (position 5)</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="w-8 h-8 bg-wordle-present rounded mx-auto mb-2"></div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Yellow - Wrong Position</h4>
+                        <p class="text-sm text-gray-600">Letter A is in the word but not in position 3</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="w-8 h-8 bg-wordle-absent rounded mx-auto mb-2"></div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Gray - Not in Word</h4>
+                        <p class="text-sm text-gray-600">Letters S, L, T are not in the target word at all</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategies -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Winning Strategies</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Best Starting Words</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded font-mono font-bold mr-3">SLATE</span>
+                            <span class="text-sm">Common letters, good vowel coverage</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded font-mono font-bold mr-3">ADIEU</span>
+                            <span class="text-sm">Four vowels, excellent for elimination</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded font-mono font-bold mr-3">AROSE</span>
+                            <span class="text-sm">Balanced mix of vowels and consonants</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded font-mono font-bold mr-3">AUDIO</span>
+                            <span class="text-sm">Four vowels, great for vowel discovery</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Pro Tips</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Start with words containing common vowels (A, E, I, O, U)</li>
+                        <li>Use frequent consonants like R, S, T, L, N in early guesses</li>
+                        <li>Avoid repeating letters in your first few guesses</li>
+                        <li>Pay attention to letter frequency in English</li>
+                        <li>Use elimination strategy - rule out impossible letters</li>
+                        <li>Consider word patterns and common endings</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Start Guide -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Quick Start Guide</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-blue-600">1</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Enter Your Guess</h3>
+                    <p class="text-sm text-gray-600">Type a 5-letter English word</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-green-600">2</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Check the Colors</h3>
+                    <p class="text-sm text-gray-600">See which letters are correct</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-yellow-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-yellow-600">3</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Use the Clues</h3>
+                    <p class="text-sm text-gray-600">Apply color feedback to next guess</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-purple-600">4</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-900 mb-2">Solve in 6 Tries</h3>
+                    <p class="text-sm text-gray-600">Find the word within 6 attempts</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto"></div>
+                <p class="text-gray-400 mb-4">Your intelligent Wordle solving companion</p>
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="tips-tricks.html" class="text-gray-400 hover:text-white transition-colors">Tips & Tricks</a>
+                    <a href="word-lists.html" class="text-gray-400 hover:text-white transition-colors">Word Lists</a>
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms</a>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wordle Solver. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

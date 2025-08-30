@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Word Lists - Best Starting Words | Wordle Solver</title>    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta name="description" content="Discover the best Wordle starting words, common 5-letter words, and curated word lists to improve your Wordle strategy.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Wordle Word Lists - Best Starting Words">
+    <meta property="og:description" content="Discover the best Wordle starting words and curated word lists to improve your strategy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordlesolver.com/word-lists">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 1.75rem;
+                line-height: 2rem;
+            }
+        }
+        
+        .word-tag {
+            transition: all 0.2s ease;
+        }
+        
+        .word-tag:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Brand -->                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="hero-text text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Wordle Word Lists</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Curated collections of the best words for different Wordle strategies and situations.
+            </p>
+        </div>
+
+        <!-- Best Starting Words -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Best Starting Words</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Top Vowel-Rich Starters</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <span class="word-tag bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">ADIEU</span>
+                        <span class="word-tag bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">AUDIO</span>
+                        <span class="word-tag bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">OUIJA</span>
+                        <span class="word-tag bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">AROSE</span>
+                        <span class="word-tag bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">RAISE</span>
+                        <span class="word-tag bg-green-100 text-green-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">AISLE</span>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Top Consonant-Rich Starters</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <span class="word-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">SLATE</span>
+                        <span class="word-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">STERN</span>
+                        <span class="word-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">STARE</span>
+                        <span class="word-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">SNORT</span>
+                        <span class="word-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">CLAMP</span>
+                        <span class="word-tag bg-blue-100 text-blue-800 px-4 py-2 rounded-lg text-center font-bold cursor-pointer">CREPT</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Word Categories -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Words by Category</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Common Endings</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Words ending in -ED</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="word-tag bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm font-bold">BAKED</span>
+                                <span class="word-tag bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm font-bold">CARED</span>
+                                <span class="word-tag bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm font-bold">DARED</span>
+                                <span class="word-tag bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm font-bold">FACED</span>
+                                <span class="word-tag bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm font-bold">HOPED</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Words ending in -ER</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="word-tag bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm font-bold">BAKER</span>
+                                <span class="word-tag bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm font-bold">CIDER</span>
+                                <span class="word-tag bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm font-bold">ELDER</span>
+                                <span class="word-tag bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm font-bold">FIBER</span>
+                                <span class="word-tag bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm font-bold">GAMER</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Double Letters</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Double L</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="word-tag bg-red-100 text-red-800 px-3 py-1 rounded text-sm font-bold">ALLEY</span>
+                                <span class="word-tag bg-red-100 text-red-800 px-3 py-1 rounded text-sm font-bold">BELLY</span>
+                                <span class="word-tag bg-red-100 text-red-800 px-3 py-1 rounded text-sm font-bold">DWELL</span>
+                                <span class="word-tag bg-red-100 text-red-800 px-3 py-1 rounded text-sm font-bold">HELLO</span>
+                                <span class="word-tag bg-red-100 text-red-800 px-3 py-1 rounded text-sm font-bold">SILLY</span>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-2">Double S</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="word-tag bg-teal-100 text-teal-800 px-3 py-1 rounded text-sm font-bold">BLISS</span>
+                                <span class="word-tag bg-teal-100 text-teal-800 px-3 py-1 rounded text-sm font-bold">CLASS</span>
+                                <span class="word-tag bg-teal-100 text-teal-800 px-3 py-1 rounded text-sm font-bold">DRESS</span>
+                                <span class="word-tag bg-teal-100 text-teal-800 px-3 py-1 rounded text-sm font-bold">GLASS</span>
+                                <span class="word-tag bg-teal-100 text-teal-800 px-3 py-1 rounded text-sm font-bold">PRESS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Word Statistics -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Word Database Statistics</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="text-center bg-gray-50 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-green-600 mb-2">969</div>
+                    <div class="text-sm text-gray-600">Total Valid Words</div>
+                </div>
+                <div class="text-center bg-gray-50 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-blue-600 mb-2">26</div>
+                    <div class="text-sm text-gray-600">Letters Available</div>
+                </div>
+                <div class="text-center bg-gray-50 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-purple-600 mb-2">5</div>
+                    <div class="text-sm text-gray-600">Letters Per Word</div>
+                </div>
+                <div class="text-center bg-gray-50 p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-orange-600 mb-2">6</div>
+                    <div class="text-sm text-gray-600">Maximum Attempts</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto"></div>
+                <p class="text-gray-400 mb-4">Your intelligent Wordle solving companion</p>
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="how-to-play.html" class="text-gray-400 hover:text-white transition-colors">How to Play</a>
+                    <a href="tips-tricks.html" class="text-gray-400 hover:text-white transition-colors">Tips & Tricks</a>
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms</a>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wordle Solver. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Add click functionality to word tags
+        document.addEventListener('DOMContentLoaded', function() {
+            const wordTags = document.querySelectorAll('.word-tag');
+            wordTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    const word = this.textContent;
+                    // Copy to clipboard
+                    navigator.clipboard.writeText(word).then(() => {
+                        // Show temporary feedback
+                        const original = this.textContent;
+                        this.textContent = 'Copied!';
+                        setTimeout(() => {
+                            this.textContent = original;
+                        }, 1000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

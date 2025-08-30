@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Wordle Solver</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta name="description" content="Learn about our free Wordle solver tool and how we help players solve daily Wordle puzzles with intelligent word suggestions.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="About Us - Wordle Solver">
+    <meta property="og:description" content="Learn about our free Wordle solver tool and how we help players solve daily Wordle puzzles.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordlesolver.com/about">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom styles for better mobile experience */
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 1.75rem;
+                line-height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-green-600 font-semibold border-b-2 border-green-600">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="about.html" class="text-green-600 font-semibold py-2 px-4 rounded bg-green-50">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="hero-text text-3xl sm:text-4xl font-bold text-gray-900 mb-6">About Wordle Solver</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Your intelligent companion for solving daily Wordle puzzles with strategic word suggestions and advanced analysis.
+            </p>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="space-y-12">
+            <!-- Our Mission -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Our Mission</h2>
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <p class="mb-4">
+                        We created Wordle Solver to help players enjoy the popular word puzzle game while learning new vocabulary and improving their word-solving strategies. Our tool is designed to be educational, helpful, and completely free to use.
+                    </p>
+                    <p class="mb-4">
+                        Whether you're stuck on a particularly challenging puzzle or want to learn better starting words and strategies, our solver provides intelligent suggestions based on proven algorithms and extensive word analysis.
+                    </p>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">How Our Solver Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Smart Analysis</h3>
+                        <p class="text-gray-700 mb-4">
+                            Our algorithm analyzes your previous guesses and their color feedback to eliminate impossible words and prioritize the most likely solutions.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Processes green letters (correct position)</li>
+                            <li>Handles yellow letters (wrong position)</li>
+                            <li>Eliminates gray letters (not in word)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">Comprehensive Database</h3>
+                        <p class="text-gray-700 mb-4">
+                            We use a curated database of 969+ valid 5-letter English words, including all official Wordle answers and common vocabulary.
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Official Wordle word list</li>
+                            <li>Common English vocabulary</li>
+                            <li>Regularly updated database</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Values -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Our Values</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Educational</h3>
+                        <p class="text-gray-600 text-sm">Help players learn new words and improve their vocabulary while having fun.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Free & Secure</h3>
+                        <p class="text-gray-600 text-sm">Completely free to use with no registration required. Your data stays private.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Fast & Accurate</h3>
+                        <p class="text-gray-600 text-sm">Get instant, accurate word suggestions based on advanced algorithms.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
+                </div>
+                <p class="text-gray-400 mb-4">Your intelligent Wordle solving companion</p>
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="how-to-play.html" class="text-gray-400 hover:text-white transition-colors">How to Play</a>
+                    <a href="tips-tricks.html" class="text-gray-400 hover:text-white transition-colors">Tips & Tricks</a>
+                    <a href="word-lists.html" class="text-gray-400 hover:text-white transition-colors">Word Lists</a>
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms</a>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wordle Solver. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

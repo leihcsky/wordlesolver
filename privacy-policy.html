@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Wordle Solver</title>    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta name="description" content="Read our privacy policy to understand how we protect your data and privacy while using our free Wordle solver tool.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Privacy Policy - Wordle Solver">
+    <meta property="og:description" content="Our commitment to protecting your privacy and data while using our Wordle solver.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordlesolver.com/privacy-policy">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 1.75rem;
+                line-height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Brand -->                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="hero-text text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Your privacy is important to us. Learn how we protect your data and respect your privacy.
+            </p>
+            <p class="text-sm text-gray-500 mt-4">Last updated: August 29, 2025</p>
+        </div>
+
+        <!-- Privacy Content -->
+        <div class="space-y-8">
+            <!-- Data Collection -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Information We Collect</h2>
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <p class="mb-4">We are committed to protecting your privacy. Our Wordle Solver tool is designed with privacy in mind:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>No Personal Data:</strong> We do not collect, store, or process any personal information</li>
+                        <li><strong>No Registration Required:</strong> You can use our tool without creating an account</li>
+                        <li><strong>Local Processing:</strong> All word solving happens in your browser</li>
+                        <li><strong>No Tracking:</strong> We do not track your usage patterns or game history</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Data Usage -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">How We Use Information</h2>
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <p class="mb-4">Since we don't collect personal data, there's minimal information usage:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Technical Data:</strong> Basic server logs for security and performance (IP addresses, browser type)</li>
+                        <li><strong>Anonymous Analytics:</strong> General usage statistics to improve the tool (no personal identification)</li>
+                        <li><strong>Error Reporting:</strong> Automatic error logs to fix bugs and improve functionality</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Cookies -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Cookies and Local Storage</h2>
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <p class="mb-4">We use minimal cookies and local storage:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>Essential Cookies:</strong> Required for basic website functionality</li>
+                        <li><strong>No Tracking Cookies:</strong> We do not use advertising or tracking cookies</li>
+                        <li><strong>Local Storage:</strong> May store game preferences locally in your browser</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Third Parties -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Third-Party Services</h2>
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <p class="mb-4">We use minimal third-party services:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li><strong>CDN Services:</strong> For faster loading of CSS and JavaScript files</li>
+                        <li><strong>Web Hosting:</strong> Standard web hosting services with security measures</li>
+                        <li><strong>No Analytics:</strong> We do not use Google Analytics or similar tracking services</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Contact -->
+            <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                <div class="prose prose-lg max-w-none text-gray-700">
+                    <p class="mb-4">If you have any questions about this Privacy Policy, please contact us:</p>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>Email: privacy@wordlesolver.com</li>
+                        <li>Contact Form: <a href="contact.html" class="text-green-600 hover:text-green-700">Contact Us page</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto"></div>
+                <p class="text-gray-400 mb-4">Your intelligent Wordle solving companion</p>
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="how-to-play.html" class="text-gray-400 hover:text-white transition-colors">How to Play</a>
+                    <a href="word-lists.html" class="text-gray-400 hover:text-white transition-colors">Word Lists</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms</a>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wordle Solver. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

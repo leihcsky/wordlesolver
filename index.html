@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle Solver - Free Online Tool to Solve Daily Wordle Puzzles</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="assets/site.webmanifest">
     <meta name="description" content="Free Wordle solver tool to help you solve daily Wordle puzzles. Get word suggestions based on your guesses and solve Wordle faster with our intelligent word finder.">
     <meta name="keywords" content="wordle solver, wordle helper, wordle cheat, word finder, 5 letter words, wordle game, word puzzle solver">
     <link rel="canonical" href="https://wordlesolver.com">
@@ -158,16 +165,34 @@
             <div class="flex justify-between items-center h-16">
                 <!-- Logo and Brand -->
                 <div class="flex items-center space-x-3">
-                    <div class="bg-green-500 text-white rounded-lg p-2 font-bold text-xl">W</div>
-                    <h1 class="text-2xl font-bold text-gray-900">Wordle Solver</h1>
+                    <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
                 </div>
                 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
-                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
-                    <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
+            </div>
                 
                 <!-- Mobile Menu Button -->
                 <button class="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900">
@@ -184,9 +209,29 @@
         <!-- Hero Section -->
         <div class="text-center mb-8 sm:mb-12">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Free Wordle Solver Tool</h2>
-            <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
+            <p class="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4 mb-6">
                 Struggling with today's Wordle puzzle? Our intelligent Wordle solver analyzes your guesses and provides the best possible word suggestions to help you solve the puzzle faster.
             </p>
+
+            <!-- Call-to-Action with Official Wordle Link -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-2xl mx-auto px-4">
+                <div class="flex items-center text-sm text-gray-500">
+                    <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.102m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                    </svg>
+                    <span>Haven't played today's puzzle yet?</span>
+                </div>
+                <a href="https://www.nytimes.com/games/wordle/index.html"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors shadow-sm">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                    Play Official Wordle
+                    <span class="ml-1 text-xs opacity-75">NYTimes</span>
+                </a>
+            </div>
         </div>
 
         <!-- Game Interface -->
@@ -412,37 +457,36 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="bg-green-500 text-white rounded-lg p-2 font-bold text-xl">W</div>
-                        <span class="text-xl font-bold">Wordle Solver</span>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
                     </div>
                     <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-white transition-colors">How to Play Wordle</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Word Lists</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Tips & Tricks</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Daily Solutions</a></li>
+                        <li><a href="how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
+                        <li><a href="word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
+                        <li><a href="tips-tricks.html" class="hover:text-white transition-colors">Tips & Tricks</a></li>
+                        <li><a href="index.html" class="hover:text-white transition-colors">Solver Tool</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Support</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Report Bug</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Feature Request</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Feature Request</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Legal</h3>
                     <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Disclaimer</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
@@ -1050,6 +1094,12 @@
                 event.target.blur();
             }
         });
+
+        // Mobile menu toggle function
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
 
         // Initialize page to prevent focus issues
         document.addEventListener('DOMContentLoaded', async () => {

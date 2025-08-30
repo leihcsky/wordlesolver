@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Tips & Tricks - Expert Strategies | Wordle Solver</title>    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <meta name="description" content="Master Wordle with expert tips and tricks. Learn advanced strategies, best starting words, and proven techniques to improve your success rate.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Wordle Tips & Tricks - Expert Strategies">
+    <meta property="og:description" content="Master Wordle with expert tips, advanced strategies, and proven techniques.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordlesolver.com/tips-tricks">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 1.75rem;
+                line-height: 2rem;
+            }
+        }
+        
+        .tip-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Brand -->                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="hero-text text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Wordle Tips & Tricks</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Elevate your Wordle game with expert strategies, proven techniques, and insider tips from seasoned players.
+            </p>
+        </div>
+
+        <!-- Expert Tips Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- Tip 1 -->
+            <div class="tip-card bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-green-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Start with Vowels</h3>
+                <p class="text-gray-600 text-sm">Begin with words containing multiple vowels like ADIEU or AUDIO to quickly identify which vowels are in the target word.</p>
+            </div>
+
+            <!-- Tip 2 -->
+            <div class="tip-card bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-blue-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Use Common Letters</h3>
+                <p class="text-gray-600 text-sm">Focus on frequently used letters: E, T, A, O, I, N, S, H, R. These appear in most English words.</p>
+            </div>
+
+            <!-- Tip 3 -->
+            <div class="tip-card bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-purple-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Avoid Repeats Early</h3>
+                <p class="text-gray-600 text-sm">Don't use words with repeated letters in your first 2-3 guesses. Maximize information gathering.</p>
+            </div>
+
+            <!-- Tip 4 -->
+            <div class="tip-card bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-yellow-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Think Patterns</h3>
+                <p class="text-gray-600 text-sm">Consider common word patterns like -ING, -ED, -ER endings, or consonant clusters like TH, CH, ST.</p>
+            </div>
+
+            <!-- Tip 5 -->
+            <div class="tip-card bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-red-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Eliminate Wisely</h3>
+                <p class="text-gray-600 text-sm">Use gray letters to your advantage. Avoid words containing letters you know aren't in the target.</p>
+            </div>
+
+            <!-- Tip 6 -->
+            <div class="tip-card bg-white rounded-lg shadow-lg p-6">
+                <div class="bg-indigo-100 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-3">Position Strategy</h3>
+                <p class="text-gray-600 text-sm">When you get yellow letters, try them in different positions. Use process of elimination for placement.</p>
+            </div>
+        </div>
+
+        <!-- Advanced Strategies -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8 mb-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Advanced Strategies</h2>
+            <div class="space-y-6">
+                <div class="border-l-4 border-green-500 pl-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">The Two-Word Strategy</h3>
+                    <p class="text-gray-700 mb-3">Use your first two guesses to test 10 different letters:</p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="font-mono text-lg mb-2"><span class="bg-green-100 px-2 py-1 rounded">SLATE</span> + <span class="bg-blue-100 px-2 py-1 rounded">ROUND</span></p>
+                        <p class="text-sm text-gray-600">This combination tests S,L,A,T,E,R,O,U,N,D - covering most common letters</p>
+                    </div>
+                </div>
+                
+                <div class="border-l-4 border-blue-500 pl-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Letter Frequency Analysis</h3>
+                    <p class="text-gray-700 mb-3">Most common letters in 5-letter words (in order):</p>
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+                        <span class="bg-green-100 text-green-800 px-3 py-2 rounded text-center font-bold">E</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-2 rounded text-center font-bold">A</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-2 rounded text-center font-bold">R</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-2 rounded text-center font-bold">I</span>
+                        <span class="bg-green-100 text-green-800 px-3 py-2 rounded text-center font-bold">O</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-2 rounded text-center font-bold">T</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-2 rounded text-center font-bold">N</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-2 rounded text-center font-bold">S</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-2 rounded text-center font-bold">L</span>
+                        <span class="bg-blue-100 text-blue-800 px-3 py-2 rounded text-center font-bold">C</span>
+                    </div>
+                </div>
+                
+                <div class="border-l-4 border-purple-500 pl-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Hard Mode Strategy</h3>
+                    <p class="text-gray-700 mb-3">In Hard Mode, you must use revealed hints in subsequent guesses:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Green letters must stay in the same position</li>
+                        <li>Yellow letters must be used but in different positions</li>
+                        <li>Plan your guesses more carefully to avoid dead ends</li>
+                        <li>Consider using our solver to avoid impossible situations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Common Mistakes -->
+        <section class="bg-white rounded-lg shadow-lg p-6 sm:p-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Common Mistakes to Avoid</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-red-600 mb-4">❌ Don't Do This</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">•</span>
+                            <span>Using obscure words as starting guesses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">•</span>
+                            <span>Ignoring yellow letter position clues</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">•</span>
+                            <span>Reusing gray letters in subsequent guesses</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">•</span>
+                            <span>Panicking and making random guesses</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold text-green-600 mb-4">✅ Do This Instead</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">•</span>
+                            <span>Start with common, vowel-rich words</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">•</span>
+                            <span>Systematically test yellow letters in new positions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">•</span>
+                            <span>Build on confirmed green letters</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">•</span>
+                            <span>Take time to think through each guess</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-4">
+                    <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto"></div>
+                <p class="text-gray-400 mb-4">Your intelligent Wordle solving companion</p>
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="how-to-play.html" class="text-gray-400 hover:text-white transition-colors">How to Play</a>
+                    <a href="word-lists.html" class="text-gray-400 hover:text-white transition-colors">Word Lists</a>
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white transition-colors">Terms</a>
+                </div>
+                <div class="mt-6 pt-6 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">&copy; 2025 Wordle Solver. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
