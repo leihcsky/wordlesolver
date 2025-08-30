@@ -942,7 +942,21 @@
             console.log('Guess submitted - continue typing for next row');
         }
 
+        // Google Analytics event tracking
+        function trackEvent(action, category = 'Wordle Solver', label = '') {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    event_category: category,
+                    event_label: label,
+                    value: 1
+                });
+            }
+        }
+
         function getSuggestions() {
+            // Track tool usage
+            trackEvent('get_suggestions', 'Tool Usage', 'User requested word suggestions');
+
             // Check if solver is initialized
             if (!window.solver) {
                 showError('Word database is still loading, please try again in a moment');
@@ -1068,6 +1082,8 @@
         }
 
         function loadExample() {
+            // Track example loading
+            trackEvent('load_example', 'Tool Usage', 'User loaded example puzzle');
             resetGame();
 
             // 示例：第一次猜测 "SLATE"
@@ -1112,6 +1128,8 @@
         }
 
         function resetGame() {
+            // Track reset usage
+            trackEvent('reset_game', 'Tool Usage', 'User reset the game');
             currentTile = 0;
             selectedTile = null;
 
