@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Blog - Tips, Tricks & Strategies | Wordle Solver</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore our Wordle blog for expert tips, strategies, and guides to improve your Wordle game. Learn how to use our Wordle helper tool effectively.">
+    <meta name="keywords" content="wordle blog, wordle tips, wordle strategies, wordle helper, wordle guide, word game tips">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wordlesolver.best/blog">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wordlesolver.best/blog">
+    <meta property="og:title" content="Wordle Blog - Tips, Tricks & Strategies">
+    <meta property="og:description" content="Expert Wordle tips, strategies, and guides to help you master the daily puzzle game.">
+    <meta property="og:image" content="https://wordlesolver.best/assets/og-image.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://wordlesolver.best/blog">
+    <meta name="twitter:title" content="Wordle Blog - Tips, Tricks & Strategies">
+    <meta name="twitter:description" content="Expert Wordle tips, strategies, and guides to help you master the daily puzzle game.">
+    <meta name="twitter:image" content="https://wordlesolver.best/assets/twitter-card.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDK582NJ9N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TDK582NJ9N');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+    crossorigin="anonymous"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 1.75rem;
+                line-height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo and Brand -->
+                <div class="flex items-center space-x-3">
+                    <a href="index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="blog.html" class="text-green-600 font-semibold border-b-2 border-green-600">Blog</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="blog.html" class="text-green-600 font-semibold py-2 px-4 rounded bg-green-50">Blog</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center space-x-2 text-sm text-gray-500">
+                <li>
+                    <a href="index.html" class="hover:text-gray-700 transition-colors">Home</a>
+                </li>
+                <li>
+                    <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </li>
+                <li class="text-gray-900 font-medium" aria-current="page">Blog</li>
+            </ol>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Wordle Blog</h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                Expert tips, strategies, and guides to help you master Wordle and improve your word game skills
+            </p>
+        </div>
+
+        <!-- Quick Access to Solver Tool -->
+        <div class="bg-gradient-to-r from-green-50 to-blue-50 border-l-4 border-green-500 rounded-lg p-6 mb-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-start space-x-3">
+                    <svg class="w-6 h-6 text-green-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-1">Need Help with Today's Wordle?</h3>
+                        <p class="text-gray-600">Use our free AI-powered Wordle solver to get intelligent word suggestions instantly.</p>
+                    </div>
+                </div>
+                <a href="index.html" class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors shadow-md whitespace-nowrap">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    Use Solver Tool
+                </a>
+            </div>
+        </div>
+
+        <!-- Blog Articles Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Article Card 1 - Wordle Helper Guide -->
+            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/wordle-helper-guide.html'">
+                <div class="bg-gradient-to-br from-green-500 to-green-600 h-48 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <time datetime="2025-01-15">October 21, 2025</time>
+                        <span class="mx-2">•</span>
+                        <span>5 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-green-600 transition-colors">
+                        Complete Wordle Helper Guide: How to Use Our Solver Tool
+                    </h2>
+                    <p class="text-gray-600 mb-4 line-clamp-3">
+                        Learn how to use our free Wordle helper tool step-by-step. This comprehensive guide will show you exactly how to input your guesses, interpret color feedback, and get the best word suggestions to solve any Wordle puzzle quickly.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            Tutorial
+                        </span>
+                        <span class="text-green-600 font-semibold text-sm flex items-center">
+                            Read More
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article Card 2 - Best Starting Word -->
+            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/best-starting-word-wordle.html'">
+                <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-48 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <time datetime="2025-10-21">October 21, 2025</time>
+                        <span class="mx-2">•</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+                        Best Starting Word for Wordle: Expert Analysis & Strategy Guide
+                    </h2>
+                    <p class="text-gray-600 mb-4 line-clamp-3">
+                        Discover the optimal starting words for Wordle backed by data analysis. Learn which words statistically perform best, understand letter frequency, and choose the perfect opener for your playing style.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            Strategy
+                        </span>
+                        <span class="text-blue-600 font-semibold text-sm flex items-center">
+                            Read More
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Placeholder for future articles -->
+            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden opacity-60">
+                <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-200 text-gray-600">
+                            Coming Soon
+                        </span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">
+                        More Articles Coming Soon
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        We're working on more helpful guides and strategies to improve your Wordle game. Stay tuned!
+                    </p>
+                </div>
+            </article>
+
+            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden opacity-60">
+                <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-200 text-gray-600">
+                            Coming Soon
+                        </span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">
+                        More Articles Coming Soon
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        We're working on more helpful guides and strategies to improve your Wordle game. Stay tuned!
+                    </p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
+                    </div>
+                    <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
+                        <li><a href="word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
+                        <li><a href="tips-tricks.html" class="hover:text-white transition-colors">Tips & Tricks</a></li>
+                        <li><a href="index.html" class="hover:text-white transition-colors">Solver Tool</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Feature Request</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 <strong>Wordle Solver</strong> - Free AI-Powered Word Game Helper. All rights reserved.</p>
+                <p class="text-sm mt-2">Not affiliated with The New York Times or the official Wordle game. Wordle is a trademark of The New York Times Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
+

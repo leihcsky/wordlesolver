@@ -60,4 +60,28 @@
         <priority>0.6</priority>
     </url>
 
+    <!-- Blog - Content Hub -->
+    <url>
+        <loc>https://wordlesolver.best/blog.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Blog Article - Wordle Helper Guide -->
+    <url>
+        <loc>https://wordlesolver.best/blog/wordle-helper-guide.html</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog Article - Best Starting Word -->
+    <url>
+        <loc>https://wordlesolver.best/blog/best-starting-word-wordle.html</loc>
+        <lastmod>2025-10-21</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 </urlset>
