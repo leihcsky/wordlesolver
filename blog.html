@@ -164,7 +164,151 @@
 
         <!-- Blog Articles Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Article Card 1 - Wordle Today Oct 29 (Latest) -->
+            <!-- Article Card 1 - Wordle Letter Frequency (Latest - Nov 27) -->
+            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/wordle-letter-frequency-chart.html'">
+                <div class="bg-gradient-to-br from-teal-500 to-cyan-600 h-48 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <time datetime="2025-11-27">November 27, 2025</time>
+                        <span class="mx-2">•</span>
+                        <span>12 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-teal-600 transition-colors">
+                        Wordle Letter Frequency Chart (5-Letter Words) — Full Statistics & Heatmap
+                    </h2>
+                    <p class="text-gray-600 mb-4 line-clamp-3">
+                        Complete letter frequency data for Wordle's 5-letter words — position heatmaps, most/least common letters, and how to use this data to craft better guesses.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
+                            Data & Statistics
+                        </span>
+                        <span class="text-teal-600 font-semibold text-sm flex items-center">
+                            Read More
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article Card 2 - Wordle Hard Mode -->
+            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/wordle-hard-mode-explained.html'">
+                <div class="bg-gradient-to-br from-red-500 to-orange-600 h-48 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <time datetime="2025-11-27">November 27, 2025</time>
+                        <span class="mx-2">•</span>
+                        <span>9 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-red-600 transition-colors">
+                        Wordle Hard Mode Explained — Tips, Pros & Cons, and Winning Tactics
+                    </h2>
+                    <p class="text-gray-600 mb-4 line-clamp-3">
+                        What is Wordle Hard Mode and how does it change your strategy? Learn pros/cons, smart techniques to win in hard mode, and real examples to practice.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                            Challenge Mode
+                        </span>
+                        <span class="text-red-600 font-semibold text-sm flex items-center">
+                            Read More
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article Card 2 - Wordle Math & Entropy -->
+            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/wordle-math-entropy-strategy.html'">
+                <div class="bg-gradient-to-br from-blue-600 to-cyan-600 h-48 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <time datetime="2025-11-27">November 27, 2025</time>
+                        <span class="mx-2">•</span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-blue-600 transition-colors">
+                        The Math Behind Wordle — Entropy, Probability & Optimal Guessing
+                    </h2>
+                    <p class="text-gray-600 mb-4 line-clamp-3">
+                        Dive into the math behind optimal Wordle guessing: entropy, information theory, and probability. Practical examples show how algorithms pick the best next guess.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            Advanced Strategy
+                        </span>
+                        <span class="text-blue-600 font-semibold text-sm flex items-center">
+                            Read More
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article Card 2 - Wordle Solver vs Cheat -->
+            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/wordle-solver-vs-cheat.html'">
+                <div class="bg-gradient-to-br from-purple-500 to-indigo-600 h-48 flex items-center justify-center">
+                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center text-sm text-gray-500 mb-3">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                        <time datetime="2025-11-27">November 27, 2025</time>
+                        <span class="mx-2">•</span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3 hover:text-purple-600 transition-colors">
+                        Wordle Solver vs Cheat — Differences, Ethics & When to Use Each
+                    </h2>
+                    <p class="text-gray-600 mb-4 line-clamp-3">
+                        Learn the difference between Wordle solvers (assistive tools) and outright cheats, ethical considerations, and practical use cases for both.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+                            Ethics & Strategy
+                        </span>
+                        <span class="text-purple-600 font-semibold text-sm flex items-center">
+                            Read More
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Article Card 2 - Wordle Today Oct 29 -->
             <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/wordle-today-oct-29-1593.html'">
                 <div class="bg-gradient-to-br from-yellow-500 to-orange-600 h-48 flex items-center justify-center">
                     <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +344,7 @@
                 </div>
             </article>
 
-            <!-- Article Card 2 - Wordle Helper Guide -->
+            <!-- Article Card 3 - Wordle Helper Guide -->
             <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/wordle-helper-guide.html'">
                 <div class="bg-gradient-to-br from-green-500 to-green-600 h-48 flex items-center justify-center">
                     <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -236,7 +380,7 @@
                 </div>
             </article>
 
-            <!-- Article Card 3 - Best Starting Word -->
+            <!-- Article Card 4 - Best Starting Word -->
             <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer" onclick="window.location.href='blog/best-starting-word-wordle.html'">
                 <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-48 flex items-center justify-center">
                     <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -272,48 +416,7 @@
                 </div>
             </article>
 
-            <!-- Placeholder for future articles -->
-            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden opacity-60">
-                <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                    </svg>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center text-sm text-gray-500 mb-3">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-200 text-gray-600">
-                            Coming Soon
-                        </span>
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-3">
-                        More Articles Coming Soon
-                    </h2>
-                    <p class="text-gray-600 mb-4">
-                        We're working on more helpful guides and strategies to improve your Wordle game. Stay tuned!
-                    </p>
-                </div>
-            </article>
-
-            <article class="blog-card bg-white rounded-lg shadow-lg overflow-hidden opacity-60">
-                <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 flex items-center justify-center">
-                    <svg class="w-20 h-20 text-white opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                    </svg>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center text-sm text-gray-500 mb-3">
-                        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-200 text-gray-600">
-                            Coming Soon
-                        </span>
-                    </div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-3">
-                        More Articles Coming Soon
-                    </h2>
-                    <p class="text-gray-600 mb-4">
-                        We're working on more helpful guides and strategies to improve your Wordle game. Stay tuned!
-                    </p>
-                </div>
-            </article>
+            
         </div>
     </main>
 

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Math Behind Wordle — Entropy, Probability & Optimal Guessing | Wordle Solver</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="manifest" href="../assets/site.webmanifest">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Dive into the math behind optimal Wordle guessing: entropy, information theory, and probability. Practical examples show how algorithms pick the best next guess.">
+    <meta name="keywords" content="wordle math, entropy strategy, information theory, wordle algorithm, probability, optimal guessing, wordle solver">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wordlesolver.best/blog/wordle-math-entropy-strategy.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wordlesolver.best/blog/wordle-math-entropy-strategy.html">
+    <meta property="og:title" content="The Math Behind Wordle — Entropy, Probability & Optimal Guessing">
+    <meta property="og:description" content="Learn the mathematics behind optimal Wordle solving: entropy, information theory, and probability-based strategies.">
+    <meta property="og:image" content="https://wordlesolver.best/assets/og-image.png">
+    <meta property="article:published_time" content="2025-11-27T12:00:00Z">
+    <meta property="article:author" content="Wordle Solver Team">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://wordlesolver.best/blog/wordle-math-entropy-strategy.html">
+    <meta name="twitter:title" content="The Math Behind Wordle — Entropy, Probability & Optimal Guessing">
+    <meta name="twitter:description" content="Learn the mathematics behind optimal Wordle solving: entropy, information theory, and probability-based strategies.">
+    <meta name="twitter:image" content="https://wordlesolver.best/assets/twitter-card.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDK582NJ9N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TDK582NJ9N');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+    crossorigin="anonymous"></script>
+
+    <!-- Structured Data - Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Math Behind Wordle — Entropy, Probability & Optimal Guessing",
+        "description": "Dive into the math behind optimal Wordle guessing: entropy, information theory, and probability.",
+        "image": "https://wordlesolver.best/assets/og-image.png",
+        "datePublished": "2025-11-27T12:00:00Z",
+        "dateModified": "2025-11-27T12:00:00Z",
+        "author": {
+            "@type": "Organization",
+            "name": "Wordle Solver Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Wordle Solver",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://wordlesolver.best/assets/logo.svg"
+            }
+        }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .math-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f0fdf4 100%);
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-family: 'Courier New', monospace;
+        }
+        .code-block {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 16px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .comparison-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fce7f3 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        .visualization {
+            background-color: #f3f4f6;
+            border: 2px solid #d1d5db;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 16px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <a href="../index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="../assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../blog.html" class="text-green-600 font-semibold border-b-2 border-green-600">Blog</a>
+                    <a href="../about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="../contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="../faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="../blog.html" class="text-green-600 font-semibold py-2 px-4 rounded bg-green-50">Blog</a>
+                    <a href="../about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="../contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="../faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center space-x-2 text-sm text-gray-500">
+                <li><a href="../index.html" class="hover:text-gray-700 transition-colors">Home</a></li>
+                <li>
+                    <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </li>
+                <li><a href="../blog.html" class="hover:text-gray-700 transition-colors">Blog</a></li>
+                <li>
+                    <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </li>
+                <li class="text-gray-900 font-medium" aria-current="page">Wordle Math & Entropy</li>
+            </ol>
+        </nav>
+
+        <!-- Article Header -->
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-gradient-to-br from-blue-600 to-cyan-600 h-64 flex items-center justify-center">
+                <div class="text-center">
+                    <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">The Math Behind Wordle</h1>
+                    <p class="text-blue-100 text-lg">Entropy, Probability & Optimal Guessing</p>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8">
+                <!-- Article Meta -->
+                <div class="flex items-center text-sm text-gray-500 mb-6 pb-6 border-b">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <time datetime="2025-11-27">November 27, 2025</time>
+                    <span class="mx-2">•</span>
+                    <span>10 min read</span>
+                </div>
+
+                <!-- Introduction -->
+                <section class="mb-8">
+                    <p class="text-lg text-gray-700 mb-4">
+                        Wordle might seem like a game of intuition and luck, but behind the scenes, there's elegant mathematics at work. The best Wordle solvers don't guess randomly—they use <strong>information theory</strong>, <strong>entropy</strong>, and <strong>probability</strong> to systematically eliminate possibilities and find the answer in fewer guesses.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        In this article, we'll explore the mathematical principles that power optimal Wordle solving, with practical examples and insights into how algorithms make smarter guesses than humans.
+                    </p>
+                </section>
+
+                <!-- H2: Why Math Matters -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Math Matters in Wordle (Information Theory Intro)</h2>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Every Wordle guess provides <strong>information</strong>. When you guess a word and receive color feedback (green, yellow, gray), you're not just getting closer to the answer—you're mathematically narrowing down the solution space.
+                    </p>
+
+                    <p class="text-gray-700 mb-4">
+                        Information theory, developed by Claude Shannon, quantifies how much "information" a guess provides. The goal of optimal Wordle solving is to choose guesses that <strong>maximize information gain</strong>—in other words, guesses that eliminate the most possibilities with each attempt.
+                    </p>
+
+                    <p class="text-gray-700">
+                        This is where <strong>entropy</strong> comes in. Entropy measures the uncertainty in a system. A high-entropy situation means many words are still possible. A low-entropy situation means few words remain. The best guesses are those that reduce entropy the most.
+                    </p>
+                </section>
+
+                <!-- H2: Entropy Explained -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Entropy Explained — Measuring Information of a Guess</h2>
+                    
+                    <p class="text-gray-700 mb-4">
+                        In information theory, entropy is calculated using this formula:
+                    </p>
+
+                    <div class="math-box">
+                        <p class="mb-2"><strong>H(X) = -Σ p(x) × log₂(p(x))</strong></p>
+                        <p class="text-sm">Where:</p>
+                        <p class="text-sm">• H(X) = entropy of the system</p>
+                        <p class="text-sm">• p(x) = probability of outcome x</p>
+                        <p class="text-sm">• log₂ = logarithm base 2</p>
+                    </div>
+
+                    <p class="text-gray-700 mb-4">
+                        For Wordle, we calculate the entropy of each possible guess by considering how it would partition the remaining candidate words. A guess that splits the remaining words into many equally-sized groups has high entropy and is therefore more informative.
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Simple Example Calculation</h3>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Let's say we have 10 candidate words remaining. We're considering two guesses:
+                    </p>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-4">
+                        <p class="text-gray-700 mb-2"><strong>Guess A:</strong> Splits words into groups of 5, 3, 2</p>
+                        <p class="text-gray-700 mb-4">Entropy = -(0.5×log₂(0.5) + 0.3×log₂(0.3) + 0.2×log₂(0.2)) ≈ 1.49 bits</p>
+                        
+                        <p class="text-gray-700 mb-2"><strong>Guess B:</strong> Splits words into groups of 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 (perfect split)</p>
+                        <p class="text-gray-700">Entropy = -(10 × 0.1×log₂(0.1)) ≈ 3.32 bits</p>
+                    </div>
+
+                    <p class="text-gray-700">
+                        <strong>Guess B is better</strong> because it has higher entropy—it provides more information by splitting the candidates more evenly. This is why algorithms prefer guesses that create balanced partitions.
+                    </p>
+                </section>
+
+                <!-- H2: Probability & Expected Reduction -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Probability & Expected Reduction of Candidate Set</h2>
+                    
+                    <p class="text-gray-700 mb-4">
+                        After each guess, the algorithm calculates the <strong>expected size of the remaining candidate set</strong>. This is done by:
+                    </p>
+
+                    <ol class="list-decimal list-inside space-y-2 text-gray-700 mb-6">
+                        <li>Simulating each possible color feedback pattern for the guess</li>
+                        <li>Counting how many remaining words would produce each pattern</li>
+                        <li>Calculating the average number of words that would remain</li>
+                    </ol>
+
+                    <p class="text-gray-700">
+                        The best guess is the one that minimizes the expected size of the remaining set. In other words, it's the guess that leaves you with the fewest possibilities on average, regardless of the feedback you receive.
+                    </p>
+                </section>
+
+                <!-- H2: How Entropy-Based Solvers Choose -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">How Entropy-Based Solvers Choose Guesses</h2>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Here's the algorithmic approach used by entropy-based Wordle solvers:
+                    </p>
+
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Algorithmic Steps (Pseudocode Summary)</h3>
+
+                    <div class="code-block">
+FOR each candidate word in remaining_words:
+    FOR each possible color feedback pattern:
+        Count how many words produce this pattern
+    
+    Calculate entropy of this guess:
+        entropy = -Σ (count/total) × log₂(count/total)
+    
+    Store (word, entropy) pair
+
+SELECT the word with highest entropy
+RETURN this word as the next guess
+                    </div>
+
+                    <p class="text-gray-700 mb-4">
+                        This process repeats after each guess, with the candidate set shrinking based on the feedback received. The algorithm adapts dynamically to the information revealed.
+                    </p>
+
+                    <p class="text-gray-700">
+                        Our <a href="../index.html" class="text-blue-600 hover:text-blue-800 font-semibold">Wordle Solver Tool</a> uses similar entropy-based logic to suggest optimal guesses in real-time.
+                    </p>
+                </section>
+
+                <!-- H2: Human vs Algorithm -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Human vs Algorithm: Where Humans Excel & Fail</h2>
+                    
+                    <div class="comparison-box">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Where Algorithms Win:</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>✓ <strong>Consistency:</strong> Always choose the mathematically optimal guess</li>
+                            <li>✓ <strong>Speed:</strong> Evaluate thousands of possibilities instantly</li>
+                            <li>✓ <strong>No bias:</strong> Don't favor common words over rare ones unnecessarily</li>
+                            <li>✓ <strong>Optimal partitioning:</strong> Always minimize expected remaining candidates</li>
+                        </ul>
+                    </div>
+
+                    <div class="comparison-box">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Where Humans Excel:</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li>✓ <strong>Intuition:</strong> Recognize patterns and word relationships</li>
+                            <li>✓ <strong>Creativity:</strong> Think of uncommon words algorithms might miss</li>
+                            <li>✓ <strong>Context:</strong> Use cultural knowledge and word associations</li>
+                            <li>✓ <strong>Adaptability:</strong> Adjust strategy based on puzzle difficulty</li>
+                        </ul>
+                    </div>
+
+                    <p class="text-gray-700 mt-6">
+                        The best approach? <strong>Combine both:</strong> Use algorithmic suggestions to guide your thinking, then apply human intuition to make the final choice.
+                    </p>
+                </section>
+
+                <!-- H2: Implementing a Basic Entropy Solver -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Implementing a Basic Entropy Solver (Developer Notes)</h2>
+                    
+                    <p class="text-gray-700 mb-4">
+                        If you want to build your own entropy-based Wordle solver, here are the key components:
+                    </p>
+
+                    <div class="bg-gray-50 border-l-4 border-gray-500 p-4 rounded mb-4">
+                        <p class="text-gray-700 mb-2"><strong>1. Word List:</strong> Start with a comprehensive list of valid 5-letter words (typically 2,300+ words)</p>
+                        <p class="text-gray-700 mb-2"><strong>2. Feedback Simulation:</strong> For each candidate guess, simulate all possible color feedback patterns</p>
+                        <p class="text-gray-700 mb-2"><strong>3. Entropy Calculation:</strong> Use the Shannon entropy formula to score each guess</p>
+                        <p class="text-gray-700 mb-2"><strong>4. Filtering:</strong> After receiving feedback, filter the candidate list to only words matching the pattern</p>
+                        <p class="text-gray-700"><strong>5. Iteration:</strong> Repeat until the answer is found</p>
+                    </div>
+
+                    <p class="text-gray-700">
+                        The computational complexity is O(n²) per guess, where n is the number of remaining candidates. This is manageable even on modern browsers, which is why web-based solvers can provide instant suggestions.
+                    </p>
+                </section>
+
+                <!-- H2: Visualization -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Visualization: How Guesses Shrink the Search Space</h2>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Here's a visual representation of how entropy-based guessing reduces possibilities:
+                    </p>
+
+                    <div class="visualization">
+                        <p class="text-gray-900 font-semibold mb-4">Candidate Set Reduction Over Guesses</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <span class="w-20 text-left text-gray-700">Start:</span>
+                                <div class="bg-blue-500 h-8 rounded" style="width: 100%;"></div>
+                                <span class="ml-4 text-gray-700">2,315 words</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20 text-left text-gray-700">After G1:</span>
+                                <div class="bg-blue-500 h-8 rounded" style="width: 35%;"></div>
+                                <span class="ml-4 text-gray-700">~810 words</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20 text-left text-gray-700">After G2:</span>
+                                <div class="bg-blue-500 h-8 rounded" style="width: 12%;"></div>
+                                <span class="ml-4 text-gray-700">~280 words</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20 text-left text-gray-700">After G3:</span>
+                                <div class="bg-blue-500 h-8 rounded" style="width: 3%;"></div>
+                                <span class="ml-4 text-gray-700">~70 words</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20 text-left text-gray-700">After G4:</span>
+                                <div class="bg-blue-500 h-8 rounded" style="width: 0.5%;"></div>
+                                <span class="ml-4 text-gray-700">~12 words</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 mt-4">
+                        Each entropy-optimized guess dramatically reduces the search space. By the 4th guess, you're typically down to a handful of possibilities, making the final answer obvious.
+                    </p>
+                </section>
+
+                <!-- H2: FAQ -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">What's the difference between entropy and information gain?</h3>
+                            <p class="text-gray-700">
+                                Entropy measures the current uncertainty in the system. Information gain measures how much entropy is reduced by a guess. A guess with high information gain significantly reduces entropy, leaving fewer possibilities.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I use entropy strategy to solve Wordle manually?</h3>
+                            <p class="text-gray-700">
+                                Absolutely! The principles are the same. Try to choose guesses that split remaining possibilities evenly. Avoid guesses that would only eliminate a few words. This intuitive approach mirrors entropy-based thinking.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Is there a guaranteed way to solve Wordle in 6 guesses?</h3>
+                            <p class="text-gray-700">
+                                Not always. Some words are harder to distinguish than others. However, entropy-based strategies solve the vast majority of Wordles in 4-5 guesses. The mathematical approach is as close to optimal as possible.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">How does our Wordle Solver use entropy?</h3>
+                            <p class="text-gray-700">
+                                Our <a href="../index.html" class="text-blue-600 hover:text-blue-800 font-semibold">Wordle Solver Tool</a> calculates entropy scores for all possible guesses and suggests the ones with the highest information gain. This helps you make mathematically optimal choices.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I apply this to other word games?</h3>
+                            <p class="text-gray-700">
+                                Yes! Entropy-based strategies work for any word puzzle where you receive feedback about letter positions. Games like Mastermind, Hangman, and other guessing games benefit from the same mathematical principles.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">The Takeaway</h2>
+                    <p class="text-gray-700 mb-4">
+                        Wordle solving isn't magic—it's mathematics. By understanding <strong>entropy</strong>, <strong>information theory</strong>, and <strong>probability</strong>, you can make smarter guesses and solve puzzles more consistently.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Whether you're playing casually or trying to optimize your strategy, these principles show that the best approach is to choose guesses that maximize information gain. Each guess should eliminate as many possibilities as possible.
+                    </p>
+                    <p class="text-gray-700">
+                        Ready to put this into practice? Try our <a href="../index.html" class="text-blue-600 hover:text-blue-800 font-semibold">entropy-powered Wordle Solver</a> and see how mathematical optimization can improve your game!
+                    </p>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="mt-8 bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-lg p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Apply Math to Your Wordle Game</h3>
+                    <p class="text-gray-700 mb-4">Use our entropy-based Wordle Solver to get mathematically optimal suggestions for every guess.</p>
+                    <a href="../index.html" class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors shadow-md">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                        Try Entropy Solver
+                    </a>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="../assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
+                    </div>
+                    <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="../how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
+                        <li><a href="../word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
+                        <li><a href="../tips-tricks.html" class="hover:text-white transition-colors">Tips & Tricks</a></li>
+                        <li><a href="../index.html" class="hover:text-white transition-colors">Solver Tool</a></li>
+                        <li><a href="../blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="../faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="../contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="../about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="../contact.html" class="hover:text-white transition-colors">Feature Request</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="../privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="../terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="../privacy-policy.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="../about.html" class="hover:text-white transition-colors">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 <strong>Wordle Solver</strong> - Free AI-Powered Word Game Helper. All rights reserved.</p>
+                <p class="text-sm mt-2">Not affiliated with The New York Times or the official Wordle game. Wordle is a trademark of The New York Times Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
+
