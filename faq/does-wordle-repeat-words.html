@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Does Wordle Repeat Words? — Complete Analysis & Patterns | Wordle Solver</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="manifest" href="../assets/site.webmanifest">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Does Wordle repeat words? No! Learn why Wordle never repeats answers, the official New York Times policy, and what this means for your gameplay strategy.">
+    <meta name="keywords" content="does wordle repeat words, wordle no repeat words, wordle unique answers, wordle official policy">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://wordlesolver.best/faq/does-wordle-repeat-words.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wordlesolver.best/faq/does-wordle-repeat-words.html">
+    <meta property="og:title" content="Does Wordle Repeat Words? — Official Answer & Explanation">
+    <meta property="og:description" content="No, Wordle has never repeated a word. Learn why the New York Times keeps every daily answer unique.">
+    <meta property="og:image" content="https://wordlesolver.best/assets/og-image.png">
+    <meta property="article:published_time" content="2025-11-27T16:00:00Z">
+    <meta property="article:author" content="Wordle Solver Team">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://wordlesolver.best/faq/does-wordle-repeat-words.html">
+    <meta name="twitter:title" content="Does Wordle Repeat Words? — Official Answer & Explanation">
+    <meta name="twitter:description" content="No, Wordle has never repeated a word. Learn why the New York Times keeps every daily answer unique.">
+    <meta name="twitter:image" content="https://wordlesolver.best/assets/twitter-card.png">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDK582NJ9N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TDK582NJ9N');
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+    crossorigin="anonymous"></script>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": {
+            "@type": "Question",
+            "name": "Does Wordle repeat words?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No, Wordle has never repeated a word. The New York Times has officially confirmed that Wordle solutions don't repeat. Every daily answer is unique, and the game is designed to never use the same word twice as the daily solution."
+            }
+        }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wordle-correct': '#6aaa64',
+                        'wordle-present': '#c9b458',
+                        'wordle-absent': '#787c7e',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .info-box {
+            background: linear-gradient(135deg, #f0fdf4 0%, #f0f9ff 100%);
+            border-left: 4px solid #10b981;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fef08a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <a href="../index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="../assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../blog.html" class="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                    <a href="../about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="../contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="../faq.html" class="text-green-600 font-semibold border-b-2 border-green-600">FAQ</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="../blog.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Blog</a>
+                    <a href="../about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="../contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="../faq.html" class="text-green-600 font-semibold py-2 px-4 rounded bg-green-50">FAQ</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- Breadcrumb Navigation -->
+        <nav aria-label="Breadcrumb" class="mb-6">
+            <ol class="flex items-center space-x-2 text-sm text-gray-500">
+                <li><a href="../index.html" class="hover:text-gray-700 transition-colors">Home</a></li>
+                <li>
+                    <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </li>
+                <li><a href="../faq.html" class="hover:text-gray-700 transition-colors">FAQ</a></li>
+                <li>
+                    <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </li>
+                <li class="text-gray-900 font-medium" aria-current="page">Does Wordle Repeat Words?</li>
+            </ol>
+        </nav>
+
+        <!-- Article Header -->
+        <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="bg-gradient-to-br from-blue-500 to-indigo-600 h-64 flex items-center justify-center">
+                <div class="text-center">
+                    <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">Does Wordle Repeat Words?</h1>
+                    <p class="text-blue-100 text-lg">Understanding Word Repetition Patterns</p>
+                </div>
+            </div>
+
+            <div class="p-6 sm:p-8">
+                <!-- Article Meta -->
+                <div class="flex items-center text-sm text-gray-500 mb-6 pb-6 border-b">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <time datetime="2025-11-27">November 27, 2025</time>
+                    <span class="mx-2">•</span>
+                    <span>6 min read</span>
+                </div>
+
+                <!-- Quick Answer -->
+                <div class="info-box">
+                    <p class="font-semibold text-gray-900 mb-2">✅ Quick Answer:</p>
+                    <p class="text-gray-700">
+                        <strong>No, Wordle has never repeated a word.</strong> The New York Times has officially confirmed that Wordle solutions don't repeat. Every daily answer is unique and has never been used before. This is a core design principle of the game.
+                    </p>
+                </div>
+
+                <!-- Introduction -->
+                <section class="mb-8">
+                    <p class="text-lg text-gray-700 mb-4">
+                        One of the most common questions Wordle players ask is: "Does Wordle repeat words?" It's a natural question, especially for dedicated players who have been playing for months or years and wonder if they might encounter the same answer twice.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        The answer is clear and definitive: <strong>No, Wordle has never repeated a word, and the New York Times has confirmed this is by design.</strong> In this comprehensive guide, we'll explore the official policy, why Wordle maintains this principle, and what it means for your gameplay.
+                    </p>
+                </section>
+
+                <!-- H2: The Official Answer -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">The Official Answer from The New York Times</h2>
+
+                    <p class="text-gray-700 mb-4">
+                        The New York Times, which acquired Wordle in January 2022, has officially confirmed that <strong>Wordle solutions don't repeat</strong>. This is a core design principle of the game, not just a current practice.
+                    </p>
+
+                    <div class="highlight-box">
+                        <p class="font-semibold text-gray-900 mb-2">📢 Official Statement:</p>
+                        <p class="text-gray-700">
+                            According to the New York Times' WordleBot FAQ: <strong>"Wordle solutions don't repeat."</strong> This means every daily answer is unique and has never been used before in the game's history.
+                        </p>
+                    </div>
+
+                    <p class="text-gray-700 mt-4">
+                        As of November 2025, Wordle has been running for over 1,000 days, and not a single word has been repeated. This demonstrates the New York Times' commitment to keeping every puzzle fresh and unique for players.
+                    </p>
+                </section>
+
+                <!-- H2: How Many Unique Words Has Wordle Used? -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">How Many Unique Words Has Wordle Used?</h2>
+
+                    <p class="text-gray-700 mb-4">
+                        Since Wordle never repeats words, every single daily answer is unique. Here are some key statistics:
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3 class="text-sm text-gray-600 mb-2">Days Since Launch</h3>
+                            <div class="stat-value">1000+</div>
+                            <p class="text-xs text-gray-600 mt-2">Since January 2022</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="text-sm text-gray-600 mb-2">Unique Words Used</h3>
+                            <div class="stat-value">1000+</div>
+                            <p class="text-xs text-gray-600 mt-2">All different answers</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3 class="text-sm text-gray-600 mb-2">Repetition Rate</h3>
+                            <div class="stat-value">0%</div>
+                            <p class="text-xs text-gray-600 mt-2">No repeats ever</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 mt-6">
+                        With over 1,000 days of Wordle and 1,000+ unique words used, the game has maintained a perfect record of never repeating a single answer. This demonstrates the vast pool of suitable 5-letter words available and the New York Times' commitment to uniqueness.
+                    </p>
+                </section>
+
+                <!-- H2: Why Doesn't Wordle Repeat Words? -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Doesn't Wordle Repeat Words?</h2>
+
+                    <p class="text-gray-700 mb-4">
+                        The New York Times has made a deliberate choice to never repeat Wordle answers. Here are the reasons behind this design decision:
+                    </p>
+
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900">✓ Keeps the Game Fresh</p>
+                            <p class="text-sm text-gray-600">Every puzzle is a new challenge, even for players who have been playing for years</p>
+                        </div>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900">✓ Maintains Fairness</p>
+                            <p class="text-sm text-gray-600">No player has an unfair advantage from remembering a previous answer</p>
+                        </div>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900">✓ Preserves Integrity</p>
+                            <p class="text-sm text-gray-600">The game's challenge and satisfaction come from solving unique puzzles</p>
+                        </div>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900">✓ Sufficient Word Pool</p>
+                            <p class="text-sm text-gray-600">There are thousands of suitable 5-letter English words available for use</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 mt-4">
+                        This commitment to uniqueness is one of the defining characteristics of Wordle and contributes to its appeal as a fair, challenging daily puzzle.
+                    </p>
+                </section>
+
+                <!-- H2: Will Wordle Ever Repeat Words? -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Will Wordle Ever Repeat Words in the Future?</h2>
+
+                    <p class="text-gray-700 mb-4">
+                        This is an interesting question for long-term players. While the New York Times has committed to never repeating words, what happens if the game continues for decades?
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900 mb-2">✓ Plenty of Words Available</p>
+                            <p class="text-gray-700">
+                                There are thousands of suitable 5-letter English words. At the current rate of one word per day, Wordle could continue for many decades without repeating a single word.
+                            </p>
+                        </div>
+
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900 mb-2">✓ Current Commitment</p>
+                            <p class="text-gray-700">
+                                The New York Times has shown no indication of changing this policy. The commitment to unique answers is a core part of Wordle's identity.
+                            </p>
+                        </div>
+
+                        <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900 mb-2">? Theoretical Future Scenario</p>
+                            <p class="text-gray-700">
+                                If Wordle were to run for 100+ years, the New York Times might eventually need to reconsider. However, this is purely theoretical and not a current concern.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-700 mt-4">
+                        For all practical purposes, you can be confident that Wordle will never repeat a word during your lifetime of playing the game.
+                    </p>
+                </section>
+
+                <!-- H2: What This Means for Your Gameplay -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">What This Means for Your Gameplay</h2>
+
+                    <p class="text-gray-700 mb-4">
+                        Since Wordle never repeats words, here's what you can expect:
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900 mb-2">✓ Every Puzzle is Unique</p>
+                            <p class="text-gray-700">
+                                You'll never encounter the same answer twice, no matter how long you play. This ensures the game remains fresh and challenging.
+                            </p>
+                        </div>
+
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900 mb-2">✓ Fair Competition</p>
+                            <p class="text-gray-700">
+                                All players are on equal footing. No one has an unfair advantage from remembering a previous answer.
+                            </p>
+                        </div>
+
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900 mb-2">✓ Your Strategy Stays Consistent</p>
+                            <p class="text-gray-700">
+                                Use the same proven strategies every day: start with a word containing common vowels and consonants, then use letter elimination to narrow down possibilities.
+                            </p>
+                        </div>
+
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900 mb-2">✓ Long-term Enjoyment</p>
+                            <p class="text-gray-700">
+                                You can play Wordle indefinitely without worrying about running out of unique puzzles or encountering the same answer.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- H2: How to Verify This Information -->
+                <section class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">How to Verify This Information</h2>
+
+                    <p class="text-gray-700 mb-4">
+                        Want to verify that Wordle never repeats words? Here are some ways to check:
+                    </p>
+
+                    <ul class="list-disc list-inside space-y-3 text-gray-700">
+                        <li><strong>Check Official Sources:</strong> Visit the New York Times WordleBot FAQ which explicitly states "Wordle solutions don't repeat"</li>
+                        <li><strong>Use Online Archives:</strong> Websites like Wordle Archive maintain complete lists of all past answers - you can search and verify no duplicates exist</li>
+                        <li><strong>Join Wordle Communities:</strong> Reddit's r/wordle community actively tracks all answers and confirms the no-repeat policy</li>
+                        <li><strong>Keep Your Own Records:</strong> Track the answers you play and compare them - you'll never find a duplicate</li>
+                    </ul>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Final Thoughts</h2>
+                    <p class="text-gray-700 mb-4">
+                        <strong>No, Wordle has never repeated a word, and the New York Times has committed to keeping it that way.</strong> This is a core design principle that ensures every puzzle is unique and fair for all players.
+                    </p>
+                    <p class="text-gray-700">
+                        You can play Wordle with confidence knowing that each day brings a fresh, never-before-seen challenge. Focus on improving your solving strategy and enjoying the game. Use our <a href="../index.html" class="text-blue-600 hover:text-blue-800 font-semibold">Wordle Solver</a> to learn better techniques and enhance your skills!
+                    </p>
+                </section>
+
+                <!-- Call to Action -->
+                <section class="mt-8 bg-gradient-to-r from-green-50 to-blue-50 border-2 border-green-200 rounded-lg p-6 text-center">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Improve Your Wordle Game</h3>
+                    <p class="text-gray-700 mb-4">Whether you encounter a repeated word or a brand new one, our Wordle Solver can help you solve it faster.</p>
+                    <a href="../index.html" class="inline-flex items-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors shadow-md">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                        </svg>
+                        Try Wordle Solver Now
+                    </a>
+                </section>
+
+                <!-- Back to FAQ -->
+                <section class="mt-8 text-center">
+                    <a href="../faq.html" class="text-blue-600 hover:text-blue-800 font-semibold inline-flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back to FAQ
+                    </a>
+                </section>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="../assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
+                    </div>
+                    <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="../how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
+                        <li><a href="../word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
+                        <li><a href="../tips-tricks.html" class="hover:text-white transition-colors">Tips & Tricks</a></li>
+                        <li><a href="../index.html" class="hover:text-white transition-colors">Solver Tool</a></li>
+                        <li><a href="../blog.html" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="../faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="../contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="../about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="../contact.html" class="hover:text-white transition-colors">Feature Request</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="../privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="../terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="../privacy-policy.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="../about.html" class="hover:text-white transition-colors">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2025 <strong>Wordle Solver</strong> - Free AI-Powered Word Game Helper. All rights reserved.</p>
+                <p class="text-sm mt-2">Not affiliated with The New York Times or the official Wordle game. Wordle is a trademark of The New York Times Company.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
+
