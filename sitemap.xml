@@ -12,17 +12,9 @@
         <priority>1.0</priority>
     </url>
 
-    <!-- Main Tool Page -->
-    <url>
-        <loc>https://wordlesolver.best/index.html</loc>
-        <lastmod>2025-08-30</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>1.0</priority>
-    </url>
-
     <!-- How to Play - High Value Content -->
     <url>
-        <loc>https://wordlesolver.best/how-to-play.html</loc>
+        <loc>https://wordlesolver.best/how-to-play</loc>
         <lastmod>2025-08-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -30,7 +22,7 @@
 
     <!-- Tips & Tricks - High Value Content -->
     <url>
-        <loc>https://wordlesolver.best/tips-tricks.html</loc>
+        <loc>https://wordlesolver.best/tips-tricks</loc>
         <lastmod>2025-08-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -38,7 +30,7 @@
 
     <!-- Word Lists - High Value Content -->
     <url>
-        <loc>https://wordlesolver.best/word-lists.html</loc>
+        <loc>https://wordlesolver.best/word-lists</loc>
         <lastmod>2025-08-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
@@ -46,7 +38,7 @@
 
     <!-- Daily Solutions - Potential Traffic -->
     <url>
-        <loc>https://wordlesolver.best/daily-solutions.html</loc>
+        <loc>https://wordlesolver.best/daily-solutions</loc>
         <lastmod>2025-08-30</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
@@ -54,7 +46,7 @@
 
     <!-- FAQ Page - Support Content -->
     <url>
-        <loc>https://wordlesolver.best/faq.html</loc>
+        <loc>https://wordlesolver.best/faq</loc>
         <lastmod>2025-08-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
@@ -62,7 +54,7 @@
 
     <!-- Blog - Content Hub -->
     <url>
-        <loc>https://wordlesolver.best/blog.html</loc>
+        <loc>https://wordlesolver.best/blog</loc>
         <lastmod>2025-11-27</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
@@ -70,7 +62,7 @@
 
     <!-- Blog Article - Wordle Letter Frequency Chart (Latest) -->
     <url>
-        <loc>https://wordlesolver.best/blog/wordle-letter-frequency-chart.html</loc>
+        <loc>https://wordlesolver.best/blog/wordle-letter-frequency-chart</loc>
         <lastmod>2025-11-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -78,7 +70,7 @@
 
     <!-- Blog Article - Wordle Hard Mode Explained -->
     <url>
-        <loc>https://wordlesolver.best/blog/wordle-hard-mode-explained.html</loc>
+        <loc>https://wordlesolver.best/blog/wordle-hard-mode-explained</loc>
         <lastmod>2025-11-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -86,7 +78,7 @@
 
     <!-- Blog Article - The Math Behind Wordle -->
     <url>
-        <loc>https://wordlesolver.best/blog/wordle-math-entropy-strategy.html</loc>
+        <loc>https://wordlesolver.best/blog/wordle-math-entropy-strategy</loc>
         <lastmod>2025-11-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -94,7 +86,7 @@
 
     <!-- Blog Article - Wordle Solver vs Cheat -->
     <url>
-        <loc>https://wordlesolver.best/blog/wordle-solver-vs-cheat.html</loc>
+        <loc>https://wordlesolver.best/blog/wordle-solver-vs-cheat</loc>
         <lastmod>2025-11-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -102,7 +94,7 @@
 
     <!-- Blog Article - Wordle Today Oct 29 -->
     <url>
-        <loc>https://wordlesolver.best/blog/wordle-today-oct-29-1593.html</loc>
+        <loc>https://wordlesolver.best/blog/wordle-today-oct-29-1593</loc>
         <lastmod>2025-10-29</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -110,7 +102,7 @@
 
     <!-- Blog Article - Wordle Helper Guide -->
     <url>
-        <loc>https://wordlesolver.best/blog/wordle-helper-guide.html</loc>
+        <loc>https://wordlesolver.best/blog/wordle-helper-guide</loc>
         <lastmod>2025-11-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -118,7 +110,7 @@
 
     <!-- Blog Article - Best Starting Word -->
     <url>
-        <loc>https://wordlesolver.best/blog/best-starting-word-wordle.html</loc>
+        <loc>https://wordlesolver.best/blog/best-starting-word-wordle</loc>
         <lastmod>2025-11-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -126,7 +118,7 @@
 
     <!-- FAQ Detail Page - Does Wordle Repeat Words -->
     <url>
-        <loc>https://wordlesolver.best/faq/does-wordle-repeat-words.html</loc>
+        <loc>https://wordlesolver.best/faq/does-wordle-repeat-words</loc>
         <lastmod>2025-11-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
