@@ -797,33 +797,34 @@
                 suggestionsList.innerHTML = '<div class="text-gray-500 text-center col-span-full py-8">Continue setting color status, then click "Get Suggestions" when ready</div>';
             }
 
-            if (tile.classList.contains('filled')) {
-                // First click: change to absent (gray)
-                tile.classList.remove('filled');
-                tile.classList.add('absent');
-                tile.style.backgroundColor = '#787c7e';
-                tile.style.color = 'white';
-                tile.style.fontWeight = 'bold';
-            } else if (tile.classList.contains('absent')) {
-                // Second click: change to present (yellow)
+            if (tile.classList.contains('absent')) {
+                // change to present (yellow)
                 tile.classList.remove('absent');
                 tile.classList.add('present');
                 tile.style.backgroundColor = '#c9b458';
                 tile.style.color = 'white';
                 tile.style.fontWeight = 'bold';
             } else if (tile.classList.contains('present')) {
-                // Third click: change to correct (green)
+                // change to correct (green)
                 tile.classList.remove('present');
                 tile.classList.add('correct');
                 tile.style.backgroundColor = '#6aaa64';
                 tile.style.color = 'white';
                 tile.style.fontWeight = 'bold';
             } else if (tile.classList.contains('correct')) {
-                // Fourth click: back to filled (white)
+                // loop back to absent (gray)
                 tile.classList.remove('correct');
-                tile.classList.add('filled');
-                tile.style.backgroundColor = '#ffffff';
-                tile.style.color = 'black';
+                tile.classList.add('absent');
+                tile.style.backgroundColor = '#787c7e';
+                tile.style.color = 'white';
+                tile.style.fontWeight = 'bold';
+                tile.style.border = '2px solid #787c7e';
+            } else if (tile.classList.contains('filled')) {
+                // legacy: treat filled as absent to start cycle
+                tile.classList.remove('filled');
+                tile.classList.add('absent');
+                tile.style.backgroundColor = '#787c7e';
+                tile.style.color = 'white';
                 tile.style.fontWeight = 'bold';
                 tile.style.border = '2px solid #787c7e';
             }
@@ -879,10 +880,11 @@
                 if (!targetRowTiles[i].textContent) {
                     targetRowTiles[i].textContent = letter;
                     targetRowTiles[i].classList.remove('empty');
-                    targetRowTiles[i].classList.add('filled');
-                    targetRowTiles[i].style.backgroundColor = '#ffffff';
+                    // default to absent (gray) on input
+                    targetRowTiles[i].classList.add('absent');
+                    targetRowTiles[i].style.backgroundColor = '#787c7e';
                     targetRowTiles[i].style.border = '2px solid #787c7e';
-                    targetRowTiles[i].style.color = 'black';
+                    targetRowTiles[i].style.color = 'white';
                     targetRowTiles[i].style.fontWeight = 'bold';
 
                     // 检查当前行是否已完成5个字母
@@ -1079,11 +1081,12 @@
             
             targetRowTiles.forEach((tile, index) => {
                 tile.textContent = word[index];
-                tile.classList.remove('empty', 'absent', 'present', 'correct');
-                tile.classList.add('filled');
-                tile.style.backgroundColor = '#ffffff';
+                tile.classList.remove('empty', 'absent', 'present', 'correct', 'filled');
+                // default to absent (gray) for suggested word
+                tile.classList.add('absent');
+                tile.style.backgroundColor = '#787c7e';
                 tile.style.border = '2px solid #787c7e';
-                tile.style.color = 'black';
+                tile.style.color = 'white';
                 tile.style.fontWeight = 'bold';
             });
         }
