@@ -101,53 +101,52 @@
                     </a>
                 </div>
 
-                <!-- Desktop Navigation -->
+                <!-- Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="/index.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Solver</a>
-                    <a href="/wordle-hints-today.html" class="text-green-600 font-bold transition-colors">Today's Hints</a>
-                    <a href="/archive.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Archive</a>
-                    <a href="/blog.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Blog</a>
-                    <a href="/about.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">About</a>
+                    <a href="/blog.html" class="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+                    <a href="/wordle-hints-today.html" class="text-green-600 font-semibold border-b-2 border-green-600">Today's Hints</a>
+                    <a href="/about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
+                    <a href="/contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
+                    <a href="/faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-green-600 focus:outline-none p-2">
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
             </div>
-        </nav>
 
-        <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="/index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50">Solver</a>
-                <a href="/wordle-hints-today.html" class="block px-3 py-2 rounded-md text-base font-bold text-green-600 bg-green-50">Today's Hints</a>
-                <a href="/archive.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50">Archive</a>
-                <a href="/blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50">Blog</a>
-                <a href="/about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50">About</a>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="/blog.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Blog</a>
+                    <a href="/wordle-hints-today.html" class="text-green-600 font-semibold py-2 px-4 rounded bg-green-50">Today's Hints</a>
+                    <a href="/about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
+                    <a href="/contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
+                    <a href="/faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
 
+    <!-- Main Content (generated daily by AI) -->
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-        <!-- Breadcrumbs -->
-        <nav class="flex mb-6 sm:mb-8" aria-label="Breadcrumb">
-            <ol class="flex items-center space-x-2 text-sm text-gray-500">
+        <!-- Breadcrumb Navigation -->
+                <nav aria-label="Breadcrumb" class="mb-6">
+                    <ol class="flex items-center space-x-2 text-sm text-gray-500">
+                        <li>
+                            <a href="/index.html" class="hover:text-gray-700 transition-colors">Home</a>
+                        </li>
                 <li>
-                    <a href="/index.html" class="hover:text-green-600 transition-colors">Home</a>
-                </li>
-                <li>
-                    <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                     </svg>
                 </li>
-                <li>
-                    <span class="text-gray-900 font-medium" aria-current="page">Today's Hints</span>
-                </li>
+                <li class="text-gray-900 font-medium" aria-current="page">Today's Hints</li>
             </ol>
         </nav>
 
@@ -159,9 +158,9 @@
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                     </svg>
-                        <time datetime="2025-12-31">December 31, 2025</time>
+                        <time datetime="2025-12-30">December 30, 2025</time>
                         <span class="mx-3">•</span>
-                        <span>Wordle #1656</span>
+                        <span>Wordle #1655</span>
                         <span class="mx-3">•</span>
                         <span>Difficulty: Medium</span>
                 </div>
@@ -177,8 +176,8 @@
             			<section class="px-6 sm:px-8 mt-4 mb-2">
             			        <div class="bg-yellow-50 border border-yellow-200 text-yellow-900 text-sm rounded-md px-4 py-3 flex flex-wrap items-center gap-2">
                                         <span class="font-semibold">Missed yesterday's Wordle?</span>
-                                        <a href="/daily-solutions/wordle-1655-dec-30-2025.html" class="text-yellow-900 underline decoration-yellow-600 hover:text-yellow-800">
-                                            View hints &amp; answer for Wordle #1655
+                                        <a href="/daily-solutions/wordle-1654-dec-29-2025.html" class="text-yellow-900 underline decoration-yellow-600 hover:text-yellow-800">
+                                            View hints &amp; answer for Wordle #1654
                                         </a>
             			        </div>
             			</section>
@@ -220,7 +219,7 @@
                         </div>
                         <div id="hint-1-content" class="mt-3 text-gray-700 hidden">
                             <p>
-                                Today's answer can refer to a loud warning signal, often heard from emergency vehicles.
+                                Today's answer refers to the furnishing and decoration of a room.
                             </p>
                         </div>
                     </div>
@@ -235,7 +234,7 @@
                         </div>
                         <div id="hint-2-content" class="mt-3 text-gray-700 hidden">
                             <p class="mb-2">
-                                The word starts with <strong>S</strong> and ends with <strong>N</strong>. It contains the vowels <strong>I</strong> and <strong>E</strong>.
+                                The word starts with <strong>D</strong> and ends with <strong>R</strong>. It contains the vowels <strong>E</strong> and <strong>O</strong>.
                             </p>
                         </div>
                     </div>
@@ -250,10 +249,10 @@
                         </div>
                         <div id="hint-3-content" class="mt-3 text-gray-700 hidden">
                             <p class="mb-2">
-                                This 5-letter word has the pattern <strong>S</strong>_<strong>R</strong>_<strong>N</strong>.
+                                This 5-letter word has the pattern <strong>D</strong>_<strong>C</strong>_<strong>R</strong>.
                             </p>
                             <p class="mb-0">
-                                The missing letters are <strong>I</strong> and <strong>E</strong>. Pattern: <strong>S</strong>I<strong>R</strong>E<strong>N</strong>.
+                                The missing letters are <strong>E</strong> and <strong>O</strong>. Pattern: <strong>D</strong>E<strong>C</strong>O<strong>R</strong>.
                             </p>
                         </div>
                     </div>
@@ -266,10 +265,10 @@
                         <strong>Warning:</strong> The full answer is shown below. If you would like to keep solving on your own, stop here and go back to the hints above.
                     </p>
                         <p class="text-sm text-gray-700 text-center mb-4">
-                    Wordle #1656's answer is a 5-letter word. Each tile below represents one letter.
+                    Wordle #1655's answer is a 5-letter word. Each tile below represents one letter.
                 </p>
                     <div class="flex justify-center mb-4">
-                        <div id="answer-tiles" data-answer="SIREN" class="flex gap-2">
+                        <div id="answer-tiles" data-answer="DECOR" class="flex gap-2">
                             <div data-tile-index="0" class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-2xl font-bold bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 select-none">?</div>
                             <div data-tile-index="1" class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-2xl font-bold bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 select-none">?</div>
                             <div data-tile-index="2" class="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-2xl font-bold bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 select-none">?</div>
@@ -284,10 +283,10 @@
                     </div>
                 <div id="answer-explanation" class="text-gray-700 hidden">
                     <p class="mb-2">
-                        <strong>SIREN</strong> refers to a loud noise-making device used for warning signals, or in mythology, a dangerous creature that lured sailors with its voice.
+                        <strong>DECOR</strong> refers to the furnishing and decoration of a room.
                     </p>
                     <p class="mb-0">
-                        Example: <em>We heard the siren of the fire truck approaching.</em>
+                        Example: <em>The cafe has a modern decor.</em>
                     </p>
                 </div>
                 </section>
@@ -296,13 +295,13 @@
         <section>
             <h2 class="text-2xl font-bold text-gray-900 mb-3">Strategy &amp; learning point</h2>
             <p class="text-gray-700 mb-3">
-                Today's word contains two common vowels (<strong>I</strong> and <strong>E</strong>) and three very common consonants (<strong>S</strong>, <strong>R</strong>, <strong>N</strong>).
+                Today's word ends with a common ending (<strong>-OR</strong>) but has a 'C' in the middle.
             </p>
             <p class="text-gray-700 mb-3">
-                Starting with a word like RAISE or RINSE would be very effective today.
+                Be careful not to miss the 'C' if you are trying common letters like S, T, or L.
             </p>
             <p class="text-gray-700 mb-3">
-                <strong>Strategic Tip:</strong> Don't forget that 'S' can appear at the beginning of a word, not just at the end as a plural marker.
+                <strong>Strategic Tip:</strong> Words ending in -OR are common, so try to rule that out if you have an 'O' and an 'R'.
             </p>
         </section>
 
@@ -310,9 +309,9 @@
         <section>
             <h3 class="text-xl font-semibold text-gray-900 mb-3">Recommended starter words</h3>
             <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">RAISE</span>
-                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">RINSE</span>
-                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">STARE</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">ADIEU</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">CRANE</span>
+                <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">ROATE</span>
             </div>
         </section>
 
@@ -320,18 +319,7 @@
             <section class="border-t pt-8 mt-10">
                 <h3 class="text-xl font-semibold text-gray-900 mb-4">Recent Wordle Solutions</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <!-- Wordle 1655 (Yesterday) -->
-                    <a href="/daily-solutions/wordle-1655-dec-30-2025.html" class="block p-4 rounded-lg border hover:bg-gray-50 transition-colors flex justify-between items-center group">
-                        <div>
-                            <div class="text-xs text-gray-500 mb-1">Dec 30 • #1655</div>
-                            <div class="font-bold text-gray-900">Wordle #1655</div>
-                        </div>
-                        <div class="text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full group-hover:bg-green-100 transition-colors">
-                            View Answer
-                        </div>
-                    </a>
-
-                    <!-- Wordle 1654 -->
+                    <!-- Wordle 1654 (Yesterday) -->
                     <a href="/daily-solutions/wordle-1654-dec-29-2025.html" class="block p-4 rounded-lg border hover:bg-gray-50 transition-colors flex justify-between items-center group">
                         <div>
                             <div class="text-xs text-gray-500 mb-1">Dec 29 • #1654</div>
@@ -347,6 +335,17 @@
                         <div>
                             <div class="text-xs text-gray-500 mb-1">Dec 28 • #1653</div>
                             <div class="font-bold text-gray-900">Wordle #1653</div>
+                        </div>
+                        <div class="text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full group-hover:bg-green-100 transition-colors">
+                            View Answer
+                        </div>
+                    </a>
+
+                    <!-- Wordle 1652 -->
+                    <a href="/daily-solutions/wordle-1652-dec-27-2025.html" class="block p-4 rounded-lg border hover:bg-gray-50 transition-colors flex justify-between items-center group">
+                        <div>
+                            <div class="text-xs text-gray-500 mb-1">Dec 27 • #1652</div>
+                            <div class="font-bold text-gray-900">Wordle #1652</div>
                         </div>
                         <div class="text-sm text-green-600 font-medium bg-green-50 px-3 py-1 rounded-full group-hover:bg-green-100 transition-colors">
                             View Answer
@@ -368,84 +367,45 @@
             <div class="flex space-x-6">
                 <a href="/privacy.html" class="text-gray-500 hover:text-gray-900 text-sm">Privacy Policy</a>
                 <a href="/terms.html" class="text-gray-500 hover:text-gray-900 text-sm">Terms of Service</a>
-                <a href="/contact.html" class="text-gray-500 hover:text-gray-900 text-sm">Contact Us</a>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- Interactive Scripts -->
 <script>
     // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('hidden');
     }
 
-    // Hint Reveal Logic
-    const hintButtons = document.querySelectorAll('[data-hint-toggle]');
-    hintButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const targetId = btn.getAttribute('data-target');
-            const targetContent = document.getElementById(targetId);
-            if (targetContent) {
-                targetContent.classList.toggle('hidden');
+    // Hint Toggle Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggleButtons = document.querySelectorAll('[data-hint-toggle]');
+        toggleButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                
                 if (targetContent.classList.contains('hidden')) {
-                    btn.textContent = 'Show hint';
+                    targetContent.classList.remove('hidden');
+                    this.textContent = 'Hide hint';
                 } else {
-                    btn.textContent = 'Hide hint';
+                    targetContent.classList.add('hidden');
+                    this.textContent = 'Show hint';
                 }
-            }
+            });
         });
     });
 
     // Answer Reveal Logic
+    const answerTiles = document.getElementById('answer-tiles');
     const revealButton = document.getElementById('reveal-answer');
-    const tiles = document.querySelectorAll('[data-tile-index]');
-    const answerContainer = document.getElementById('answer-tiles');
     const explanation = document.getElementById('answer-explanation');
-    
-    // Get answer from data attribute to make it harder to accidentally see in view-source
-    // (Still visible if someone looks for it, but prevents accidental glances)
-    const answer = answerContainer.getAttribute('data-answer');
+    const tiles = answerTiles.querySelectorAll('[data-tile-index]');
+    const answer = answerTiles.getAttribute('data-answer');
     let revealed = false;
 
-    if (revealButton) {
-        revealButton.addEventListener('click', function() {
-            if (!revealed) {
-                // Reveal
-                tiles.forEach((tile, index) => {
-                    setTimeout(() => {
-                        tile.textContent = answer[index];
-                        tile.classList.remove('bg-white', 'border-gray-300');
-                        tile.classList.add('bg-wordle-correct', 'text-white', 'border-wordle-correct');
-                    }, index * 100);
-                });
-                
-                setTimeout(() => {
-                    if (explanation) explanation.classList.remove('hidden');
-                    revealButton.textContent = 'Hide answer';
-                    revealed = true;
-                }, 500);
-            } else {
-                // Hide
-                tiles.forEach((tile) => {
-                    tile.textContent = '?';
-                    tile.classList.remove('bg-wordle-correct', 'text-white', 'border-wordle-correct');
-                    tile.classList.add('bg-white', 'border-gray-300');
-                });
-                if (explanation) explanation.classList.add('hidden');
-                revealButton.textContent = "Reveal today's answer";
-                revealed = false;
-            }
-        });
-    }
-    
-    // Update state if tiles are manually clicked (easter egg / partial reveal)
     function updateStateFromTiles() {
         if (!answer || tiles.length === 0) return;
         
@@ -462,6 +422,38 @@
             if (revealButton) revealButton.textContent = "Reveal today's answer";
             revealed = false;
         }
+    }
+
+    // Initialize state
+    updateStateFromTiles();
+
+    if (revealButton) {
+        revealButton.addEventListener('click', function() {
+            if (revealed) {
+                // Hide answer
+                tiles.forEach(tile => {
+                    tile.textContent = '?';
+                    tile.classList.remove('bg-wordle-correct', 'text-white', 'border-wordle-correct');
+                    tile.classList.add('bg-white', 'border-gray-300', 'text-black');
+                });
+            } else {
+                // Reveal answer
+                tiles.forEach((tile, index) => {
+                    if (answer[index]) {
+                        tile.textContent = answer[index];
+                        tile.classList.remove('bg-white', 'border-gray-300', 'text-black');
+                        tile.classList.add('bg-wordle-correct', 'text-white', 'border-wordle-correct');
+                    }
+                });
+            }
+            // State update is handled by the mutation logic or manual check below
+            // Since we don't have a mutation observer here, we call update manually
+            // But wait, the logic above sets revealed based on content.
+            // Let's just manually toggle the state variables for simplicity in this vanilla script
+            
+            // Re-check state
+            setTimeout(updateStateFromTiles, 0);
+        });
     }
 
     // Individual tile click (optional, for fun or partial reveal)
