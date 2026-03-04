@@ -28,6 +28,8 @@ class WordleSolver {
     pool = this.applyGreenConstraints(pool, constraints.greens);
     pool = this.applyYellowConstraints(pool, constraints.yellows);
     pool = this.applyGrayConstraints(pool, constraints.grays);
+    pool = this.applyForbiddenConstraints(pool, constraints.forbidden);
+    pool = this.applyExactCountConstraints(pool, constraints.exactCounts);
     
     // 智能排序
     return this.rankSuggestions(pool, constraints);
@@ -38,6 +40,8 @@ class WordleSolver {
       greens: new Map(),
       yellows: new Map(),
       grays: new Set(),
+      forbidden: new Map(),
+      exactCounts: new Map(),
       required: new Map()
     };
 
@@ -63,10 +67,19 @@ class WordleSolver {
       states.forEach((state, pos) => {
         const c = word[pos];
         if (state === 'absent') {
+          // 无论是否完全排除，该位置都不能是该字母
+          if (!constraints.forbidden.has(pos)) {
+            constraints.forbidden.set(pos, new Set());
+          }
+          constraints.forbidden.get(pos).add(c);
+
           const minRequired = charRequirements.get(c) || 0;
           if (minRequired === 0) {
             constraints.grays.add(c);
           } else {
+            // 如果字母已存在（绿色或黄色），说明该字母的确切数量已知
+            constraints.exactCounts.set(c, minRequired);
+            
             constraints.required.set(c,
               Math.max(constraints.required.get(c) || 0, minRequired)
             );
@@ -106,6 +119,28 @@ class WordleSolver {
       const chars = new Set([...word]);
       for (const c of grays) {
         if (chars.has(c)) return false;
+      }
+      return true;
+    });
+  }
+
+  applyForbiddenConstraints(words, forbidden) {
+    return words.filter(word => {
+      for (const [pos, chars] of forbidden) {
+        if (chars.has(word[pos])) return false;
+      }
+      return true;
+    });
+  }
+
+  applyExactCountConstraints(words, exactCounts) {
+    return words.filter(word => {
+      for (const [c, count] of exactCounts) {
+        let actualCount = 0;
+        for (const char of word) {
+          if (char === c) actualCount++;
+        }
+        if (actualCount !== count) return false;
       }
       return true;
     });
