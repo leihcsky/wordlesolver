@@ -1,0 +1,54 @@
+{
+  "date": "2026-03-24",
+  "puzzleNumber": 1017,
+  "words": [
+    "BOW",
+    "MEAN",
+    "RING",
+    "DUMP",
+    "WIND",
+    "VILE",
+    "KISS",
+    "FOOD",
+    "SOW",
+    "VOW",
+    "BASE",
+    "TOW",
+    "ROW",
+    "LOW",
+    "CAKE",
+    "FIRE"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "DESPICABLE",
+      "words": ["BASE", "LOW", "MEAN", "VILE"],
+      "explanation": "Synonyms describing something morally bad or contemptible."
+    },
+    {
+      "color": "green",
+      "title": "FEATURES OF A WEDDING",
+      "words": ["CAKE", "KISS", "RING", "VOW"],
+      "explanation": "Common elements associated with a wedding ceremony or reception."
+    },
+    {
+      "color": "blue",
+      "title": "KINDS OF TRUCKS",
+      "words": ["DUMP", "FIRE", "FOOD", "TOW"],
+      "explanation": "Truck types you might see on the road, each with a specific purpose."
+    },
+    {
+      "color": "purple",
+      "title": "HETERONYMS",
+      "words": ["BOW", "ROW", "SOW", "WIND"],
+      "explanation": "Words that share spelling but change pronunciation and meaning by context."
+    }
+  ],
+  "hints": [
+    "Harsh adjectives for something contemptible.",
+    "Wedding moments and essentials you’d expect at the ceremony/reception.",
+    "Truck types named for the job they do.",
+    "Words with different pronunciations depending on meaning."
+  ]
+}
