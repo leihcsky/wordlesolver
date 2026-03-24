@@ -1,0 +1,54 @@
+{
+  "date": "2026-03-25",
+  "puzzleNumber": 1018,
+  "words": [
+    "BLUR",
+    "CLOUD",
+    "MUDDY",
+    "OBSCURE",
+    "CASH",
+    "CHARGE",
+    "CHECK",
+    "WIRE",
+    "FORTUNE",
+    "PEOPLE",
+    "SPIN",
+    "TIME",
+    "CUR",
+    "GALLOP",
+    "PING",
+    "QUARK"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "OBFUSCATE",
+      "words": ["BLUR", "CLOUD", "MUDDY", "OBSCURE"],
+      "explanation": "Verbs meaning to make something less clear or harder to see/understand."
+    },
+    {
+      "color": "green",
+      "title": "PAYMENT METHODS",
+      "words": ["CASH", "CHARGE", "CHECK", "WIRE"],
+      "explanation": "Ways to pay for something, including physical, card-based, and bank transfer options."
+    },
+    {
+      "color": "blue",
+      "title": "MAGAZINES",
+      "words": ["FORTUNE", "PEOPLE", "SPIN", "TIME"],
+      "explanation": "Well-known magazine titles."
+    },
+    {
+      "color": "purple",
+      "title": "UNITS OF VOLUME WITH LAST LETTER CHANGED",
+      "words": ["CUR", "GALLOP", "PING", "QUARK"],
+      "explanation": "CUP, GALLON, PINT, and QUART with the last letter changed."
+    }
+  ],
+  "hints": [
+    "Make something less clear or harder to understand.",
+    "Ways to pay at a register or online checkout.",
+    "Titles you might see on a newsstand.",
+    "Common volume measures, but each is slightly misspelled."
+  ]
+}
