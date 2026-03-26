@@ -55,7 +55,7 @@
     <!-- Today's Hints Page - Updated Daily -->
     <url>
         <loc>https://wordlesolver.best/wordle-hints-today</loc>
-        <lastmod>2026-03-25</lastmod>
+        <lastmod>2026-03-26</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
     </url>
