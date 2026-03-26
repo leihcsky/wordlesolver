@@ -1,0 +1,54 @@
+{
+  "date": "2026-03-26",
+  "puzzleNumber": 1019,
+  "words": [
+    "AGRICULTURE",
+    "FISHING",
+    "GATHERING",
+    "HUNTING",
+    "LION",
+    "PISTON",
+    "RED WING",
+    "TIGER",
+    "BALLOT",
+    "BOOTH",
+    "CURTAIN",
+    "LEVER",
+    "FRANKENSTEIN'S MONSTER",
+    "HARDWARE STORE",
+    "LIGHTNING",
+    "LOCK"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "FOOD PROCUREMENT METHODS",
+      "words": ["AGRICULTURE", "FISHING", "GATHERING", "HUNTING"],
+      "explanation": "Ways people obtain food from nature or production."
+    },
+    {
+      "color": "green",
+      "title": "MEMBER OF A DETROIT SPORTS TEAM",
+      "words": ["LION", "PISTON", "RED WING", "TIGER"],
+      "explanation": "Singular forms of Detroit pro sports team names (Lions, Pistons, Red Wings, Tigers)."
+    },
+    {
+      "color": "blue",
+      "title": "FEATURES OF A CLASSIC VOTING BOOTH",
+      "words": ["BALLOT", "BOOTH", "CURTAIN", "LEVER"],
+      "explanation": "Things you’d find in an old-school voting setup."
+    },
+    {
+      "color": "purple",
+      "title": "THEY HAVE BOLTS",
+      "words": ["FRANKENSTEIN'S MONSTER", "HARDWARE STORE", "LIGHTNING", "LOCK"],
+      "explanation": "Each is associated with bolts (neck bolts, hardware bolts, lightning bolts, and lock bolts)."
+    }
+  ],
+  "hints": [
+    "Ways to get food in different environments.",
+    "Detroit teams, but in the singular.",
+    "Old-timey election setup pieces.",
+    "All relate to bolts in different senses."
+  ]
+}
