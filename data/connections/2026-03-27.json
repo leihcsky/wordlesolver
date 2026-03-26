@@ -1,0 +1,74 @@
+{
+  "date": "2026-03-27",
+  "puzzleNumber": 1020,
+  "words": [
+    "BASIC FACTS",
+    "BOTTOM LINE",
+    "BRASS TACKS",
+    "NITTY-GRITTY",
+    "BAGGAGE CLAIM",
+    "DUTY-FREE",
+    "FOOD COURT",
+    "TICKET COUNTER",
+    "GOLDFISH CRACKER",
+    "MONARCH BUTTERFLY",
+    "THE LORAX",
+    "TRAFFIC CONE",
+    "LIP SERVICE",
+    "MONKEY BARS",
+    "TURN SIGNAL",
+    "WEDDING RECEPTION"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "WHAT IT ALL BOILS DOWN TO",
+      "words": [
+        "BASIC FACTS",
+        "BOTTOM LINE",
+        "BRASS TACKS",
+        "NITTY-GRITTY"
+      ],
+      "explanation": "WHAT IT ALL BOILS DOWN TO"
+    },
+    {
+      "color": "green",
+      "title": "FEATURES OF AN AIRPORT TERMINAL",
+      "words": [
+        "BAGGAGE CLAIM",
+        "DUTY-FREE",
+        "FOOD COURT",
+        "TICKET COUNTER"
+      ],
+      "explanation": "FEATURES OF AN AIRPORT TERMINAL"
+    },
+    {
+      "color": "blue",
+      "title": "THINGS THAT ARE ORANGE",
+      "words": [
+        "GOLDFISH CRACKER",
+        "MONARCH BUTTERFLY",
+        "THE LORAX",
+        "TRAFFIC CONE"
+      ],
+      "explanation": "THINGS THAT ARE ORANGE"
+    },
+    {
+      "color": "purple",
+      "title": "ENDING IN WORDS FOR CELLULAR CONNECTIVITY",
+      "words": [
+        "LIP SERVICE",
+        "MONKEY BARS",
+        "TURN SIGNAL",
+        "WEDDING RECEPTION"
+      ],
+      "explanation": "ENDING IN WORDS FOR CELLULAR CONNECTIVITY"
+    }
+  ],
+  "hints": [
+    "WHAT IT ALL BOILS DOWN TO",
+    "FEATURES OF AN AIRPORT TERMINAL",
+    "THINGS THAT ARE ORANGE",
+    "ENDING IN WORDS FOR CELLULAR CONNECTIVITY"
+  ]
+}
