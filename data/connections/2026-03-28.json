@@ -1,0 +1,74 @@
+{
+  "date": "2026-03-28",
+  "puzzleNumber": 1021,
+  "words": [
+    "BOARD",
+    "EMBARK",
+    "ENTER",
+    "MOUNT",
+    "ACCELERATION",
+    "FORCE",
+    "MASS",
+    "MOMENTUM",
+    "FIGURE",
+    "ILLUSTRATION",
+    "PICTURE",
+    "PLATE",
+    "FACE",
+    "PITCHER",
+    "POWER",
+    "ROBERT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "STEP ONTO, AS A VEHICLE",
+      "words": [
+        "BOARD",
+        "EMBARK",
+        "ENTER",
+        "MOUNT"
+      ],
+      "explanation": "STEP ONTO, AS A VEHICLE"
+    },
+    {
+      "color": "green",
+      "title": "QUANTITIES IN MECHANICS",
+      "words": [
+        "ACCELERATION",
+        "FORCE",
+        "MASS",
+        "MOMENTUM"
+      ],
+      "explanation": "QUANTITIES IN MECHANICS"
+    },
+    {
+      "color": "blue",
+      "title": "TEXTBOOK IMAGES",
+      "words": [
+        "FIGURE",
+        "ILLUSTRATION",
+        "PICTURE",
+        "PLATE"
+      ],
+      "explanation": "TEXTBOOK IMAGES"
+    },
+    {
+      "color": "purple",
+      "title": "___ PLANT",
+      "words": [
+        "FACE",
+        "PITCHER",
+        "POWER",
+        "ROBERT"
+      ],
+      "explanation": "___ PLANT"
+    }
+  ],
+  "hints": [
+    "STEP ONTO, AS A VEHICLE",
+    "QUANTITIES IN MECHANICS",
+    "TEXTBOOK IMAGES",
+    "___ PLANT"
+  ]
+}
