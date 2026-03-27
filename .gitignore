@@ -1,2 +1,4 @@
 /scripts/*
 !/scripts/generate-connections-pages.js
+!/scripts/update-wordle-today.js
+!/scripts/update-connections-from-nyt.js
