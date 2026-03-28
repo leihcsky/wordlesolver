@@ -1,0 +1,74 @@
+{
+  "date": "2026-03-29",
+  "puzzleNumber": 1022,
+  "words": [
+    "GRAFFITI",
+    "MURAL",
+    "POSTER",
+    "STENCIL",
+    "HUSTLE",
+    "MASHED POTATO",
+    "ROBOT",
+    "TWIST",
+    "CORPS",
+    "COUP",
+    "PSYCHO",
+    "RECEIPT",
+    "BEAUTY",
+    "CHECK",
+    "QUESTION",
+    "STRETCH"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "IMAGES SEEN ON THE STREET",
+      "words": [
+        "GRAFFITI",
+        "MURAL",
+        "POSTER",
+        "STENCIL"
+      ],
+      "explanation": "IMAGES SEEN ON THE STREET"
+    },
+    {
+      "color": "green",
+      "title": "RETRO DANCE CRAZES",
+      "words": [
+        "HUSTLE",
+        "MASHED POTATO",
+        "ROBOT",
+        "TWIST"
+      ],
+      "explanation": "RETRO DANCE CRAZES"
+    },
+    {
+      "color": "blue",
+      "title": "SILENT \"P\"",
+      "words": [
+        "CORPS",
+        "COUP",
+        "PSYCHO",
+        "RECEIPT"
+      ],
+      "explanation": "SILENT \"P\""
+    },
+    {
+      "color": "purple",
+      "title": "___ MARK",
+      "words": [
+        "BEAUTY",
+        "CHECK",
+        "QUESTION",
+        "STRETCH"
+      ],
+      "explanation": "___ MARK"
+    }
+  ],
+  "hints": [
+    "IMAGES SEEN ON THE STREET",
+    "RETRO DANCE CRAZES",
+    "SILENT \"P\"",
+    "___ MARK"
+  ]
+}
