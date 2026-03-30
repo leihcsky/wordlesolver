@@ -1,0 +1,74 @@
+{
+  "date": "2026-03-30",
+  "puzzleNumber": 1023,
+  "words": [
+    "DUMMY",
+    "ERSATZ",
+    "FAUX",
+    "MOCK",
+    "FUTZ",
+    "MESS",
+    "TINKER",
+    "TOY",
+    "AVIS",
+    "BUDGET",
+    "DOLLAR",
+    "HERTZ",
+    "FRITZ",
+    "PLAYS",
+    "TRUFFLES",
+    "YUTZ"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "IMITATION",
+      "words": [
+        "DUMMY",
+        "ERSATZ",
+        "FAUX",
+        "MOCK"
+      ],
+      "explanation": "IMITATION"
+    },
+    {
+      "color": "green",
+      "title": "PLAY AROUND (WITH)",
+      "words": [
+        "FUTZ",
+        "MESS",
+        "TINKER",
+        "TOY"
+      ],
+      "explanation": "PLAY AROUND (WITH)"
+    },
+    {
+      "color": "blue",
+      "title": "CAR RENTAL COMPANIES",
+      "words": [
+        "AVIS",
+        "BUDGET",
+        "DOLLAR",
+        "HERTZ"
+      ],
+      "explanation": "CAR RENTAL COMPANIES"
+    },
+    {
+      "color": "purple",
+      "title": "SNACK BRANDS PLUS STARTING LETTER",
+      "words": [
+        "FRITZ",
+        "PLAYS",
+        "TRUFFLES",
+        "YUTZ"
+      ],
+      "explanation": "SNACK BRANDS PLUS STARTING LETTER"
+    }
+  ],
+  "hints": [
+    "IMITATION",
+    "PLAY AROUND (WITH)",
+    "CAR RENTAL COMPANIES",
+    "SNACK BRANDS PLUS STARTING LETTER"
+  ]
+}
