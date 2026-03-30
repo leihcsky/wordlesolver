@@ -66,7 +66,8 @@ function repeatedLetters(wordUpper) {
 function updateWordleToday(jsonPath) {
   const todayPath = path.resolve('wordle-hints-today.html');
   if (!fs.existsSync(todayPath)) throw new Error('wordle-hints-today.html not found');
-  const api = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+  const rawJson = fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, '');
+  const api = JSON.parse(rawJson);
   const newNum = api.days_since_launch;
   const sol = String(api.solution || '').toUpperCase();
   const todayIso = String(api.print_date || '');
@@ -113,6 +114,7 @@ function updateWordleToday(jsonPath) {
   html = html.replace(/<meta name=\"twitter:description\" content=\"[^\"]+\"\>/, `<meta name=\"twitter:description\" content=\"Solution and hints for Wordle #${newNum}. The answer was ${sol}.\">`);
   html = html.replace(/\"headline\": \"[^\"]+\"/, `"headline": "Wordle #${newNum} Hints & Answer - ${human}"`);
   html = html.replace(/\"datePublished\": \"\d{4}-\d{2}-\d{2}\"/, `"datePublished": "${todayIso}"`);
+  html = html.replace(/\"description\": \"[^\"]+\"/, `"description": "Daily Wordle solution for #${newNum}. Answer: ${sol}."`);
 
   // Answer and hints
   html = html.replace(/data-answer=\"[A-Z]+\"/g, `data-answer=\"${sol}\"`);
@@ -132,7 +134,7 @@ function updateWordleToday(jsonPath) {
   const vset = Array.from(new Set(sol.split('').filter(c => vowels.includes(c))));
   const repeats = repeatedLetters(sol);
   const repeatsText = repeats.length ? `and has a repeated letter (${repeats.join(', ')}).` : 'and has no repeated letters.';
-  html = html.replace(/It contains \d+ vowels? \([A-Z, ]+\) and has (no repeated letters|no repeated letter|a repeated letter\([A-Z, ]+\))\./, `It contains ${vset.length} vowel${vset.length === 1 ? '' : 's'} (${vset.join(', ')}) ${repeatsText}`);
+  html = html.replace(/It contains \d+ vowels? \([A-Z, ]+\) and has (no repeated letters|no repeated letter|a repeated letter ?\([A-Z, ]+\))\./, `It contains ${vset.length} vowel${vset.length === 1 ? '' : 's'} (${vset.join(', ')}) ${repeatsText}`);
   const pattern = letterPattern(sol);
   const mask = `${sol[0]} _ _ _ ${sol[sol.length - 1]}`;
   const repeatTip = repeats.length ? ` Watch for a repeated letter.` : '';
