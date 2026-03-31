@@ -1,0 +1,74 @@
+{
+  "date": "2026-03-31",
+  "puzzleNumber": 1024,
+  "words": [
+    "ABSENCE",
+    "CRUNCH",
+    "DEFICIT",
+    "PINCH",
+    "CANNON",
+    "CROW'S NEST",
+    "JOLLY ROGER",
+    "PLANK",
+    "PLUNGE",
+    "PUSH-UP",
+    "SPORTS",
+    "WIRELESS",
+    "CALF RAISE",
+    "CHICK FLICK",
+    "FRY COOK",
+    "KIT KAT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "SHORTAGE",
+      "words": [
+        "ABSENCE",
+        "CRUNCH",
+        "DEFICIT",
+        "PINCH"
+      ],
+      "explanation": "SHORTAGE"
+    },
+    {
+      "color": "green",
+      "title": "PARTS OF A PIRATE SHIP",
+      "words": [
+        "CANNON",
+        "CROW'S NEST",
+        "JOLLY ROGER",
+        "PLANK"
+      ],
+      "explanation": "PARTS OF A PIRATE SHIP"
+    },
+    {
+      "color": "blue",
+      "title": "KINDS OF BRAS",
+      "words": [
+        "PLUNGE",
+        "PUSH-UP",
+        "SPORTS",
+        "WIRELESS"
+      ],
+      "explanation": "KINDS OF BRAS"
+    },
+    {
+      "color": "purple",
+      "title": "STARTING WITH BABY ANIMALS",
+      "words": [
+        "CALF RAISE",
+        "CHICK FLICK",
+        "FRY COOK",
+        "KIT KAT"
+      ],
+      "explanation": "STARTING WITH BABY ANIMALS"
+    }
+  ],
+  "hints": [
+    "SHORTAGE",
+    "PARTS OF A PIRATE SHIP",
+    "KINDS OF BRAS",
+    "STARTING WITH BABY ANIMALS"
+  ]
+}
