@@ -18,7 +18,7 @@ function run(nytPath) {
   const groups = (nyt.categories || []).slice(0, 4).map((cat, i) => ({
     color: colors[i] || 'yellow',
     title: String(cat.title || '').toUpperCase(),
-    words: (cat.cards || []).map((c) => String(c.content || '').toUpperCase()),
+    words: (cat.cards || []).map((c) => String((c.content != null ? c.content : c.image_alt_text) || '').toUpperCase()),
     explanation: String(cat.title || '')
   }));
   const words = groups.flatMap((g) => g.words);
@@ -36,4 +36,3 @@ if (process.argv.length < 3) {
   process.exit(1);
 }
 run(process.argv[2]);
-

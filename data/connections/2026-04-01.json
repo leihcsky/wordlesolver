@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-01",
+  "puzzleNumber": 1025,
+  "words": [
+    "MILLER HIGH LIFE",
+    "RED STRIPE",
+    "DOS EQUIS",
+    "BLUE MOON",
+    "U2",
+    "PINK FLOYD",
+    "GREEN DAY",
+    "THREE DOORS DOWN",
+    "BLUE VELVET",
+    "BACK TO THE FUTURE",
+    "SINGIN' IN THE RAIN",
+    "TOP GUN",
+    "BIG APPLE",
+    "BIG EASY",
+    "MILE HIGH CITY",
+    "SECOND CITY"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "BEER BRANDS",
+      "words": [
+        "MILLER HIGH LIFE",
+        "RED STRIPE",
+        "DOS EQUIS",
+        "BLUE MOON"
+      ],
+      "explanation": "BEER BRANDS"
+    },
+    {
+      "color": "green",
+      "title": "ROCK BANDS",
+      "words": [
+        "U2",
+        "PINK FLOYD",
+        "GREEN DAY",
+        "THREE DOORS DOWN"
+      ],
+      "explanation": "ROCK BANDS"
+    },
+    {
+      "color": "blue",
+      "title": "MOVIES",
+      "words": [
+        "BLUE VELVET",
+        "BACK TO THE FUTURE",
+        "SINGIN' IN THE RAIN",
+        "TOP GUN"
+      ],
+      "explanation": "MOVIES"
+    },
+    {
+      "color": "purple",
+      "title": "U.S. CITY NICKNAMES",
+      "words": [
+        "BIG APPLE",
+        "BIG EASY",
+        "MILE HIGH CITY",
+        "SECOND CITY"
+      ],
+      "explanation": "U.S. CITY NICKNAMES"
+    }
+  ],
+  "hints": [
+    "BEER BRANDS",
+    "ROCK BANDS",
+    "MOVIES",
+    "U.S. CITY NICKNAMES"
+  ]
+}
