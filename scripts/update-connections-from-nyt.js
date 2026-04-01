@@ -7,13 +7,24 @@ function run(nytPath) {
   const date = String(nyt.print_date || '').slice(0, 10);
   const colors = ['yellow', 'green', 'blue', 'purple'];
 
+  const outPath = path.join('data', 'connections', `${date}.json`);
+  let puzzleNumber = 0;
+  try {
+    if (fs.existsSync(outPath)) {
+      const existing = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+      if (existing && typeof existing.puzzleNumber === 'number' && Number.isFinite(existing.puzzleNumber)) {
+        puzzleNumber = existing.puzzleNumber;
+      }
+    }
+  } catch {}
+
   let prevNum = 0;
   try {
     const html = fs.readFileSync(path.resolve('connections-hints-today.html'), 'utf8');
     const m = html.match(/Connections #([0-9]+)/);
     if (m) prevNum = parseInt(m[1], 10) || 0;
   } catch {}
-  const puzzleNumber = prevNum ? prevNum + 1 : (nyt.id || 0);
+  if (!puzzleNumber) puzzleNumber = prevNum ? prevNum + 1 : (nyt.id || 0);
 
   const groups = (nyt.categories || []).slice(0, 4).map((cat, i) => ({
     color: colors[i] || 'yellow',
@@ -25,7 +36,6 @@ function run(nytPath) {
   const hints = groups.map((g) => g.title);
 
   const out = { date, puzzleNumber, words, groups, hints };
-  const outPath = path.join('data', 'connections', `${date}.json`);
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, JSON.stringify(out, null, 2), 'utf8');
   process.stdout.write(`wrote ${outPath} #${puzzleNumber}\n`);
