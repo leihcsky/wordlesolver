@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-02",
+  "puzzleNumber": 1026,
+  "words": [
+    "BACK",
+    "CHAMPION",
+    "ENDORSE",
+    "SECOND",
+    "CHANCE",
+    "MOMENT",
+    "OPENING",
+    "WINDOW",
+    "BUCK",
+    "DRAKE",
+    "DRONE",
+    "STALLION",
+    "CARDI",
+    "EATER",
+    "MESON",
+    "MIGOS"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "SUPPORT",
+      "words": [
+        "BACK",
+        "CHAMPION",
+        "ENDORSE",
+        "SECOND"
+      ],
+      "explanation": "SUPPORT"
+    },
+    {
+      "color": "green",
+      "title": "OPPORTUNITY",
+      "words": [
+        "CHANCE",
+        "MOMENT",
+        "OPENING",
+        "WINDOW"
+      ],
+      "explanation": "OPPORTUNITY"
+    },
+    {
+      "color": "blue",
+      "title": "MALE ANIMALS",
+      "words": [
+        "BUCK",
+        "DRAKE",
+        "DRONE",
+        "STALLION"
+      ],
+      "explanation": "MALE ANIMALS"
+    },
+    {
+      "color": "purple",
+      "title": "ENDS OF LIQUOR BRANDS",
+      "words": [
+        "CARDI",
+        "EATER",
+        "MESON",
+        "MIGOS"
+      ],
+      "explanation": "ENDS OF LIQUOR BRANDS"
+    }
+  ],
+  "hints": [
+    "Think of words meaning to promote, approve, or stand up for a person, idea, or cause.",
+    "These relate to a favorable possibility, a brief time window, or the start of something new.",
+    "Each term names an adult male of a particular animal species.",
+    "Look for word fragments that commonly appear at the tail end of famous alcohol brand names."
+  ]
+}

@@ -95,9 +95,12 @@ function updateWordleToday(jsonPath) {
     fs.writeFileSync(dailyFile, backup, 'utf8');
   }
 
-  // Build letters list for hint-2
-  const letters = uniqueLettersUpper(sol);
-  const lettersList = letters.length > 1 ? `${letters.slice(0, -1).join(', ')}, and ${letters.slice(-1)}` : letters[0];
+  const vowels = ['A', 'E', 'I', 'O', 'U'];
+  const vset = Array.from(new Set(sol.split('').filter((c) => vowels.includes(c))));
+  const repeats = repeatedLetters(sol);
+  const repeatsText = repeats.length ? `and has a repeated letter (${repeats.join(', ')}).` : 'and has no repeated letters.';
+  const pattern = letterPattern(sol);
+  const mask = `${sol[0]} _ _ _ ${sol[sol.length - 1]}`;
 
   // Replace number and dates
   html = html.replace(/Wordle #\d+/g, `Wordle #${newNum}`);
@@ -119,24 +122,18 @@ function updateWordleToday(jsonPath) {
   // Answer and hints
   html = html.replace(/data-answer=\"[A-Z]+\"/g, `data-answer=\"${sol}\"`);
   html = html.replace(/The answer is <span class=\"text-green-600 font-bold\">[A-Z]+<\/span>/, `The answer is <span class=\"text-green-600 font-bold\">${sol}<\/span>`);
-  html = html.replace(/<div id=\"hint-3\"[\s\S]*?<\/div>/, `<div id=\"hint-3\" class=\"hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-red-400 font-mono text-lg tracking-widest\">${sol.split('').join(' ')}<\/div>`);
+  html = html.replace(/<div id=\"hint-3\"[\s\S]*?<\/div>/, `<div id="hint-3" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-red-400 font-mono text-lg tracking-widest">Pattern: ${pattern}. Mask: ${mask}. Middle letter: ${sol[2]}.</div>`);
   html = html.replace(/<div id=\"hint-2\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id=\"hint-2\" class=\"hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-blue-400\">
-                        <p>Starts with ${sol[0]}, ends with ${sol[sol.length-1]}. Contains ${lettersList}.</p>
+                        <p>Starts with ${sol[0]}, ends with ${sol[sol.length - 1]}. Contains ${vset.length} vowel${vset.length === 1 ? '' : 's'} (${vset.join(', ')}) ${repeatsText}</p>
                     </div>`);
   html = html.replace(/<div id=\"hint-1\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-1" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-green-400">
-                        <p>An English word used as a valid Wordle answer.</p>
+                        <p>A common English word (not a proper noun).</p>
                     </div>`);
   html = html.replace(/<strong>Definition:<\/strong>[^<]*/g, `<strong>Definition:</strong> An English word used as a valid Wordle answer.`);
 
   // Strategy small tweaks
   html = html.replace(/Today\'s word ends with the letter [A-Z]\./, `Today's word ends with the letter ${sol[sol.length-1]}.`);
-  const vowels = ['A','E','I','O','U'];
-  const vset = Array.from(new Set(sol.split('').filter(c => vowels.includes(c))));
-  const repeats = repeatedLetters(sol);
-  const repeatsText = repeats.length ? `and has a repeated letter (${repeats.join(', ')}).` : 'and has no repeated letters.';
   html = html.replace(/It contains \d+ vowels? \([A-Z, ]+\) and has (no repeated letters|no repeated letter|a repeated letter ?\([A-Z, ]+\))\./, `It contains ${vset.length} vowel${vset.length === 1 ? '' : 's'} (${vset.join(', ')}) ${repeatsText}`);
-  const pattern = letterPattern(sol);
-  const mask = `${sol[0]} _ _ _ ${sol[sol.length - 1]}`;
   const repeatTip = repeats.length ? ` Watch for a repeated letter.` : '';
   html = html.replace(/<p class=\"text-gray-700 mb-3\">\s*<strong>Strategic Tip:<\/strong>[\s\S]*?<\/p>/, `<p class="text-gray-700 mb-3">
                         <strong>Strategic Tip:</strong> Pattern: ${pattern}. If you have ${mask}, try fitting common vowels/consonants and eliminate options with gray letters.${repeatTip}
