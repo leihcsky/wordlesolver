@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-04",
+  "puzzleNumber": 1028,
+  "words": [
+    "DOGS",
+    "LET",
+    "LIE",
+    "SLEEPING",
+    "COVER",
+    "MASK",
+    "SCREEN",
+    "SHIELD",
+    "BLUFF",
+    "CAPE",
+    "POINT",
+    "SPIT",
+    "BAND",
+    "BASE",
+    "BOOT",
+    "SUMMER"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "\"LET SLEEPING DOGS LIE\"",
+      "words": [
+        "DOGS",
+        "LET",
+        "LIE",
+        "SLEEPING"
+      ],
+      "explanation": "\"LET SLEEPING DOGS LIE\""
+    },
+    {
+      "color": "green",
+      "title": "OBSCURE",
+      "words": [
+        "COVER",
+        "MASK",
+        "SCREEN",
+        "SHIELD"
+      ],
+      "explanation": "OBSCURE"
+    },
+    {
+      "color": "blue",
+      "title": "COASTAL LANDFORMS",
+      "words": [
+        "BLUFF",
+        "CAPE",
+        "POINT",
+        "SPIT"
+      ],
+      "explanation": "COASTAL LANDFORMS"
+    },
+    {
+      "color": "purple",
+      "title": "___ CAMP",
+      "words": [
+        "BAND",
+        "BASE",
+        "BOOT",
+        "SUMMER"
+      ],
+      "explanation": "___ CAMP"
+    }
+  ],
+  "hints": [
+    "A well-known saying about leaving old problems alone instead of stirring up trouble.",
+    "Verbs meaning to hide something from view or block it by putting something in front.",
+    "Geographic features you might see along a shoreline, where land meets the sea.",
+    "Four different types of camps: musical, mountaineering, military-style training, and seasonal youth programs."
+  ]
+}
