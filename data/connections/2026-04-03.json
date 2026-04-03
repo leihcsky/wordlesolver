@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-03",
+  "puzzleNumber": 1027,
+  "words": [
+    "MEAN",
+    "PETTY",
+    "SMALL",
+    "SNIDE",
+    "JONES",
+    "LONG",
+    "LUST",
+    "THIRST",
+    "COLLINS",
+    "HURRICANE",
+    "ROCKS",
+    "ZOMBIE",
+    "CRUISE",
+    "DAMAGE",
+    "GROUND",
+    "MISSION"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "CATTY",
+      "words": [
+        "MEAN",
+        "PETTY",
+        "SMALL",
+        "SNIDE"
+      ],
+      "explanation": "CATTY"
+    },
+    {
+      "color": "green",
+      "title": "HANKER (FOR)",
+      "words": [
+        "JONES",
+        "LONG",
+        "LUST",
+        "THIRST"
+      ],
+      "explanation": "HANKER (FOR)"
+    },
+    {
+      "color": "blue",
+      "title": "COCKTAIL GLASSES",
+      "words": [
+        "COLLINS",
+        "HURRICANE",
+        "ROCKS",
+        "ZOMBIE"
+      ],
+      "explanation": "COCKTAIL GLASSES"
+    },
+    {
+      "color": "purple",
+      "title": "___ CONTROL",
+      "words": [
+        "CRUISE",
+        "DAMAGE",
+        "GROUND",
+        "MISSION"
+      ],
+      "explanation": "___ CONTROL"
+    }
+  ],
+  "hints": [
+    "Sharp-tongued adjectives for someone who makes cutting, spiteful remarks.",
+    "All can be used to express a strong craving or yearning for something.",
+    "Drinkware terms you might hear at a bar when ordering a mixed drink.",
+    "Each word can come before CONTROL to form a familiar phrase."
+  ]
+}

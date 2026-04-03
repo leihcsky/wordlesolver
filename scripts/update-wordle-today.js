@@ -122,9 +122,9 @@ function updateWordleToday(jsonPath) {
   // Answer and hints
   html = html.replace(/data-answer=\"[A-Z]+\"/g, `data-answer=\"${sol}\"`);
   html = html.replace(/The answer is <span class=\"text-green-600 font-bold\">[A-Z]+<\/span>/, `The answer is <span class=\"text-green-600 font-bold\">${sol}<\/span>`);
-  html = html.replace(/<div id=\"hint-3\"[\s\S]*?<\/div>/, `<div id="hint-3" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-red-400 font-mono text-lg tracking-widest">Pattern: ${pattern}. Mask: ${mask}. Middle letter: ${sol[2]}.</div>`);
+  html = html.replace(/<div id=\"hint-3\"[\s\S]*?<\/div>/, `<div id="hint-3" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-red-400 font-mono text-lg tracking-widest">Starts with ${sol[0]}, ends with ${sol[sol.length - 1]}. Pattern: ${pattern}.</div>`);
   html = html.replace(/<div id=\"hint-2\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id=\"hint-2\" class=\"hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-blue-400\">
-                        <p>Starts with ${sol[0]}, ends with ${sol[sol.length - 1]}. Contains ${vset.length} vowel${vset.length === 1 ? '' : 's'} (${vset.join(', ')}) ${repeatsText}</p>
+                        <p>Contains ${vset.length} vowel${vset.length === 1 ? '' : 's'} (${vset.join(', ')}) ${repeatsText}</p>
                     </div>`);
   html = html.replace(/<div id=\"hint-1\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-1" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-green-400">
                         <p>A common English word (not a proper noun).</p>
