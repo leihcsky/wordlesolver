@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-05",
+  "puzzleNumber": 1029,
+  "words": [
+    "ELECTRON",
+    "NUCLEUS",
+    "ORBIT",
+    "SHELL",
+    "DEERSTALKER",
+    "MAGNIFYING GLASS",
+    "PIPE",
+    "VIOLIN",
+    "COIN",
+    "LIGHT SWITCH",
+    "PANCAKE",
+    "THE BIRD",
+    "GOOGOL",
+    "MUSHROOM",
+    "PASTEURIZE",
+    "PULPIT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "ATOMIC STRUCTURE TERMS",
+      "words": [
+        "ELECTRON",
+        "NUCLEUS",
+        "ORBIT",
+        "SHELL"
+      ],
+      "explanation": "ATOMIC STRUCTURE TERMS"
+    },
+    {
+      "color": "green",
+      "title": "PARTS OF A SHERLOCK HOLMES COSTUME",
+      "words": [
+        "DEERSTALKER",
+        "MAGNIFYING GLASS",
+        "PIPE",
+        "VIOLIN"
+      ],
+      "explanation": "PARTS OF A SHERLOCK HOLMES COSTUME"
+    },
+    {
+      "color": "blue",
+      "title": "THINGS TO FLIP",
+      "words": [
+        "COIN",
+        "LIGHT SWITCH",
+        "PANCAKE",
+        "THE BIRD"
+      ],
+      "explanation": "THINGS TO FLIP"
+    },
+    {
+      "color": "purple",
+      "title": "STARTING WITH SYNONYMS FOR \"SLUSH\"",
+      "words": [
+        "GOOGOL",
+        "MUSHROOM",
+        "PASTEURIZE",
+        "PULPIT"
+      ],
+      "explanation": "STARTING WITH SYNONYMS FOR \"SLUSH\""
+    }
+  ],
+  "hints": [
+    "Intro science vocabulary about what an atom contains and how its parts are arranged.",
+    "Iconic props and accessories associated with a famous fictional detective.",
+    "Things you can flip, toggle, or turn over—sometimes literally, sometimes as a gesture.",
+    "All four start with a word meaning a thick, wet mixture or soft mass."
+  ]
+}
