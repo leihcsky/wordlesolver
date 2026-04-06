@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-07",
+  "puzzleNumber": 1030,
+  "words": [
+    "BATTLE",
+    "CLASH",
+    "CONTEST",
+    "MATCH",
+    "DOWN",
+    "GAME",
+    "IN",
+    "WILLING",
+    "ANOTHER",
+    "EITHER",
+    "NEITHER",
+    "ONE",
+    "AFTER",
+    "LOW",
+    "NIGHT",
+    "WILD"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "COMPETITION",
+      "words": [
+        "BATTLE",
+        "CLASH",
+        "CONTEST",
+        "MATCH"
+      ],
+      "explanation": "COMPETITION"
+    },
+    {
+      "color": "green",
+      "title": "ON BOARD",
+      "words": [
+        "DOWN",
+        "GAME",
+        "IN",
+        "WILLING"
+      ],
+      "explanation": "ON BOARD"
+    },
+    {
+      "color": "blue",
+      "title": "WORDS FOR UNSPECIFIED CHOICES",
+      "words": [
+        "ANOTHER",
+        "EITHER",
+        "NEITHER",
+        "ONE"
+      ],
+      "explanation": "WORDS FOR UNSPECIFIED CHOICES"
+    },
+    {
+      "color": "purple",
+      "title": "___LIFE",
+      "words": [
+        "AFTER",
+        "LOW",
+        "NIGHT",
+        "WILD"
+      ],
+      "explanation": "___LIFE"
+    }
+  ],
+  "hints": [
+    "COMPETITION",
+    "ON BOARD",
+    "WORDS FOR UNSPECIFIED CHOICES",
+    "___LIFE"
+  ]
+}
