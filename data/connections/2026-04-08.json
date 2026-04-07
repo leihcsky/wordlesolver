@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-08",
+  "puzzleNumber": 1031,
+  "words": [
+    "ASSOCIATE",
+    "COLLEAGUE",
+    "FELLOW",
+    "PEER",
+    "DESIGN",
+    "LOOK",
+    "SCHEME",
+    "STYLE",
+    "MONKEY",
+    "PARALLEL",
+    "PULL-UP",
+    "UNEVEN",
+    "CONTACT",
+    "GOGGLE",
+    "SHADE",
+    "SPECTACLE"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "COHORT MEMBER",
+      "words": [
+        "ASSOCIATE",
+        "COLLEAGUE",
+        "FELLOW",
+        "PEER"
+      ],
+      "explanation": "COHORT MEMBER"
+    },
+    {
+      "color": "green",
+      "title": "AESTHETIC",
+      "words": [
+        "DESIGN",
+        "LOOK",
+        "SCHEME",
+        "STYLE"
+      ],
+      "explanation": "AESTHETIC"
+    },
+    {
+      "color": "blue",
+      "title": "KINDS OF BAR APPARATUSES",
+      "words": [
+        "MONKEY",
+        "PARALLEL",
+        "PULL-UP",
+        "UNEVEN"
+      ],
+      "explanation": "KINDS OF BAR APPARATUSES"
+    },
+    {
+      "color": "purple",
+      "title": "EYEWEAR IN THE SINGULAR",
+      "words": [
+        "CONTACT",
+        "GOGGLE",
+        "SHADE",
+        "SPECTACLE"
+      ],
+      "explanation": "EYEWEAR IN THE SINGULAR"
+    }
+  ],
+  "hints": [
+    "COHORT MEMBER",
+    "AESTHETIC",
+    "KINDS OF BAR APPARATUSES",
+    "EYEWEAR IN THE SINGULAR"
+  ]
+}
