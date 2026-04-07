@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const REPO_ROOT = path.resolve(__dirname, '..');
+
 function monthName(dt) {
   const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   return months[dt.getMonth()];
@@ -8,11 +10,6 @@ function monthName(dt) {
 function monthSlug(dt) {
   const slugs = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
   return slugs[dt.getMonth()];
-}
-
-function uniqueLettersUpper(s) {
-  const set = new Set(String(s || '').toUpperCase().split(''));
-  return Array.from(set);
 }
 
 function humanDate(iso) {
@@ -27,7 +24,7 @@ function buildDailyFileName(num, iso) {
 }
 
 function ensureWordInBank(wordUpper, iso) {
-  const bankPath = path.resolve('data', 'word-bank.json');
+  const bankPath = path.join(REPO_ROOT, 'data', 'word-bank.json');
   if (!fs.existsSync(bankPath)) return false;
   const raw = fs.readFileSync(bankPath, 'utf8');
   const bank = JSON.parse(raw);
@@ -63,15 +60,34 @@ function repeatedLetters(wordUpper) {
     .map(([c]) => c);
 }
 
-function updateWordleToday(jsonPath) {
-  const todayPath = path.resolve('wordle-hints-today.html');
+function buildAnswerTilesMarkup(wordUpper) {
+  const w = String(wordUpper || '').toUpperCase();
+  const letters = w.split('');
+  if (!letters.length) return '';
+  const btns = letters
+    .map(
+      (_, i) =>
+        `<button type="button" class="answer-tile w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 cursor-pointer select-none transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1" data-tile-index="${i}" data-revealed="false" aria-label="Reveal letter ${i + 1}">?</button>`
+    )
+    .join('\n                            ');
+  return `<div id="answer-tiles" class="flex flex-wrap justify-center gap-2 mb-6" data-answer="${w}" role="group" aria-label="Answer letters. Tap a square to reveal one letter.">
+                            ${btns}
+                        </div>`;
+}
+
+function updateWordleToday(absJsonPath) {
+  const todayPath = path.join(REPO_ROOT, 'wordle-hints-today.html');
   if (!fs.existsSync(todayPath)) throw new Error('wordle-hints-today.html not found');
-  const rawJson = fs.readFileSync(jsonPath, 'utf8').replace(/^\uFEFF/, '');
+  const rawJson = fs.readFileSync(absJsonPath, 'utf8').replace(/^\uFEFF/, '');
   const api = JSON.parse(rawJson);
   const newNum = api.days_since_launch;
   const sol = String(api.solution || '').toUpperCase();
   const todayIso = String(api.print_date || '');
   const human = humanDate(todayIso);
+
+  if (sol.length !== 5 || !/^[A-Z]{5}$/.test(sol)) {
+    throw new Error(`Expected 5-letter A–Z solution, got: ${JSON.stringify(api.solution)}`);
+  }
 
   ensureWordInBank(sol, todayIso);
 
@@ -91,16 +107,15 @@ function updateWordleToday(jsonPath) {
     backup = backup.replace(/<meta property=\"og:url\"[^>]*>/, `<meta property=\"og:url\" content=\"https://wordlesolver.best/${dailyUrl}\">`);
     backup = backup.replace(/<meta name=\"twitter:url\"[^>]*>/, `<meta name=\"twitter:url\" content=\"https://wordlesolver.best/${dailyUrl}\">`);
     backup = backup.replace(/\"@id\": \"https:\/\/wordlesolver\.best\/wordle-hints-today\"/, `"@id": "https://wordlesolver.best/${dailyUrl}"`);
-    fs.mkdirSync(path.dirname(dailyFile), { recursive: true });
-    fs.writeFileSync(dailyFile, backup, 'utf8');
+    const dailyAbs = path.join(REPO_ROOT, dailyFile);
+    fs.mkdirSync(path.dirname(dailyAbs), { recursive: true });
+    fs.writeFileSync(dailyAbs, backup, 'utf8');
   }
 
   const vowels = ['A', 'E', 'I', 'O', 'U'];
   const vset = Array.from(new Set(sol.split('').filter((c) => vowels.includes(c))));
   const repeats = repeatedLetters(sol);
-  const repeatsText = repeats.length ? `and has a repeated letter (${repeats.join(', ')}).` : 'and has no repeated letters.';
   const pattern = letterPattern(sol);
-  const mask = `${sol[0]} _ _ _ ${sol[sol.length - 1]}`;
 
   // Replace number and dates
   html = html.replace(/Wordle #\d+/g, `Wordle #${newNum}`);
@@ -119,25 +134,58 @@ function updateWordleToday(jsonPath) {
   html = html.replace(/\"datePublished\": \"\d{4}-\d{2}-\d{2}\"/, `"datePublished": "${todayIso}"`);
   html = html.replace(/\"description\": \"[^\"]+\"/, `"description": "Daily Wordle solution for #${newNum}. Answer: ${sol}."`);
 
-  // Answer and hints
-  html = html.replace(/data-answer=\"[A-Z]+\"/g, `data-answer=\"${sol}\"`);
+  // Answer tiles (per-letter reveal UI) + visible answer line
+  const tilesMarkup = buildAnswerTilesMarkup(sol);
+  if (tilesMarkup) {
+    const beforeTiles = html;
+    html = html.replace(/<div id="answer-tiles"[\s\S]*?<\/div>\s*(?=\s*<div id="answer-explanation")/m, tilesMarkup);
+    if (html === beforeTiles) {
+      throw new Error('Could not replace #answer-tiles block (expected before #answer-explanation). Update template or regex.');
+    }
+  }
   html = html.replace(/The answer is <span class=\"text-green-600 font-bold\">[A-Z]+<\/span>/, `The answer is <span class=\"text-green-600 font-bold\">${sol}<\/span>`);
-  html = html.replace(/<div id=\"hint-3\"[\s\S]*?<\/div>/, `<div id="hint-3" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-red-400 font-mono text-lg tracking-widest">Starts with ${sol[0]}, ends with ${sol[sol.length - 1]}. Pattern: ${pattern}.</div>`);
-  html = html.replace(/<div id=\"hint-2\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id=\"hint-2\" class=\"hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-blue-400\">
-                        <p>Contains ${vset.length} vowel${vset.length === 1 ? '' : 's'} (${vset.join(', ')}) ${repeatsText}</p>
-                    </div>`);
+  html = html.replace(/<strong>Definition:<\/strong>[^<]*/g, `<strong>Definition:</strong> An English word used as a valid Wordle answer.`);
+
+  // Spoiler-free hint bodies (aligned with manual “today” page style)
+  const hint2Soft = `Among A, E, I, O, U, the answer uses <strong>${vset.length}</strong> distinct vowel letter${vset.length === 1 ? '' : 's'}. ${
+    repeats.length
+      ? '<strong>At least one letter appears twice.</strong>'
+      : '<strong>No letter is used more than once.</strong>'
+  }`;
+  const hint3Soft = `Consonant vs vowel skeleton (left to right): <strong>${pattern}</strong> — <strong>C</strong> = consonant, <strong>V</strong> = A/E/I/O/U.`;
+
   html = html.replace(/<div id=\"hint-1\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-1" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-green-400">
                         <p>A common English word (not a proper noun).</p>
                     </div>`);
-  html = html.replace(/<strong>Definition:<\/strong>[^<]*/g, `<strong>Definition:</strong> An English word used as a valid Wordle answer.`);
+  html = html.replace(/<div id=\"hint-2\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-2" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-blue-400">
+                        <p>${hint2Soft}</p>
+                    </div>`);
+  html = html.replace(/<div id=\"hint-3\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-3" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-red-400">
+                        <p>${hint3Soft}</p>
+                    </div>`);
 
-  // Strategy small tweaks
-  html = html.replace(/Today\'s word ends with the letter [A-Z]\./, `Today's word ends with the letter ${sol[sol.length-1]}.`);
-  html = html.replace(/It contains \d+ vowels? \([A-Z, ]+\) and has (no repeated letters|no repeated letter|a repeated letter ?\([A-Z, ]+\))\./, `It contains ${vset.length} vowel${vset.length === 1 ? '' : 's'} (${vset.join(', ')}) ${repeatsText}`);
-  const repeatTip = repeats.length ? ` Watch for a repeated letter.` : '';
-  html = html.replace(/<p class=\"text-gray-700 mb-3\">\s*<strong>Strategic Tip:<\/strong>[\s\S]*?<\/p>/, `<p class="text-gray-700 mb-3">
-                        <strong>Strategic Tip:</strong> Pattern: ${pattern}. If you have ${mask}, try fitting common vowels/consonants and eliminate options with gray letters.${repeatTip}
-                    </p>`);
+  const repeatTip = repeats.length ? ' Watch for a double letter somewhere.' : '';
+  const strategyP1 = `The solution uses <strong>${vset.length}</strong> distinct vowel letter${vset.length === 1 ? '' : 's'} from A, E, I, O, U — use your yellow/green feedback to place them.`;
+  const strategyP2 = repeats.length
+    ? 'A repeated letter is possible; if your guesses feel almost right, test a double before chasing new letters.'
+    : 'Every letter in the answer is unique, so duplicate letters in a guess can only yield one green/yellow per slot.';
+  const strategyP3 = `The consonant/vowel pattern is <strong>${pattern}</strong>. Narrow candidates with gray eliminations and common five-letter fits.${repeatTip}`;
+
+  html = html.replace(
+    /<section class="border-t pt-8">\s*<h2 class="text-2xl font-bold text-gray-900 mb-4">Strategy &amp; Analysis<\/h2>[\s\S]*?<\/section>/,
+    `<section class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Strategy &amp; Analysis</h2>
+                    <p class="text-gray-700 mb-3">
+                        ${strategyP1}
+                    </p>
+                    <p class="text-gray-700 mb-3">
+                        ${strategyP2}
+                    </p>
+                    <p class="text-gray-700 mb-3">
+                        <strong>Strategic Tip:</strong> ${strategyP3}
+                    </p>
+                </section>`
+  );
 
   // Yesterday link
   if (prevNum && prevIso) {
@@ -156,5 +204,7 @@ if (process.argv.length < 3) {
   console.error('Usage: node scripts/update-wordle-today.js tmp-wordle.json');
   process.exit(1);
 }
-updateWordleToday(process.argv[2]);
+const jsonArg = process.argv[2];
+const absJson = path.isAbsolute(jsonArg) ? jsonArg : path.join(REPO_ROOT, jsonArg);
+updateWordleToday(absJson);
 

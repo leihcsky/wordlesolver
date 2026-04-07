@@ -266,7 +266,7 @@
                         <li>Start in <strong>Quick Helper</strong>: click any of the 16 words to reveal its group color (click again to turn it back to gray).</li>
                         <li>Use the four color bars (Yellow/Green/Blue/Purple) to reveal the <strong>category name</strong> for that color.</li>
                         <li>Open <strong>Spoiler-Free Hints</strong> in order (Yellow → Green → Blue → Purple) to get progressively clearer category clues.</li>
-                        <li>If you’re still stuck, tap <strong>Reveal today’s groups</strong> to show all four categories, words, and explanations.</li>
+                        <li>If you’re still stuck, tap <strong>Reveal today’s groups</strong> to show all four categories and their words.</li>
                         <li>Play the official daily puzzle at <a href="https://www.nytimes.com/games/connections" target="_blank" rel="noopener noreferrer" class="underline hover:text-indigo-700 font-semibold">NYT Connections</a> and use this page to reveal only what you need.</li>
                     </ul>
                 </section>
@@ -351,53 +351,53 @@
                             Reveal today’s groups
                         </button>
                     </div>
-                    <div id="answers-container" class="hidden mt-8 space-y-4">
-<div class="rounded-lg p-5 border bg-yellow-50 border-yellow-200">
-                            <div class="flex items-center justify-between gap-3 mb-3">
-                                <div class="inline-flex items-center bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded uppercase">Yellow</div>
-                                <div class="text-gray-900 font-bold text-lg">COMPETITION</div>
+                    <div id="answers-container" class="hidden mt-8 space-y-6">
+                        <div class="rounded-lg p-6 border bg-yellow-50 border-yellow-200 shadow-sm">
+                            <div class="flex items-start justify-between gap-3">
+                                <span class="inline-flex shrink-0 items-center bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded uppercase">Yellow</span>
+                                <span class="text-gray-900 font-bold text-lg text-right leading-snug min-w-0">COMPETITION</span>
                             </div>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">BATTLE</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">CLASH</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">CONTEST</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">MATCH</span>
-                            </div>
-                            <div class="text-gray-700">
-                                COMPETITION
-                            </div>
-                        </div>
-<div class="rounded-lg p-5 border bg-green-50 border-green-200">
-                            <div class="flex items-center justify-between gap-3 mb-3">
-                                <div class="inline-flex items-center bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded uppercase">Green</div>
-                                <div class="text-gray-900 font-bold text-lg">ON BOARD</div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">DOWN</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">GAME</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">IN</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">WILLING</span>
-                            </div>
-                            <div class="text-gray-700">
-                                ON BOARD
+                            <div class="flex flex-wrap gap-2.5 mt-4">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">BATTLE</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">CLASH</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">CONTEST</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">MATCH</span>
                             </div>
                         </div>
-<div class="rounded-lg p-5 border bg-blue-50 border-blue-200">
-                            <div class="flex items-center justify-between gap-3 mb-3">
-                                <div class="inline-flex items-center bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase">Blue</div>
-                                <div class="text-gray-900 font-bold text-lg">WORDS FOR UNSPECIFIED CHOICES</div>
+                        <div class="rounded-lg p-6 border bg-green-50 border-green-200 shadow-sm">
+                            <div class="flex items-start justify-between gap-3">
+                                <span class="inline-flex shrink-0 items-center bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded uppercase">Green</span>
+                                <span class="text-gray-900 font-bold text-lg text-right leading-snug min-w-0">ON BOARD</span>
                             </div>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">ANOTHER</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">EITHER</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">NEITHER</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">ONE</span>
-                            </div>
-                            <div class="text-gray-700">
-                                WORDS FOR UNSPECIFIED CHOICES
+                            <div class="flex flex-wrap gap-2.5 mt-4">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">DOWN</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">GAME</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">IN</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">WILLING</span>
                             </div>
                         </div>
-<div class="rounded-lg p-5 border bg-purple-50 border-purple-200">
-                            <div class="flex items-center justify-between gap-3 mb-3">
-                                <div class="inline-flex items-center bg-purple-100 text-purple-800 text-xs font-bold px-2 py-1 rounded uppercase">Purple</div>
-                                <div class="text-gray-900 font-bold text-lg">___LIFE</div>
+                        <div class="rounded-lg p-6 border bg-blue-50 border-blue-200 shadow-sm">
+                            <div class="flex items-start justify-between gap-3">
+                                <span class="inline-flex shrink-0 items-center bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase">Blue</span>
+                                <span class="text-gray-900 font-bold text-lg text-right leading-snug min-w-0">WORDS FOR UNSPECIFIED CHOICES</span>
                             </div>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">AFTER</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">LOW</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">NIGHT</span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">WILD</span>
+                            <div class="flex flex-wrap gap-2.5 mt-4">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">ANOTHER</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">EITHER</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">NEITHER</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">ONE</span>
                             </div>
-                            <div class="text-gray-700">
-                                ___LIFE
+                        </div>
+                        <div class="rounded-lg p-6 border bg-purple-50 border-purple-200 shadow-sm">
+                            <div class="flex items-start justify-between gap-3">
+                                <span class="inline-flex shrink-0 items-center bg-purple-100 text-purple-800 text-xs font-bold px-2 py-1 rounded uppercase">Purple</span>
+                                <span class="text-gray-900 font-bold text-lg text-right leading-snug min-w-0">___LIFE</span>
+                            </div>
+                            <div class="flex flex-wrap gap-2.5 mt-4">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">AFTER</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">LOW</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">NIGHT</span>
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">WILD</span>
                             </div>
                         </div>
                     </div>
@@ -407,7 +407,7 @@
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">More Daily Puzzle Help</h2>
                     <div class="text-gray-700 space-y-3">
                         <p>
-                            Prefer a smaller nudge? Use the hints section first. If you’re trying to improve long-term, compare your thought process with the revealed topics and explanations after you solve.
+                            Prefer a smaller nudge? Use the hints section first. If you’re trying to improve long-term, compare your thought process with the revealed categories after you solve.
                         </p>
                         <p>
                             Play the official daily puzzle here: <a href="https://www.nytimes.com/games/connections" target="_blank" rel="noopener noreferrer" class="underline hover:text-indigo-700 font-semibold">NYT Connections</a>.

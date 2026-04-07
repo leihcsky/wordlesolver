@@ -91,6 +91,9 @@
         .spoiler-box {
             border-left: 4px solid #6aaa64;
         }
+        .answer-tile:not([data-revealed="true"]):hover {
+            border-color: #6aaa64;
+        }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -271,35 +274,6 @@
                 </div>
                 </section>
 
-                <!-- Spoiler / Answer Section -->
-                <section class="spoiler-box bg-gray-50 p-6 rounded-r-lg mt-8">
-                    <div class="text-center">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Ready for the answer?</h2>
-                        <button id="reveal-answer" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md text-lg">
-                            Reveal today's answer
-                        </button>
-                    </div>
-
-                    <!-- Hidden Answer Content -->
-                    <div id="answer-container" class="mt-8 flex flex-col items-center">
-                        <!-- Tiles Container -->
-                        <div id="answer-tiles" class="flex space-x-2 mb-6" data-answer="DENSE">
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 select-none" data-tile-index="0">?</div>
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 select-none" data-tile-index="1">?</div>
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 select-none" data-tile-index="2">?</div>
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 select-none" data-tile-index="3">?</div>
-                            <div class="w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 select-none" data-tile-index="4">?</div>
-                        </div>
-
-                        <!-- Explanation (Hidden initially) -->
-                        <div id="answer-explanation" class="hidden max-w-lg text-center animate-fade-in">
-                            <p class="text-xl font-medium text-gray-900 mb-2">The answer is <span class="text-green-600 font-bold">DENSE</span>.</p>
-                            <p class="text-gray-600">
-                                <strong>Definition:</strong> An English word used as a valid Wordle answer.</p>
-                        </div>
-                    </div>
-                </section>
-
                 <!-- Strategy Section -->
                 <section class="border-t pt-8">
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">Strategy &amp; Analysis</h2>
@@ -335,6 +309,35 @@
                         <li><strong>Process of Elimination:</strong> Use the gray letters to narrow down your options.</li>
                         <li><strong>Watch for Doubles:</strong> Don't forget that letters can appear twice (like in RABBI or EERIE).</li>
                     </ul>
+                </section>
+
+                <!-- Spoiler / Answer Section (end of article) -->
+                <section id="reveal-answer" class="spoiler-box bg-gray-50 p-6 rounded-r-lg border-t border-gray-100 mt-2">
+                    <div class="text-center">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-2">Ready for the answer?</h2>
+                        <p class="text-sm text-gray-600 max-w-md mx-auto mb-6">
+                            Tap a square to reveal one letter, or use the button to reveal the full word at once.
+                        </p>
+                        <button type="button" id="reveal-answer-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md text-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                            Reveal today's answer
+                        </button>
+                    </div>
+
+                    <div id="answer-container" class="mt-8 flex flex-col items-center">
+                        <div id="answer-tiles" class="flex flex-wrap justify-center gap-2 mb-6" data-answer="DENSE" role="group" aria-label="Answer letters. Tap a square to reveal one letter.">
+                            <button type="button" class="answer-tile w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 cursor-pointer select-none transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1" data-tile-index="0" data-revealed="false" aria-label="Reveal letter 1">?</button>
+                            <button type="button" class="answer-tile w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 cursor-pointer select-none transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1" data-tile-index="1" data-revealed="false" aria-label="Reveal letter 2">?</button>
+                            <button type="button" class="answer-tile w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 cursor-pointer select-none transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1" data-tile-index="2" data-revealed="false" aria-label="Reveal letter 3">?</button>
+                            <button type="button" class="answer-tile w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 cursor-pointer select-none transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1" data-tile-index="3" data-revealed="false" aria-label="Reveal letter 4">?</button>
+                            <button type="button" class="answer-tile w-12 h-12 sm:w-14 sm:h-14 border-2 border-gray-300 bg-white flex items-center justify-center text-2xl sm:text-3xl font-bold text-gray-400 cursor-pointer select-none transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-1" data-tile-index="4" data-revealed="false" aria-label="Reveal letter 5">?</button>
+                        </div>
+
+                        <div id="answer-explanation" class="hidden max-w-lg text-center animate-fade-in">
+                            <p class="text-xl font-medium text-gray-900 mb-2">The answer is <span class="text-green-600 font-bold">DENSE</span>.</p>
+                            <p class="text-gray-600">
+                                <strong>Definition:</strong> An English word used as a valid Wordle answer.</p>
+                        </div>
+                    </div>
                 </section>
             </div>
         </article>
@@ -395,33 +398,60 @@
                 });
             });
 
-            // Answer Reveal
-            const revealBtn = document.getElementById('reveal-answer');
-            const answerContainer = document.getElementById('answer-container');
+            // Answer reveal (full word or one letter per tile)
+            const revealBtn = document.getElementById('reveal-answer-btn');
             const answerTiles = document.getElementById('answer-tiles');
             const explanation = document.getElementById('answer-explanation');
-            const answerWord = answerTiles.getAttribute('data-answer');
+            const answerWord = (answerTiles && answerTiles.getAttribute('data-answer')) || '';
 
-            revealBtn.addEventListener('click', () => {
-                revealBtn.classList.add('hidden');
-                
-                // Animate tiles
-                const tiles = answerTiles.querySelectorAll('div');
-                tiles.forEach((tile, index) => {
-                    setTimeout(() => {
-                        tile.textContent = answerWord[index];
-                        tile.classList.remove('bg-white', 'text-gray-400', 'border-gray-300');
-                        tile.classList.add('bg-green-600', 'text-white', 'border-green-600');
-                        
-                        // Show explanation after last tile
-                        if (index === tiles.length - 1) {
-                            setTimeout(() => {
-                                explanation.classList.remove('hidden');
-                            }, 500);
-                        }
-                    }, index * 200);
+            function revealSingleTile(tile, letter) {
+                if (tile.getAttribute('data-revealed') === 'true') return;
+                tile.textContent = letter;
+                tile.setAttribute('data-revealed', 'true');
+                tile.classList.remove('bg-white', 'text-gray-400', 'border-gray-300', 'cursor-pointer');
+                tile.classList.add('bg-green-600', 'text-white', 'border-green-600', 'cursor-default');
+                tile.setAttribute('aria-label', 'Letter ' + letter);
+            }
+
+            function allTilesRevealed() {
+                return answerTiles && Array.from(answerTiles.querySelectorAll('.answer-tile')).every(
+                    (t) => t.getAttribute('data-revealed') === 'true'
+                );
+            }
+
+            function showExplanationIfComplete() {
+                if (!allTilesRevealed()) return;
+                if (explanation) explanation.classList.remove('hidden');
+                if (revealBtn) revealBtn.classList.add('hidden');
+            }
+
+            if (answerTiles) {
+                answerTiles.querySelectorAll('.answer-tile').forEach((tile) => {
+                    tile.addEventListener('click', () => {
+                        const idx = parseInt(tile.getAttribute('data-tile-index'), 10);
+                        if (Number.isNaN(idx) || idx < 0 || idx >= answerWord.length) return;
+                        revealSingleTile(tile, answerWord[idx]);
+                        showExplanationIfComplete();
+                    });
                 });
-            });
+            }
+
+            if (revealBtn && answerTiles && explanation) {
+                revealBtn.addEventListener('click', () => {
+                    revealBtn.classList.add('hidden');
+                    const tiles = answerTiles.querySelectorAll('.answer-tile');
+                    tiles.forEach((tile, index) => {
+                        setTimeout(() => {
+                            revealSingleTile(tile, answerWord[index]);
+                            if (index === tiles.length - 1) {
+                                setTimeout(() => {
+                                    explanation.classList.remove('hidden');
+                                }, 400);
+                            }
+                        }, index * 200);
+                    });
+                });
+            }
 
             // Mobile Menu Toggle
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');

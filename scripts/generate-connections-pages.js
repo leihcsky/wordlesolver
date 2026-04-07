@@ -145,6 +145,35 @@ function groupStyle(color) {
   return { name: escapeHtml(color), container: 'bg-gray-50 border-gray-200', badge: 'bg-gray-100 text-gray-800' };
 }
 
+/** Revealed-answer card: category title is only in the header; optional body text if explanation differs from title. */
+function buildRevealedAnswerGroupMarkup(g, indent = '                        ') {
+  const style = groupStyle(g.color);
+  const words = g.words
+    .map(
+      (w) =>
+        `<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border border-gray-200/80 shadow-sm">${escapeHtml(normalizeWord(w))}</span>`
+    )
+    .join(' ');
+  const exp = String(g.explanation || '').trim();
+  const titleTrim = String(g.title || '').trim();
+  const showExplanation = exp.length > 0 && exp.toUpperCase() !== titleTrim.toUpperCase();
+  const i = indent;
+  const i1 = `${indent}    `;
+  const i2 = `${indent}        `;
+  const expl = showExplanation
+    ? `\n${i1}<p class="text-gray-700 text-sm leading-relaxed border-t border-gray-200/60 pt-3 mt-1">${escapeHtml(exp)}</p>`
+    : '';
+  return `${i}<div class="rounded-lg p-6 border ${style.container} shadow-sm">
+${i1}<div class="flex items-start justify-between gap-3">
+${i2}<span class="inline-flex shrink-0 items-center ${style.badge} text-xs font-bold px-2 py-1 rounded uppercase">${style.name}</span>
+${i2}<span class="text-gray-900 font-bold text-lg text-right leading-snug min-w-0">${escapeHtml(g.title)}</span>
+${i1}</div>
+${i1}<div class="flex flex-wrap gap-2.5 mt-4${showExplanation ? ' mb-3' : ''}">
+${i2}${words}
+${i1}</div>${expl}
+${i}</div>`;
+}
+
 function wordRevealStyle(color) {
   const c = String(color || '').toLowerCase();
   if (c === 'yellow') return { bg: 'bg-yellow-200', border: 'border-yellow-300', text: 'text-yellow-900' };
@@ -260,25 +289,7 @@ function buildConnectionsTodayHtml(data, previousDailyHref) {
     })
     .join('\n');
 
-  const groupsHtml = data.groups
-    .map((g) => {
-      const style = groupStyle(g.color);
-      const words = g.words.map((w) => `<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">${escapeHtml(normalizeWord(w))}</span>`).join(' ');
-      return `
-                        <div class="rounded-lg p-5 border ${style.container}">
-                            <div class="flex items-center justify-between gap-3 mb-3">
-                                <div class="inline-flex items-center ${style.badge} text-xs font-bold px-2 py-1 rounded uppercase">${style.name}</div>
-                                <div class="text-gray-900 font-bold text-lg">${escapeHtml(g.title)}</div>
-                            </div>
-                            <div class="flex flex-wrap gap-2 mb-3">
-                                ${words}
-                            </div>
-                            <div class="text-gray-700">
-                                ${escapeHtml(g.explanation)}
-                            </div>
-                        </div>`.trim();
-    })
-    .join('\n');
+  const groupsHtml = data.groups.map((g) => buildRevealedAnswerGroupMarkup(g, '                        ')).join('\n');
 
   const prevBlock = previousDailyHref
     ? `<p class="text-sm bg-blue-50 text-blue-800 p-4 rounded-md border-l-4 border-blue-400"><strong>Missed yesterday’s Connections?</strong> See <a href="${escapeHtml(previousDailyHref)}" class="underline hover:text-blue-600 font-medium">yesterday’s solution</a>.</p>`
@@ -487,7 +498,7 @@ ${hintsHtml}
                         <li>Start in <strong>Quick Helper</strong>: click any of the 16 words to reveal its group color (click again to turn it back to gray).</li>
                         <li>Use the four color bars (Yellow/Green/Blue/Purple) to reveal the <strong>category name</strong> for that color.</li>
                         <li>Open <strong>Spoiler-Free Hints</strong> in order (Yellow → Green → Blue → Purple) to get progressively clearer category clues.</li>
-                        <li>If you’re still stuck, tap <strong>Reveal today’s groups</strong> to show all four categories, words, and explanations.</li>
+                        <li>If you’re still stuck, tap <strong>Reveal today’s groups</strong> to show all four categories and their words.</li>
                         <li>Play the official daily puzzle at <a href="https://www.nytimes.com/games/connections" target="_blank" rel="noopener noreferrer" class="underline hover:text-indigo-700 font-semibold">NYT Connections</a> and use this page to reveal only what you need.</li>
                     </ul>
                 </section>
@@ -572,7 +583,7 @@ ${hintsHtml}
                             Reveal today’s groups
                         </button>
                     </div>
-                    <div id="answers-container" class="hidden mt-8 space-y-4">
+                    <div id="answers-container" class="hidden mt-8 space-y-6">
 ${groupsHtml}
                     </div>
                 </section>
@@ -581,7 +592,7 @@ ${groupsHtml}
                     <h2 class="text-2xl font-bold text-gray-900 mb-4">More Daily Puzzle Help</h2>
                     <div class="text-gray-700 space-y-3">
                         <p>
-                            Prefer a smaller nudge? Use the hints section first. If you’re trying to improve long-term, compare your thought process with the revealed topics and explanations after you solve.
+                            Prefer a smaller nudge? Use the hints section first. If you’re trying to improve long-term, compare your thought process with the revealed categories after you solve.
                         </p>
                         <p>
                             Play the official daily puzzle here: <a href="https://www.nytimes.com/games/connections" target="_blank" rel="noopener noreferrer" class="underline hover:text-indigo-700 font-semibold">NYT Connections</a>.
@@ -742,25 +753,7 @@ function buildConnectionsDailyHtml(data, canonicalUrl, todayHref, archiveHref) {
     .map((nw) => `<div class="bg-gray-50 border rounded-lg p-3 text-center text-gray-800 font-mono tracking-wide">${escapeHtml(nw)}</div>`)
     .join('\n                        ');
 
-  const groupsHtml = data.groups
-    .map((g) => {
-      const style = groupStyle(g.color);
-      const words = g.words.map((w) => `<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-white border">${escapeHtml(normalizeWord(w))}</span>`).join(' ');
-      return `
-                <div class="rounded-lg p-5 border ${style.container}">
-                    <div class="flex items-center justify-between gap-3 mb-3">
-                        <div class="inline-flex items-center ${style.badge} text-xs font-bold px-2 py-1 rounded uppercase">${style.name}</div>
-                        <div class="text-gray-900 font-bold text-lg">${escapeHtml(g.title)}</div>
-                    </div>
-                    <div class="flex flex-wrap gap-2 mb-3">
-                        ${words}
-                    </div>
-                    <div class="text-gray-700">
-                        ${escapeHtml(g.explanation)}
-                    </div>
-                </div>`.trim();
-    })
-    .join('\n');
+  const groupsHtml = data.groups.map((g) => buildRevealedAnswerGroupMarkup(g, '                        ')).join('\n');
 
   const hints = Array.isArray(data.hints) && data.hints.length === 4 ? data.hints : ['Hint 1', 'Hint 2', 'Hint 3', 'Hint 4'];
   const hintsHtml = hints
@@ -881,7 +874,9 @@ function buildConnectionsDailyHtml(data, canonicalUrl, todayHref, archiveHref) {
 
                 <section id="answers" class="space-y-4">
                     <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Answers</h2>
+                    <div class="space-y-6">
 ${groupsHtml}
+                    </div>
                 </section>
             </div>
         </article>

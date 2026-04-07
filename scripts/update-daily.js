@@ -1,7 +1,21 @@
+/**
+ * Daily refresh for Wordle + NYT Connections “today” pages.
+ *
+ * Pipeline:
+ * 1) Fetch NYT JSON for the date (UTC calendar day by default, or --date YYYY-MM-DD).
+ * 2) Wordle: tmp JSON → scripts/update-wordle-today.js → wordle-hints-today.html
+ *    (soft hints, strategy blurbs, data-answer + per-letter tiles).
+ * 3) Connections: tmp JSON → scripts/update-connections-from-nyt.js → data/connections/YYYY-MM-DD.json
+ *    → scripts/generate-connections-pages.js → connections-hints-today.html, daily-connections/*.html, connections-archive.html
+ *
+ * Options: --date ISO, --git (add/commit/push), --wordle-only, --connections-only
+ */
 const https = require('https');
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
+const { execSync, execFileSync } = require('child_process');
+
+const REPO_ROOT = path.resolve(__dirname, '..');
 
 function pad2(n) {
   return n < 10 ? `0${n}` : String(n);
@@ -71,17 +85,17 @@ function writeJson(filePath, obj) {
   fs.writeFileSync(filePath, JSON.stringify(obj, null, 2), 'utf8');
 }
 
-function runNodeScript(scriptPath, args) {
-  const full = ['node', scriptPath, ...args].join(' ');
-  execSync(full, { stdio: 'inherit' });
+function runNodeScript(scriptRelative, args) {
+  const scriptPath = path.join(REPO_ROOT, scriptRelative);
+  execFileSync(process.execPath, [scriptPath, ...args], { stdio: 'inherit', cwd: REPO_ROOT });
 }
 
 async function main() {
   const args = parseArgs(process.argv);
   const iso = args.date || todayIso();
 
-  const tmpWordle = path.resolve(process.cwd(), 'tmp-wordle.json');
-  const tmpConnections = path.resolve(process.cwd(), 'tmp-connections.json');
+  const tmpWordle = path.join(REPO_ROOT, 'tmp-wordle.json');
+  const tmpConnections = path.join(REPO_ROOT, 'tmp-connections.json');
 
   const wordleUrl = `https://www.nytimes.com/svc/wordle/v2/${iso}.json`;
   const connectionsUrl = `https://www.nytimes.com/svc/connections/v2/${iso}.json`;
@@ -89,14 +103,16 @@ async function main() {
   if (args.wordle) {
     const wordle = await fetchJson(wordleUrl);
     writeJson(tmpWordle, wordle);
-    runNodeScript(path.resolve('scripts', 'update-wordle-today.js'), [tmpWordle]);
+    runNodeScript(path.join('scripts', 'update-wordle-today.js'), [tmpWordle]);
   }
 
   if (args.connections) {
     const connections = await fetchJson(connectionsUrl);
     writeJson(tmpConnections, connections);
-    runNodeScript(path.resolve('scripts', 'update-connections-from-nyt.js'), [tmpConnections]);
-    runNodeScript(path.resolve('scripts', 'generate-connections-pages.js'), [path.resolve('data', 'connections', `${iso}.json`)]);
+    runNodeScript(path.join('scripts', 'update-connections-from-nyt.js'), [tmpConnections]);
+    runNodeScript(path.join('scripts', 'generate-connections-pages.js'), [
+      path.join('data', 'connections', `${iso}.json`),
+    ]);
   }
 
   try {
@@ -107,9 +123,9 @@ async function main() {
   } catch {}
 
   if (args.git) {
-    execSync('git add -A', { stdio: 'inherit' });
-    execSync(`git commit -m Daily-Update-${iso}`, { stdio: 'inherit' });
-    execSync('git push origin main', { stdio: 'inherit' });
+    execSync('git add -A', { stdio: 'inherit', cwd: REPO_ROOT });
+    execSync(`git commit -m Daily-Update-${iso}`, { stdio: 'inherit', cwd: REPO_ROOT });
+    execSync('git push origin main', { stdio: 'inherit', cwd: REPO_ROOT });
   }
 }
 

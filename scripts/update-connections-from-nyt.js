@@ -1,13 +1,16 @@
 const fs = require('fs');
 const path = require('path');
 
+const REPO_ROOT = path.resolve(__dirname, '..');
+
 function run(nytPath) {
-  const raw = fs.readFileSync(nytPath, 'utf8');
+  const absNyt = path.isAbsolute(nytPath) ? nytPath : path.join(REPO_ROOT, nytPath);
+  const raw = fs.readFileSync(absNyt, 'utf8');
   const nyt = JSON.parse(raw);
   const date = String(nyt.print_date || '').slice(0, 10);
   const colors = ['yellow', 'green', 'blue', 'purple'];
 
-  const outPath = path.join('data', 'connections', `${date}.json`);
+  const outPath = path.join(REPO_ROOT, 'data', 'connections', `${date}.json`);
   let puzzleNumber = 0;
   try {
     if (fs.existsSync(outPath)) {
@@ -20,7 +23,7 @@ function run(nytPath) {
 
   let prevNum = 0;
   try {
-    const html = fs.readFileSync(path.resolve('connections-hints-today.html'), 'utf8');
+    const html = fs.readFileSync(path.join(REPO_ROOT, 'connections-hints-today.html'), 'utf8');
     const m = html.match(/Connections #([0-9]+)/);
     if (m) prevNum = parseInt(m[1], 10) || 0;
   } catch {}
