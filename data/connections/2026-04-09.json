@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-09",
+  "puzzleNumber": 1032,
+  "words": [
+    "BLUE",
+    "DARK",
+    "DOWN",
+    "LOW",
+    "BALM",
+    "CREAM",
+    "PASTE",
+    "RUB",
+    "ARCHER",
+    "FISH",
+    "GOAT",
+    "RAM",
+    "JACK",
+    "RIP",
+    "SHRED",
+    "YOKE"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "GLOOMY",
+      "words": [
+        "BLUE",
+        "DARK",
+        "DOWN",
+        "LOW"
+      ],
+      "explanation": "GLOOMY"
+    },
+    {
+      "color": "green",
+      "title": "OINTMENT",
+      "words": [
+        "BALM",
+        "CREAM",
+        "PASTE",
+        "RUB"
+      ],
+      "explanation": "OINTMENT"
+    },
+    {
+      "color": "blue",
+      "title": "ZODIAC SYMBOLS",
+      "words": [
+        "ARCHER",
+        "FISH",
+        "GOAT",
+        "RAM"
+      ],
+      "explanation": "ZODIAC SYMBOLS"
+    },
+    {
+      "color": "purple",
+      "title": "MUSCULAR, MINUS \"ED\" SOUND",
+      "words": [
+        "JACK",
+        "RIP",
+        "SHRED",
+        "YOKE"
+      ],
+      "explanation": "MUSCULAR, MINUS \"ED\" SOUND"
+    }
+  ],
+  "hints": [
+    "Think of words that can describe feeling sad, heavy, or emotionally low.",
+    "These are all substances you might spread on skin for care or relief.",
+    "Look for iconic creatures/figures used as symbols in a well-known 12-part system.",
+    "Each can become an adjective for strength if you add a common past-participle ending."
+  ]
+}

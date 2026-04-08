@@ -3,6 +3,30 @@ const path = require('path');
 
 const REPO_ROOT = path.resolve(__dirname, '..');
 
+function buildSpoilerFreeHint(title, color) {
+  const t = String(title || '').toUpperCase();
+  const c = String(color || '').toLowerCase();
+
+  if (t.includes('___') || t.includes('BLANK')) {
+    return 'Find words that can pair with the same missing word or phrase.';
+  }
+  if (t.includes('KINDS OF') || t.includes('TYPES OF')) {
+    return 'These words are all members of the same subtype/category.';
+  }
+  if (t.includes('WORDS FOR') || t.includes('TERMS FOR')) {
+    return 'Look for words used in similar language situations or roles.';
+  }
+  if (t.includes('MINUS') || t.includes('WITHOUT') || t.includes('SOUND')) {
+    return 'This group uses a wordplay transformation (remove or change a sound/ending).';
+  }
+
+  if (c === 'yellow') return 'The easiest set: a straightforward shared meaning links all four.';
+  if (c === 'green') return 'This set shares a practical everyday concept with close usage.';
+  if (c === 'blue') return 'Think niche knowledge, symbols, or domain-specific associations.';
+  if (c === 'purple') return 'Expect wordplay: sounds, affixes, or phrase-level transformations.';
+  return 'These four words share one hidden connection.';
+}
+
 function run(nytPath) {
   const absNyt = path.isAbsolute(nytPath) ? nytPath : path.join(REPO_ROOT, nytPath);
   const raw = fs.readFileSync(absNyt, 'utf8');
@@ -36,7 +60,7 @@ function run(nytPath) {
     explanation: String(cat.title || '')
   }));
   const words = groups.flatMap((g) => g.words);
-  const hints = groups.map((g) => g.title);
+  const hints = groups.map((g) => buildSpoilerFreeHint(g.title, g.color));
 
   const out = { date, puzzleNumber, words, groups, hints };
   fs.mkdirSync(path.dirname(outPath), { recursive: true });
