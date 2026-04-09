@@ -147,15 +147,18 @@ function updateWordleToday(absJsonPath) {
   html = html.replace(/<strong>Definition:<\/strong>[^<]*/g, `<strong>Definition:</strong> An English word used as a valid Wordle answer.`);
 
   // Spoiler-free hint bodies (aligned with manual “today” page style)
-  const hint2Soft = `Among A, E, I, O, U, the answer uses <strong>${vset.length}</strong> distinct vowel letter${vset.length === 1 ? '' : 's'}. ${
+  const hint2Soft = `It contains <strong>${vset.length}</strong> distinct vowel letter${vset.length === 1 ? '' : 's'}. ${
     repeats.length
       ? '<strong>At least one letter appears twice.</strong>'
       : '<strong>No letter is used more than once.</strong>'
   }`;
-  const hint3Soft = `Consonant vs vowel skeleton (left to right): <strong>${pattern}</strong> — <strong>C</strong> = consonant, <strong>V</strong> = A/E/I/O/U.`;
+  const alternating = pattern === 'CVCVC' || pattern === 'VCVCV';
+  const hint3Soft = alternating
+    ? 'Its structure alternates between consonants and vowels from start to finish.'
+    : `Its consonant/vowel structure follows <strong>${pattern}</strong> (<strong>C</strong> = consonant, <strong>V</strong> = vowel).`;
 
   html = html.replace(/<div id=\"hint-1\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-1" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-green-400">
-                        <p>A common English word (not a proper noun).</p>
+                        <p>A common everyday English word, used as an adjective.</p>
                     </div>`);
   html = html.replace(/<div id=\"hint-2\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-2" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-blue-400">
                         <p>${hint2Soft}</p>

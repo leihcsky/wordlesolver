@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-10",
+  "puzzleNumber": 1033,
+  "words": [
+    "BELL PEPPER",
+    "CAROLINA REAPER",
+    "CHIPOTLE",
+    "PEPPERONCINO",
+    "EJECTOR SEAT",
+    "JACK-IN-THE-BOX",
+    "POP-UP BOOK",
+    "TOASTER",
+    "FIRM",
+    "HOLEY",
+    "NUTTY",
+    "SWISS",
+    "BLUE",
+    "GENIE",
+    "GONZO",
+    "SONIC"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "PEPPERS",
+      "words": [
+        "BELL PEPPER",
+        "CAROLINA REAPER",
+        "CHIPOTLE",
+        "PEPPERONCINO"
+      ],
+      "explanation": "PEPPERS"
+    },
+    {
+      "color": "green",
+      "title": "THINGS THAT POP UP",
+      "words": [
+        "EJECTOR SEAT",
+        "JACK-IN-THE-BOX",
+        "POP-UP BOOK",
+        "TOASTER"
+      ],
+      "explanation": "THINGS THAT POP UP"
+    },
+    {
+      "color": "blue",
+      "title": "DESCRIPTORS FOR SWISS CHEESE",
+      "words": [
+        "FIRM",
+        "HOLEY",
+        "NUTTY",
+        "SWISS"
+      ],
+      "explanation": "DESCRIPTORS FOR SWISS CHEESE"
+    },
+    {
+      "color": "purple",
+      "title": "BLUE CHARACTERS",
+      "words": [
+        "BLUE",
+        "GENIE",
+        "GONZO",
+        "SONIC"
+      ],
+      "explanation": "BLUE CHARACTERS"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
