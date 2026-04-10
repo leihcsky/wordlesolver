@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-11",
+  "puzzleNumber": 1034,
+  "words": [
+    "ICE SCRAPER",
+    "JACK",
+    "JUMPER CABLES",
+    "SPARE TIRE",
+    "ANGEL",
+    "CHAMPION",
+    "PATRON",
+    "SPONSOR",
+    "BEAM",
+    "BRACE",
+    "COLUMN",
+    "STRUT",
+    "BOMBAY",
+    "CHELSEA",
+    "SCREWDRIVER",
+    "SNOWFLAKE"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "FOUND IN THE TRUNK OF A CAR",
+      "words": [
+        "ICE SCRAPER",
+        "JACK",
+        "JUMPER CABLES",
+        "SPARE TIRE"
+      ],
+      "explanation": "FOUND IN THE TRUNK OF A CAR"
+    },
+    {
+      "color": "green",
+      "title": "BENEFACTOR",
+      "words": [
+        "ANGEL",
+        "CHAMPION",
+        "PATRON",
+        "SPONSOR"
+      ],
+      "explanation": "BENEFACTOR"
+    },
+    {
+      "color": "blue",
+      "title": "STRUCTURAL SUPPORTS",
+      "words": [
+        "BEAM",
+        "BRACE",
+        "COLUMN",
+        "STRUT"
+      ],
+      "explanation": "STRUCTURAL SUPPORTS"
+    },
+    {
+      "color": "purple",
+      "title": "ENDING IN BODIES OF WATER",
+      "words": [
+        "BOMBAY",
+        "CHELSEA",
+        "SCREWDRIVER",
+        "SNOWFLAKE"
+      ],
+      "explanation": "ENDING IN BODIES OF WATER"
+    }
+  ],
+  "hints": [
+    "Four things you might associate with cold-weather driving or a roadside kit—not random household clutter.",
+    "Each word can describe someone who supports another person, team, or cause—often with money or backing.",
+    "Building and engineering vocabulary: parts that help carry load or keep a structure from wobbling.",
+    "Listen to the tail of each word—the ending hides a familiar water-related name or word."
+  ]
+}

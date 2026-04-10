@@ -155,10 +155,10 @@ function updateWordleToday(absJsonPath) {
   const alternating = pattern === 'CVCVC' || pattern === 'VCVCV';
   const hint3Soft = alternating
     ? 'Its structure alternates between consonants and vowels from start to finish.'
-    : `Its consonant/vowel structure follows <strong>${pattern}</strong> (<strong>C</strong> = consonant, <strong>V</strong> = vowel).`;
+    : 'Notice where vowels sit versus consonant clusters, then line that up with your green and yellow clues—no need to memorize a letter-code formula.';
 
   html = html.replace(/<div id=\"hint-1\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-1" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-green-400">
-                        <p>A common everyday English word, used as an adjective.</p>
+                        <p>A common English word—not a proper noun or acronym.</p>
                     </div>`);
   html = html.replace(/<div id=\"hint-2\"[\s\S]*?<p>[\s\S]*?<\/p>[\s\S]*?<\/div>/, `<div id="hint-2" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-blue-400">
                         <p>${hint2Soft}</p>
@@ -172,7 +172,7 @@ function updateWordleToday(absJsonPath) {
   const strategyP2 = repeats.length
     ? 'A repeated letter is possible; if your guesses feel almost right, test a double before chasing new letters.'
     : 'Every letter in the answer is unique, so duplicate letters in a guess can only yield one green/yellow per slot.';
-  const strategyP3 = `The consonant/vowel pattern is <strong>${pattern}</strong>. Narrow candidates with gray eliminations and common five-letter fits.${repeatTip}`;
+  const strategyP3 = `Treat consonant bunches and vowel slots as a shape puzzle: rule out grays, then test common five-letter fits that still match your feedback.${repeatTip}`;
 
   html = html.replace(
     /<section class="border-t pt-8">\s*<h2 class="text-2xl font-bold text-gray-900 mb-4">Strategy &amp; Analysis<\/h2>[\s\S]*?<\/section>/,
