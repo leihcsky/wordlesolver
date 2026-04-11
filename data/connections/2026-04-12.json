@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-12",
+  "puzzleNumber": 1035,
+  "words": [
+    "BELT LOOP",
+    "CUFF",
+    "FLY",
+    "POCKET",
+    "ANGLE",
+    "POSITION",
+    "STANCE",
+    "TAKE",
+    "CAST",
+    "PROJECT",
+    "RADIATE",
+    "SHED",
+    "PAPER",
+    "RAG",
+    "RUSSIAN",
+    "TROLL"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "PANTS FEATURES",
+      "words": [
+        "BELT LOOP",
+        "CUFF",
+        "FLY",
+        "POCKET"
+      ],
+      "explanation": "PANTS FEATURES"
+    },
+    {
+      "color": "green",
+      "title": "PERSPECTIVE",
+      "words": [
+        "ANGLE",
+        "POSITION",
+        "STANCE",
+        "TAKE"
+      ],
+      "explanation": "PERSPECTIVE"
+    },
+    {
+      "color": "blue",
+      "title": "EMIT",
+      "words": [
+        "CAST",
+        "PROJECT",
+        "RADIATE",
+        "SHED"
+      ],
+      "explanation": "EMIT"
+    },
+    {
+      "color": "purple",
+      "title": "___ DOLL",
+      "words": [
+        "PAPER",
+        "RAG",
+        "RUSSIAN",
+        "TROLL"
+      ],
+      "explanation": "___ DOLL"
+    }
+  ],
+  "hints": [
+    "Think parts of everyday legwear—things you’d point to on jeans or slacks, not jewelry or tools.",
+    "These nouns can all stand for a way of looking at something—viewpoint, not hardware.",
+    "Verbs that mean to send something outward—light, sound, heat, or an impression.",
+    "Each completes the same two-word phrase—picture a small plaything or collectible type."
+  ]
+}
