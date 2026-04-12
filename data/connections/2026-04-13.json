@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-13",
+  "puzzleNumber": 1036,
+  "words": [
+    "BOX OFFICE",
+    "MARQUEE",
+    "TICKET LINE",
+    "VELVET ROPE",
+    "CAPE",
+    "HANDKERCHIEF",
+    "MAGIC WAND",
+    "RABBIT",
+    "HOUSE",
+    "LASSO",
+    "MONTANA",
+    "SOPRANO",
+    "BASEBALL PLAYER",
+    "CAMERA LENS",
+    "MUSHROOM",
+    "PEN"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "SEEN OUTSIDE A THEATER",
+      "words": [
+        "BOX OFFICE",
+        "MARQUEE",
+        "TICKET LINE",
+        "VELVET ROPE"
+      ],
+      "explanation": "SEEN OUTSIDE A THEATER"
+    },
+    {
+      "color": "green",
+      "title": "ACCESSORIES FOR A MAGICIAN",
+      "words": [
+        "CAPE",
+        "HANDKERCHIEF",
+        "MAGIC WAND",
+        "RABBIT"
+      ],
+      "explanation": "ACCESSORIES FOR A MAGICIAN"
+    },
+    {
+      "color": "blue",
+      "title": "TV SHOW TITLE SURNAMES",
+      "words": [
+        "HOUSE",
+        "LASSO",
+        "MONTANA",
+        "SOPRANO"
+      ],
+      "explanation": "TV SHOW TITLE SURNAMES"
+    },
+    {
+      "color": "purple",
+      "title": "THEY HAVE CAPS",
+      "words": [
+        "BASEBALL PLAYER",
+        "CAMERA LENS",
+        "MUSHROOM",
+        "PEN"
+      ],
+      "explanation": "THEY HAVE CAPS"
+    }
+  ],
+  "hints": [
+    "Picture the stretch before you’re inside: signage, the queue, where you pay, and the little barrier between the crowd and the entrance.",
+    "Props you’d mentally pack for a stage act—fabric, wood, something fluffy, and a classic “now you see it” moment.",
+    "Treat each word like a surname you’d see after a first name in a long-running show title—the given name is implied, not printed.",
+    "They’re linked by a small removable top—lids, tips, or closures—rather than by what they’re used for day to day."
+  ]
+}
