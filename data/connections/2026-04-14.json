@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-14",
+  "puzzleNumber": 1037,
+  "words": [
+    "BOOKMARK",
+    "CACHE",
+    "COOKIE",
+    "HISTORY",
+    "BELL",
+    "GLOVES",
+    "RING",
+    "ROUND",
+    "LEAN",
+    "LIST",
+    "PITCH",
+    "TIP",
+    "LANCE",
+    "MASON",
+    "STYLE",
+    "WAY"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "THINGS STORED BY A BROWSER",
+      "words": [
+        "BOOKMARK",
+        "CACHE",
+        "COOKIE",
+        "HISTORY"
+      ],
+      "explanation": "THINGS STORED BY A BROWSER"
+    },
+    {
+      "color": "green",
+      "title": "BOXING TERMS",
+      "words": [
+        "BELL",
+        "GLOVES",
+        "RING",
+        "ROUND"
+      ],
+      "explanation": "BOXING TERMS"
+    },
+    {
+      "color": "blue",
+      "title": "TILT",
+      "words": [
+        "LEAN",
+        "LIST",
+        "PITCH",
+        "TIP"
+      ],
+      "explanation": "TILT"
+    },
+    {
+      "color": "purple",
+      "title": "FREE___",
+      "words": [
+        "LANCE",
+        "MASON",
+        "STYLE",
+        "WAY"
+      ],
+      "explanation": "FREE___"
+    }
+  ],
+  "hints": [
+    "Think “what the app remembers”: saved shortcuts, tucked-away scraps, a snacky little token sites can leave behind, and a trail of pages you might clear in settings.",
+    "Same ring-based contest: hand protection, the roped stage, timed chunks of the bout, and the sound that often ends a chunk.",
+    "Read them as verbs (or verb-like uses): each can describe leaning, tipping, or slanting off-center—not plumb, not upright.",
+    "Prefix game: the same short lead-in, spoken aloud, turns all four into familiar compound words—try sliding it in front of each."
+  ]
+}
