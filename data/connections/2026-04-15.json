@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-15",
+  "puzzleNumber": 1038,
+  "words": [
+    "CAP",
+    "DIPLOMA",
+    "GOWN",
+    "TASSEL",
+    "CHORE",
+    "GRIND",
+    "HASSLE",
+    "TRIAL",
+    "FACILE",
+    "FLIP",
+    "SHALLOW",
+    "TRITE",
+    "CASTLE",
+    "CROWN",
+    "HORSE",
+    "MITER"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "GRADUATION GEAR",
+      "words": [
+        "CAP",
+        "DIPLOMA",
+        "GOWN",
+        "TASSEL"
+      ],
+      "explanation": "GRADUATION GEAR"
+    },
+    {
+      "color": "green",
+      "title": "TEDIOUS UNDERTAKING",
+      "words": [
+        "CHORE",
+        "GRIND",
+        "HASSLE",
+        "TRIAL"
+      ],
+      "explanation": "TEDIOUS UNDERTAKING"
+    },
+    {
+      "color": "blue",
+      "title": "OVERSIMPLISTIC",
+      "words": [
+        "FACILE",
+        "FLIP",
+        "SHALLOW",
+        "TRITE"
+      ],
+      "explanation": "OVERSIMPLISTIC"
+    },
+    {
+      "color": "purple",
+      "title": "SHAPES OF CHESS PIECES",
+      "words": [
+        "CASTLE",
+        "CROWN",
+        "HORSE",
+        "MITER"
+      ],
+      "explanation": "SHAPES OF CHESS PIECES"
+    }
+  ],
+  "hints": [
+    "Think ceremony day: what you wear, what you receive, and the decorative detail that hangs from the cap.",
+    "All four describe a task that feels like a drag, different words with the same \"this is a pain\" vibe.",
+    "These are adjectives for ideas or comments that stay on the surface instead of adding depth.",
+    "Picture chess piece silhouettes rather than names: battlements, a crown, a horse head, and a bishop-style hat."
+  ]
+}
