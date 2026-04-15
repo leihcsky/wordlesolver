@@ -2,9 +2,9 @@
     "meta": {
         "version": "3.0.0",
         "source": "Official Wordle Word List",
-        "count": 2340,
+        "count": 2341,
         "description": "Complete list of valid 5-letter words used in Wordle game",
-        "last_updated": "2026-04-10"
+        "last_updated": "2026-04-16"
     },
     "words": [
         "aback",
@@ -2346,6 +2346,7 @@
         "gunny",
         "gunky",
         "oasis",
-        "carom"
+        "carom",
+        "cubit"
     ]
 }

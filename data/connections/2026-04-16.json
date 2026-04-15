@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-16",
+  "puzzleNumber": 1039,
+  "words": [
+    "NEEDLE",
+    "RIB",
+    "RIDE",
+    "ROAST",
+    "AUTO",
+    "COOL",
+    "FAN",
+    "HEAT",
+    "BODYSUIT",
+    "CLAWS",
+    "MASK",
+    "WHIP",
+    "BRA",
+    "CAMP",
+    "DAY",
+    "WHEELS"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "TEASE",
+      "words": [
+        "NEEDLE",
+        "RIB",
+        "RIDE",
+        "ROAST"
+      ],
+      "explanation": "TEASE"
+    },
+    {
+      "color": "green",
+      "title": "THERMOSTAT SETTINGS",
+      "words": [
+        "AUTO",
+        "COOL",
+        "FAN",
+        "HEAT"
+      ],
+      "explanation": "THERMOSTAT SETTINGS"
+    },
+    {
+      "color": "blue",
+      "title": "FEATURES OF A CATWOMAN COSTUME",
+      "words": [
+        "BODYSUIT",
+        "CLAWS",
+        "MASK",
+        "WHIP"
+      ],
+      "explanation": "FEATURES OF A CATWOMAN COSTUME"
+    },
+    {
+      "color": "purple",
+      "title": "TRAINING ___",
+      "words": [
+        "BRA",
+        "CAMP",
+        "DAY",
+        "WHEELS"
+      ],
+      "explanation": "TRAINING ___"
+    }
+  ],
+  "hints": [
+    "Think playful social pressure: all four verbs can mean poking fun at someone, from light needling to a full verbal roast.",
+    "These are the labels you cycle through on a home climate control panel when adjusting airflow and temperature.",
+    "Picture a feline antihero outfit: one tight base layer plus three iconic accessories complete the look.",
+    "Prefix puzzle: put the same word in front of each to form common compounds tied to practice or learning stages."
+  ]
+}
