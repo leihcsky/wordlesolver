@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-17",
+  "puzzleNumber": 1040,
+  "words": [
+    "BULB",
+    "LEAF",
+    "ROOT",
+    "STEM",
+    "COMMON",
+    "DOMINANT",
+    "GENERAL",
+    "POPULAR",
+    "HAMMER",
+    "KEY",
+    "PEDAL",
+    "STRING",
+    "SODA",
+    "STORMY",
+    "TAN",
+    "TONIC"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "VEGETABLE PARTS",
+      "words": [
+        "BULB",
+        "LEAF",
+        "ROOT",
+        "STEM"
+      ],
+      "explanation": "VEGETABLE PARTS"
+    },
+    {
+      "color": "green",
+      "title": "PREVAILING",
+      "words": [
+        "COMMON",
+        "DOMINANT",
+        "GENERAL",
+        "POPULAR"
+      ],
+      "explanation": "PREVAILING"
+    },
+    {
+      "color": "blue",
+      "title": "PARTS OF A PIANO",
+      "words": [
+        "HAMMER",
+        "KEY",
+        "PEDAL",
+        "STRING"
+      ],
+      "explanation": "PARTS OF A PIANO"
+    },
+    {
+      "color": "purple",
+      "title": "SECOND HALVES OF DRINK NAMES",
+      "words": [
+        "SODA",
+        "STORMY",
+        "TAN",
+        "TONIC"
+      ],
+      "explanation": "SECOND HALVES OF DRINK NAMES"
+    }
+  ],
+  "hints": [
+    "Think edible plant anatomy: the four words are parts you might name while prepping vegetables in a kitchen.",
+    "All four point to what is most widespread or broadly accepted in a group, trend, or population.",
+    "These belong inside one acoustic instrument, mixing touch points and internal mechanics that create sound.",
+    "Word-fragment game: each entry fits as the back half of a familiar mixed drink name."
+  ]
+}
