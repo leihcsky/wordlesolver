@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-18",
+  "puzzleNumber": 1041,
+  "words": [
+    "GOGGLE",
+    "MARVEL",
+    "STARE",
+    "WONDER",
+    "AC",
+    "DC",
+    "POWER",
+    "VOLTAGE",
+    "DARK HORSE",
+    "LONG SHOT",
+    "SLEEPER",
+    "UNDERDOG",
+    "CRUSHWORTHY",
+    "FANTAGRAPHICS",
+    "FRESCADE",
+    "PEPSINOGEN"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "LOOK AT WITH AWE",
+      "words": [
+        "GOGGLE",
+        "MARVEL",
+        "STARE",
+        "WONDER"
+      ],
+      "explanation": "LOOK AT WITH AWE"
+    },
+    {
+      "color": "green",
+      "title": "BASIC ELECTRICITY TERMS",
+      "words": [
+        "AC",
+        "DC",
+        "POWER",
+        "VOLTAGE"
+      ],
+      "explanation": "BASIC ELECTRICITY TERMS"
+    },
+    {
+      "color": "blue",
+      "title": "UNEXPECTED WINNER",
+      "words": [
+        "DARK HORSE",
+        "LONG SHOT",
+        "SLEEPER",
+        "UNDERDOG"
+      ],
+      "explanation": "UNEXPECTED WINNER"
+    },
+    {
+      "color": "purple",
+      "title": "STARTING WITH SODA BRANDS",
+      "words": [
+        "CRUSHWORTHY",
+        "FANTAGRAPHICS",
+        "FRESCADE",
+        "PEPSINOGEN"
+      ],
+      "explanation": "STARTING WITH SODA BRANDS"
+    }
+  ],
+  "hints": [
+    "Verbs for locking onto something striking and taking it in with wide-eyed amazement rather than a quick glance.",
+    "Short labels from the same beginner physics corner: kinds of current, how much is delivered, and how hard it is pushed.",
+    "Phrases for the contestant nobody picked—long odds, hidden strength, or a quiet pick that suddenly wins.",
+    "Ignore meaning for a moment: read only the opening letters—each long word begins like a well-known soft-drink trademark."
+  ]
+}
