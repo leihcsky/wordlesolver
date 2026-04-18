@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-19",
+  "puzzleNumber": 1042,
+  "words": [
+    "ARCH",
+    "FRESH",
+    "SASSY",
+    "WISE",
+    "BUST",
+    "HIPS",
+    "LENGTH",
+    "WAIST",
+    "FLOP",
+    "HOLE",
+    "RIVER",
+    "TURN",
+    "CAP",
+    "DUD",
+    "KID",
+    "MINT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "CHEEKY",
+      "words": [
+        "ARCH",
+        "FRESH",
+        "SASSY",
+        "WISE"
+      ],
+      "explanation": "CHEEKY"
+    },
+    {
+      "color": "green",
+      "title": "DRESS MEASUREMENTS",
+      "words": [
+        "BUST",
+        "HIPS",
+        "LENGTH",
+        "WAIST"
+      ],
+      "explanation": "DRESS MEASUREMENTS"
+    },
+    {
+      "color": "blue",
+      "title": "CARDS IN TEXAS HOLD 'EM",
+      "words": [
+        "FLOP",
+        "HOLE",
+        "RIVER",
+        "TURN"
+      ],
+      "explanation": "CARDS IN TEXAS HOLD 'EM"
+    },
+    {
+      "color": "purple",
+      "title": "LAST WORDS OF CANDY BRANDS IN THE SINGULAR",
+      "words": [
+        "CAP",
+        "DUD",
+        "KID",
+        "MINT"
+      ],
+      "explanation": "LAST WORDS OF CANDY BRANDS IN THE SINGULAR"
+    }
+  ],
+  "hints": [
+    "Adjectives for attitude with a bold wink—playful, impudent, or a little too clever for the room.",
+    "Fitting-room shorthand: the numbers and lines a tailor records while shaping a garment to a body.",
+    "A community-card poker rhythm: one label is what you hide in your hand; the others mark each time more shared cards appear.",
+    "Candy-aisle wordplay: treat each entry as the lone tail end of a familiar multi-word treat name spoken in full."
+  ]
+}
