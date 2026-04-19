@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-20",
+  "puzzleNumber": 1043,
+  "words": [
+    "BILLOW",
+    "CLOUD",
+    "PLUME",
+    "PUFF",
+    "BAIT",
+    "HOOK",
+    "NET",
+    "ROD",
+    "CANNIBALISM",
+    "HOURGLASS",
+    "VENOM",
+    "WEB",
+    "BLUE",
+    "CYBER",
+    "MANIC",
+    "MEATLESS"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "MASS OF SMOKE",
+      "words": [
+        "BILLOW",
+        "CLOUD",
+        "PLUME",
+        "PUFF"
+      ],
+      "explanation": "MASS OF SMOKE"
+    },
+    {
+      "color": "green",
+      "title": "FISHING GEAR",
+      "words": [
+        "BAIT",
+        "HOOK",
+        "NET",
+        "ROD"
+      ],
+      "explanation": "FISHING GEAR"
+    },
+    {
+      "color": "blue",
+      "title": "ASSOCIATED WITH BLACK WIDOW SPIDERS",
+      "words": [
+        "CANNIBALISM",
+        "HOURGLASS",
+        "VENOM",
+        "WEB"
+      ],
+      "explanation": "ASSOCIATED WITH BLACK WIDOW SPIDERS"
+    },
+    {
+      "color": "purple",
+      "title": "___ MONDAY",
+      "words": [
+        "BLUE",
+        "CYBER",
+        "MANIC",
+        "MEATLESS"
+      ],
+      "explanation": "___ MONDAY"
+    }
+  ],
+  "hints": [
+    "Nouns for how smoke or vapor gathers in the air—from a drifting sheet to a tight little wisp you can almost cup in your hand.",
+    "Shoreline tackle talk: lure, snag, mesh, and the long stick you flick over the water—same hobby, four staples.",
+    "Think one notorious spider in headlines: sticky architecture, a toxin, a body-shape clue, and a grim mating-table rumor.",
+    "Each word begins a familiar two-word catchphrase whose second half is always the same calendar day—culture, commerce, music, and food all line up."
+  ]
+}
