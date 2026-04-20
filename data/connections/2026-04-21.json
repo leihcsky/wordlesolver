@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-21",
+  "puzzleNumber": 1044,
+  "words": [
+    "BREEZE",
+    "MOSEY",
+    "STROLL",
+    "WALTZ",
+    "BALONEY",
+    "BILGE",
+    "BULL",
+    "BUNK",
+    "CROSSBODY",
+    "HOBO",
+    "MESSENGER",
+    "SADDLE",
+    "GOLD",
+    "MOON",
+    "OCTOPUS",
+    "THUNDER"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "AMBLE (IN)",
+      "words": [
+        "BREEZE",
+        "MOSEY",
+        "STROLL",
+        "WALTZ"
+      ],
+      "explanation": "AMBLE (IN)"
+    },
+    {
+      "color": "green",
+      "title": "BALDERDASH",
+      "words": [
+        "BALONEY",
+        "BILGE",
+        "BULL",
+        "BUNK"
+      ],
+      "explanation": "BALDERDASH"
+    },
+    {
+      "color": "blue",
+      "title": "KINDS OF BAGS",
+      "words": [
+        "CROSSBODY",
+        "HOBO",
+        "MESSENGER",
+        "SADDLE"
+      ],
+      "explanation": "KINDS OF BAGS"
+    },
+    {
+      "color": "purple",
+      "title": "STARTS OF ONE-WORD JAMES BOND MOVIE TITLES",
+      "words": [
+        "GOLD",
+        "MOON",
+        "OCTOPUS",
+        "THUNDER"
+      ],
+      "explanation": "STARTS OF ONE-WORD JAMES BOND MOVIE TITLES"
+    }
+  ],
+  "hints": [
+    "Verbs for entering or moving with an easy, unhurried swagger, more casual glide than purposeful rush.",
+    "Slangy ways to call something nonsense: four blunt labels for talk that sounds made-up or empty.",
+    "Styles of carry bags you might compare while shopping: shape, strap position, and silhouette are the clue.",
+    "Think spy-franchise trivia: each fragment can kick off a one-word film title from the same iconic series."
+  ]
+}
