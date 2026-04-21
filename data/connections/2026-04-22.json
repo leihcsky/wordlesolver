@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-22",
+  "puzzleNumber": 1045,
+  "words": [
+    "CLAY",
+    "GLAZE",
+    "KILN",
+    "WHEEL",
+    "DECK",
+    "PUNCH",
+    "SLUG",
+    "SOCK",
+    "HERB",
+    "NICE",
+    "POLISH",
+    "READING",
+    "ARTIST",
+    "GAME",
+    "STICKS",
+    "TRUCK"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "POTTERY EQUIPMENT",
+      "words": [
+        "CLAY",
+        "GLAZE",
+        "KILN",
+        "WHEEL"
+      ],
+      "explanation": "POTTERY EQUIPMENT"
+    },
+    {
+      "color": "green",
+      "title": "WALLOP",
+      "words": [
+        "DECK",
+        "PUNCH",
+        "SLUG",
+        "SOCK"
+      ],
+      "explanation": "WALLOP"
+    },
+    {
+      "color": "blue",
+      "title": "WORDS PRONOUNCED DIFFERENT WAYS AS PROPER NOUNS",
+      "words": [
+        "HERB",
+        "NICE",
+        "POLISH",
+        "READING"
+      ],
+      "explanation": "WORDS PRONOUNCED DIFFERENT WAYS AS PROPER NOUNS"
+    },
+    {
+      "color": "purple",
+      "title": "PICK-UP ___",
+      "words": [
+        "ARTIST",
+        "GAME",
+        "STICKS",
+        "TRUCK"
+      ],
+      "explanation": "PICK-UP ___"
+    }
+  ],
+  "hints": [
+    "Studio-pottery setup clues: raw material, surface finish, the high-heat chamber, and the spinning platform.",
+    "Hard-hit slang from fight commentary: four verbs meaning to strike someone with force.",
+    "Same spelling, different pronunciation when treated as names or places; dictionary and proper-noun readings diverge.",
+    "Prefix puzzle: put one short hyphenated starter in front of each to form common expressions."
+  ]
+}
