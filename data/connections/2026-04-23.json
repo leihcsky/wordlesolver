@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-23",
+  "puzzleNumber": 1046,
+  "words": [
+    "FLANK",
+    "NEIGHBOR",
+    "SKIRT",
+    "TOUCH",
+    "HISTORICAL",
+    "LITERARY",
+    "PULP",
+    "SCIENCE",
+    "EDUCATED",
+    "MOTHER",
+    "MY",
+    "VERY",
+    "ASIAGO",
+    "DEVOTE",
+    "TOTORO",
+    "WHAMMY"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "BORDER",
+      "words": [
+        "FLANK",
+        "NEIGHBOR",
+        "SKIRT",
+        "TOUCH"
+      ],
+      "explanation": "BORDER"
+    },
+    {
+      "color": "green",
+      "title": "KINDS OF FICTION",
+      "words": [
+        "HISTORICAL",
+        "LITERARY",
+        "PULP",
+        "SCIENCE"
+      ],
+      "explanation": "KINDS OF FICTION"
+    },
+    {
+      "color": "blue",
+      "title": "WORDS IN A PLANETARY MNEMONIC",
+      "words": [
+        "EDUCATED",
+        "MOTHER",
+        "MY",
+        "VERY"
+      ],
+      "explanation": "WORDS IN A PLANETARY MNEMONIC"
+    },
+    {
+      "color": "purple",
+      "title": "STARTING WITH FOUR-LETTER '80S BANDS",
+      "words": [
+        "ASIAGO",
+        "DEVOTE",
+        "TOTORO",
+        "WHAMMY"
+      ],
+      "explanation": "STARTING WITH FOUR-LETTER '80S BANDS"
+    }
+  ],
+  "hints": [
+    "All four can mean being right next to an edge or boundary: verbs and nouns that imply touching or running alongside.",
+    "Think bookstore shelf labels: broad fiction lanes you would browse side by side in genre signage.",
+    "Pieces of a classic sentence used to memorize planet order; these are the opening words, not the planets themselves.",
+    "Play with prefixes: each longer word starts with a four-letter 80s band name, then continues into a different word."
+  ]
+}
