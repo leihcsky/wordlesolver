@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-24",
+  "puzzleNumber": 1047,
+  "words": [
+    "CHEESE",
+    "DOUGH",
+    "PEPPERONI",
+    "TOMATO SAUCE",
+    "ARMS",
+    "INK",
+    "INTELLIGENCE",
+    "SUCTION CUPS",
+    "GRASS",
+    "HELICOPTER",
+    "ICE SKATES",
+    "LAWN MOWER",
+    "CABIN",
+    "CALLOWAY",
+    "RED WINE",
+    "TAXI"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "PIZZA INGREDIENTS",
+      "words": [
+        "CHEESE",
+        "DOUGH",
+        "PEPPERONI",
+        "TOMATO SAUCE"
+      ],
+      "explanation": "PIZZA INGREDIENTS"
+    },
+    {
+      "color": "green",
+      "title": "ASSOCIATED WITH OCTOPUSES",
+      "words": [
+        "ARMS",
+        "INK",
+        "INTELLIGENCE",
+        "SUCTION CUPS"
+      ],
+      "explanation": "ASSOCIATED WITH OCTOPUSES"
+    },
+    {
+      "color": "blue",
+      "title": "THEY HAVE BLADES",
+      "words": [
+        "GRASS",
+        "HELICOPTER",
+        "ICE SKATES",
+        "LAWN MOWER"
+      ],
+      "explanation": "THEY HAVE BLADES"
+    },
+    {
+      "color": "purple",
+      "title": "WHAT \"CAB\" MIGHT REFER TO",
+      "words": [
+        "CABIN",
+        "CALLOWAY",
+        "RED WINE",
+        "TAXI"
+      ],
+      "explanation": "WHAT \"CAB\" MIGHT REFER TO"
+    }
+  ],
+  "hints": [
+    "Think pizzeria prep station: foundation, sauce, dairy, and a classic topping before the oven ever opens.",
+    "Traits and body parts tied to that eight-armed sea creature people quote in science facts and documentaries.",
+    "Objects known for blades or blade-like parts-some spin, some glide, some cut grass.",
+    "One short syllable can point to four different things depending on context: ride, drink, surname, or room."
+  ]
+}
