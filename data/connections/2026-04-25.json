@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-25",
+  "puzzleNumber": 1048,
+  "words": [
+    "ENAMEL",
+    "HAIR",
+    "NAIL",
+    "SKIN",
+    "CROWD",
+    "HAYSTACK",
+    "MILLION",
+    "OCEAN",
+    "COPPER",
+    "DICK",
+    "FLATFOOT",
+    "GUMSHOE",
+    "CAST IRON",
+    "CHUCK E. CHEESE",
+    "HURLY-BURLY",
+    "PITCHFORK"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "BODY COVERINGS",
+      "words": [
+        "ENAMEL",
+        "HAIR",
+        "NAIL",
+        "SKIN"
+      ],
+      "explanation": "BODY COVERINGS"
+    },
+    {
+      "color": "green",
+      "title": "MASSES, IN IDIOMS",
+      "words": [
+        "CROWD",
+        "HAYSTACK",
+        "MILLION",
+        "OCEAN"
+      ],
+      "explanation": "MASSES, IN IDIOMS"
+    },
+    {
+      "color": "blue",
+      "title": "OLD TIMEY SLANG FOR LAW ENFORCEMENT",
+      "words": [
+        "COPPER",
+        "DICK",
+        "FLATFOOT",
+        "GUMSHOE"
+      ],
+      "explanation": "OLD TIMEY SLANG FOR LAW ENFORCEMENT"
+    },
+    {
+      "color": "purple",
+      "title": "STARTING WITH SYNONYMS FOR \"THROW\"",
+      "words": [
+        "CAST IRON",
+        "CHUCK E. CHEESE",
+        "HURLY-BURLY",
+        "PITCHFORK"
+      ],
+      "explanation": "STARTING WITH SYNONYMS FOR \"THROW\""
+    }
+  ],
+  "hints": [
+    "Outer layers and coverings tied to the body, from hard protective surfaces to soft external growth.",
+    "Each appears in classic idioms that signal huge quantity, overwhelming scale, or impossible-to-count amounts.",
+    "Vintage street-slang labels for police or detectives; think noir dialogue and old crime novels.",
+    "Wordplay at the front: each longer entry begins with a different synonym of \"throw\" before veering elsewhere."
+  ]
+}
