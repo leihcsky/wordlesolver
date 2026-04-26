@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-27",
+  "puzzleNumber": 1049,
+  "words": [
+    "RANCH DRESSING",
+    "RED ONION",
+    "ROASTED CHICKEN",
+    "ROMAINE LETTUCE",
+    "RAIN MAN",
+    "REAR WINDOW",
+    "RESERVOIR DOGS",
+    "ROMAN HOLIDAY",
+    "RADIOACTIVE MAN",
+    "RALPH WIGGUM",
+    "REVEREND LOVEJOY",
+    "ROD FLANDERS",
+    "RAGING BULL",
+    "REGINA KING",
+    "ROE BUCK",
+    "ROTARY CLIPPER"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "SALAD INGREDIENTS",
+      "words": [
+        "RANCH DRESSING",
+        "RED ONION",
+        "ROASTED CHICKEN",
+        "ROMAINE LETTUCE"
+      ],
+      "explanation": "SALAD INGREDIENTS"
+    },
+    {
+      "color": "green",
+      "title": "CLASSIC FILMS",
+      "words": [
+        "RAIN MAN",
+        "REAR WINDOW",
+        "RESERVOIR DOGS",
+        "ROMAN HOLIDAY"
+      ],
+      "explanation": "CLASSIC FILMS"
+    },
+    {
+      "color": "blue",
+      "title": "\"THE SIMPSONS\" CHARACTERS",
+      "words": [
+        "RADIOACTIVE MAN",
+        "RALPH WIGGUM",
+        "REVEREND LOVEJOY",
+        "ROD FLANDERS"
+      ],
+      "explanation": "\"THE SIMPSONS\" CHARACTERS"
+    },
+    {
+      "color": "purple",
+      "title": "ENDING IN NBA PLAYERS",
+      "words": [
+        "RAGING BULL",
+        "REGINA KING",
+        "ROE BUCK",
+        "ROTARY CLIPPER"
+      ],
+      "explanation": "ENDING IN NBA PLAYERS"
+    }
+  ],
+  "hints": [
+    "Build-a-bowl clues from a salad bar: base greens, dressing, crunch, and a protein add-on.",
+    "Canon-level movie titles people cite in \"must watch\" lists across different directors and decades.",
+    "Residents of Springfield: one kid, one preacher, one superhero persona, and one Flanders son.",
+    "Tail-end trick: each phrase finishes with the surname of a notable basketball player."
+  ]
+}
