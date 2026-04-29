@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-28",
+  "puzzleNumber": 1050,
+  "words": [
+    "APPEAL",
+    "BID",
+    "CALL",
+    "REQUEST",
+    "DRY",
+    "FOLD",
+    "SORT",
+    "WASH",
+    "CHECK",
+    "COUPON",
+    "MATCH",
+    "STAMP",
+    "DIAL",
+    "FLOWER",
+    "SCREEN",
+    "TAN"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "ENTREATY",
+      "words": [
+        "APPEAL",
+        "BID",
+        "CALL",
+        "REQUEST"
+      ],
+      "explanation": "ENTREATY"
+    },
+    {
+      "color": "green",
+      "title": "LAUNDRY DAY VERBS",
+      "words": [
+        "DRY",
+        "FOLD",
+        "SORT",
+        "WASH"
+      ],
+      "explanation": "LAUNDRY DAY VERBS"
+    },
+    {
+      "color": "blue",
+      "title": "THINGS THAT COME IN \"BOOKS\"",
+      "words": [
+        "CHECK",
+        "COUPON",
+        "MATCH",
+        "STAMP"
+      ],
+      "explanation": "THINGS THAT COME IN \"BOOKS\""
+    },
+    {
+      "color": "purple",
+      "title": "SUN___",
+      "words": [
+        "DIAL",
+        "FLOWER",
+        "SCREEN",
+        "TAN"
+      ],
+      "explanation": "SUN___"
+    }
+  ],
+  "hints": [
+    "Verbs for asking someone for something—from a polite petition to a firm demand you expect answered.",
+    "Laundry-day verbs: what you do to a basket after the spin cycle, step by step on the folding table.",
+    "Things you often tear from a pad or keep in a wallet bundle—each type is commonly sold or stored in its own little bound booklet.",
+    "Prefix game: the same short daylight-themed opener completes four familiar compounds when you read each entry as a whole phrase."
+  ]
+}
