@@ -1,0 +1,74 @@
+{
+  "date": "2026-04-30",
+  "puzzleNumber": 1051,
+  "words": [
+    "ALARM",
+    "DISTURB",
+    "SHAKE",
+    "SHOCK",
+    "CHECK",
+    "CROSS",
+    "MARK",
+    "TICK",
+    "TESLA",
+    "TIME",
+    "TRUE",
+    "TYRANNOSAURUS",
+    "HOUR",
+    "HUR",
+    "THERE",
+    "YORE"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "UNNERVE",
+      "words": [
+        "ALARM",
+        "DISTURB",
+        "SHAKE",
+        "SHOCK"
+      ],
+      "explanation": "UNNERVE"
+    },
+    {
+      "color": "green",
+      "title": "REMOVE, AS AN ITEM FROM A LIST, WITH \"OFF\"",
+      "words": [
+        "CHECK",
+        "CROSS",
+        "MARK",
+        "TICK"
+      ],
+      "explanation": "REMOVE, AS AN ITEM FROM A LIST, WITH \"OFF\""
+    },
+    {
+      "color": "blue",
+      "title": "WHAT \"T\" MIGHT STAND FOR",
+      "words": [
+        "TESLA",
+        "TIME",
+        "TRUE",
+        "TYRANNOSAURUS"
+      ],
+      "explanation": "WHAT \"T\" MIGHT STAND FOR"
+    },
+    {
+      "color": "purple",
+      "title": "HOMOPHONES OF POSSESSIVE ADJECTIVES",
+      "words": [
+        "HOUR",
+        "HUR",
+        "THERE",
+        "YORE"
+      ],
+      "explanation": "HOMOPHONES OF POSSESSIVE ADJECTIVES"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
