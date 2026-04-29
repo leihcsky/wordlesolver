@@ -145,6 +145,40 @@ function groupStyle(color) {
   return { name: escapeHtml(color), container: 'bg-gray-50 border-gray-200', badge: 'bg-gray-100 text-gray-800' };
 }
 
+function buildHintReasoning(title, color) {
+  const t = String(title || '').toLowerCase();
+  const c = String(color || '').toLowerCase();
+  if (t.includes('salad')) return 'Look for words that commonly appear together in one food context, not just loose ingredient words.';
+  if (t.includes('film') || t.includes('movie')) return 'Proper-noun phrases can hide in plain sight when you read them as ordinary word pairs.';
+  if (t.includes('simpsons')) return 'Character names can mix first names, titles, and aliases, which creates easy false pairings.';
+  if (t.includes('nba') || t.includes('player')) return 'This is a tail-end pattern, so focus on word endings instead of the first word.';
+  if (t.includes('fiction')) return 'These are shelf-level categories, so think of broad genres rather than specific plot elements.';
+  if (t.includes('planet')) return 'Mnemonic words often look random unless you recognize a memorization phrase.';
+  if (t.includes('book')) return 'The commonality is packaging format, not meaning.';
+  if (t.includes('laundry')) return 'The actions form a practical sequence, which helps you validate the set.';
+  if (t.includes('entreaty')) return 'All four work as asking verbs, but the tone ranges from neutral to urgent.';
+  if (c === 'yellow') return 'Start with this group first because the connection is usually the most direct.';
+  if (c === 'purple') return 'Save this for last; this color often relies on wordplay or hidden phrase structure.';
+  return 'Check both literal meaning and phrase behavior before locking the group.';
+}
+
+function buildGroupAnalysisMarkup(groups) {
+  return groups.map((g) => {
+    const style = groupStyle(g.color);
+    const words = g.words.map((w) => escapeHtml(normalizeWord(w))).join(', ');
+    const reasoning = buildHintReasoning(g.title, g.color);
+    return `                    <div class="rounded-lg border ${style.container} p-5">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center ${style.badge} text-xs font-bold px-2 py-1 rounded uppercase">${style.name} Group</span>
+                            <span class="font-semibold text-gray-900 text-right">${escapeHtml(g.title)}</span>
+                        </div>
+                        <p class="text-sm text-gray-700"><strong>Words:</strong> ${words}</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Why they belong together:</strong> ${escapeHtml(g.explanation || g.title)}</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> ${escapeHtml(reasoning)}</p>
+                    </div>`;
+  }).join('\n');
+}
+
 /** Revealed-answer card: category title is only in the header; optional body text if explanation differs from title. */
 function buildRevealedAnswerGroupMarkup(g, indent = '                        ') {
   const style = groupStyle(g.color);
@@ -417,7 +451,7 @@ function buildConnectionsTodayHtml(data, previousDailyHref) {
                     ${escapeHtml(h1)}
                 </h1>
                 <p class="text-lg sm:text-xl text-indigo-100 max-w-2xl">
-                    Reveal spoiler-free category hints gradually, then show the full solution when you're ready.
+                    Reveal spoiler-free category hints gradually, then use today’s analysis to understand why each group works.
                 </p>
                 <div class="mt-6 flex flex-wrap gap-3">
                     <a href="#hints" class="bg-white text-indigo-700 px-4 py-2 rounded-full font-bold hover:bg-indigo-50 transition-colors text-sm sm:text-base">
@@ -432,10 +466,10 @@ function buildConnectionsTodayHtml(data, previousDailyHref) {
             <div class="px-6 sm:px-8 py-8 sm:py-10 space-y-10">
                 <div class="prose prose-lg text-gray-600 max-w-none">
                     <p>
-                        Want help with <strong>NYT Connections</strong> but don’t want to spoil the fun? Start with the 16 words, then use the interactive helpers to reveal just enough information to keep moving.
+                        Today’s Connections is designed to reward pattern recognition across literal themes and phrase-based traps. The puzzle feels <strong>medium difficulty</strong>, with one straightforward path and one late-stage wordplay twist.
                     </p>
                     <p>
-                        If you’re completely stuck, you can reveal the full solution further down. The goal is to help you learn patterns over time, not to give everything away instantly.
+                        Start with the helper tools for gentle nudges, then scroll down for full analysis of each group’s logic and common misreads before checking final answers.
                     </p>
                     ${prevBlock}
                 </div>
@@ -445,7 +479,7 @@ function buildConnectionsTodayHtml(data, previousDailyHref) {
                         <div>
                             <h2 class="text-2xl font-bold text-gray-900">Quick Helper</h2>
                             <p class="text-gray-600 mt-2">
-                                Use this section if you want help without immediately revealing the full answers.
+                                Use this section if you want help without immediately revealing the full answers. Scroll down for full analysis once you finish.
                             </p>
                         </div>
                         <div class="flex gap-2">
@@ -492,88 +526,34 @@ ${hintsHtml}
                     </div>
                 </section>
 
-                <section class="bg-indigo-50 border border-indigo-200 rounded-lg p-6">
-                    <h2 class="text-xl font-bold text-indigo-900 mb-3">How to Use This Connections Helper</h2>
-                    <ul class="list-disc pl-5 space-y-2 text-indigo-900">
-                        <li>Start in <strong>Quick Helper</strong>: click any of the 16 words to reveal its group color (click again to turn it back to gray).</li>
-                        <li>Use the four color bars (Yellow/Green/Blue/Purple) to reveal the <strong>category name</strong> for that color.</li>
-                        <li>Open <strong>Spoiler-Free Hints</strong> in order (Yellow → Green → Blue → Purple) to get progressively clearer category clues.</li>
-                        <li>If you’re still stuck, tap <strong>Reveal today’s groups</strong> to show all four categories and their words.</li>
-                        <li>Play the official daily puzzle at <a href="https://www.nytimes.com/games/connections" target="_blank" rel="noopener noreferrer" class="underline hover:text-indigo-700 font-semibold">NYT Connections</a> and use this page to reveal only what you need.</li>
-                    </ul>
+                <section class="space-y-4">
+                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Today’s Connections Analysis</h2>
+${buildGroupAnalysisMarkup(data.groups)}
                 </section>
 
                 <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">What Is NYT Connections?</h2>
-                    <div class="text-gray-700 space-y-3">
-                        <p>
-                            <strong>Connections</strong> is a daily word game where you’re shown 16 words. The goal is to sort them into four groups of four that share a hidden theme.
-                        </p>
-                        <p>
-                            Multiple groupings can look plausible, but only one set of four themes is fully correct. That’s why a small clue at the right time can help you break a deadlock without giving everything away.
-                        </p>
-                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">How to Solve Today’s Puzzle Step by Step</h2>
+                    <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                        <li>Lock the most literal category first to remove four words from the board.</li>
+                        <li>Use elimination on overlap candidates by testing which group can still be explained with one clean phrase.</li>
+                        <li>Leave the trickiest wordplay set for last and validate by phrase behavior, not single-word meaning.</li>
+                    </ol>
                 </section>
 
                 <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">How to Play Connections</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Common Mistakes in Today’s Puzzle</h2>
                     <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Select four words you think share a theme and submit them as a group.</li>
-                        <li>Correct groups lock in; keep going until all four groups are solved.</li>
-                        <li>You typically have a limited number of mistakes before the puzzle ends.</li>
-                        <li>If you’re stuck, try regrouping: a “nearly right” theme is often a trap.</li>
+                        <li>Grouping by loose association instead of one precise category definition.</li>
+                        <li>Submitting a set when one word still needs a different rule to fit.</li>
+                        <li>Ignoring phrase-level clues in the hardest group and treating everything literally.</li>
                     </ul>
                 </section>
 
                 <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Connections Group Colors</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                            <div class="font-bold text-gray-900 mb-1">Yellow</div>
-                            <div class="text-gray-700">Usually the most straightforward connection.</div>
-                        </div>
-                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
-                            <div class="font-bold text-gray-900 mb-1">Green</div>
-                            <div class="text-gray-700">Moderately tricky — the theme is there, but less obvious.</div>
-                        </div>
-                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                            <div class="font-bold text-gray-900 mb-1">Blue</div>
-                            <div class="text-gray-700">Harder — often relies on narrower context or definitions.</div>
-                        </div>
-                        <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                            <div class="font-bold text-gray-900 mb-1">Purple</div>
-                            <div class="text-gray-700">Trickiest — wordplay and multi-meaning traps are common.</div>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Tips for Solving Faster</h2>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li>Clear the “obvious” group early to reduce noise for the remaining words.</li>
-                        <li>Watch for red herrings: synonyms, homophones, and brand names can be traps.</li>
-                        <li>Blue and Purple often lean on trivia or wordplay. If you’re stuck, focus on definitions and alternate meanings.</li>
-                        <li>When two groups overlap, test one word as the “odd one out” to break the tie.</li>
-                    </ul>
-                </section>
-
-                <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">How to Solve NYT Connections Every Day</h2>
-                    <div class="text-gray-700 space-y-3">
-                        <p>
-                            <strong>Connections</strong> rewards pattern-spotting more than brute force. A steady routine helps you avoid common traps and save your limited mistakes.
-                        </p>
-                        <ol class="list-decimal pl-5 space-y-2">
-                            <li><strong>Scan for “instant fours.”</strong> Start with the cleanest set of four you can explain in one phrase (types of X, synonyms, things you see at Y).</li>
-                            <li><strong>Group by how the words behave.</strong> Mix and match parts of speech (noun/verb/adjective), phrases, categories, and wordplay (alternate meanings, pronunciations, abbreviations).</li>
-                            <li><strong>Assume there’s a decoy.</strong> If a grouping feels too broad, look for the word that doesn’t fit quite as well — that’s often the trap.</li>
-                            <li><strong>Use elimination.</strong> Once you’re confident about three words, test candidates for the fourth by asking “what category would all four share?”</li>
-                            <li><strong>Spend guesses wisely.</strong> With only a few mistakes allowed, don’t submit a set unless you can justify every word in it.</li>
-                        </ol>
-                        <p>
-                            If you want to play along, open the official puzzle at <a href="https://www.nytimes.com/games/connections" target="_blank" rel="noopener noreferrer" class="underline hover:text-indigo-700 font-semibold">NYT Connections</a>, then come back here for a small nudge when you’re stuck.
-                        </p>
-                    </div>
+                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Today’s Difficulty & Pattern</h2>
+                    <p class="text-gray-700">
+                        This puzzle plays as <strong>medium</strong> difficulty: one group is straightforward, two require context knowledge, and one relies on hidden phrase structure.
+                    </p>
                 </section>
 
                 <section id="reveal-answers" class="bg-gray-50 p-6 rounded-lg border">
@@ -613,7 +593,7 @@ ${groupsHtml}
                     <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <p class="text-lg font-semibold mb-4">Quick Links</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
                         <li><a href="/word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
@@ -623,7 +603,7 @@ ${groupsHtml}
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <p class="text-lg font-semibold mb-4">Support</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/faq.html" class="hover:text-white transition-colors">FAQ</a></li>
                         <li><a href="/contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
@@ -632,7 +612,7 @@ ${groupsHtml}
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <p class="text-lg font-semibold mb-4">Legal</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
                         <li><a href="/terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
@@ -892,7 +872,7 @@ ${groupsHtml}
                     <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <p class="text-lg font-semibold mb-4">Quick Links</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
                         <li><a href="/word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
@@ -902,7 +882,7 @@ ${groupsHtml}
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <p class="text-lg font-semibold mb-4">Support</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/faq.html" class="hover:text-white transition-colors">FAQ</a></li>
                         <li><a href="/contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
@@ -911,7 +891,7 @@ ${groupsHtml}
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <p class="text-lg font-semibold mb-4">Legal</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
                         <li><a href="/terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
@@ -1039,7 +1019,7 @@ function buildArchiveHtml(items) {
                     <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <p class="text-lg font-semibold mb-4">Quick Links</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
                         <li><a href="/word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
@@ -1049,7 +1029,7 @@ function buildArchiveHtml(items) {
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <p class="text-lg font-semibold mb-4">Support</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/faq.html" class="hover:text-white transition-colors">FAQ</a></li>
                         <li><a href="/contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
@@ -1058,7 +1038,7 @@ function buildArchiveHtml(items) {
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <p class="text-lg font-semibold mb-4">Legal</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
                         <li><a href="/terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>

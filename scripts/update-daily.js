@@ -30,7 +30,7 @@ function todayIso() {
 }
 
 function parseArgs(argv) {
-  const args = { date: null, git: false, wordle: true, connections: true };
+  const args = { date: null, git: false, wordle: true, connections: true, connectionsData: null };
   for (let i = 2; i < argv.length; i += 1) {
     const v = argv[i];
     if (v === '--date') {
@@ -50,6 +50,11 @@ function parseArgs(argv) {
     if (v === '--connections-only') {
       args.wordle = false;
       args.connections = true;
+      continue;
+    }
+    if (v === '--connections-data') {
+      args.connectionsData = argv[i + 1];
+      i += 1;
       continue;
     }
   }
@@ -107,9 +112,22 @@ async function main() {
   }
 
   if (args.connections) {
-    const connections = await fetchJson(connectionsUrl);
-    writeJson(tmpConnections, connections);
-    runNodeScript(path.join('scripts', 'update-connections-from-nyt.js'), [tmpConnections]);
+    const connectionsSource = args.connectionsData
+      ? path.isAbsolute(args.connectionsData)
+        ? args.connectionsData
+        : path.join(REPO_ROOT, args.connectionsData)
+      : tmpConnections;
+
+    if (args.connectionsData) {
+      if (!fs.existsSync(connectionsSource)) {
+        throw new Error(`Connections data file not found: ${connectionsSource}`);
+      }
+    } else {
+      const connections = await fetchJson(connectionsUrl);
+      writeJson(tmpConnections, connections);
+    }
+
+    runNodeScript(path.join('scripts', 'update-connections-from-nyt.js'), [connectionsSource]);
     runNodeScript(path.join('scripts', 'generate-connections-pages.js'), [
       path.join('data', 'connections', `${iso}.json`),
     ]);
