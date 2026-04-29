@@ -165,16 +165,21 @@ function buildHintReasoning(title, color) {
 function buildGroupAnalysisMarkup(groups) {
   return groups.map((g) => {
     const style = groupStyle(g.color);
-    const words = g.words.map((w) => escapeHtml(normalizeWord(w))).join(', ');
     const reasoning = buildHintReasoning(g.title, g.color);
+    const spoilerSafeCategory = (String(g.color || '').toLowerCase() === 'yellow')
+      ? 'Most straightforward semantic link'
+      : (String(g.color || '').toLowerCase() === 'green')
+        ? 'Everyday action/theme cluster'
+        : (String(g.color || '').toLowerCase() === 'blue')
+          ? 'Context-heavy/trivia-leaning link'
+          : 'Wordplay or phrase-structure link';
     return `                    <div class="rounded-lg border ${style.container} p-5">
                         <div class="flex items-center justify-between gap-3 mb-3">
                             <span class="inline-flex items-center ${style.badge} text-xs font-bold px-2 py-1 rounded uppercase">${style.name} Group</span>
-                            <span class="font-semibold text-gray-900 text-right">${escapeHtml(g.title)}</span>
+                            <span class="font-semibold text-gray-900 text-right">${escapeHtml(spoilerSafeCategory)}</span>
                         </div>
-                        <p class="text-sm text-gray-700"><strong>Words:</strong> ${words}</p>
-                        <p class="text-sm text-gray-700 mt-2"><strong>Why they belong together:</strong> ${escapeHtml(g.explanation || g.title)}</p>
-                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> ${escapeHtml(reasoning)}</p>
+                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> ${escapeHtml(reasoning)}</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> Similar-looking words may fit by tone but not by a single precise rule. Validate with one shared definition before submitting.</p>
                     </div>`;
   }).join('\n');
 }
@@ -451,7 +456,7 @@ function buildConnectionsTodayHtml(data, previousDailyHref) {
                     ${escapeHtml(h1)}
                 </h1>
                 <p class="text-lg sm:text-xl text-indigo-100 max-w-2xl">
-                    Reveal spoiler-free category hints gradually, then use today’s analysis to understand why each group works.
+                    Your daily Connections hints today page: start spoiler-free, then use analysis to understand why each group works.
                 </p>
                 <div class="mt-6 flex flex-wrap gap-3">
                     <a href="#hints" class="bg-white text-indigo-700 px-4 py-2 rounded-full font-bold hover:bg-indigo-50 transition-colors text-sm sm:text-base">
@@ -466,10 +471,10 @@ function buildConnectionsTodayHtml(data, previousDailyHref) {
             <div class="px-6 sm:px-8 py-8 sm:py-10 space-y-10">
                 <div class="prose prose-lg text-gray-600 max-w-none">
                     <p>
-                        Today’s Connections is designed to reward pattern recognition across literal themes and phrase-based traps. The puzzle feels <strong>medium difficulty</strong>, with one straightforward path and one late-stage wordplay twist.
+                        Looking for <strong>Connections hints today</strong>? This page is built for the current NYT puzzle and focuses on practical help before full reveals.
                     </p>
                     <p>
-                        Start with the helper tools for gentle nudges, then scroll down for full analysis of each group’s logic and common misreads before checking final answers.
+                        Today’s Connections rewards pattern recognition across literal themes and phrase-based traps. Start with gentle clues, then move to analysis only if you still need help.
                     </p>
                     ${prevBlock}
                 </div>
@@ -520,7 +525,7 @@ function buildConnectionsTodayHtml(data, previousDailyHref) {
                             </div>
                         </div>
                         <div class="space-y-3" id="hints">
-                            <h3 class="text-lg font-semibold text-gray-900">Spoiler-Free Hints</h3>
+                            <h3 class="text-lg font-semibold text-gray-900">Connections Hints Today (Spoiler-Free)</h3>
 ${hintsHtml}
                         </div>
                     </div>
