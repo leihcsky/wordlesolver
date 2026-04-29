@@ -208,29 +208,30 @@
                     </p>
                 </div>
 
-                <!-- How to Play Section -->
-                <section class="border-b pb-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Play Wordle Today</h2>
-                    <p class="text-gray-700 mb-4">
-                        New to the game? Here's a quick refresher on the rules for <strong>today's Wordle</strong>. The goal is to guess a 5-letter word in 6 tries.
+                <!-- Daily Intro -->
+                <section id="daily-overview" class="border-b pb-8 space-y-3">
+                    <h2 class="text-2xl font-bold text-gray-900">Today’s Wordle Overview</h2>
+                    <p class="text-gray-700">
+                        Today’s puzzle plays as <strong>medium difficulty</strong>: the word is common enough, but the consonant framing can mislead early guesses if vowel placement is delayed.
                     </p>
-                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li><strong>Green:</strong> The letter is correct and in the correct spot.</li>
-                        <li><strong>Yellow:</strong> The letter is in the word but in the wrong spot.</li>
-                        <li><strong>Gray:</strong> The letter is not in the word at all.</li>
-                    </ul>
+                    <p class="text-gray-700">
+                        Expect a clean five-letter structure with no duplicate letters, so each guess should focus on extracting fresh placement information.
+                    </p>
+                    <p class="text-sm text-indigo-700">
+                        New to Wordle? Read the quick rules in <a href="/how-to-play.html" class="underline hover:text-indigo-900 font-medium">How to Play</a>.
+                    </p>
                 </section>
 
                 <!-- Hints Section -->
                 <section id="hints" class="space-y-6">
-                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Hints for Today's Wordle</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Wordle Hints Today</h2>
                     
                     <!-- Hint 1 -->
                 <div class="hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-semibold text-gray-800 flex items-center">
                             <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 1</span>
-                            Meaning &amp; Definition
+                            Meaning
                         </h3>
                         <button class="text-green-600 hover:text-green-800 text-sm font-medium focus:outline-none" data-hint-toggle data-target="hint-1">
                             Show hint
@@ -246,7 +247,7 @@
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-semibold text-gray-800 flex items-center">
                             <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 2</span>
-                            Letters & Structure
+                            Letters
                         </h3>
                         <button class="text-green-600 hover:text-green-800 text-sm font-medium focus:outline-none" data-hint-toggle data-target="hint-2">
                             Show hint
@@ -262,7 +263,7 @@
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-semibold text-gray-800 flex items-center">
                             <span class="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 3</span>
-                            Pattern
+                            Pattern Logic
                         </h3>
                         <button class="text-green-600 hover:text-green-800 text-sm font-medium focus:outline-none" data-hint-toggle data-target="hint-3">
                             Show hint
@@ -274,40 +275,47 @@
                 </div>
                 </section>
 
-                <!-- Strategy Section -->
-                <section class="border-t pt-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Strategy &amp; Analysis</h2>
-                    <p class="text-gray-700 mb-3">
-                        Two vowel letters appear once each—use yellows to decide whether they split across the word or cluster before you chase rare consonants.
-                    </p>
-                    <p class="text-gray-700 mb-3">
-                        No repeats, so prioritize guesses that place both vowels while still testing new consonants in one line.
-                    </p>
-                    <p class="text-gray-700 mb-3">
-                        <strong>Strategic tip:</strong> After grays shrink the board, probe high-frequency consonant pairs that still honor every green and yellow clue.
-                    </p>
-                </section>
-
-                <!-- Common Starter Words -->
-                <section>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Recommended starter words</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">STARE</span>
-                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">CRANE</span>
-                        <span class="bg-gray-100 text-gray-800 px-3 py-1 rounded-full text-sm font-medium">SLATE</span>
-                    </div>
-                </section>
-
-                <!-- General Tips -->
-                <section class="border-t pt-8 mt-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">General Wordle Tips & Tricks</h2>
-                    <p class="text-gray-700 mb-4">
-                        Want to master <strong>Wordle today</strong> and every day? Here are some timeless strategies:
-                    </p>
+                <section id="letter-breakdown" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Letter Breakdown for Today’s Wordle</h2>
                     <ul class="list-disc pl-5 space-y-2 text-gray-700">
-                        <li><strong>Start Strong:</strong> Use a starting word with multiple vowels and common consonants (like ADIEU, SLATE, or RAISE).</li>
-                        <li><strong>Process of Elimination:</strong> Use the gray letters to narrow down your options.</li>
-                        <li><strong>Watch for Doubles:</strong> Don't forget that letters can appear twice (like in RABBI or EERIE).</li>
+                        <li><strong>Vowel profile:</strong> Two distinct vowels are present.</li>
+                        <li><strong>Repeats:</strong> No repeated letters in the final answer.</li>
+                        <li><strong>Pattern shape:</strong> Consonant-vowel balance matters more than rare-letter hunting.</li>
+                    </ul>
+                </section>
+
+                <section id="solve-steps" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Solve Today’s Wordle Step by Step</h2>
+                    <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                        <li>Open with a high-information starter that tests at least two vowels and common consonants.</li>
+                        <li>Use gray feedback to remove dead letters quickly, then lock one vowel position.</li>
+                        <li>Resolve the remaining vowel slot and test common consonant frames that match all greens/yellows.</li>
+                    </ol>
+                </section>
+
+                <section id="word-meaning" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What Does Today’s Word Mean?</h2>
+                    <p class="text-gray-700 mb-3">
+                        Today’s answer is used as both a sound-related noun and an informal label for someone viewed as not truly qualified.
+                    </p>
+                    <p class="text-gray-700">
+                        <strong>Example:</strong> “Be careful whose advice you trust—there are plenty of loud voices and very little real expertise.”
+                    </p>
+                </section>
+
+                <section id="difficulty-analysis" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Today’s Wordle Difficulty</h2>
+                    <p class="text-gray-700">
+                        This puzzle is <strong>medium</strong>: the word itself is familiar, but an uncommon starting consonant pattern can delay correct placement unless you use elimination efficiently.
+                    </p>
+                </section>
+
+                <section id="common-mistakes" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Common Mistakes to Avoid</h2>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Over-focusing on rare end letters before confirming vowel positions.</li>
+                        <li>Reusing guessed letters too early instead of maximizing fresh information.</li>
+                        <li>Ignoring plausible consonant clusters after gray letters have already narrowed the board.</li>
                     </ul>
                 </section>
 
@@ -352,7 +360,7 @@
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Resources</h3>
+                    <p class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Resources</p>
                     <ul class="space-y-3">
                         <li><a href="/index.html" class="text-gray-500 hover:text-green-600 transition-colors">Wordle Solver</a></li>
                         <li><a href="/wordle-hints-today.html" class="text-gray-500 hover:text-green-600 transition-colors">Today's Hints</a></li>
@@ -360,7 +368,7 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Legal</h3>
+                    <p class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Legal</p>
                     <ul class="space-y-3">
                         <li><a href="/privacy.html" class="text-gray-500 hover:text-green-600 transition-colors">Privacy Policy</a></li>
                         <li><a href="/terms.html" class="text-gray-500 hover:text-green-600 transition-colors">Terms of Service</a></li>

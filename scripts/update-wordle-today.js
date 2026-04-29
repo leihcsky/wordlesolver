@@ -167,26 +167,98 @@ function updateWordleToday(absJsonPath) {
                         <p>${hint3Soft}</p>
                     </div>`);
 
-  const repeatTip = repeats.length ? ' Watch for a double letter somewhere.' : '';
-  const strategyP1 = `The solution uses <strong>${vset.length}</strong> distinct vowel letter${vset.length === 1 ? '' : 's'} from A, E, I, O, U — use your yellow/green feedback to place them.`;
-  const strategyP2 = repeats.length
-    ? 'A repeated letter is possible; if your guesses feel almost right, test a double before chasing new letters.'
-    : 'Every letter in the answer is unique, so duplicate letters in a guess can only yield one green/yellow per slot.';
-  const strategyP3 = `Treat consonant bunches and vowel slots as a shape puzzle: rule out grays, then test common five-letter fits that still match your feedback.${repeatTip}`;
+  const isHard = repeats.length > 0 || !alternating;
+  const difficultyLabel = isHard ? 'medium to hard' : 'medium';
+  const overviewP1 = `Today’s puzzle sits in the <strong>${difficultyLabel}</strong> range: the word is familiar, but letter placement can still mislead if you guess by vibe instead of feedback.`;
+  const overviewP2 = repeats.length
+    ? 'A repeated letter is in play, so spacing and order checks matter more than raw letter discovery.'
+    : 'There are no repeated letters, so each guess should prioritize new information and cleaner placement checks.';
 
   html = html.replace(
-    /<section class="border-t pt-8">\s*<h2 class="text-2xl font-bold text-gray-900 mb-4">Strategy &amp; Analysis<\/h2>[\s\S]*?<\/section>/,
-    `<section class="border-t pt-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Strategy &amp; Analysis</h2>
-                    <p class="text-gray-700 mb-3">
-                        ${strategyP1}
+    /<section id="daily-overview"[\s\S]*?<\/section>/,
+    `<section id="daily-overview" class="border-b pb-8 space-y-3">
+                    <h2 class="text-2xl font-bold text-gray-900">Today’s Wordle Overview</h2>
+                    <p class="text-gray-700">
+                        ${overviewP1}
                     </p>
-                    <p class="text-gray-700 mb-3">
-                        ${strategyP2}
+                    <p class="text-gray-700">
+                        ${overviewP2}
                     </p>
-                    <p class="text-gray-700 mb-3">
-                        <strong>Strategic Tip:</strong> ${strategyP3}
+                    <p class="text-sm text-indigo-700">
+                        New to Wordle? Read the quick rules in <a href="/how-to-play.html" class="underline hover:text-indigo-900 font-medium">How to Play</a>.
                     </p>
+                </section>`
+  );
+
+  const breakdownLines = [
+    `<li><strong>Vowel profile:</strong> ${vset.length} distinct vowel letter${vset.length === 1 ? '' : 's'} appears.</li>`,
+    `<li><strong>Repeats:</strong> ${repeats.length ? `Yes, at least one letter repeats (${repeats.join(', ')}).` : 'No repeated letters in the final answer.'}</li>`,
+    `<li><strong>Pattern shape:</strong> ${alternating ? 'The structure alternates cleanly between consonants and vowels.' : 'Consonant-vowel balance matters more than memorizing a strict alternation code.'}</li>`,
+  ].join('\n                        ');
+  html = html.replace(
+    /<section id="letter-breakdown"[\s\S]*?<\/section>/,
+    `<section id="letter-breakdown" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Letter Breakdown for Today’s Wordle</h2>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        ${breakdownLines}
+                    </ul>
+                </section>`
+  );
+
+  const step2 = repeats.length
+    ? 'Use gray feedback to remove dead letters quickly, then test whether the repeated letter belongs early or late.'
+    : 'Use gray feedback to remove dead letters quickly, then lock one vowel position.';
+  const step3 = alternating
+    ? 'Confirm the alternating structure and solve remaining slots with common consonant choices.'
+    : 'Resolve remaining vowel slots and test common consonant frames that match all greens/yellows.';
+  html = html.replace(
+    /<section id="solve-steps"[\s\S]*?<\/section>/,
+    `<section id="solve-steps" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Solve Today’s Wordle Step by Step</h2>
+                    <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                        <li>Open with a high-information starter that tests at least two vowels and common consonants.</li>
+                        <li>${step2}</li>
+                        <li>${step3}</li>
+                    </ol>
+                </section>`
+  );
+
+  html = html.replace(
+    /<section id="word-meaning"[\s\S]*?<\/section>/,
+    `<section id="word-meaning" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What Does Today’s Word Mean?</h2>
+                    <p class="text-gray-700 mb-3">
+                        Today’s answer is a standard English word used in everyday speech and writing.
+                    </p>
+                    <p class="text-gray-700">
+                        <strong>Tip:</strong> Use the meaning hint as a final confirmation step after your letter positions are mostly locked.
+                    </p>
+                </section>`
+  );
+
+  html = html.replace(
+    /<section id="difficulty-analysis"[\s\S]*?<\/section>/,
+    `<section id="difficulty-analysis" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Today’s Wordle Difficulty</h2>
+                    <p class="text-gray-700">
+                        This puzzle is <strong>${difficultyLabel}</strong> because ${repeats.length ? 'repeat handling adds ambiguity in early guesses' : 'the word can look simple but still punishes weak placement strategy'}.
+                    </p>
+                </section>`
+  );
+
+  const mistakes = repeats.length
+    ? `<li>Missing a duplicate-letter scenario when your pattern is close but one slot keeps failing.</li>
+                        <li>Burning guesses on new letters before testing the suspected repeated tile.</li>`
+    : `<li>Reusing letters too early instead of maximizing new information.</li>
+                        <li>Locking a vowel too soon without confirming it through yellow feedback.</li>`;
+  html = html.replace(
+    /<section id="common-mistakes"[\s\S]*?<\/section>/,
+    `<section id="common-mistakes" class="border-t pt-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Common Mistakes to Avoid</h2>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        ${mistakes}
+                        <li>Ignoring gray eliminations and forcing theme words that no longer fit.</li>
+                    </ul>
                 </section>`
   );
 
