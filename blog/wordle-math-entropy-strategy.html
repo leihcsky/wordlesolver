@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Math Behind Wordle — Entropy, Probability & Optimal Guessing | Wordle Solver</title>
+    <title>Wordle Entropy Strategy: Math Behind Better Guesses</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
@@ -13,25 +13,25 @@
     <link rel="manifest" href="../assets/site.webmanifest">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Dive into the math behind optimal Wordle guessing: entropy, information theory, and probability. Practical examples show how algorithms pick the best next guess.">
+    <meta name="description" content="Learn Wordle entropy strategy with simple math, probability, and information gain. See how better guesses shrink candidates faster.">
     <meta name="keywords" content="wordle math, entropy strategy, information theory, wordle algorithm, probability, optimal guessing, wordle solver">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://wordlesolver.best/blog/wordle-math-entropy-strategy">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://wordlesolver.best/blog/wordle-math-entropy-strategy.html">
-    <meta property="og:title" content="The Math Behind Wordle — Entropy, Probability & Optimal Guessing">
-    <meta property="og:description" content="Learn the mathematics behind optimal Wordle solving: entropy, information theory, and probability-based strategies.">
+    <meta property="og:url" content="https://wordlesolver.best/blog/wordle-math-entropy-strategy">
+    <meta property="og:title" content="Wordle Entropy Strategy: Math Behind Better Guesses">
+    <meta property="og:description" content="Learn Wordle entropy strategy with simple math, probability, and information gain to make smarter guesses.">
     <meta property="og:image" content="https://wordlesolver.best/assets/og-image.png">
     <meta property="article:published_time" content="2025-11-27T12:00:00Z">
     <meta property="article:author" content="Wordle Solver Team">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://wordlesolver.best/blog/wordle-math-entropy-strategy.html">
-    <meta name="twitter:title" content="The Math Behind Wordle — Entropy, Probability & Optimal Guessing">
-    <meta name="twitter:description" content="Learn the mathematics behind optimal Wordle solving: entropy, information theory, and probability-based strategies.">
+    <meta name="twitter:url" content="https://wordlesolver.best/blog/wordle-math-entropy-strategy">
+    <meta name="twitter:title" content="Wordle Entropy Strategy: Math Behind Better Guesses">
+    <meta name="twitter:description" content="Learn Wordle entropy strategy with simple math, probability, and information gain to make smarter guesses.">
     <meta name="twitter:image" content="https://wordlesolver.best/assets/twitter-card.png">
 
     <!-- Google tag (gtag.js) -->
@@ -50,8 +50,8 @@
     {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "The Math Behind Wordle — Entropy, Probability & Optimal Guessing",
-        "description": "Dive into the math behind optimal Wordle guessing: entropy, information theory, and probability.",
+        "headline": "Wordle Entropy Strategy: Math Behind Better Guesses",
+        "description": "Learn Wordle entropy strategy with simple math, probability, and information gain. See how better guesses shrink candidates faster.",
         "image": "https://wordlesolver.best/assets/og-image.png",
         "datePublished": "2025-11-27T12:00:00Z",
         "dateModified": "2025-11-27T12:00:00Z",
@@ -128,18 +128,17 @@
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center space-x-3">
-                    <a href="../index.html" class="hover:opacity-80 transition-opacity">
-                        <img src="../assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
+                    <a href="/index.html" class="hover:opacity-80 transition-opacity">
+                        <img src="/assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
                     </a>
                 </div>
                 
-	            <div class="hidden md:flex items-center space-x-8">
-	                <a href="../blog.html" class="text-green-600 font-semibold border-b-2 border-green-600">Blog</a>
-	                <a href="../wordle-hints-today.html" class="text-gray-600 hover:text-gray-900 transition-colors">Today's Hints</a>
-	                <a href="../about.html" class="text-gray-600 hover:text-gray-900 transition-colors">About Us</a>
-	                <a href="../contact.html" class="text-gray-600 hover:text-gray-900 transition-colors">Contact Us</a>
-	                <a href="../faq.html" class="text-gray-600 hover:text-gray-900 transition-colors">FAQ</a>
-	            </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/index.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Home</a>
+                    <a href="/blog.html" class="text-green-600 font-bold transition-colors">Blog</a>
+                    <a href="/wordle-hints-today.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Today's Hints</a>
+                    <a href="/connections-hints-today.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Connections</a>
+                </div>
 
                 <div class="md:hidden">
                     <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
@@ -150,15 +149,14 @@
                 </div>
             </div>
 
-	            <div id="mobileMenu" class="hidden md:hidden pb-4">
-	                <div class="flex flex-col space-y-2">
-	                    <a href="../blog.html" class="text-green-600 font-semibold py-2 px-4 rounded bg-green-50">Blog</a>
-	                    <a href="../wordle-hints-today.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Today's Hints</a>
-	                    <a href="../about.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">About Us</a>
-	                    <a href="../contact.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">Contact Us</a>
-	                    <a href="../faq.html" class="text-gray-600 hover:text-gray-900 py-2 px-4 rounded hover:bg-gray-100 transition-colors">FAQ</a>
-	                </div>
-	            </div>
+                <div id="mobileMenu" class="hidden md:hidden pb-4">
+                    <div class="flex flex-col space-y-2">
+                        <a href="/index.html" class="text-gray-700 hover:text-green-600 py-2 px-4 rounded hover:bg-green-50 transition-colors">Home</a>
+                        <a href="/blog.html" class="text-green-600 font-bold py-2 px-4 rounded bg-green-50 transition-colors">Blog</a>
+                        <a href="/wordle-hints-today.html" class="text-gray-700 hover:text-green-600 py-2 px-4 rounded hover:bg-green-50 transition-colors">Today's Hints</a>
+                        <a href="/connections-hints-today.html" class="text-gray-700 hover:text-green-600 py-2 px-4 rounded hover:bg-green-50 transition-colors">Connections</a>
+                    </div>
+                </div>
         </nav>
     </header>
 
@@ -497,7 +495,7 @@ RETURN this word as the next guess
                     <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <p class="text-lg font-semibold mb-4">Quick Links</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="../how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
                         <li><a href="../word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
@@ -507,7 +505,7 @@ RETURN this word as the next guess
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <p class="text-lg font-semibold mb-4">Support</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="../faq.html" class="hover:text-white transition-colors">FAQ</a></li>
                         <li><a href="../contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
@@ -516,7 +514,7 @@ RETURN this word as the next guess
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Legal</h3>
+                    <p class="text-lg font-semibold mb-4">Legal</p>
                     <ul class="space-y-2 text-gray-300">
                         <li><a href="../privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
                         <li><a href="../terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>

@@ -132,14 +132,6 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- Blog Article - Wordle Today Oct 29 -->
-    <url>
-        <loc>https://wordlesolver.best/blog/wordle-today-oct-29-1593</loc>
-        <lastmod>2025-10-29</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-
     <!-- Blog Article - Wordle Helper Guide -->
     <url>
         <loc>https://wordlesolver.best/blog/wordle-helper-guide</loc>
@@ -151,17 +143,17 @@
     <!-- Blog Article - Best Starting Word -->
     <url>
         <loc>https://wordlesolver.best/blog/best-starting-word-wordle</loc>
-        <lastmod>2025-11-21</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
-    <!-- FAQ Detail Page - Does Wordle Repeat Words -->
+    <!-- Blog Article - Does Wordle Repeat Words -->
     <url>
-        <loc>https://wordlesolver.best/faq/does-wordle-repeat-words</loc>
-        <lastmod>2025-11-27</lastmod>
+        <loc>https://wordlesolver.best/blog/does-wordle-repeat-words</loc>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
+        <priority>0.8</priority>
     </url>
 
 </urlset>
