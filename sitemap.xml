@@ -7,7 +7,7 @@
     <!-- Homepage - Highest Priority -->
     <url>
         <loc>https://wordlesolver.best/</loc>
-	        <lastmod>2025-11-29</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>daily</changefreq>
         <priority>1.0</priority>
     </url>
@@ -31,7 +31,7 @@
     <!-- How to Play - High Value Content -->
     <url>
         <loc>https://wordlesolver.best/how-to-play</loc>
-        <lastmod>2025-08-30</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -95,7 +95,7 @@
     <!-- Blog - Content Hub -->
     <url>
         <loc>https://wordlesolver.best/blog</loc>
-        <lastmod>2025-11-27</lastmod>
+        <lastmod>2026-04-30</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
@@ -151,6 +151,14 @@
     <!-- Blog Article - Does Wordle Repeat Words -->
     <url>
         <loc>https://wordlesolver.best/blog/does-wordle-repeat-words</loc>
+        <lastmod>2026-04-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Blog Article - How to Solve Wordle -->
+    <url>
+        <loc>https://wordlesolver.best/blog/how-to-solve-wordle</loc>
         <lastmod>2026-04-30</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
