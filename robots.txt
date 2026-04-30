@@ -17,13 +17,9 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# Block unnecessary pages from crawling
+# Block unnecessary utility page
 User-agent: *
 Disallow: /generate-favicons.html
-Disallow: /about.html
-Disallow: /contact.html
-Disallow: /privacy-policy.html
-Disallow: /terms-of-service.html
 
 # Crawl delay (optional - adjust based on server capacity)
 Crawl-delay: 1

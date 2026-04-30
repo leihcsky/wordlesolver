@@ -54,7 +54,7 @@
         "description": "Does Wordle repeat words? Yes. Learn when repeats started, how often they appear, and how to adjust your Wordle strategy in 2026.",
         "image": "https://wordlesolver.best/assets/og-image.png",
         "datePublished": "2026-03-04T08:00:00Z",
-        "dateModified": "2026-03-04T08:00:00Z",
+        "dateModified": "2026-04-30T08:00:00Z",
         "author": {
             "@type": "Organization",
             "name": "Wordle Solver Team"
@@ -138,6 +138,24 @@
             padding: 16px;
             border-radius: 8px;
             margin: 16px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin: 16px 0;
+        }
+        .stat-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 14px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1f2937;
         }
     </style>
 </head>
@@ -267,11 +285,61 @@
                     <p class="text-gray-700 mb-4">
                         Repeats are not expected to become daily or even frequent. Think of them as occasional editorial choices, not a default pattern. Most days will still feel like standard Wordle, but repeats are now a valid possibility.
                     </p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <p class="text-sm text-gray-600 mb-1">Before policy shift</p>
+                            <div class="stat-value">0%</div>
+                            <p class="text-xs text-gray-500">Expected repeat rate</p>
+                        </div>
+                        <div class="stat-card">
+                            <p class="text-sm text-gray-600 mb-1">After policy shift</p>
+                            <div class="stat-value">>0%</div>
+                            <p class="text-xs text-gray-500">Repeats are possible</p>
+                        </div>
+                        <div class="stat-card">
+                            <p class="text-sm text-gray-600 mb-1">Best assumption now</p>
+                            <div class="stat-value">Maybe</div>
+                            <p class="text-xs text-gray-500">Past answers can return</p>
+                        </div>
+                    </div>
                     <ul class="list-disc pl-5 space-y-2 text-gray-700">
                         <li><strong>Old model:</strong> "Used once" meant "eliminate forever."</li>
                         <li><strong>Current model:</strong> "Used once" means "less likely, but still possible."</li>
                         <li><strong>Practical impact:</strong> Hard exclusions should come from gray/yellow/green feedback, not history lists.</li>
                     </ul>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Why Would NYT Allow Repeats?</h2>
+                    <p class="text-gray-700 mb-4">
+                        Editorially, repeats increase flexibility. They let puzzle editors reference timing, themes, and callbacks without being blocked by a strict "never used before" rule.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li><strong>Fresh editorial options:</strong> More freedom for seasonal or topical word choices.</li>
+                        <li><strong>Long-term sustainability:</strong> Less pressure to preserve a finite answer pool forever.</li>
+                        <li><strong>Intentional callbacks:</strong> Occasional repeat moments can be meaningful rather than random.</li>
+                    </ul>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What This Means for Daily Gameplay</h2>
+                    <p class="text-gray-700 mb-4">
+                        The biggest change is mental model, not mechanics. Your board-reading process is unchanged, but your prior assumptions should be updated.
+                    </p>
+                    <div class="space-y-3">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900">Keep solving with constraints</p>
+                            <p class="text-sm text-gray-700">Greens, yellows, and grays are still the strongest decision signals.</p>
+                        </div>
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900">Treat history as weak prior</p>
+                            <p class="text-sm text-gray-700">Past-answer memory can inform ranking, but never hard-eliminate a candidate.</p>
+                        </div>
+                        <div class="bg-green-50 border-l-4 border-green-500 p-4 rounded">
+                            <p class="font-semibold text-gray-900">Avoid panic pivots</p>
+                            <p class="text-sm text-gray-700">One repeat event does not mean frequent repeats; keep a stable solving routine.</p>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Strategy -->
@@ -302,6 +370,19 @@
                             </li>
                         </ul>
                     </div>
+                </section>
+
+                <section class="mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Verify the Policy Yourself</h2>
+                    <p class="text-gray-700 mb-4">
+                        If you want to validate this independently, cross-check multiple sources instead of relying on one screenshot or social post.
+                    </p>
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Track official NYT Games communications and update notes.</li>
+                        <li>Compare daily answers against historical archives over time.</li>
+                        <li>Use community trackers as secondary evidence, not primary proof.</li>
+                        <li>Prioritize timestamped sources when policy wording changes.</li>
+                    </ul>
                 </section>
 
                 <!-- FAQ -->
