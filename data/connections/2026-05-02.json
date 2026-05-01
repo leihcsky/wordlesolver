@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-02",
+  "puzzleNumber": 1053,
+  "words": [
+    "EXTRASENSORY",
+    "MENTAL",
+    "PSYCHIC",
+    "TELEPATHIC",
+    "BALLET",
+    "MUSICAL",
+    "OPERA",
+    "PLAY",
+    "EDUCATION",
+    "INTERIOR",
+    "STATE",
+    "TREASURY",
+    "GLOBETROTTER",
+    "HERALDRY",
+    "POST-IT",
+    "TIMES TABLES"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "CLAIRVOYANT",
+      "words": [
+        "EXTRASENSORY",
+        "MENTAL",
+        "PSYCHIC",
+        "TELEPATHIC"
+      ],
+      "explanation": "CLAIRVOYANT"
+    },
+    {
+      "color": "green",
+      "title": "STAGED PERFORMANCES",
+      "words": [
+        "BALLET",
+        "MUSICAL",
+        "OPERA",
+        "PLAY"
+      ],
+      "explanation": "STAGED PERFORMANCES"
+    },
+    {
+      "color": "blue",
+      "title": "U.S. CABINET DEPARTMENTS",
+      "words": [
+        "EDUCATION",
+        "INTERIOR",
+        "STATE",
+        "TREASURY"
+      ],
+      "explanation": "U.S. CABINET DEPARTMENTS"
+    },
+    {
+      "color": "purple",
+      "title": "STARTING WITH NEWSPAPER NAMES",
+      "words": [
+        "GLOBETROTTER",
+        "HERALDRY",
+        "POST-IT",
+        "TIMES TABLES"
+      ],
+      "explanation": "STARTING WITH NEWSPAPER NAMES"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
