@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-01",
+  "puzzleNumber": 1052,
+  "words": [
+    "BUFF",
+    "POLISH",
+    "SHINE",
+    "WAX",
+    "ALE",
+    "AMBER",
+    "CITRINE",
+    "HONEY",
+    "BEAK",
+    "COMB",
+    "CREST",
+    "WATTLE",
+    "HIVE",
+    "MIX",
+    "POUR",
+    "WIGHT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "MAKE GLOSSY",
+      "words": [
+        "BUFF",
+        "POLISH",
+        "SHINE",
+        "WAX"
+      ],
+      "explanation": "MAKE GLOSSY"
+    },
+    {
+      "color": "green",
+      "title": "TRANSLUSCENT GOLDEN THINGS",
+      "words": [
+        "ALE",
+        "AMBER",
+        "CITRINE",
+        "HONEY"
+      ],
+      "explanation": "TRANSLUSCENT GOLDEN THINGS"
+    },
+    {
+      "color": "blue",
+      "title": "FEATURES OF A BIRD'S HEAD",
+      "words": [
+        "BEAK",
+        "COMB",
+        "CREST",
+        "WATTLE"
+      ],
+      "explanation": "FEATURES OF A BIRD'S HEAD"
+    },
+    {
+      "color": "purple",
+      "title": "NUMBERS WITH FIRST LETTER CHANGED",
+      "words": [
+        "HIVE",
+        "MIX",
+        "POUR",
+        "WIGHT"
+      ],
+      "explanation": "NUMBERS WITH FIRST LETTER CHANGED"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
