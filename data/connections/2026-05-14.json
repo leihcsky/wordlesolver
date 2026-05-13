@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-14",
+  "puzzleNumber": 1054,
+  "words": [
+    "GUT FEELING",
+    "HUNCH",
+    "INTUITION",
+    "SIXTH SENSE",
+    "DO NOT DISTURB",
+    "RING",
+    "SILENT",
+    "VIBRATE",
+    "BREADCRUMB",
+    "CATFISH",
+    "GHOST",
+    "LOVE BOMB",
+    "AIR CAIRO",
+    "ALL HALLOWS",
+    "ARM WARMER",
+    "THE OTHERS"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "PREMONITION",
+      "words": [
+        "GUT FEELING",
+        "HUNCH",
+        "INTUITION",
+        "SIXTH SENSE"
+      ],
+      "explanation": "PREMONITION"
+    },
+    {
+      "color": "green",
+      "title": "CELLPHONE MODES",
+      "words": [
+        "DO NOT DISTURB",
+        "RING",
+        "SILENT",
+        "VIBRATE"
+      ],
+      "explanation": "CELLPHONE MODES"
+    },
+    {
+      "color": "blue",
+      "title": "BAD THINGS TO DO IN MODERN DATING",
+      "words": [
+        "BREADCRUMB",
+        "CATFISH",
+        "GHOST",
+        "LOVE BOMB"
+      ],
+      "explanation": "BAD THINGS TO DO IN MODERN DATING"
+    },
+    {
+      "color": "purple",
+      "title": "PHRASES WHOSE SECOND WORDS INCLUDE THEIR FIRST WORD",
+      "words": [
+        "AIR CAIRO",
+        "ALL HALLOWS",
+        "ARM WARMER",
+        "THE OTHERS"
+      ],
+      "explanation": "PHRASES WHOSE SECOND WORDS INCLUDE THEIR FIRST WORD"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
