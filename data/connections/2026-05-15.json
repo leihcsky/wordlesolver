@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-15",
+  "puzzleNumber": 1055,
+  "words": [
+    "CROSS",
+    "FORD",
+    "TRAVERSE",
+    "WADE",
+    "BIRD",
+    "CURRY",
+    "JAMES",
+    "JORDAN",
+    "ABLE",
+    "ELBA",
+    "SAW",
+    "WAS",
+    "CIAO",
+    "PALM",
+    "PEEK",
+    "PITT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "NAVIGATE THROUGH, AS A RIVER",
+      "words": [
+        "CROSS",
+        "FORD",
+        "TRAVERSE",
+        "WADE"
+      ],
+      "explanation": "NAVIGATE THROUGH, AS A RIVER"
+    },
+    {
+      "color": "green",
+      "title": "MULTI-TIME NBA MVPS",
+      "words": [
+        "BIRD",
+        "CURRY",
+        "JAMES",
+        "JORDAN"
+      ],
+      "explanation": "MULTI-TIME NBA MVPS"
+    },
+    {
+      "color": "blue",
+      "title": "NON-PALINDROMIC WORDS IN A FAMOUS PALINDROME",
+      "words": [
+        "ABLE",
+        "ELBA",
+        "SAW",
+        "WAS"
+      ],
+      "explanation": "NON-PALINDROMIC WORDS IN A FAMOUS PALINDROME"
+    },
+    {
+      "color": "purple",
+      "title": "HOMOPHONES OF KINDS OF DOGS, FAMILIARLY",
+      "words": [
+        "CIAO",
+        "PALM",
+        "PEEK",
+        "PITT"
+      ],
+      "explanation": "HOMOPHONES OF KINDS OF DOGS, FAMILIARLY"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "These words are all members of the same subtype/category."
+  ]
+}
