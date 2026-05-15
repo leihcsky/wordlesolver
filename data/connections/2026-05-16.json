@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-16",
+  "puzzleNumber": 1056,
+  "words": [
+    "COUPE",
+    "FLUTE",
+    "STEIN",
+    "TUMBLER",
+    "FIDDLE",
+    "MESS",
+    "PLAY",
+    "TINKER",
+    "ALLEGRO",
+    "FORTE",
+    "LARGO",
+    "PIANO",
+    "BASSOON",
+    "BELFAST",
+    "NESQUICK",
+    "THERMOSTAT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "GLASSWARE",
+      "words": [
+        "COUPE",
+        "FLUTE",
+        "STEIN",
+        "TUMBLER"
+      ],
+      "explanation": "GLASSWARE"
+    },
+    {
+      "color": "green",
+      "title": "MESS AROUND (WITH)",
+      "words": [
+        "FIDDLE",
+        "MESS",
+        "PLAY",
+        "TINKER"
+      ],
+      "explanation": "MESS AROUND (WITH)"
+    },
+    {
+      "color": "blue",
+      "title": "MUSIC PERFORMANCE DIRECTIONS",
+      "words": [
+        "ALLEGRO",
+        "FORTE",
+        "LARGO",
+        "PIANO"
+      ],
+      "explanation": "MUSIC PERFORMANCE DIRECTIONS"
+    },
+    {
+      "color": "purple",
+      "title": "ENDING IN SYNONYMS FOR \"ASAP\"",
+      "words": [
+        "BASSOON",
+        "BELFAST",
+        "NESQUICK",
+        "THERMOSTAT"
+      ],
+      "explanation": "ENDING IN SYNONYMS FOR \"ASAP\""
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
