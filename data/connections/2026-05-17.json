@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-17",
+  "puzzleNumber": 1071,
+  "words": [
+    "DUCT",
+    "LINE",
+    "MAIN",
+    "PIPE",
+    "FLEECE",
+    "HOSE",
+    "SQUEEZE",
+    "STIFF",
+    "BOIL",
+    "POUR",
+    "STEEP",
+    "STRAIN",
+    "GRADE",
+    "GRAMMAR",
+    "HIGH",
+    "PRIMARY"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "CONDUIT",
+      "words": [
+        "DUCT",
+        "LINE",
+        "MAIN",
+        "PIPE"
+      ],
+      "explanation": "CONDUIT"
+    },
+    {
+      "color": "green",
+      "title": "SWINDLE",
+      "words": [
+        "FLEECE",
+        "HOSE",
+        "SQUEEZE",
+        "STIFF"
+      ],
+      "explanation": "SWINDLE"
+    },
+    {
+      "color": "blue",
+      "title": "TEA-MAKING VERBS",
+      "words": [
+        "BOIL",
+        "POUR",
+        "STEEP",
+        "STRAIN"
+      ],
+      "explanation": "TEA-MAKING VERBS"
+    },
+    {
+      "color": "purple",
+      "title": "\"SCHOOL\" MODIFIERS",
+      "words": [
+        "GRADE",
+        "GRAMMAR",
+        "HIGH",
+        "PRIMARY"
+      ],
+      "explanation": "\"SCHOOL\" MODIFIERS"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
