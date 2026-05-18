@@ -1,6 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
+const SITE_FOOTER = fs.readFileSync(
+  path.join(__dirname, 'site-footer.fragment.html'),
+  'utf8'
+);
+
 function parseArgs(argv) {
   const args = { jsonPath: null, dryRun: false, outDir: null };
   for (let i = 2; i < argv.length; i += 1) {
@@ -588,55 +593,7 @@ ${groupsHtml}
         </article>
     </main>
 
-    <footer class="bg-gray-800 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="/assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
-                    </div>
-                    <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Quick Links</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
-                        <li><a href="/word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
-                        <li><a href="/tips-tricks.html" class="hover:text-white transition-colors">Tips & Tricks</a></li>
-                        <li><a href="/index.html" class="hover:text-white transition-colors">Solver Tool</a></li>
-                        <li><a href="/blog.html" class="hover:text-white transition-colors">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Support</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/faq.html" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="/contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="/about.html" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="/contact.html" class="hover:text-white transition-colors">Feature Request</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Legal</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
-                        <li><a href="/about.html" class="hover:text-white transition-colors">Disclaimer</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; ${yyyy} <strong>Wordle Solver</strong> - Free AI-Powered Word Game Helper. All rights reserved.</p>
-                <p class="text-sm mt-2">Not affiliated with The New York Times or the official Wordle game. Wordle is a trademark of The New York Times Company.</p>
-                <p class="text-xs mt-2 text-gray-400">
-                    <a href="https://wordlesolver.best" class="hover:text-gray-300">WordleSolver.best</a> |
-                    <a href="/privacy-policy.html" class="hover:text-gray-300 ml-2">Privacy</a> |
-                    <a href="/terms-of-service.html" class="hover:text-gray-300 ml-2">Terms</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+${SITE_FOOTER}
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -867,55 +824,7 @@ ${groupsHtml}
         </article>
     </main>
 
-    <footer class="bg-gray-800 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="/assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
-                    </div>
-                    <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Quick Links</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
-                        <li><a href="/word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
-                        <li><a href="/tips-tricks.html" class="hover:text-white transition-colors">Tips & Tricks</a></li>
-                        <li><a href="/index.html" class="hover:text-white transition-colors">Solver Tool</a></li>
-                        <li><a href="/blog.html" class="hover:text-white transition-colors">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Support</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/faq.html" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="/contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="/about.html" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="/contact.html" class="hover:text-white transition-colors">Feature Request</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Legal</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
-                        <li><a href="/about.html" class="hover:text-white transition-colors">Disclaimer</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; ${yyyy} <strong>Wordle Solver</strong> - Free AI-Powered Word Game Helper. All rights reserved.</p>
-                <p class="text-sm mt-2">Not affiliated with The New York Times or the official Wordle game. Wordle is a trademark of The New York Times Company.</p>
-                <p class="text-xs mt-2 text-gray-400">
-                    <a href="https://wordlesolver.best" class="hover:text-gray-300">WordleSolver.best</a> |
-                    <a href="/privacy-policy.html" class="hover:text-gray-300 ml-2">Privacy</a> |
-                    <a href="/terms-of-service.html" class="hover:text-gray-300 ml-2">Terms</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+${SITE_FOOTER}
 </body>
 </html>`;
 }
@@ -1014,55 +923,7 @@ function buildArchiveHtml(items) {
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="/assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
-                    </div>
-                    <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Quick Links</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/how-to-play.html" class="hover:text-white transition-colors">How to Play Wordle</a></li>
-                        <li><a href="/word-lists.html" class="hover:text-white transition-colors">Word Lists</a></li>
-                        <li><a href="/tips-tricks.html" class="hover:text-white transition-colors">Tips & Tricks</a></li>
-                        <li><a href="/index.html" class="hover:text-white transition-colors">Solver Tool</a></li>
-                        <li><a href="/blog.html" class="hover:text-white transition-colors">Blog</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Support</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/faq.html" class="hover:text-white transition-colors">FAQ</a></li>
-                        <li><a href="/contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="/about.html" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="/contact.html" class="hover:text-white transition-colors">Feature Request</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-lg font-semibold mb-4">Legal</p>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
-                        <li><a href="/about.html" class="hover:text-white transition-colors">Disclaimer</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; ${year} <strong>Wordle Solver</strong> - Free AI-Powered Word Game Helper. All rights reserved.</p>
-                <p class="text-sm mt-2">Not affiliated with The New York Times or the official Wordle game. Wordle is a trademark of The New York Times Company.</p>
-                <p class="text-xs mt-2 text-gray-400">
-                    <a href="https://wordlesolver.best" class="hover:text-gray-300">WordleSolver.best</a> |
-                    <a href="/privacy-policy.html" class="hover:text-gray-300 ml-2">Privacy</a> |
-                    <a href="/terms-of-service.html" class="hover:text-gray-300 ml-2">Terms</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+${SITE_FOOTER}
 </body>
 </html>`;
 }
@@ -1084,8 +945,6 @@ function main() {
   const dailyOutPath = path.resolve(outRoot, 'daily-connections', dailyFileName);
   const dailyCanonical = `https://wordlesolver.best${dailyRelHref}`;
   const todayOutPath = path.resolve(outRoot, 'connections-hints-today.html');
-  const archiveOutPath = path.resolve(outRoot, 'connections-archive.html');
-
   let previousDailyHref = null;
   const currentJsonName = path.basename(absJsonPath);
   const currentIndex = jsonFiles.findIndex((p) => path.basename(p) === currentJsonName);
@@ -1104,31 +963,11 @@ function main() {
   const todayHtml = buildConnectionsTodayHtml(data, previousDailyHref);
   const dailyHtml = buildConnectionsDailyHtml(data, dailyCanonical, '/connections-hints-today.html', '/connections-archive.html');
 
-  const archiveItems = jsonFiles
-    .map((p) => {
-      const d = readJson(p);
-      try {
-        validateData(d);
-      } catch (_) {
-        return null;
-      }
-      const ddt = parseIsoDate(d.date);
-      const humanDate = `${formatMonthName(ddt)} ${ddt.getUTCDate()}, ${ddt.getUTCFullYear()}`;
-      const fileName = buildDailySlug(ddt, d.puzzleNumber);
-      const href = `/daily-connections/${fileName}`;
-      const preview = Array.isArray(d.words) ? d.words.slice(0, 4).map(normalizeWord).join(', ') : '';
-      return { date: d.date, puzzleNumber: d.puzzleNumber, humanDate, href, preview };
-    })
-    .filter(Boolean)
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
-    .slice(0, 60);
-
-  const archiveHtml = buildArchiveHtml(archiveItems);
+  // connections-archive.html is generated by scripts/build-connections-archive-page.py
 
   const outputs = [
     { label: 'today', outPath: todayOutPath },
     { label: 'daily', outPath: dailyOutPath },
-    { label: 'archive', outPath: archiveOutPath },
   ];
 
   if (dryRun) {
@@ -1138,11 +977,9 @@ function main() {
 
   ensureDir(todayOutPath);
   ensureDir(dailyOutPath);
-  ensureDir(archiveOutPath);
 
   fs.writeFileSync(todayOutPath, todayHtml, 'utf8');
   fs.writeFileSync(dailyOutPath, dailyHtml, 'utf8');
-  fs.writeFileSync(archiveOutPath, archiveHtml, 'utf8');
 
   process.stdout.write(outputs.map((o) => `${o.label}: ${o.outPath}`).join('\n') + '\n');
 }

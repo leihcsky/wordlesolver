@@ -371,35 +371,55 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t mt-12 sm:mt-16">
+    <footer class="bg-gray-800 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8">
                 <div>
-                    <img src="/assets/logo.svg" alt="Wordle Solver" class="h-8 w-auto mb-4">
-                    <p class="text-gray-500 text-sm">
-                        The best free tool to help you solve daily Wordle puzzles and maintain your streak.
-                    </p>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <img src="/assets/logo.svg" alt="Wordle Solver Logo" class="h-10 w-auto">
+                    </div>
+                    <p class="text-gray-300">The best free online tool to solve Wordle puzzles faster and improve your word game skills.</p>
                 </div>
                 <div>
-                    <p class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Resources</p>
-                    <ul class="space-y-3">
-                        <li><a href="/index.html" class="text-gray-500 hover:text-green-600 transition-colors">Wordle Solver</a></li>
-                        <li><a href="/wordle-hints-today.html" class="text-gray-500 hover:text-green-600 transition-colors">Today's Hints</a></li>
-                        <li><a href="/archive.html" class="text-gray-500 hover:text-green-600 transition-colors">Daily Archive</a></li>
+                    <p class="text-lg font-semibold mb-4">Today</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="/wordle-hints-today.html" class="hover:text-white transition-colors">Wordle Hints Today</a></li>
+                        <li><a href="/connections-hints-today.html" class="hover:text-white transition-colors">Connections Hints Today</a></li>
                     </ul>
                 </div>
                 <div>
-                    <p class="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">Legal</p>
-                    <ul class="space-y-3">
-                        <li><a href="/privacy.html" class="text-gray-500 hover:text-green-600 transition-colors">Privacy Policy</a></li>
-                        <li><a href="/terms.html" class="text-gray-500 hover:text-green-600 transition-colors">Terms of Service</a></li>
-                        <li><a href="/about.html" class="text-gray-500 hover:text-green-600 transition-colors">About Us</a></li>
+                    <p class="text-lg font-semibold mb-4">Archives</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="/wordle-answer-history.html" class="hover:text-white transition-colors">Wordle Archive</a></li>
+                        <li><a href="/connections-archive.html" class="hover:text-white transition-colors">Connections Archive</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-lg font-semibold mb-4">Guides</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="/blog.html" class="hover:text-white transition-colors">Guides &amp; Articles</a></li>
+                        <li><a href="/faq.html" class="hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="/contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="/about.html" class="hover:text-white transition-colors">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <p class="text-lg font-semibold mb-4">Legal</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms-of-service.html" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-policy.html" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                        <li><a href="/about.html" class="hover:text-white transition-colors">Disclaimer</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-200 text-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2026 Wordle Solver. All rights reserved. Not affiliated with The New York Times.
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+                <p>&copy; 2026 <strong>Wordle Solver</strong> - Free Wordle &amp; Connections Helper. All rights reserved.</p>
+                <p class="text-sm mt-2">Not affiliated with The New York Times or the official Wordle game. Wordle is a trademark of The New York Times Company.</p>
+                <p class="text-xs mt-2 text-gray-400">
+                    <a href="https://wordlesolver.best" class="hover:text-gray-300">WordleSolver.best</a> |
+                    <a href="/privacy-policy.html" class="hover:text-gray-300 ml-2">Privacy</a> |
+                    <a href="/terms-of-service.html" class="hover:text-gray-300 ml-2">Terms</a>
                 </p>
             </div>
         </div>
