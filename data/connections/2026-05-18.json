@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-18",
+  "puzzleNumber": 1072,
+  "words": [
+    "PAIR",
+    "PARE",
+    "PEAR",
+    "PÈRE",
+    "BLOW",
+    "CRACK",
+    "POP",
+    "SPLIT",
+    "PADRE",
+    "RED",
+    "ROYAL",
+    "TWIN",
+    "CHEAP",
+    "EARP",
+    "LUMP",
+    "WIKI"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "HOMOPHONES",
+      "words": [
+        "PAIR",
+        "PARE",
+        "PEAR",
+        "PÈRE"
+      ],
+      "explanation": "HOMOPHONES"
+    },
+    {
+      "color": "green",
+      "title": "RUPTURE",
+      "words": [
+        "BLOW",
+        "CRACK",
+        "POP",
+        "SPLIT"
+      ],
+      "explanation": "RUPTURE"
+    },
+    {
+      "color": "blue",
+      "title": "MLB PLAYER",
+      "words": [
+        "PADRE",
+        "RED",
+        "ROYAL",
+        "TWIN"
+      ],
+      "explanation": "MLB PLAYER"
+    },
+    {
+      "color": "purple",
+      "title": "FRUIT ANAGRAMS",
+      "words": [
+        "CHEAP",
+        "EARP",
+        "LUMP",
+        "WIKI"
+      ],
+      "explanation": "FRUIT ANAGRAMS"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
