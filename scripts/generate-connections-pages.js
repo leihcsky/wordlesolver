@@ -1,10 +1,13 @@
 const fs = require('fs');
 const path = require('path');
+const {
+  SITE_FOOTER,
+  TAILWIND_CONFIG,
+  MOBILE_NAV_FUNCTIONS,
+  getConnectionsNav,
+} = require('./site-chrome');
 
-const SITE_FOOTER = fs.readFileSync(
-  path.join(__dirname, 'site-footer.fragment.html'),
-  'utf8'
-);
+const SITE_NAV_CONNECTIONS = getConnectionsNav();
 
 function parseArgs(argv) {
   const args = { jsonPath: null, dryRun: false, outDir: null };
@@ -407,44 +410,14 @@ function buildConnectionsTodayHtml(data, previousDailyHref) {
     crossorigin="anonymous"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+${TAILWIND_CONFIG}
     <style>
         .hint-card { transition: all 0.2s ease; }
         .hint-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <header class="bg-white shadow-sm border-b">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <a href="/index.html" class="hover:opacity-80 transition-opacity">
-                        <img src="/assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/index.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Home</a>
-                    <a href="/blog.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Blog</a>
-                    <a href="/wordle-hints-today.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Today's Hints</a>
-                    <a href="/connections-hints-today.html" class="text-green-600 font-bold transition-colors">Connections</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-green-600 focus:outline-none p-2">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </nav>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="/index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50">Home</a>
-                <a href="/blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50">Blog</a>
-                <a href="/wordle-hints-today.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50">Today's Hints</a>
-                <a href="/connections-hints-today.html" class="block px-3 py-2 rounded-md text-base font-bold text-green-600 bg-green-50">Connections</a>
-            </div>
-        </div>
-    </header>
+${SITE_NAV_CONNECTIONS}
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <article class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -596,14 +569,8 @@ ${groupsHtml}
 ${SITE_FOOTER}
 
     <script>
+${MOBILE_NAV_FUNCTIONS}
         document.addEventListener('DOMContentLoaded', () => {
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileBtn && mobileMenu) {
-                mobileBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
             const colorStyles = {
                 yellow: { bg: 'bg-yellow-200', border: 'border-yellow-300', text: 'text-yellow-900' },
                 green: { bg: 'bg-green-200', border: 'border-green-300', text: 'text-green-900' },
@@ -756,29 +723,14 @@ function buildConnectionsDailyHtml(data, canonicalUrl, todayHref, archiveHref) {
     crossorigin="anonymous"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+${TAILWIND_CONFIG}
     <style>
         .hint-card { transition: all 0.2s ease; }
         .hint-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <header class="bg-white shadow-sm border-b">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <a href="/index.html" class="hover:opacity-80 transition-opacity">
-                        <img src="/assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/index.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Home</a>
-                    <a href="/blog.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Blog</a>
-                    <a href="/wordle-hints-today.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Today's Hints</a>
-                    <a href="/connections-hints-today.html" class="text-green-600 font-bold transition-colors">Connections</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+${SITE_NAV_CONNECTIONS}
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <article class="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -825,6 +777,10 @@ ${groupsHtml}
     </main>
 
 ${SITE_FOOTER}
+
+    <script>
+${MOBILE_NAV_FUNCTIONS}
+    </script>
 </body>
 </html>`;
 }
@@ -887,25 +843,10 @@ function buildArchiveHtml(items) {
     crossorigin="anonymous"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+${TAILWIND_CONFIG}
 </head>
 <body class="bg-gray-50 min-h-screen">
-    <header class="bg-white shadow-sm border-b">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center space-x-3">
-                    <a href="/index.html" class="hover:opacity-80 transition-opacity">
-                        <img src="/assets/logo.svg" alt="Wordle Solver Logo" class="h-12 w-auto">
-                    </a>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/index.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Home</a>
-                    <a href="/blog.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Blog</a>
-                    <a href="/wordle-hints-today.html" class="text-gray-600 hover:text-green-600 font-medium transition-colors">Today's Hints</a>
-                    <a href="/connections-hints-today.html" class="text-green-600 font-bold transition-colors">Connections</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+${SITE_NAV_CONNECTIONS}
 
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div class="text-center mb-10">
@@ -924,6 +865,10 @@ function buildArchiveHtml(items) {
     </main>
 
 ${SITE_FOOTER}
+
+    <script>
+${MOBILE_NAV_FUNCTIONS}
+    </script>
 </body>
 </html>`;
 }

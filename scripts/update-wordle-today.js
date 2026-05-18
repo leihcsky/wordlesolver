@@ -185,7 +185,7 @@ function updateWordleToday(absJsonPath) {
                         ${overviewP2}
                     </p>
                     <p class="text-sm text-indigo-700">
-                        New to Wordle? Read the quick rules in <a href="/how-to-play.html" class="underline hover:text-indigo-900 font-medium">How to Play</a>.
+                        New to Wordle? Read our guide in <a href="/blog/how-to-solve-wordle.html" class="underline hover:text-indigo-900 font-medium">How to Solve Wordle</a>.
                     </p>
                 </section>`
   );

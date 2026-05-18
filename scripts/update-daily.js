@@ -4,9 +4,10 @@
  * Pipeline:
  * 1) Fetch NYT JSON for the date (UTC calendar day by default, or --date YYYY-MM-DD).
  * 2) Wordle: tmp JSON → scripts/update-wordle-today.js → wordle-hints-today.html
- *    (soft hints, strategy blurbs, data-answer + per-letter tiles).
+ *    (in-place content update; keeps current nav/footer from the live template).
  * 3) Connections: tmp JSON → scripts/update-connections-from-nyt.js → data/connections/YYYY-MM-DD.json
- *    → scripts/generate-connections-pages.js → connections-hints-today.html, daily-connections/*.html, connections-archive.html
+ *    → scripts/generate-connections-pages.js → connections-hints-today.html, daily-connections/*.html
+ *    (nav/footer from scripts/site-chrome.js fragments; connections-archive.html via build-connections-archive-page.py)
  *
  * Options: --date ISO, --git (add/commit/push), --wordle-only, --connections-only
  */
@@ -112,6 +113,9 @@ async function main() {
   }
 
   if (args.connections) {
+    // Refresh nav/footer fragments from live templates before regenerating pages.
+    require(path.join(__dirname, 'site-chrome')).exportNavFragments();
+
     const connectionsSource = args.connectionsData
       ? path.isAbsolute(args.connectionsData)
         ? args.connectionsData
