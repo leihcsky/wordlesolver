@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-20",
+  "puzzleNumber": 1074,
+  "words": [
+    "HIGH",
+    "MEDIUM",
+    "OFF",
+    "SIMMER",
+    "CONCENTRATION",
+    "FORCE",
+    "INTENSITY",
+    "MIGHT",
+    "INTERVAL",
+    "KEY",
+    "MODE",
+    "SCALE",
+    "GROUNDHOG",
+    "INDEPENDENCE",
+    "THE LONGEST",
+    "TRAINING"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "STOVE KNOB SETTINGS",
+      "words": [
+        "HIGH",
+        "MEDIUM",
+        "OFF",
+        "SIMMER"
+      ],
+      "explanation": "STOVE KNOB SETTINGS"
+    },
+    {
+      "color": "green",
+      "title": "POTENCY",
+      "words": [
+        "CONCENTRATION",
+        "FORCE",
+        "INTENSITY",
+        "MIGHT"
+      ],
+      "explanation": "POTENCY"
+    },
+    {
+      "color": "blue",
+      "title": "MUSIC THEORY CONCEPTS",
+      "words": [
+        "INTERVAL",
+        "KEY",
+        "MODE",
+        "SCALE"
+      ],
+      "explanation": "MUSIC THEORY CONCEPTS"
+    },
+    {
+      "color": "purple",
+      "title": "\"___ DAY\" MOVIES",
+      "words": [
+        "GROUNDHOG",
+        "INDEPENDENCE",
+        "THE LONGEST",
+        "TRAINING"
+      ],
+      "explanation": "\"___ DAY\" MOVIES"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Find words that can pair with the same missing word or phrase."
+  ]
+}
