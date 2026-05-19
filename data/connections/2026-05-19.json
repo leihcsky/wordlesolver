@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-19",
+  "puzzleNumber": 1073,
+  "words": [
+    "BABBLE",
+    "CRY",
+    "NURSE",
+    "TEETHE",
+    "ALTER",
+    "COOK",
+    "DOCTOR",
+    "FUDGE",
+    "BLUBBER",
+    "DEENIE",
+    "FOREVER",
+    "SUPERFUDGE",
+    "FOUNDER",
+    "SALON",
+    "SURGEON",
+    "TROT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "THINGS BABIES DO",
+      "words": [
+        "BABBLE",
+        "CRY",
+        "NURSE",
+        "TEETHE"
+      ],
+      "explanation": "THINGS BABIES DO"
+    },
+    {
+      "color": "green",
+      "title": "MODIFY DECEPTIVELY",
+      "words": [
+        "ALTER",
+        "COOK",
+        "DOCTOR",
+        "FUDGE"
+      ],
+      "explanation": "MODIFY DECEPTIVELY"
+    },
+    {
+      "color": "blue",
+      "title": "JUDY BLUME BOOKS",
+      "words": [
+        "BLUBBER",
+        "DEENIE",
+        "FOREVER",
+        "SUPERFUDGE"
+      ],
+      "explanation": "JUDY BLUME BOOKS"
+    },
+    {
+      "color": "purple",
+      "title": "FISH MINUS A LETTER",
+      "words": [
+        "FOUNDER",
+        "SALON",
+        "SURGEON",
+        "TROT"
+      ],
+      "explanation": "FISH MINUS A LETTER"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "This group uses a wordplay transformation (remove or change a sound/ending)."
+  ]
+}
