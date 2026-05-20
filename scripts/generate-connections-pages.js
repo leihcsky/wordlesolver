@@ -156,6 +156,18 @@ function groupStyle(color) {
 function buildHintReasoning(title, color) {
   const t = String(title || '').toLowerCase();
   const c = String(color || '').toLowerCase();
+  if (t.includes('stove') || t.includes('knob') || t.includes('burner') || t.includes('dial') || t.includes('oven')) {
+    return 'Four clues share one everyday physical context—control settings on a household appliance, not abstract strength or classroom vocabulary.';
+  }
+  if (t.includes('potency') || t.includes('strength') || (t.includes('power') && !t.includes('powerful'))) {
+    return 'All four point to the same abstract quality—how strong or forceful something is—when you test them in a “great ___” or “sheer ___” frame.';
+  }
+  if (t.includes('music') || t.includes('theory') || t.includes('harmony') || t.includes('chord')) {
+    return 'Specialist vocabulary from one domain; the trap is everyday homographs that sound related but belong elsewhere.';
+  }
+  if (t.includes('day') && (t.includes('movie') || t.includes('film') || t.includes('___'))) {
+    return 'Each clue completes the same short phrase as a proper title—say the missing tail aloud instead of reading clues literally.';
+  }
   if (t.includes('salad')) return 'Look for words that commonly appear together in one food context, not just loose ingredient words.';
   if (t.includes('film') || t.includes('movie')) return 'Proper-noun phrases can hide in plain sight when you read them as ordinary word pairs.';
   if (t.includes('simpsons')) return 'Character names can mix first names, titles, and aliases, which creates easy false pairings.';
@@ -165,31 +177,78 @@ function buildHintReasoning(title, color) {
   if (t.includes('book')) return 'The commonality is packaging format, not meaning.';
   if (t.includes('laundry')) return 'The actions form a practical sequence, which helps you validate the set.';
   if (t.includes('entreaty')) return 'All four work as asking verbs, but the tone ranges from neutral to urgent.';
-  if (c === 'yellow') return 'Start with this group first because the connection is usually the most direct.';
-  if (c === 'purple') return 'Save this for last; this color often relies on wordplay or hidden phrase structure.';
+  if (c === 'yellow') return 'Start here: one concrete, literal rule should explain all four without stretching definitions.';
+  if (c === 'green') return 'A familiar theme or synonym cluster—test whether every clue shares the same everyday sense.';
+  if (c === 'blue') return 'Niche or trivia knowledge; cross off anything that only fits a homograph or pop-culture guess.';
+  if (c === 'purple') return 'Save for last: phrase completion, wordplay, or a hidden second word often beats dictionary meaning.';
   return 'Check both literal meaning and phrase behavior before locking the group.';
+}
+
+function buildAnalysisConfusion(title, color) {
+  const t = String(title || '').toLowerCase();
+  const c = String(color || '').toLowerCase();
+  if (t.includes('stove') || t.includes('knob') || t.includes('burner') || t.includes('dial')) {
+    return 'Intensity and “off” readings pull clues toward the wrong band; lock one appliance context and reject mixed definitions.';
+  }
+  if (t.includes('potency') || t.includes('strength')) {
+    return 'Focus/chemistry or appliance settings can masquerade as “strength”—only one abstract-quality rule should win.';
+  }
+  if (t.includes('music') || t.includes('theory')) {
+    return 'Homographs with kitchen, door, or measurement senses are the usual trap; think classroom vocabulary, not literal objects.';
+  }
+  if (t.includes('day') && (t.includes('movie') || t.includes('film') || t.includes('___'))) {
+    return 'A clue’s plain meaning is misleading; only the shared title phrase counts—try adding the same suffix to each.';
+  }
+  if (c === 'yellow') return 'Do not mix bands: if one clue needs a different rule, the set is not the yellow group yet.';
+  if (c === 'purple') return 'Avoid literal-only groupings; validate by saying the full hidden phrase, not single-word definitions.';
+  return 'Similar tone is not enough—one precise rule must fit all four before you submit.';
+}
+
+function buildSpoilerSafeCategoryLabel(color, title) {
+  const t = String(title || '').toLowerCase();
+  if (t.includes('stove') || t.includes('knob') || t.includes('burner') || t.includes('dial') || t.includes('oven')) {
+    return 'Literal / physical-context link';
+  }
+  if (t.includes('potency') || t.includes('strength') || (t.includes('power') && !t.includes('powerful'))) {
+    return 'Abstract quality link';
+  }
+  if (t.includes('music') || t.includes('theory') || t.includes('harmony')) {
+    return 'Specialist vocabulary link';
+  }
+  if (t.includes('day') && (t.includes('movie') || t.includes('film') || t.includes('___'))) {
+    return 'Phrase-completion link';
+  }
+  const c = String(color || '').toLowerCase();
+  if (c === 'yellow') return 'Most straightforward semantic link';
+  if (c === 'green') return 'Everyday theme / synonym cluster';
+  if (c === 'blue') return 'Context-heavy or trivia link';
+  if (c === 'purple') return 'Wordplay or hidden-phrase link';
+  return 'Pattern-based link';
 }
 
 function buildGroupAnalysisMarkup(groups) {
   return groups.map((g) => {
     const style = groupStyle(g.color);
     const reasoning = buildHintReasoning(g.title, g.color);
-    const spoilerSafeCategory = (String(g.color || '').toLowerCase() === 'yellow')
-      ? 'Most straightforward semantic link'
-      : (String(g.color || '').toLowerCase() === 'green')
-        ? 'Everyday action/theme cluster'
-        : (String(g.color || '').toLowerCase() === 'blue')
-          ? 'Context-heavy/trivia-leaning link'
-          : 'Wordplay or phrase-structure link';
+    const confusion = buildAnalysisConfusion(g.title, g.color);
+    const spoilerSafeCategory = buildSpoilerSafeCategoryLabel(g.color, g.title);
     return `                    <div class="rounded-lg border ${style.container} p-5">
                         <div class="flex items-center justify-between gap-3 mb-3">
-                            <span class="inline-flex items-center ${style.badge} text-xs font-bold px-2 py-1 rounded uppercase">${style.name} Group</span>
+                            <span class="inline-flex items-center ${style.badge} text-xs font-bold px-2 py-1 rounded uppercase">${style.name} band</span>
                             <span class="font-semibold text-gray-900 text-right">${escapeHtml(spoilerSafeCategory)}</span>
                         </div>
                         <p class="text-sm text-gray-700"><strong>How to identify it:</strong> ${escapeHtml(reasoning)}</p>
-                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> Similar-looking words may fit by tone but not by a single precise rule. Validate with one shared definition before submitting.</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> ${escapeHtml(confusion)}</p>
                     </div>`;
   }).join('\n');
+}
+
+function buildGroupAnalysisSection(groups) {
+  return `                <section class="space-y-4">
+                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Today’s Connections Analysis</h2>
+                    <p class="text-gray-700 text-sm mb-4">How to think about each difficulty band—without naming answers or official category titles. Use after the expandable hints; reveal groups below when you want the full solution.</p>
+${buildGroupAnalysisMarkup(groups)}
+                </section>`;
 }
 
 /** Revealed-answer card: category title is only in the header; optional body text if explanation differs from title. */
@@ -509,10 +568,7 @@ ${hintsHtml}
                     </div>
                 </section>
 
-                <section class="space-y-4">
-                    <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Today’s Connections Analysis</h2>
-${buildGroupAnalysisMarkup(data.groups)}
-                </section>
+${buildGroupAnalysisSection(data.groups)}
 
                 <section class="space-y-4">
                     <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">How to Solve Today’s Puzzle Step by Step</h2>

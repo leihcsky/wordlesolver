@@ -126,6 +126,8 @@
         details.clue-details > summary::-webkit-details-marker { display: none; }
         article details.faq-details > summary { list-style: none; }
         article details.faq-details > summary::-webkit-details-marker { display: none; }
+        details.answer-details > summary { list-style: none; }
+        details.answer-details > summary::-webkit-details-marker { display: none; }
         .countdown-digit {
             font-variant-numeric: tabular-nums;
             min-width: 2.25rem;
@@ -287,22 +289,24 @@
                                 Today&apos;s LinkedIn Pinpoint #750 Answer
                             </h1>
                             <p class="mt-4 text-blue-100/95 text-sm sm:text-base leading-relaxed">
-                                Clues on the right &mdash; tap each line to see how it ties to the theme. One button reveals or hides the solution.
+                                Clues on the right &mdash; tap each line to see how it ties to the theme. Expand <strong>Reveal today&apos;s answer</strong> below when you want the solution.
                             </p>
-                            <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center">
-                                <button type="button" class="js-toggle-answer inline-flex justify-center items-center rounded-xl bg-white text-[#004182] font-bold text-base sm:text-lg px-8 py-4 shadow-lg hover:bg-blue-50 transition-colors focus:outline-none focus:ring-4 focus:ring-white/40 min-w-[200px]">
-                                    Reveal today&apos;s answer
-                                </button>
-                                <a href="https://www.linkedin.com/games/pinpoint" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center rounded-xl border-2 border-white/40 text-white font-semibold px-6 py-4 hover:bg-white/10 transition-colors min-w-[200px]">
+                            <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-start">
+                                <details id="pinpoint-answer" class="answer-details group w-full sm:w-auto sm:min-w-[200px]">
+                                    <summary class="inline-flex w-full justify-center items-center rounded-xl bg-white text-[#004182] font-bold text-base sm:text-lg px-8 py-4 shadow-lg hover:bg-blue-50 transition-colors focus:outline-none focus:ring-4 focus:ring-white/40 cursor-pointer">
+                                        Reveal today&apos;s answer
+                                    </summary>
+                                    <div id="pinpoint-answer-block" class="mt-8 rounded-2xl border-2 border-white/50 bg-white/10 backdrop-blur-md p-6 sm:p-8 text-left shadow-xl" role="region">
+                                        <p class="text-xs font-bold text-blue-200 uppercase tracking-widest text-center mb-2">Answer</p>
+                                        <p class="text-3xl sm:text-4xl font-black text-white text-center mb-4">Types of trail</p>
+                                        <p class="text-blue-50/95 text-sm sm:text-base text-center leading-relaxed">
+                                            Each clue evokes a different <strong>trail</strong> sense: misleading leads, audit paths, hiking routes, political tours, and breadcrumb navigation. Match LinkedIn&apos;s exact wording before you submit.
+                                        </p>
+                                    </div>
+                                </details>
+                                <a href="https://www.linkedin.com/games/pinpoint" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center rounded-xl border-2 border-white/40 text-white font-semibold px-6 py-4 hover:bg-white/10 transition-colors min-w-[200px] sm:self-start">
                                     Play on LinkedIn
                                 </a>
-                            </div>
-                            <div id="pinpoint-answer-block" class="hidden mt-8 rounded-2xl border-2 border-white/50 bg-white/10 backdrop-blur-md p-6 sm:p-8 text-left shadow-xl" role="region" aria-live="polite">
-                                <p class="text-xs font-bold text-blue-200 uppercase tracking-widest text-center mb-2">Answer</p>
-                                <p class="text-3xl sm:text-4xl font-black text-white text-center mb-4">Types of trail</p>
-                                <p class="text-blue-50/95 text-sm sm:text-base text-center leading-relaxed">
-                                    Each clue evokes a different <strong>trail</strong> sense: misleading leads, audit paths, hiking routes, political tours, and breadcrumb navigation. Match LinkedIn&apos;s exact wording before you submit.
-                                </p>
                             </div>
                         </div>
 
@@ -500,9 +504,9 @@
                     <h2 class="text-2xl sm:text-3xl font-extrabold mb-3">Ready to master Pinpoint?</h2>
                     <p class="text-blue-100 text-sm sm:text-base max-w-lg mx-auto mb-8">Jump into today&apos;s board on LinkedIn, or reveal the answer here when you want confirmation.</p>
                     <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                        <button type="button" class="js-toggle-answer inline-flex justify-center items-center rounded-xl bg-white text-linkedin-dark font-bold px-8 py-3.5 shadow-lg hover:bg-blue-50 transition-colors">
+                        <a href="#pinpoint-answer" class="inline-flex justify-center items-center rounded-xl bg-white text-linkedin-dark font-bold px-8 py-3.5 shadow-lg hover:bg-blue-50 transition-colors">
                             Reveal today&apos;s answer
-                        </button>
+                        </a>
                         <a href="https://www.linkedin.com/games/pinpoint" target="_blank" rel="noopener noreferrer" class="inline-flex justify-center items-center rounded-xl border-2 border-white/50 font-semibold px-8 py-3.5 hover:bg-white/10 transition-colors">
                             Play on LinkedIn
                         </a>
@@ -573,28 +577,6 @@
             if (chevron) chevron.classList.toggle('rotate-180');
         }
         document.addEventListener('DOMContentLoaded', () => {
-            const answerBlock = document.getElementById('pinpoint-answer-block');
-            const toggleBtns = document.querySelectorAll('.js-toggle-answer');
-            let answerVisible = false;
-
-            function syncButtons() {
-                const label = answerVisible ? "Hide today's answer" : "Reveal today's answer";
-                toggleBtns.forEach((btn) => { btn.textContent = label; });
-            }
-
-            function setAnswerVisible(show) {
-                answerVisible = show;
-                if (!answerBlock) return;
-                answerBlock.classList.toggle('hidden', !show);
-                syncButtons();
-                if (show) answerBlock.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-
-            toggleBtns.forEach((btn) => {
-                btn.addEventListener('click', () => setAnswerVisible(!answerVisible));
-            });
-            syncButtons();
-
             function msUntilNextPacificMidnight() {
                 const now = new Date();
                 const wall = now.toLocaleString('sv-SE', { timeZone: 'America/Los_Angeles' });

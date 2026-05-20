@@ -82,6 +82,10 @@
     <style>
         .hint-card { transition: all 0.2s ease; }
         .hint-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); }
+        details.hint-details > summary { list-style: none; }
+        details.hint-details > summary::-webkit-details-marker { display: none; }
+        details.answers-details > summary { list-style: none; }
+        details.answers-details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
@@ -312,65 +316,68 @@
                         </div>
                         <div class="space-y-3" id="hints">
                             <h3 class="text-lg font-semibold text-gray-900">Connections Hints Today (Spoiler-Free)</h3>
-<div class="hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 1</span>
-                                Easiest group (yellow band)
-                            </h3>
-                            <button class="text-yellow-700 hover:text-yellow-900 text-sm font-medium focus:outline-none" data-toggle-target="hint-1">Show hint</button>
-                        </div>
-                        <div id="hint-1" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-yellow-400">
-                            <p>Four labels you would twist on a range while cooking—heat level and whether the burner is on at all.</p>
-                            <p class="text-sm text-gray-600 mt-2">Watch out: MEDIUM also describes size or spice elsewhere; here it is the dial between low and high.</p>
-                        </div>
-                    </div>
-<div class="hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 2</span>
-                                Second group (green band)
-                            </h3>
-                            <button class="text-green-700 hover:text-green-900 text-sm font-medium focus:outline-none" data-toggle-target="hint-2">Show hint</button>
-                        </div>
-                        <div id="hint-2" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-green-400">
-                            <p>Synonyms for how strong or powerful something is—think punch, oomph, or “with great ___.”</p>
-                            <p class="text-sm text-gray-600 mt-2">Do not grab stove HIGH or music KEY; those belong on other bands today.</p>
-                        </div>
-                    </div>
-<div class="hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 3</span>
-                                Third group (blue band)
-                            </h3>
-                            <button class="text-blue-700 hover:text-blue-900 text-sm font-medium focus:outline-none" data-toggle-target="hint-3">Show hint</button>
-                        </div>
-                        <div id="hint-3" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-blue-400">
-                            <p>Terms from a music-theory class—how pitches relate, not how loud the stove is.</p>
-                            <p class="text-sm text-gray-600 mt-2">Pop-culture memory beats dictionary definitions; SCALE here is not a bathroom device or a fish.</p>
-                        </div>
-                    </div>
-<div class="hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-lg font-semibold text-gray-800 flex items-center">
-                                <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 4</span>
-                                Hardest group (purple band)
-                            </h3>
-                            <button class="text-purple-700 hover:text-purple-900 text-sm font-medium focus:outline-none" data-toggle-target="hint-4">Show hint</button>
-                        </div>
-                        <div id="hint-4" class="hidden text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-purple-400">
-                            <p>Each clue becomes a famous film title when you add the same second word—one is a holiday rodent, one is July 4th.</p>
-                            <p class="text-sm text-gray-600 mt-2">Meaning alone will not help; this is the “complete the movie name” group saved for last.</p>
-                        </div>
-                    </div>
+                            <p class="text-sm text-gray-600">Tap each card to expand the hint—content stays in the page for easy reading (no script required).</p>
+                            <div class="space-y-4">
+                                <details class="hint-details hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm group">
+                                    <summary class="flex items-center justify-between gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded-md">
+                                        <span class="text-lg font-semibold text-gray-800 flex items-center text-left">
+                                            <span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 1</span>
+                                            Easiest group (yellow band)
+                                        </span>
+                                        <span class="shrink-0 text-xs text-yellow-700 group-open:rotate-180 transition-transform" aria-hidden="true">&#9660;</span>
+                                    </summary>
+                                    <div class="mt-4 text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-yellow-400">
+                                        <p>Four labels you would twist on a range while cooking—heat level and whether the burner is on at all.</p>
+                                        <p class="text-sm text-gray-600 mt-2">Watch out: MEDIUM also describes size or spice elsewhere; here it is the dial between low and high.</p>
+                                    </div>
+                                </details>
+                                <details class="hint-details hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm group">
+                                    <summary class="flex items-center justify-between gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded-md">
+                                        <span class="text-lg font-semibold text-gray-800 flex items-center text-left">
+                                            <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 2</span>
+                                            Second group (green band)
+                                        </span>
+                                        <span class="shrink-0 text-xs text-green-700 group-open:rotate-180 transition-transform" aria-hidden="true">&#9660;</span>
+                                    </summary>
+                                    <div class="mt-4 text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-green-400">
+                                        <p>Synonyms for how strong or powerful something is—think punch, oomph, or “with great ___.”</p>
+                                        <p class="text-sm text-gray-600 mt-2">Do not grab stove HIGH or music KEY; those belong on other bands today.</p>
+                                    </div>
+                                </details>
+                                <details class="hint-details hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm group">
+                                    <summary class="flex items-center justify-between gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded-md">
+                                        <span class="text-lg font-semibold text-gray-800 flex items-center text-left">
+                                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 3</span>
+                                            Third group (blue band)
+                                        </span>
+                                        <span class="shrink-0 text-xs text-blue-700 group-open:rotate-180 transition-transform" aria-hidden="true">&#9660;</span>
+                                    </summary>
+                                    <div class="mt-4 text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-blue-400">
+                                        <p>Terms from a music-theory class—how pitches relate, not how loud the stove is.</p>
+                                        <p class="text-sm text-gray-600 mt-2">Pop-culture memory beats dictionary definitions; SCALE here is not a bathroom device or a fish.</p>
+                                    </div>
+                                </details>
+                                <details class="hint-details hint-card bg-white border border-gray-200 rounded-lg p-6 shadow-sm group">
+                                    <summary class="flex items-center justify-between gap-3 cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-300 rounded-md">
+                                        <span class="text-lg font-semibold text-gray-800 flex items-center text-left">
+                                            <span class="bg-purple-100 text-purple-800 text-xs font-bold px-2 py-1 rounded uppercase mr-2">Hint 4</span>
+                                            Hardest group (purple band)
+                                        </span>
+                                        <span class="shrink-0 text-xs text-purple-700 group-open:rotate-180 transition-transform" aria-hidden="true">&#9660;</span>
+                                    </summary>
+                                    <div class="mt-4 text-gray-700 bg-gray-50 p-4 rounded-md border-l-4 border-purple-400">
+                                        <p>Each clue becomes a famous film title when you add the same second word—one is a holiday rodent, one is July 4th.</p>
+                                        <p class="text-sm text-gray-600 mt-2">Meaning alone will not help; this is the “complete the movie name” group saved for last.</p>
+                                    </div>
+                                </details>
+                            </div>
                         </div>
                     </div>
                 </section>
 
                 <section id="hint-guide" class="space-y-4 border-t pt-8">
                     <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">How to use these hints</h2>
-                    <p class="text-gray-700 text-sm">Open hints in color order (yellow → purple). Each card explains the <em>type</em> of link—not the official category headline you see after a correct solve.</p>
+                    <p class="text-gray-700 text-sm">Expand hints in color order (yellow → purple). Each card explains the <em>type</em> of link—not the official category headline you see after a correct solve.</p>
                     <ul class="list-disc pl-5 space-y-2 text-gray-700 text-sm">
                         <li><strong>Yellow band:</strong> Solve first—burner dial positions. If a word feels like music or gym intensity, it is probably using the wrong definition.</li>
                         <li><strong>Green band:</strong> Hunt strength synonyms; do not pair FORCE with stove HIGH or movie titles.</li>
@@ -381,38 +388,38 @@
 
                 <section class="space-y-4">
                     <h2 class="text-2xl font-bold text-gray-900 border-b pb-2">Today’s Connections Analysis</h2>
-                    <p class="text-gray-700 text-sm mb-4">Why each band behaves the way it does—still spoiler-free on category names. Use this after the expandable hints to confirm you are not one homograph away from a mistake.</p>
+                    <p class="text-gray-700 text-sm mb-4">How to think about each difficulty band—without naming answers or official category titles. Use after the expandable hints; reveal groups below when you want the full solution.</p>
                     <div class="rounded-lg border bg-yellow-50 border-yellow-200 p-5">
                         <div class="flex items-center justify-between gap-3 mb-3">
                             <span class="inline-flex items-center bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded uppercase">Yellow band</span>
-                            <span class="font-semibold text-gray-900 text-right">Stovetop dial labels</span>
+                            <span class="font-semibold text-gray-900 text-right">Literal / physical-context link</span>
                         </div>
-                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> HIGH, MEDIUM, OFF, and SIMMER are the four positions you twist while cooking—nothing here is about music keys or physical strength.</p>
-                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> HIGH and MEDIUM tempt an “intensity” mash-up with the green band; OFF also means “not working” in general English—here it is the knob position.</p>
+                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> Four clues share one everyday physical context—control settings on a household appliance, not abstract strength or classroom vocabulary.</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> Intensity and “off” readings pull clues toward the wrong band; lock one appliance context and reject mixed definitions.</p>
                     </div>
                     <div class="rounded-lg border bg-green-50 border-green-200 p-5">
                         <div class="flex items-center justify-between gap-3 mb-3">
                             <span class="inline-flex items-center bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded uppercase">Green band</span>
-                            <span class="font-semibold text-gray-900 text-right">Strength / potency</span>
+                            <span class="font-semibold text-gray-900 text-right">Abstract quality link</span>
                         </div>
-                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> CONCENTRATION, FORCE, INTENSITY, and MIGHT all describe how powerful something is—test “with great ___” or “sheer ___.”</p>
-                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> CONCENTRATION also means focus or a chemistry lab measure; today it is the “strength” sense only.</p>
+                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> All four point to the same abstract quality—how strong or forceful something is—when you test them in a “great ___” or “sheer ___” frame.</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> Focus/chemistry or appliance settings can masquerade as “strength”—only one abstract-quality rule should win.</p>
                     </div>
                     <div class="rounded-lg border bg-blue-50 border-blue-200 p-5">
                         <div class="flex items-center justify-between gap-3 mb-3">
                             <span class="inline-flex items-center bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded uppercase">Blue band</span>
-                            <span class="font-semibold text-gray-900 text-right">Music-theory terms</span>
+                            <span class="font-semibold text-gray-900 text-right">Specialist vocabulary link</span>
                         </div>
-                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> INTERVAL, KEY, MODE, and SCALE are textbook harmony vocabulary—think piano lessons, not kitchen knobs.</p>
-                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> KEY unlocks doors; SCALE measures weight—those everyday senses are traps on #1074.</p>
+                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> Specialist vocabulary from one domain; the trap is everyday homographs that sound related but belong elsewhere.</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> Homographs with kitchen, door, or measurement senses are the usual trap; think classroom vocabulary, not literal objects.</p>
                     </div>
                     <div class="rounded-lg border bg-purple-50 border-purple-200 p-5">
                         <div class="flex items-center justify-between gap-3 mb-3">
                             <span class="inline-flex items-center bg-purple-100 text-purple-800 text-xs font-bold px-2 py-1 rounded uppercase">Purple band</span>
-                            <span class="font-semibold text-gray-900 text-right">“___ Day” film titles</span>
+                            <span class="font-semibold text-gray-900 text-right">Phrase-completion link</span>
                         </div>
-                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> GROUNDHOG, INDEPENDENCE, THE LONGEST, and TRAINING each complete a famous movie when you add the same second word.</p>
-                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> INDEPENDENCE alone is a concept, not the link—only the film-title phrase counts.</p>
+                        <p class="text-sm text-gray-700"><strong>How to identify it:</strong> Each clue completes the same short phrase as a proper title—say the missing tail aloud instead of reading clues literally.</p>
+                        <p class="text-sm text-gray-700 mt-2"><strong>Possible confusion:</strong> A clue’s plain meaning is misleading; only the shared title phrase counts—try adding the same suffix to each.</p>
                     </div>
                 </section>
 
@@ -449,13 +456,12 @@
                 </section>
 
                 <section id="reveal-answers" class="bg-gray-50 p-6 rounded-lg border">
-                    <div class="text-center">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Ready for the answers?</h2>
-                        <button id="reveal-answers-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md text-lg">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4 text-center">Ready for the answers?</h2>
+                    <details class="answers-details max-w-2xl mx-auto">
+                        <summary class="cursor-pointer list-none flex justify-center items-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition-colors shadow-md text-lg focus:outline-none focus:ring-4 focus:ring-indigo-300">
                             Reveal today’s groups
-                        </button>
-                    </div>
-                    <div id="answers-container" class="hidden mt-8 space-y-6">
+                        </summary>
+                    <div id="answers-container" class="mt-8 space-y-6">
                         <div class="rounded-lg p-6 border bg-yellow-50 border-yellow-200 shadow-sm">
                             <div class="flex items-start justify-between gap-3">
                                 <span class="inline-flex shrink-0 items-center bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded uppercase">Yellow</span>
@@ -493,6 +499,7 @@
                             </div>
                         </div>
                     </div>
+                    </details>
                 </section>
 
                 <section class="bg-white border border-gray-200 rounded-lg p-6 sm:p-8">
@@ -633,24 +640,6 @@
                     if (topicDisplay) topicDisplay.classList.remove('hidden');
                 });
             });
-            document.querySelectorAll('[data-toggle-target]').forEach((btn) => {
-                btn.addEventListener('click', () => {
-                    const targetId = btn.getAttribute('data-toggle-target');
-                    const targetEl = document.getElementById(targetId);
-                    if (!targetEl) return;
-                    const isHidden = targetEl.classList.contains('hidden');
-                    targetEl.classList.toggle('hidden');
-                    btn.textContent = isHidden ? 'Hide hint' : 'Show hint';
-                });
-            });
-            const revealBtn = document.getElementById('reveal-answers-btn');
-            const answersContainer = document.getElementById('answers-container');
-            if (revealBtn && answersContainer) {
-                revealBtn.addEventListener('click', () => {
-                    answersContainer.classList.remove('hidden');
-                    revealBtn.classList.add('hidden');
-                });
-            }
         });
     </script>
 </body>
