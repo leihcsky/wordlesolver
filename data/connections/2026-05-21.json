@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-21",
+  "puzzleNumber": 1075,
+  "words": [
+    "CHESS",
+    "PECAN",
+    "PUMPKIN",
+    "SHOOFLY",
+    "CABOOSE",
+    "CAN",
+    "MOON",
+    "PEACH",
+    "ADVANTAGE",
+    "DEUCE",
+    "FORTY",
+    "LOVE",
+    "COLONEL",
+    "HONEY",
+    "HOT",
+    "YELLOW"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "KINDS OF PIES",
+      "words": [
+        "CHESS",
+        "PECAN",
+        "PUMPKIN",
+        "SHOOFLY"
+      ],
+      "explanation": "KINDS OF PIES"
+    },
+    {
+      "color": "green",
+      "title": "THINGS ASSOCIATED WITH BUTTS",
+      "words": [
+        "CABOOSE",
+        "CAN",
+        "MOON",
+        "PEACH"
+      ],
+      "explanation": "THINGS ASSOCIATED WITH BUTTS"
+    },
+    {
+      "color": "blue",
+      "title": "TENNIS SCORING TERMS",
+      "words": [
+        "ADVANTAGE",
+        "DEUCE",
+        "FORTY",
+        "LOVE"
+      ],
+      "explanation": "TENNIS SCORING TERMS"
+    },
+    {
+      "color": "purple",
+      "title": "___ MUSTARD",
+      "words": [
+        "COLONEL",
+        "HONEY",
+        "HOT",
+        "YELLOW"
+      ],
+      "explanation": "___ MUSTARD"
+    }
+  ],
+  "hints": [
+    "These words are all members of the same subtype/category.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Find words that can pair with the same missing word or phrase."
+  ]
+}
