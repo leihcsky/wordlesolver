@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-22",
+  "puzzleNumber": 1076,
+  "words": [
+    "CHECK IN",
+    "FOLLOW UP",
+    "RECONNECT",
+    "TOUCH BASE",
+    "CONVENTION",
+    "CUSTOM",
+    "SOCIAL NORM",
+    "UNWRITTEN RULE",
+    "ASSEMBLY LINE",
+    "BAGGAGE CLAIM",
+    "CHECKOUT LANE",
+    "REVOLVING SUSHI BAR",
+    "CARRY-ON",
+    "EL NIÑO",
+    "LOOSEY-GOOSEY",
+    "TAILOR-MADE"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "REACH BACK OUT",
+      "words": [
+        "CHECK IN",
+        "FOLLOW UP",
+        "RECONNECT",
+        "TOUCH BASE"
+      ],
+      "explanation": "REACH BACK OUT"
+    },
+    {
+      "color": "green",
+      "title": "THE WAY THINGS ARE DONE",
+      "words": [
+        "CONVENTION",
+        "CUSTOM",
+        "SOCIAL NORM",
+        "UNWRITTEN RULE"
+      ],
+      "explanation": "THE WAY THINGS ARE DONE"
+    },
+    {
+      "color": "blue",
+      "title": "PLACES WITH CONVEYOR BELTS",
+      "words": [
+        "ASSEMBLY LINE",
+        "BAGGAGE CLAIM",
+        "CHECKOUT LANE",
+        "REVOLVING SUSHI BAR"
+      ],
+      "explanation": "PLACES WITH CONVEYOR BELTS"
+    },
+    {
+      "color": "purple",
+      "title": "STARTING WITH NAME HOMOPHONES",
+      "words": [
+        "CARRY-ON",
+        "EL NIÑO",
+        "LOOSEY-GOOSEY",
+        "TAILOR-MADE"
+      ],
+      "explanation": "STARTING WITH NAME HOMOPHONES"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
