@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-23",
+  "puzzleNumber": 1077,
+  "words": [
+    "BEEHIVE",
+    "BOUFFANT",
+    "CHIGNON",
+    "POMPADOUR",
+    "FIRST",
+    "PREFERABLY",
+    "RATHER",
+    "SOONER",
+    "DAREDEVIL",
+    "HAWKEYE",
+    "NIGHTCRAWLER",
+    "WOLVERINE",
+    "EMPIRE",
+    "FORCE",
+    "LAST",
+    "PHANTOM"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "HAIRDOS",
+      "words": [
+        "BEEHIVE",
+        "BOUFFANT",
+        "CHIGNON",
+        "POMPADOUR"
+      ],
+      "explanation": "HAIRDOS"
+    },
+    {
+      "color": "green",
+      "title": "MORE READILY",
+      "words": [
+        "FIRST",
+        "PREFERABLY",
+        "RATHER",
+        "SOONER"
+      ],
+      "explanation": "MORE READILY"
+    },
+    {
+      "color": "blue",
+      "title": "MARVEL CHARACTERS",
+      "words": [
+        "DAREDEVIL",
+        "HAWKEYE",
+        "NIGHTCRAWLER",
+        "WOLVERINE"
+      ],
+      "explanation": "MARVEL CHARACTERS"
+    },
+    {
+      "color": "purple",
+      "title": "WORDS AFTER \"THE\" IN \"STAR WARS\" MOVIE TITLES",
+      "words": [
+        "EMPIRE",
+        "FORCE",
+        "LAST",
+        "PHANTOM"
+      ],
+      "explanation": "WORDS AFTER \"THE\" IN \"STAR WARS\" MOVIE TITLES"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
