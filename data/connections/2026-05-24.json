@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-24",
+  "puzzleNumber": 1078,
+  "words": [
+    "COOP",
+    "PEN",
+    "SHED",
+    "STABLE",
+    "MARCH",
+    "PICKET",
+    "RALLY",
+    "STRIKE",
+    "DRUM",
+    "MASK",
+    "RATTLE",
+    "STAFF",
+    "HERB",
+    "HISS",
+    "ITSY",
+    "MYA"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "FARM FIXTURES",
+      "words": [
+        "COOP",
+        "PEN",
+        "SHED",
+        "STABLE"
+      ],
+      "explanation": "FARM FIXTURES"
+    },
+    {
+      "color": "green",
+      "title": "LABOR PROTEST ACTIONS",
+      "words": [
+        "MARCH",
+        "PICKET",
+        "RALLY",
+        "STRIKE"
+      ],
+      "explanation": "LABOR PROTEST ACTIONS"
+    },
+    {
+      "color": "blue",
+      "title": "OBJECTS USED IN RITUAL PERFORMANCES",
+      "words": [
+        "DRUM",
+        "MASK",
+        "RATTLE",
+        "STAFF"
+      ],
+      "explanation": "OBJECTS USED IN RITUAL PERFORMANCES"
+    },
+    {
+      "color": "purple",
+      "title": "POSSESSIVE ADJECTIVES PLUS A LETTER",
+      "words": [
+        "HERB",
+        "HISS",
+        "ITSY",
+        "MYA"
+      ],
+      "explanation": "POSSESSIVE ADJECTIVES PLUS A LETTER"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
