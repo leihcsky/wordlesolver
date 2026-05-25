@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-26",
+  "puzzleNumber": 1079,
+  "words": [
+    "CUP",
+    "MEDAL",
+    "PENNANT",
+    "RING",
+    "CONCERN",
+    "FOCUS",
+    "POINT",
+    "SUBJECT",
+    "AIRPLANE",
+    "BIG",
+    "CLUE",
+    "TWINS",
+    "ENLIST",
+    "LISTEN",
+    "SILENT",
+    "TINSEL"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "CHAMPIONSHIP AWARDS",
+      "words": [
+        "CUP",
+        "MEDAL",
+        "PENNANT",
+        "RING"
+      ],
+      "explanation": "CHAMPIONSHIP AWARDS"
+    },
+    {
+      "color": "green",
+      "title": "MATTER AT HAND",
+      "words": [
+        "CONCERN",
+        "FOCUS",
+        "POINT",
+        "SUBJECT"
+      ],
+      "explanation": "MATTER AT HAND"
+    },
+    {
+      "color": "blue",
+      "title": "'80S COMEDIES",
+      "words": [
+        "AIRPLANE",
+        "BIG",
+        "CLUE",
+        "TWINS"
+      ],
+      "explanation": "'80S COMEDIES"
+    },
+    {
+      "color": "purple",
+      "title": "ANAGRAMS",
+      "words": [
+        "ENLIST",
+        "LISTEN",
+        "SILENT",
+        "TINSEL"
+      ],
+      "explanation": "ANAGRAMS"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
