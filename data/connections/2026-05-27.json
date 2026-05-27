@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-27",
+  "puzzleNumber": 1080,
+  "words": [
+    "COMMUNE",
+    "HAMLET",
+    "TOWNSHIP",
+    "VILLAGE",
+    "BATTLESHIP",
+    "OPERATION",
+    "OTHELLO",
+    "TROUBLE",
+    "AYE",
+    "LEAR",
+    "PIER",
+    "STAIR",
+    "BANJO",
+    "MACBETH",
+    "MONOGAMY",
+    "NUTMEG"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "SMALL COMMUNITY",
+      "words": [
+        "COMMUNE",
+        "HAMLET",
+        "TOWNSHIP",
+        "VILLAGE"
+      ],
+      "explanation": "SMALL COMMUNITY"
+    },
+    {
+      "color": "green",
+      "title": "CLASSIC BOARD GAMES",
+      "words": [
+        "BATTLESHIP",
+        "OPERATION",
+        "OTHELLO",
+        "TROUBLE"
+      ],
+      "explanation": "CLASSIC BOARD GAMES"
+    },
+    {
+      "color": "blue",
+      "title": "HOMOPHONES OF WAYS OF LOOKING",
+      "words": [
+        "AYE",
+        "LEAR",
+        "PIER",
+        "STAIR"
+      ],
+      "explanation": "HOMOPHONES OF WAYS OF LOOKING"
+    },
+    {
+      "color": "purple",
+      "title": "ENDING IN THE \"LITTLE WOMEN\" MARCH SISTERS",
+      "words": [
+        "BANJO",
+        "MACBETH",
+        "MONOGAMY",
+        "NUTMEG"
+      ],
+      "explanation": "ENDING IN THE \"LITTLE WOMEN\" MARCH SISTERS"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
