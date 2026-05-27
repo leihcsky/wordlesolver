@@ -2,9 +2,9 @@
     "meta": {
         "version": "3.0.0",
         "source": "Official Wordle Word List",
-        "count": 2342,
+        "count": 2343,
         "description": "Complete list of valid 5-letter words used in Wordle game",
-        "last_updated": "2026-04-18"
+        "last_updated": "2026-05-28"
     },
     "words": [
         "aback",
@@ -2348,6 +2348,7 @@
         "oasis",
         "carom",
         "cubit",
-        "toady"
+        "toady",
+        "divot"
     ]
 }

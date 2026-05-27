@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-28",
+  "puzzleNumber": 1081,
+  "words": [
+    "DUCK",
+    "HUNCH",
+    "SQUAT",
+    "STOOP",
+    "MEDIA",
+    "NEWS",
+    "PAPERS",
+    "PRESS",
+    "BAR",
+    "BENCH",
+    "PODIUM",
+    "STAND",
+    "JUMP",
+    "LIFT",
+    "LODGE",
+    "SLOPE"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "GET LOW",
+      "words": [
+        "DUCK",
+        "HUNCH",
+        "SQUAT",
+        "STOOP"
+      ],
+      "explanation": "GET LOW"
+    },
+    {
+      "color": "green",
+      "title": "FOURTH ESTATE",
+      "words": [
+        "MEDIA",
+        "NEWS",
+        "PAPERS",
+        "PRESS"
+      ],
+      "explanation": "FOURTH ESTATE"
+    },
+    {
+      "color": "blue",
+      "title": "PARTS OF A COURTROOM",
+      "words": [
+        "BAR",
+        "BENCH",
+        "PODIUM",
+        "STAND"
+      ],
+      "explanation": "PARTS OF A COURTROOM"
+    },
+    {
+      "color": "purple",
+      "title": "SKI ___",
+      "words": [
+        "JUMP",
+        "LIFT",
+        "LODGE",
+        "SLOPE"
+      ],
+      "explanation": "SKI ___"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Find words that can pair with the same missing word or phrase."
+  ]
+}
