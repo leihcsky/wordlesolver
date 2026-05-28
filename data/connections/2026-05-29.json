@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-29",
+  "puzzleNumber": 1082,
+  "words": [
+    "ARCTIC",
+    "ATLANTIC",
+    "PACIFIC",
+    "SOUTHERN",
+    "AMMONIA",
+    "BO",
+    "DURIAN",
+    "WET DOG",
+    "BILLIARD",
+    "DRAWING",
+    "POWDER",
+    "READING",
+    "FATHER",
+    "PENNSYLVANIA",
+    "PROTACTINIUM",
+    "PUBLIC ADDRESS"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "OCEANS",
+      "words": [
+        "ARCTIC",
+        "ATLANTIC",
+        "PACIFIC",
+        "SOUTHERN"
+      ],
+      "explanation": "OCEANS"
+    },
+    {
+      "color": "green",
+      "title": "SOURCES OF DISTINCTIVE SMELLS",
+      "words": [
+        "AMMONIA",
+        "BO",
+        "DURIAN",
+        "WET DOG"
+      ],
+      "explanation": "SOURCES OF DISTINCTIVE SMELLS"
+    },
+    {
+      "color": "blue",
+      "title": "KINDS OF ROOMS IN A MANSION",
+      "words": [
+        "BILLIARD",
+        "DRAWING",
+        "POWDER",
+        "READING"
+      ],
+      "explanation": "KINDS OF ROOMS IN A MANSION"
+    },
+    {
+      "color": "purple",
+      "title": "WHAT \"PA\" MIGHT REFER TO",
+      "words": [
+        "FATHER",
+        "PENNSYLVANIA",
+        "PROTACTINIUM",
+        "PUBLIC ADDRESS"
+      ],
+      "explanation": "WHAT \"PA\" MIGHT REFER TO"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "These words are all members of the same subtype/category.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
