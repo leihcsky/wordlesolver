@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-30",
+  "puzzleNumber": 1083,
+  "words": [
+    "IMPOSSIBLE",
+    "NEVER",
+    "NO WAY",
+    "SORRY",
+    "CLEAR",
+    "LUCID",
+    "RIGHT",
+    "SOUND",
+    "BRACE",
+    "CARET",
+    "PIPE",
+    "TILDE",
+    "FEVER",
+    "GIGI",
+    "VOLARE",
+    "WITCHCRAFT"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "\"IN YOUR DREAMS\"",
+      "words": [
+        "IMPOSSIBLE",
+        "NEVER",
+        "NO WAY",
+        "SORRY"
+      ],
+      "explanation": "\"IN YOUR DREAMS\""
+    },
+    {
+      "color": "green",
+      "title": "SENSIBLE",
+      "words": [
+        "CLEAR",
+        "LUCID",
+        "RIGHT",
+        "SOUND"
+      ],
+      "explanation": "SENSIBLE"
+    },
+    {
+      "color": "blue",
+      "title": "TYPOGRAPHICAL SYMBOLS",
+      "words": [
+        "BRACE",
+        "CARET",
+        "PIPE",
+        "TILDE"
+      ],
+      "explanation": "TYPOGRAPHICAL SYMBOLS"
+    },
+    {
+      "color": "purple",
+      "title": "SONG OF THE YEAR NOMINEES AT THE FIRST GRAMMY AWARDS",
+      "words": [
+        "FEVER",
+        "GIGI",
+        "VOLARE",
+        "WITCHCRAFT"
+      ],
+      "explanation": "SONG OF THE YEAR NOMINEES AT THE FIRST GRAMMY AWARDS"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
