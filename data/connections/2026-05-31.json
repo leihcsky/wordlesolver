@@ -1,0 +1,74 @@
+{
+  "date": "2026-05-31",
+  "puzzleNumber": 1084,
+  "words": [
+    "BUTTER",
+    "PIKACHU",
+    "RUBBER DUCK",
+    "SCHOOL BUS",
+    "BREAK",
+    "CUE",
+    "POCKET",
+    "RACK",
+    "JACK",
+    "SALT",
+    "SEA DOG",
+    "TAR",
+    "SASH",
+    "SOAK",
+    "SPINE",
+    "STEAK"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "THINGS THAT ARE YELLOW",
+      "words": [
+        "BUTTER",
+        "PIKACHU",
+        "RUBBER DUCK",
+        "SCHOOL BUS"
+      ],
+      "explanation": "THINGS THAT ARE YELLOW"
+    },
+    {
+      "color": "green",
+      "title": "BILLIARDS TERMS",
+      "words": [
+        "BREAK",
+        "CUE",
+        "POCKET",
+        "RACK"
+      ],
+      "explanation": "BILLIARDS TERMS"
+    },
+    {
+      "color": "blue",
+      "title": "SLANG FOR A SAILOR",
+      "words": [
+        "JACK",
+        "SALT",
+        "SEA DOG",
+        "TAR"
+      ],
+      "explanation": "SLANG FOR A SAILOR"
+    },
+    {
+      "color": "purple",
+      "title": "KINDS OF WOOD PLUS \"S\"",
+      "words": [
+        "SASH",
+        "SOAK",
+        "SPINE",
+        "STEAK"
+      ],
+      "explanation": "KINDS OF WOOD PLUS \"S\""
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "These words are all members of the same subtype/category."
+  ]
+}
