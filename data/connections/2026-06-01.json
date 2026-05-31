@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-01",
+  "puzzleNumber": 1085,
+  "words": [
+    "CEILING",
+    "DOOR",
+    "WALL",
+    "WINDOW",
+    "NEWSPAPER",
+    "PIPE",
+    "ROBE",
+    "SLIPPERS",
+    "STREETCAR",
+    "CAT",
+    "MENAGERIE",
+    "TATTOO",
+    "KEY",
+    "ONION",
+    "TREE",
+    "WEDDING"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "ROOM FEATURES",
+      "words": [
+        "CEILING",
+        "DOOR",
+        "WALL",
+        "WINDOW"
+      ],
+      "explanation": "ROOM FEATURES"
+    },
+    {
+      "color": "green",
+      "title": "OLD-TIMEY LOUNGING ACCESSORIES",
+      "words": [
+        "NEWSPAPER",
+        "PIPE",
+        "ROBE",
+        "SLIPPERS"
+      ],
+      "explanation": "OLD-TIMEY LOUNGING ACCESSORIES"
+    },
+    {
+      "color": "blue",
+      "title": "SUBJECTS IN TENNESSEE WILLIAMS TITLES",
+      "words": [
+        "STREETCAR",
+        "CAT",
+        "MENAGERIE",
+        "TATTOO"
+      ],
+      "explanation": "SUBJECTS IN TENNESSEE WILLIAMS TITLES"
+    },
+    {
+      "color": "purple",
+      "title": "___ RING",
+      "words": [
+        "KEY",
+        "ONION",
+        "TREE",
+        "WEDDING"
+      ],
+      "explanation": "___ RING"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Find words that can pair with the same missing word or phrase."
+  ]
+}
