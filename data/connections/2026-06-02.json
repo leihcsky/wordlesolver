@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-02",
+  "puzzleNumber": 1086,
+  "words": [
+    "CLOAK-AND-DAGGER",
+    "COVERT",
+    "HUSH-HUSH",
+    "TOP SECRET",
+    "BUBBLE AND SQUEAK",
+    "CHIPS",
+    "JACKET POTATO",
+    "MASH",
+    "COAT OF ARMS",
+    "CREST",
+    "HELMET",
+    "SHIELD",
+    "CAPE MAY",
+    "FREE WILL",
+    "GRAPE MUST",
+    "TIN CAN"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "CLANDESTINE",
+      "words": [
+        "CLOAK-AND-DAGGER",
+        "COVERT",
+        "HUSH-HUSH",
+        "TOP SECRET"
+      ],
+      "explanation": "CLANDESTINE"
+    },
+    {
+      "color": "green",
+      "title": "BRITISH POTATO DISHES",
+      "words": [
+        "BUBBLE AND SQUEAK",
+        "CHIPS",
+        "JACKET POTATO",
+        "MASH"
+      ],
+      "explanation": "BRITISH POTATO DISHES"
+    },
+    {
+      "color": "blue",
+      "title": "HERALDIC ACHIEVEMENTS",
+      "words": [
+        "COAT OF ARMS",
+        "CREST",
+        "HELMET",
+        "SHIELD"
+      ],
+      "explanation": "HERALDIC ACHIEVEMENTS"
+    },
+    {
+      "color": "purple",
+      "title": "ENDING IN MODAL AUXILIARY VERBS",
+      "words": [
+        "CAPE MAY",
+        "FREE WILL",
+        "GRAPE MUST",
+        "TIN CAN"
+      ],
+      "explanation": "ENDING IN MODAL AUXILIARY VERBS"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
