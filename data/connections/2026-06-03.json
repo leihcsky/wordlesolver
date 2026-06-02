@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-03",
+  "puzzleNumber": 1087,
+  "words": [
+    "BROWN",
+    "JASMINE",
+    "STICKY",
+    "SUSHI",
+    "COLORFUL",
+    "GUMMY",
+    "SUGARY",
+    "URSINE",
+    "EMPANADA",
+    "FATAYER",
+    "PASTY",
+    "SAMOSA",
+    "ARIE",
+    "BELL",
+    "MOAN",
+    "RAY"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "KINDS OF RICE",
+      "words": [
+        "BROWN",
+        "JASMINE",
+        "STICKY",
+        "SUSHI"
+      ],
+      "explanation": "KINDS OF RICE"
+    },
+    {
+      "color": "green",
+      "title": "GUMMY BEAR DESCRIPTORS",
+      "words": [
+        "COLORFUL",
+        "GUMMY",
+        "SUGARY",
+        "URSINE"
+      ],
+      "explanation": "GUMMY BEAR DESCRIPTORS"
+    },
+    {
+      "color": "blue",
+      "title": "SAVORY STUFFED PASTRIES",
+      "words": [
+        "EMPANADA",
+        "FATAYER",
+        "PASTY",
+        "SAMOSA"
+      ],
+      "explanation": "SAVORY STUFFED PASTRIES"
+    },
+    {
+      "color": "purple",
+      "title": "DISNEY PRINCESSES MINUS LAST LETTER",
+      "words": [
+        "ARIE",
+        "BELL",
+        "MOAN",
+        "RAY"
+      ],
+      "explanation": "DISNEY PRINCESSES MINUS LAST LETTER"
+    }
+  ],
+  "hints": [
+    "These words are all members of the same subtype/category.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "This group uses a wordplay transformation (remove or change a sound/ending)."
+  ]
+}
