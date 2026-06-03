@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-04",
+  "puzzleNumber": 1088,
+  "words": [
+    "ACRYLIC",
+    "GOUACHE",
+    "OIL",
+    "TEMPERA",
+    "GUSTO",
+    "PANACHE",
+    "VERVE",
+    "VINEGAR",
+    "BEASTIE",
+    "PUBLIC",
+    "RUN",
+    "SALT",
+    "KITCHEN",
+    "PEPPER",
+    "TOWN",
+    "WRITER"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "PAINTING MEDIA",
+      "words": [
+        "ACRYLIC",
+        "GOUACHE",
+        "OIL",
+        "TEMPERA"
+      ],
+      "explanation": "PAINTING MEDIA"
+    },
+    {
+      "color": "green",
+      "title": "ESPRIT",
+      "words": [
+        "GUSTO",
+        "PANACHE",
+        "VERVE",
+        "VINEGAR"
+      ],
+      "explanation": "ESPRIT"
+    },
+    {
+      "color": "blue",
+      "title": "STARTS OF CLASSIC HIP-HOP GROUPS",
+      "words": [
+        "BEASTIE",
+        "PUBLIC",
+        "RUN",
+        "SALT"
+      ],
+      "explanation": "STARTS OF CLASSIC HIP-HOP GROUPS"
+    },
+    {
+      "color": "purple",
+      "title": "GHOST ___",
+      "words": [
+        "KITCHEN",
+        "PEPPER",
+        "TOWN",
+        "WRITER"
+      ],
+      "explanation": "GHOST ___"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Find words that can pair with the same missing word or phrase."
+  ]
+}
