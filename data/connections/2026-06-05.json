@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-05",
+  "puzzleNumber": 1089,
+  "words": [
+    "BREADCRUMB",
+    "FOREST",
+    "OVEN",
+    "WITCH",
+    "CLUSTER",
+    "FLAKE",
+    "LOOP",
+    "PUFF",
+    "DISCLOSURE",
+    "GHOST",
+    "STRIPTEASE",
+    "THE SUBSTANCE",
+    "INCUBUS",
+    "OSCAR",
+    "QUATRAIN",
+    "SITUATIONSHIP"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "ASSOCIATED WITH HANSEL AND GRETEL",
+      "words": [
+        "BREADCRUMB",
+        "FOREST",
+        "OVEN",
+        "WITCH"
+      ],
+      "explanation": "ASSOCIATED WITH HANSEL AND GRETEL"
+    },
+    {
+      "color": "green",
+      "title": "BIT OF CEREAL",
+      "words": [
+        "CLUSTER",
+        "FLAKE",
+        "LOOP",
+        "PUFF"
+      ],
+      "explanation": "BIT OF CEREAL"
+    },
+    {
+      "color": "blue",
+      "title": "DEMI MOORE MOVIES",
+      "words": [
+        "DISCLOSURE",
+        "GHOST",
+        "STRIPTEASE",
+        "THE SUBSTANCE"
+      ],
+      "explanation": "DEMI MOORE MOVIES"
+    },
+    {
+      "color": "purple",
+      "title": "ENDING IN METHODS OF TRANSPORTATION",
+      "words": [
+        "INCUBUS",
+        "OSCAR",
+        "QUATRAIN",
+        "SITUATIONSHIP"
+      ],
+      "explanation": "ENDING IN METHODS OF TRANSPORTATION"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
