@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-06",
+  "puzzleNumber": 1090,
+  "words": [
+    "POLE",
+    "POST",
+    "SHAFT",
+    "STAKE",
+    "BETRAY",
+    "DISPLAY",
+    "EXPRESS",
+    "REGISTER",
+    "BASILISK",
+    "DRAGON",
+    "MONITOR",
+    "SKINK",
+    "DINNER",
+    "DRAFTING",
+    "ROUND",
+    "TIMES"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "PILLAR",
+      "words": [
+        "POLE",
+        "POST",
+        "SHAFT",
+        "STAKE"
+      ],
+      "explanation": "PILLAR"
+    },
+    {
+      "color": "green",
+      "title": "INDICATE, AS EMOTIONS",
+      "words": [
+        "BETRAY",
+        "DISPLAY",
+        "EXPRESS",
+        "REGISTER"
+      ],
+      "explanation": "INDICATE, AS EMOTIONS"
+    },
+    {
+      "color": "blue",
+      "title": "KINDS OF LIZARDS",
+      "words": [
+        "BASILISK",
+        "DRAGON",
+        "MONITOR",
+        "SKINK"
+      ],
+      "explanation": "KINDS OF LIZARDS"
+    },
+    {
+      "color": "purple",
+      "title": "___ TABLE",
+      "words": [
+        "DINNER",
+        "DRAFTING",
+        "ROUND",
+        "TIMES"
+      ],
+      "explanation": "___ TABLE"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "These words are all members of the same subtype/category.",
+    "Find words that can pair with the same missing word or phrase."
+  ]
+}
