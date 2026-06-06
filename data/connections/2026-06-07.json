@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-07",
+  "puzzleNumber": 1091,
+  "words": [
+    "GAUZY",
+    "GOSSAMER",
+    "SHEER",
+    "THIN",
+    "EXPRESS",
+    "STATE",
+    "UTTER",
+    "VOICE",
+    "GUT",
+    "LEVEL",
+    "TOTAL",
+    "TRASH",
+    "CORE",
+    "POP",
+    "STEP",
+    "WAVE"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "TRANSLUCENT, AS FABRIC",
+      "words": [
+        "GAUZY",
+        "GOSSAMER",
+        "SHEER",
+        "THIN"
+      ],
+      "explanation": "TRANSLUCENT, AS FABRIC"
+    },
+    {
+      "color": "green",
+      "title": "SPEAK",
+      "words": [
+        "EXPRESS",
+        "STATE",
+        "UTTER",
+        "VOICE"
+      ],
+      "explanation": "SPEAK"
+    },
+    {
+      "color": "blue",
+      "title": "DEMOLISH",
+      "words": [
+        "GUT",
+        "LEVEL",
+        "TOTAL",
+        "TRASH"
+      ],
+      "explanation": "DEMOLISH"
+    },
+    {
+      "color": "purple",
+      "title": "MUSIC GENRE SUFFIXES",
+      "words": [
+        "CORE",
+        "POP",
+        "STEP",
+        "WAVE"
+      ],
+      "explanation": "MUSIC GENRE SUFFIXES"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
