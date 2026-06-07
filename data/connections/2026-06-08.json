@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-08",
+  "puzzleNumber": 1092,
+  "words": [
+    "DELTA",
+    "ISLAND",
+    "ISTHMUS",
+    "PENINSULA",
+    "COCONUT",
+    "DOME",
+    "MELON",
+    "PATE",
+    "MOHAWK",
+    "PUNCH",
+    "SEA URCHIN",
+    "VOLLEYBALL",
+    "ELEPHANT",
+    "INVISIBLE",
+    "OMEGA",
+    "RUNNING"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "LANDFORMS BY WATER",
+      "words": [
+        "DELTA",
+        "ISLAND",
+        "ISTHMUS",
+        "PENINSULA"
+      ],
+      "explanation": "LANDFORMS BY WATER"
+    },
+    {
+      "color": "green",
+      "title": "SLANG FOR HEAD",
+      "words": [
+        "COCONUT",
+        "DOME",
+        "MELON",
+        "PATE"
+      ],
+      "explanation": "SLANG FOR HEAD"
+    },
+    {
+      "color": "blue",
+      "title": "THINGS THAT CAN BE SPIKED",
+      "words": [
+        "MOHAWK",
+        "PUNCH",
+        "SEA URCHIN",
+        "VOLLEYBALL"
+      ],
+      "explanation": "THINGS THAT CAN BE SPIKED"
+    },
+    {
+      "color": "purple",
+      "title": "\"THE ___ MAN\" MOVIES",
+      "words": [
+        "ELEPHANT",
+        "INVISIBLE",
+        "OMEGA",
+        "RUNNING"
+      ],
+      "explanation": "\"THE ___ MAN\" MOVIES"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Find words that can pair with the same missing word or phrase."
+  ]
+}
