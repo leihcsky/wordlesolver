@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-09",
+  "puzzleNumber": 1093,
+  "words": [
+    "ANGEL",
+    "BABE",
+    "DOVE",
+    "LAMB",
+    "PASSWORD",
+    "SECRET",
+    "SPOILER",
+    "SURPRISE",
+    "ASTERISK",
+    "DEGREE",
+    "EXPONENT",
+    "TRADEMARK",
+    "AXE",
+    "BONE",
+    "KEYS",
+    "SKINS"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "SYMBOLS OF INNOCENCE",
+      "words": [
+        "ANGEL",
+        "BABE",
+        "DOVE",
+        "LAMB"
+      ],
+      "explanation": "SYMBOLS OF INNOCENCE"
+    },
+    {
+      "color": "green",
+      "title": "THINGS YOU'RE NOT SUPPOSED TO REVEAL",
+      "words": [
+        "PASSWORD",
+        "SECRET",
+        "SPOILER",
+        "SURPRISE"
+      ],
+      "explanation": "THINGS YOU'RE NOT SUPPOSED TO REVEAL"
+    },
+    {
+      "color": "blue",
+      "title": "THINGS REPRESENTED IN SUPERSCRIPT",
+      "words": [
+        "ASTERISK",
+        "DEGREE",
+        "EXPONENT",
+        "TRADEMARK"
+      ],
+      "explanation": "THINGS REPRESENTED IN SUPERSCRIPT"
+    },
+    {
+      "color": "purple",
+      "title": "SLANG FOR MUSICAL INSTRUMENTS",
+      "words": [
+        "AXE",
+        "BONE",
+        "KEYS",
+        "SKINS"
+      ],
+      "explanation": "SLANG FOR MUSICAL INSTRUMENTS"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "Expect wordplay: sounds, affixes, or phrase-level transformations."
+  ]
+}
