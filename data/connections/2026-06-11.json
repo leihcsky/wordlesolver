@@ -1,0 +1,74 @@
+{
+  "date": "2026-06-11",
+  "puzzleNumber": 1094,
+  "words": [
+    "BALANCE",
+    "CARDIO",
+    "STRETCHING",
+    "WEIGHTS",
+    "BRASS BAND",
+    "DEVIL",
+    "RHINO",
+    "VIKING HELMET",
+    "BRONCHO",
+    "FORERUNNER",
+    "TROUPER",
+    "UCONN",
+    "ELLE",
+    "PAPAL",
+    "STRIP",
+    "VENO"
+  ],
+  "groups": [
+    {
+      "color": "yellow",
+      "title": "PARTS OF A WORKOUT ROUTINE",
+      "words": [
+        "BALANCE",
+        "CARDIO",
+        "STRETCHING",
+        "WEIGHTS"
+      ],
+      "explanation": "PARTS OF A WORKOUT ROUTINE"
+    },
+    {
+      "color": "green",
+      "title": "THINGS WITH HORNS",
+      "words": [
+        "BRASS BAND",
+        "DEVIL",
+        "RHINO",
+        "VIKING HELMET"
+      ],
+      "explanation": "THINGS WITH HORNS"
+    },
+    {
+      "color": "blue",
+      "title": "HOMOPHONES OF SUVS",
+      "words": [
+        "BRONCHO",
+        "FORERUNNER",
+        "TROUPER",
+        "UCONN"
+      ],
+      "explanation": "HOMOPHONES OF SUVS"
+    },
+    {
+      "color": "purple",
+      "title": "PAYMENT APPS MINUS A LETTER",
+      "words": [
+        "ELLE",
+        "PAPAL",
+        "STRIP",
+        "VENO"
+      ],
+      "explanation": "PAYMENT APPS MINUS A LETTER"
+    }
+  ],
+  "hints": [
+    "The easiest set: a straightforward shared meaning links all four.",
+    "This set shares a practical everyday concept with close usage.",
+    "Think niche knowledge, symbols, or domain-specific associations.",
+    "This group uses a wordplay transformation (remove or change a sound/ending)."
+  ]
+}
