@@ -1,0 +1,16 @@
+{
+  "updated_at": "2026-10-18T08:56:36.526Z",
+  "latest_game_date": "2026-10-18",
+  "days": [
+    {
+      "game_date": "2026-10-18",
+      "day_number": 95,
+      "publication_status": "published",
+      "reveal_captured_at": "2026-10-18T08:56:08.885Z",
+      "popularity_as_of": "2026-10-18T08:56:21.140Z",
+      "answer_count": 25250,
+      "prompt_count": 7,
+      "popularity_available": true
+    }
+  ]
+}
