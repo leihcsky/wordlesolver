@@ -1,7 +1,17 @@
 {
-  "updated_at": "2026-11-02T05:22:09.649Z",
-  "latest_game_date": "2026-11-02",
+  "updated_at": "2026-11-03T05:07:17.622Z",
+  "latest_game_date": "2026-11-03",
   "days": [
+    {
+      "game_date": "2026-11-03",
+      "day_number": 111,
+      "publication_status": "published",
+      "reveal_captured_at": "2026-11-03T05:07:17.622Z",
+      "popularity_as_of": "2026-11-03T05:07:36.104Z",
+      "answer_count": 102242,
+      "prompt_count": 7,
+      "popularity_available": true
+    },
     {
       "game_date": "2026-11-02",
       "day_number": 110,
